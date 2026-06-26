@@ -166,6 +166,66 @@ Where:
 
 Default weights should be established through a design review using 3-5 generated candidate libraries.
 
+## Optimizer Software Recommendation
+
+The optimization problem has two different layers:
+
+- **Discrete structure:** which unique parts exist, which icons use which part instances, and which transforms are allowed.
+- **Geometric scoring:** how close a reconstructed icon is to the reference after Shapely computes area and boundary deviation.
+
+Because the Shapely score is effectively a black-box evaluation, start with search methods that can optimize without gradients or a linear model.
+
+Recommended progression:
+
+1. **Custom Pareto search baseline**
+   - Implement a deterministic evaluator that can score one candidate part library and report a Pareto row.
+   - Add simple enumerations, greedy merges, and local mutations before adding a heavier optimizer.
+   - Keep every evaluated candidate in a run database or JSONL file so experiments are reproducible.
+
+2. **pymoo NSGA-II for first real multi-objective search**
+   - Use `pymoo` when the candidate representation is stable enough for evolutionary search.
+   - Optimize multiple objectives directly instead of collapsing everything into one weighted score too early:
+     - minimize visual error,
+     - minimize unique part count,
+     - minimize placed part count,
+     - minimize printability penalty,
+     - minimize assembly penalty.
+   - NSGA-II is a good fit because the project explicitly wants a Pareto frontier rather than one single answer.
+
+3. **OR-Tools CP-SAT for exact discrete placement or set-cover subproblems**
+   - Use OR-Tools once candidate parts and allowed placements are finite.
+   - Good targets:
+     - choose the smallest part library under a maximum visual-error threshold,
+     - choose placements from a precomputed candidate set,
+     - enforce transform, mirroring, size-class, or per-icon part-count constraints.
+   - CP-SAT requires integer constraints, so Shapely-derived errors should be precomputed and scaled to integers when used in the model.
+
+4. **SciPy only for continuous parameter tuning**
+   - Use `scipy.optimize` for tuning continuous values such as part dimensions, curve flattening tolerance, simplification thresholds, or scoring weights.
+   - `scipy.optimize.differential_evolution` can handle black-box global optimization and supports integer-constrained variables, but it is not the best first tool for the whole part-library combinatorial search.
+
+5. **DEAP only if custom genetic operators become central**
+   - DEAP is useful when the project needs custom evolutionary operators and very explicit control over chromosome structure.
+   - Prefer `pymoo` first for Pareto-front optimization because multi-objective workflows are central to this project.
+
+Initial recommendation:
+
+```text
+Phase 1: custom deterministic evaluator + greedy/local search
+Phase 2: pymoo NSGA-II for Pareto search
+Phase 3: OR-Tools CP-SAT for finite discrete subproblems
+Phase 4: SciPy for continuous tuning only where useful
+```
+
+Do not start by hand-writing a full genetic algorithm. First make candidate scoring, caching, visualization, and reproducibility solid; then plug in the optimizer.
+
+### Optimizer Research Notes
+
+- `pymoo` provides multi-objective optimization algorithms, including NSGA-II, and supports Pareto-front workflows: <https://pymoo.org/> and <https://pymoo.org/algorithms/moo/nsga2.html>.
+- Google OR-Tools CP-SAT is designed for integer programming and constraint-programming problems; constraints must be integer-defined: <https://developers.google.com/optimization/cp/cp_solver>.
+- SciPy `optimize` includes local and global optimization tools, and `differential_evolution` supports black-box global search with integrality constraints: <https://docs.scipy.org/doc/scipy/reference/optimize.html> and <https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.differential_evolution.html>.
+- DEAP is a flexible evolutionary-computation framework for custom genetic algorithms and operators: <https://deap.readthedocs.io/>.
+
 ## First Implementation Slice
 
 Start after the reference-rendering pipeline can generate four representative reference artifacts:
@@ -189,3 +249,5 @@ Done means:
 - Decide whether individual part scaling is prohibited entirely or allowed only through approved size classes.
 - Decide first-pass scoring weights.
 - Decide when to add printability penalties versus keeping the first score purely visual.
+- Decide the first stable candidate encoding for `pymoo`.
+- Decide which subproblems are finite enough to model with OR-Tools CP-SAT.

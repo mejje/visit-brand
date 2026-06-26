@@ -241,7 +241,7 @@ Suggested Python libraries to evaluate:
 - SVG parsing and transforms: `svgelements`, with `svgpathtools` as a path/Bezier fallback if needed.
 - Polygon geometry: `shapely`.
 - SVG and raster rendering: `cairosvg`, `Pillow`, `opencv-python`, or equivalent.
-- Optimization: `scipy.optimize`, OR-Tools, simulated annealing, genetic algorithms, or custom Pareto search.
+- Optimization: custom Pareto evaluator first, `pymoo` NSGA-II for multi-objective search, OR-Tools CP-SAT for finite discrete subproblems, and `scipy.optimize` for continuous tuning.
 - CAD generation: CadQuery or build123d.
 
 **RESEARCH TODO:** Validate exact library choices by building a small proof of concept against `Visit_Icon_Hotel.svg`, `Visit_Icon_Platform.svg`, `Visit_Icon_Amusement park.svg`, and `Visit_Icon_Travel agent.svg`.
