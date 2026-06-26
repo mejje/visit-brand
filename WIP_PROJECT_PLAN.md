@@ -74,10 +74,12 @@ All inspected SVGs use a `48 x 48` viewBox and filled vector primitives. Most ge
    - Import original SVGs.
    - Normalize geometry to a common coordinate system.
    - Convert filled SVG primitives into planar polygon geometry.
+   - Generate deterministic reference geometry files from the original SVGs.
+   - Generate canonical reference SVGs and PNG previews from those geometry files.
    - Generate candidate simplified part libraries.
    - Reconstruct every icon from the simplified library.
-   - Export reconstructed SVGs.
-   - Score deviation against the original SVGs.
+   - Export reconstructed geometry, SVGs, and visual overlays.
+   - Score deviation against the canonical reference geometry.
 
 4. **Optimization software**
    - Search for the best trade-off between part count, visual deviation, printability, and assembly complexity.
@@ -157,6 +159,7 @@ Goal: create a canonical physical part library that can reconstruct all source i
 ### Working Assumptions
 
 - Source SVGs are the design reference.
+- Source SVGs should stay immutable and human-auditable; generated reference files should be recreated from them instead of hand-edited.
 - Generated geometry should preserve the visual weight of the original icons.
 - Reuse may allow translation and rotation of a part.
 - Mirroring needs stakeholder approval, because mirrored asymmetry can feel off-brand.
@@ -164,59 +167,36 @@ Goal: create a canonical physical part library that can reconstruct all source i
 
 **RESEARCH TODO:** Confirm allowed transforms for reusable parts: translation only, translation + rotation, translation + rotation + mirroring, or limited scale classes.
 
-### Analysis Pipeline
+### Detailed Plans
 
-1. **SVG ingestion**
-   - Parse all SVGs from `SVG/`.
-   - Resolve style classes and fills.
-   - Convert rectangles, polygons, and paths into filled planar geometry.
-   - Flatten curves to polygons at a configurable precision.
+- Reference generation and rendering: `REFERENCE_RENDERING_PLAN.md`.
+- Part-library analysis, Shapely scoring, and optimizer workflow: `ICON_ANALYSIS_PLAN.md`.
 
-2. **Normalization**
-   - Normalize all icons to a shared unit system.
-   - Remove irrelevant metadata.
-   - Merge overlapping filled primitives per icon.
-   - Preserve original primitive boundaries as optional hints.
+### Settled Technical Direction
 
-3. **Candidate part generation**
-   - Start with exact original primitives.
-   - Split large polygons into reusable strokes, elbows, rectangles, diagonals, arcs, and end caps.
-   - Cluster similar shapes by dimensions, angle, aspect ratio, and local boundary descriptors.
-   - Generate simplified candidates using geometric approximation.
-   - Reject candidates with unprintable minimum features.
+- Raw SVGs remain immutable brand/design references.
+- Generated reference artifacts are recreated from SVGs and not hand-edited.
+- Shapely is the primary geometry comparison kernel.
+- A project-native parametric 2D part spec is the editable optimizer format.
+- CadQuery or build123d should consume the same part spec for downstream CAD generation.
 
-4. **Reconstruction**
-   - For each icon, solve a placement problem using the candidate part library.
-   - Generate a reconstructed SVG from chosen parts.
-   - Generate an assembly map for physical placement on the backplate.
+### Current Source Summary
 
-5. **Scoring**
-   - Compare reconstructed SVG against original SVG.
-   - Compute area-weighted symmetric difference.
-   - Compute boundary distance, such as Hausdorff or Chamfer distance.
-   - Penalize missing salient corners and over-smoothed silhouettes.
-   - Penalize excessive part count, excessive unique parts, fragile parts, and difficult assembly.
+- Every inspected SVG uses `viewBox="0 0 48 48"`.
+- The set is mostly filled rect/polygon geometry.
+- `Visit_Icon_Amusement park.svg` contains the only curved path found so far.
+- `Visit_Icon_Travel agent.svg` contains a transformed rotated rectangle.
 
-6. **Optimization**
-   - Search across simplification levels and candidate libraries.
-   - Produce a Pareto frontier: fewer parts versus greater visual deviation.
-   - Choose a recommended library only after reviewing visual overlays with stakeholders.
+### High-Level Analysis Pipeline
 
-### Optimizer Objective Draft
+1. Generate canonical reference artifacts from the raw SVGs.
+2. Generate an exact parametric part-spec baseline.
+3. Search for reusable simplified part libraries.
+4. Reconstruct each icon from candidate parts.
+5. Score candidates against references with Shapely.
+6. Review overlays and select candidates for physical prototyping.
 
-Minimize:
-
-`total_score = visual_error_weight * visual_error + unique_part_weight * unique_part_count + instance_weight * placed_part_count + printability_weight * printability_penalty + assembly_weight * assembly_penalty`
-
-Where:
-
-- `visual_error` combines area difference and boundary distance.
-- `unique_part_count` counts distinct printable part designs.
-- `placed_part_count` counts how many pieces an employee must snap in.
-- `printability_penalty` captures small features, thin sections, unsupported geometry, and weak snap features.
-- `assembly_penalty` captures tiny parts, ambiguous orientations, and hard-to-place pieces.
-
-**RESEARCH TODO:** Establish default weights through a design review using 3-5 generated candidate libraries.
+Detailed scoring metrics and optimizer objectives live in `ICON_ANALYSIS_PLAN.md`.
 
 ## Proposed Software Architecture
 
@@ -226,7 +206,16 @@ Potential repository layout:
 SVG/
   Visit_Icon_*.svg
 analysis/
-  normalized/
+  references/
+    manifest.json
+    *.reference.json
+    *.canonical.svg
+    *.preview.png
+  runs/
+    <run>/
+      part-library.yaml
+      metrics.json
+      overlays/
   reconstructed/
   reports/
 cad/
@@ -239,31 +228,37 @@ docs/
   assembly-guide.md
   workshop-guide.md
 tools/
-  analyze_icons.py
+  icon_reference.py
   generate_candidates.py
   optimize_part_library.py
   render_reconstruction.py
-  compare_svg.py
+  compare_geometry.py
   export_cad.py
 ```
 
 Suggested Python libraries to evaluate:
 
-- SVG parsing: `svgelements`, `svgpathtools`, or equivalent.
+- SVG parsing and transforms: `svgelements`, with `svgpathtools` as a path/Bezier fallback if needed.
 - Polygon geometry: `shapely`.
-- Raster comparison: `cairosvg`, `Pillow`, `opencv-python`, or equivalent.
+- SVG and raster rendering: `cairosvg`, `Pillow`, `opencv-python`, or equivalent.
 - Optimization: `scipy.optimize`, OR-Tools, simulated annealing, genetic algorithms, or custom Pareto search.
 - CAD generation: CadQuery or build123d.
 
-**RESEARCH TODO:** Validate exact library choices by building a small proof of concept against `Visit_Icon_Hotel.svg`, `Visit_Icon_Platform.svg`, and `Visit_Icon_Amusement park.svg`.
+**RESEARCH TODO:** Validate exact library choices by building a small proof of concept against `Visit_Icon_Hotel.svg`, `Visit_Icon_Platform.svg`, `Visit_Icon_Amusement park.svg`, and `Visit_Icon_Travel agent.svg`.
 
 ## Design Phase Milestones
 
 ### Milestone 1: Reference Geometry Baseline
 
+Detailed implementation plan: `REFERENCE_RENDERING_PLAN.md`
+
 - [ ] Parse every SVG.
-- [ ] Export normalized reference SVGs.
-- [ ] Generate raster previews for every icon.
+- [ ] Resolve style classes, fills, `viewBox`, and transforms.
+- [ ] Export generated `*.reference.json` files with source hashes, parser settings, metrics, and Shapely-compatible geometry snapshots.
+- [ ] Export normalized reference SVGs generated from reference geometry.
+- [ ] Generate raster previews and overlay templates for every icon.
+- [ ] Add `manifest.json` with source hashes, generator versions, precision, and curve tolerance.
+- [ ] Add a stale-reference check command for CI.
 - [ ] Document source geometry quirks.
 - [ ] Decide curve-flattening tolerance for path-based icons.
 
@@ -278,10 +273,11 @@ Suggested Python libraries to evaluate:
 
 ### Milestone 3: Simplified Part Library Prototype
 
-- [ ] Generate exact primitive-based reconstruction for all icons.
+- [ ] Generate exact primitive-based reconstruction for all icons as a parametric 2D part spec.
 - [ ] Generate first simplified candidate library.
-- [ ] Export reconstructed SVGs.
-- [ ] Score reference deviation.
+- [ ] Convert part specs into Shapely geometry for scoring.
+- [ ] Export reconstructed SVGs and overlay reports.
+- [ ] Score reference deviation with Shapely as the primary geometry kernel.
 - [ ] Create visual overlay report.
 
 ### Milestone 4: Optimization Loop
@@ -332,9 +328,9 @@ Required docs:
 ## Immediate Next Steps
 
 1. **RESEARCH TODO:** Pick three representative icons for prototype analysis: one rect-heavy, one polygon-heavy, and one path/curve icon.
-2. **RESEARCH TODO:** Build a parsing proof of concept that renders normalized references and reports primitive geometry.
+2. **RESEARCH TODO:** Build `tools/icon_reference.py build` for deterministic `*.reference.json`, canonical SVG, PNG previews, and `manifest.json`.
 3. **RESEARCH TODO:** Prototype the CAD stack in CadQuery and build123d using one simple icon.
 4. **RESEARCH TODO:** Design and print snap-fit tolerance coupons.
-5. **RESEARCH TODO:** Define the first visual-deviation scoring method and generate reconstructed SVG overlays.
+5. **RESEARCH TODO:** Build `tools/compare_geometry.py` with Shapely symmetric-difference area, boundary distance, bounds delta, and overlay output.
 6. **RESEARCH TODO:** Review physical assumptions with facilities/brand/design before locking mounting and visual tolerance decisions.
 
