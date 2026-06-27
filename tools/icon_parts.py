@@ -732,17 +732,24 @@ def decompose_polygons_to_bbox_rects_fixed(spec: dict) -> dict:
 
 
 def _try_rotated_hausdorff(geom_a, geom_b, angles=(0, 90, 180, 270)) -> tuple[float, float]:
-    """Return (min_hausdorff, best_angle) for geom_b rotated against geom_a."""
+    """Return (min_hausdorff, best_angle) for geom_b rotated against geom_a.
+
+    Prefers rotation=0 when its Hausdorff is within 5% of the best rotated match,
+    preventing false-positive rotations for already-aligned parts.
+    """
     from shapely import affinity
 
     best_hd = float("inf")
     best_angle = 0.0
+    hd_at_zero: float | None = None
     for angle in angles:
         rotated = affinity.rotate(geom_b, angle, origin=(0, 0))
         try:
             hd = geom_a.hausdorff_distance(rotated)
         except Exception:
             continue
+        if angle == 0:
+            hd_at_zero = hd
         if hd < best_hd:
             best_hd = hd
             best_angle = angle
@@ -751,6 +758,10 @@ def _try_rotated_hausdorff(geom_a, geom_b, angles=(0, 90, 180, 270)) -> tuple[fl
             best_hd = geom_a.hausdorff_distance(geom_b)
         except Exception:
             pass
+    # Prefer 0-degree rotation if within 5% of best
+    if hd_at_zero is not None and best_angle != 0:
+        if hd_at_zero <= best_hd * 1.05:
+            return hd_at_zero, 0.0
     return best_hd, best_angle
 
 
