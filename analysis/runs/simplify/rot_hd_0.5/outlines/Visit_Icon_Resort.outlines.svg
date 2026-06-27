@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-  <path fill="none" stroke="#E53E3E" stroke-width="0.5" fill-rule="evenodd" d="M 39 5 L 13 5 L 13 9 L 39 9 L 39 43 L 43 43 L 43 9 Z"/>
-  <path fill="none" stroke="#3182CE" stroke-width="0.5" fill-rule="evenodd" d="M 5 43 L 9 43 L 9 28 L 5 32 Z"/>
-  <path fill="none" stroke="#38A169" stroke-width="0.5" fill-rule="evenodd" d="M 18 37 L 22 37 L 22 43 L 18 43 Z"/>
-  <path fill="none" stroke="#DD6B20" stroke-width="0.5" fill-rule="evenodd" d="M 26 13 L 30 13 L 30 19 L 26 19 Z"/>
-  <path fill="none" stroke="#805AD5" stroke-width="0.5" fill-rule="evenodd" d="M 17 10 L 13 14 L 13 23 L 5 23 L 5 27 L 13 27 L 17 27 L 31 27 L 31 43 L 35 43 L 35 27 L 35 23 L 17 23 Z"/>
-</svg>

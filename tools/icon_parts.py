@@ -454,10 +454,6 @@ def render_command(args: argparse.Namespace) -> int:
     parts = spec["parts"]
     out_dir = Path(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)
-    overlay_dir = out_dir / "overlays"
-    overlay_dir.mkdir(parents=True, exist_ok=True)
-    outlines_dir = out_dir / "outlines"
-    outlines_dir.mkdir(parents=True, exist_ok=True)
 
     ref_dir = Path(args.references)
     refs = {r[0]: r for r in load_references(ref_dir)}
@@ -470,13 +466,13 @@ def render_command(args: argparse.Namespace) -> int:
             continue
         _, _, ref, ref_geom = ref_info
 
-        recon_geom, _details = reconstruct_icon(icon_spec, parts, precision)
+        # Reference outline (black)
+        ref_data = iref.geometry_to_path_data(ref_geom, precision)
+        lines = [
+            f'  <path fill="none" stroke="#000000" stroke-width="0.4" fill-rule="evenodd" d="{ref_data}"/>'
+        ]
 
-        overlay = render_overlay_svg(ref, ref_geom, recon_geom, precision, icon_id)
-        (overlay_dir / f"{icon_id}.overlay.svg").write_text(overlay, encoding="utf-8")
-
-        # Per-part colored outlines (shows decomposition cut lines)
-        outline_paths = []
+        # Per-part colored dashed outlines (shows decomposition)
         for i, inst in enumerate(icon_spec["instances"]):
             pid = inst["part"]
             pdef = parts[pid]
@@ -485,21 +481,21 @@ def render_command(args: argparse.Namespace) -> int:
             placed = place_part(base, inst["at"][0], inst["at"][1], inst.get("rotate", 0) or 0)
             d = iref.geometry_to_path_data(placed, precision)
             color = outline_colors[i % len(outline_colors)]
-            outline_paths.append(
-                f'  <path fill="none" stroke="{color}" stroke-width="0.5" fill-rule="evenodd" d="{d}"/>'
+            lines.append(
+                f'  <path fill="none" stroke="{color}" stroke-width="0.4" stroke-dasharray="4 2" fill-rule="evenodd" d="{d}"/>'
             )
+
         viewbox = ref["source"]["viewBox"]
         vb_text = " ".join(iref.format_float(v, precision) for v in viewbox)
-        outlines_svg = (
+        svg = (
             '<?xml version="1.0" encoding="UTF-8"?>\n'
             f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{vb_text}">\n'
-            + "\n".join(outline_paths) + "\n</svg>\n"
+            + "\n".join(lines) + "\n</svg>\n"
         )
-        (outlines_dir / f"{icon_id}.outlines.svg").write_text(outlines_svg, encoding="utf-8")
-
+        (out_dir / f"{icon_id}.parts.svg").write_text(svg, encoding="utf-8")
         print(f"  rendered {icon_id}")
 
-    print(f"render: overlays -> {overlay_dir}, outlines -> {outlines_dir}")
+    print(f"render: {out_dir}/*.parts.svg")
     return 0
 
 

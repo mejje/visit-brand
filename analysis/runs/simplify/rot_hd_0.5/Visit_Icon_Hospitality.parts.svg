@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <path fill="none" stroke="#000000" stroke-width="0.4" fill-rule="evenodd" d="M 14.22 23.99 L 8.9 14.21 L 3.55 14.21 L 8.89 23.99 L 3.55 33.77 L 8.89 33.77 Z M 33.78 3.54 L 24.01 8.88 L 14.23 3.54 L 14.23 8.88 L 24 14.22 L 33.78 8.9 Z M 14.23 39.11 L 14.23 44.45 L 24.01 39.12 L 33.78 44.45 L 33.78 39.1 L 24 33.78 Z M 26.66 26.66 L 26.66 21.33 L 21.33 21.33 L 21.33 26.66 Z M 44.46 33.77 L 39.12 23.99 L 44.46 14.21 L 39.1 14.21 L 33.78 23.99 L 39.12 33.77 Z"/>
+  <path fill="none" stroke="#E53E3E" stroke-width="0.4" stroke-dasharray="4 2" fill-rule="evenodd" d="M 21.33 21.33 L 26.66 21.33 L 26.66 26.66 L 21.33 26.66 Z"/>
+  <path fill="none" stroke="#3182CE" stroke-width="0.4" stroke-dasharray="4 2" fill-rule="evenodd" d="M 3.551666242 33.760558678 L 8.901666242 33.760558678 L 14.221666242 23.980558678 L 8.891666242 14.210558678 L 3.551666242 14.210558678 L 8.881666242 23.990558678 Z"/>
+  <path fill="none" stroke="#38A169" stroke-width="0.4" stroke-dasharray="4 2" fill-rule="evenodd" d="M 44.454164366 14.2102883 L 39.104164366 14.2102883 L 33.784164366 23.9902883 L 39.114164366 33.7602883 L 44.454164366 33.7602883 L 39.124164366 23.9802883 Z"/>
+  <path fill="none" stroke="#DD6B20" stroke-width="0.4" stroke-dasharray="4 2" fill-rule="evenodd" d="M 14.235819947 3.545836488 L 14.235819947 8.895836488 L 24.015819947 14.215836488 L 33.785819947 8.885836488 L 33.785819947 3.545836488 L 24.005819947 8.875836488 Z"/>
+  <path fill="none" stroke="#805AD5" stroke-width="0.4" stroke-dasharray="4 2" fill-rule="evenodd" d="M 33.78 44.45 L 33.78 39.1 L 24 33.78 L 14.23 39.11 L 14.23 44.45 L 24.01 39.12 Z"/>
+</svg>
