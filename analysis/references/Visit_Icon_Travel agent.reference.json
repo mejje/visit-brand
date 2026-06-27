@@ -1,0 +1,107 @@
+{
+  "geometry": {
+    "format": "wkb_hex",
+    "value": "0106000000050000000103000000010000000500000000000000000033400000000000002C4000000000000024400000000000002C40000000000000184000000000000032400000000000003740000000000000324000000000000033400000000000002C4001030000000100000007000000E17A14AE47C141400000000000001C400AD7A3703D8A2C403D0AD7A3703D3C409A9999999919314052B81E85EB113F40F6285C8FC295424000000000000026400000000000004540000000000000264000000000000045400000000000001C40E17A14AE47C141400000000000001C4001030000000100000005000000CE990A02FCED33404D8260329AF340404681DACE0FC236400A76C818A45D424017679B7AD1B445402C9F340BB51330405A733394C74A4440666FC97C427F2A40CE990A02FCED33404D8260329AF34040010300000001000000050000000000000000804240000000000000404000000000008040400000000000003C40000000000080404000000000008046400000000000804240000000000080444000000000008042400000000000004040010300000001000000050000007B14AE47E1FA3440B81E85EB519843408FC2F5285C8F27403D0AD7A370FD3D407B14AE47E17A18403D0AD7A370FD3D407B14AE47E1FA3440CDCCCCCCCC6C46407B14AE47E1FA3440B81E85EB51984340"
+  },
+  "icon_id": "Visit_Icon_Travel agent",
+  "metrics": {
+    "area": 428.4771,
+    "bounds": [
+      6.0,
+      7.0,
+      43.41264279,
+      45.0
+    ],
+    "component_count": 5,
+    "hole_count": 0,
+    "is_valid": true,
+    "validity": "Valid Geometry"
+  },
+  "normalization": {
+    "coordinate_precision": 1e-09,
+    "coordinate_system": "svg_y_down",
+    "curve_flatten_tolerance": 0.02,
+    "fill_rule": "nonzero",
+    "units": "svg_user_units"
+  },
+  "primitive_hints": [
+    {
+      "bounds": [
+        14.27,
+        7.0,
+        42.0,
+        31.07
+      ],
+      "fill": "#7a261b",
+      "has_transform": false,
+      "index": 0,
+      "kind": "Polygon"
+    },
+    {
+      "bounds": [
+        19.929626587,
+        13.248554134,
+        43.41264279,
+        36.731570337
+      ],
+      "fill": "#7a261b",
+      "has_transform": true,
+      "index": 1,
+      "kind": "Rect"
+    },
+    {
+      "bounds": [
+        6.0,
+        14.0,
+        23.0,
+        18.0
+      ],
+      "fill": "#7a261b",
+      "has_transform": false,
+      "index": 2,
+      "kind": "Polygon"
+    },
+    {
+      "bounds": [
+        33.0,
+        28.0,
+        37.0,
+        45.0
+      ],
+      "fill": "#7a261b",
+      "has_transform": false,
+      "index": 3,
+      "kind": "Polygon"
+    },
+    {
+      "bounds": [
+        6.12,
+        29.99,
+        20.98,
+        44.85
+      ],
+      "fill": "#7a261b",
+      "has_transform": false,
+      "index": 4,
+      "kind": "Polygon"
+    }
+  ],
+  "schema": "visit.icon-reference.v1",
+  "source": {
+    "path": "SVG/Visit_Icon_Travel agent.svg",
+    "sha256": "d78393038a8aa3b276b511a913c28db801d65b15963ae8685e07c48af952ca09",
+    "viewBox": [
+      0.0,
+      0.0,
+      48.0,
+      48.0
+    ]
+  },
+  "style": {
+    "canonical_fill": "#7a261b",
+    "fills": [
+      "#7a261b"
+    ]
+  },
+  "unsupported_elements": []
+}

@@ -75,7 +75,7 @@ All inspected SVGs use a `48 x 48` viewBox and filled vector primitives. Most ge
    - Normalize geometry to a common coordinate system.
    - Convert filled SVG primitives into planar polygon geometry.
    - Generate deterministic reference geometry files from the original SVGs.
-   - Generate canonical reference SVGs and PNG previews from those geometry files.
+   - Generate canonical reference SVGs from those geometry files.
    - Generate candidate simplified part libraries.
    - Reconstruct every icon from the simplified library.
    - Export reconstructed geometry, SVGs, and visual overlays.
@@ -210,7 +210,6 @@ analysis/
     manifest.json
     *.reference.json
     *.canonical.svg
-    *.preview.png
   runs/
     <run>/
       part-library.yaml
@@ -238,9 +237,9 @@ tools/
 
 Suggested Python libraries to evaluate:
 
-- SVG parsing and transforms: `svgelements`, with `svgpathtools` as a path/Bezier fallback if needed.
+- SVG parsing and transforms: `svgelements`.
 - Polygon geometry: `shapely`.
-- SVG and raster rendering: `cairosvg`, `Pillow`, `opencv-python`, or equivalent.
+- SVG rendering: generated directly from Shapely geometry.
 - Optimization: custom Pareto evaluator first, `pymoo` NSGA-II for multi-objective search, OR-Tools CP-SAT for finite discrete subproblems, and `scipy.optimize` for continuous tuning.
 - CAD generation: CadQuery or build123d.
 
@@ -256,7 +255,7 @@ Detailed implementation plan: `REFERENCE_RENDERING_PLAN.md`
 - [ ] Resolve style classes, fills, `viewBox`, and transforms.
 - [ ] Export generated `*.reference.json` files with source hashes, parser settings, metrics, and Shapely-compatible geometry snapshots.
 - [ ] Export normalized reference SVGs generated from reference geometry.
-- [ ] Generate raster previews and overlay templates for every icon.
+- [ ] Generate canonical SVGs and overlay templates for every icon.
 - [ ] Add `manifest.json` with source hashes, generator versions, precision, and curve tolerance.
 - [ ] Add a stale-reference check command for CI.
 - [ ] Document source geometry quirks.
@@ -328,7 +327,7 @@ Required docs:
 ## Immediate Next Steps
 
 1. **RESEARCH TODO:** Pick three representative icons for prototype analysis: one rect-heavy, one polygon-heavy, and one path/curve icon.
-2. **RESEARCH TODO:** Build `tools/icon_reference.py build` for deterministic `*.reference.json`, canonical SVG, PNG previews, and `manifest.json`.
+2. **RESEARCH TODO:** Build `tools/icon_reference.py build` for deterministic `*.reference.json`, canonical SVG, and `manifest.json`.
 3. **RESEARCH TODO:** Prototype the CAD stack in CadQuery and build123d using one simple icon.
 4. **RESEARCH TODO:** Design and print snap-fit tolerance coupons.
 5. **RESEARCH TODO:** Build `tools/compare_geometry.py` with Shapely symmetric-difference area, boundary distance, bounds delta, and overlay output.

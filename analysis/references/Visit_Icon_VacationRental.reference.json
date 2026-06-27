@@ -1,0 +1,95 @@
+{
+  "geometry": {
+    "format": "wkb_hex",
+    "value": "0106000000040000000103000000010000000D00000048E17A14AEC721407B14AE47E1FA204048E17A14AEC72140F6285C8FC2752C4000000000000038407B14AE47E17A1C400000000000003840AE47E17A14AE2940AE47E17A148E4340F6285C8FC2F53340AE47E17A148E4340F6285C8FC2554540B81E85EB51384640F6285C8FC2554540B81E85EB51384640AE47E17A14EE3340AE47E17A148E4340AE47E17A14EE3340AE47E17A148E4340713D0AD7A3702C40C3F5285C8F023840713D0AD7A3701C40C3F5285C8F023840EC51B81E85EBF53F48E17A14AEC721407B14AE47E1FA204001030000000100000005000000000000000000304014AE47E17A5435400000000000003040EB51B81E85AB3A4014AE47E17A543540EB51B81E85AB3A4014AE47E17A54354014AE47E17A543540000000000000304014AE47E17A543540010300000001000000050000007B14AE47E17A0C40F6285C8FC2752C407B14AE47E17A0C40F6285C8FC255454048E17A14AEC72140F6285C8FC255454048E17A14AEC72140F6285C8FC2752C407B14AE47E17A0C40F6285C8FC2752C40010300000001000000050000000000000000003840F6285C8FC2554540D7A3703D0A573D40F6285C8FC2554540D7A3703D0A573D40C3F5285C8FE240400000000000003840A4703D0AD70340400000000000003840F6285C8FC2554540"
+  },
+  "icon_id": "Visit_Icon_VacationRental",
+  "metrics": {
+    "area": 526.94355,
+    "bounds": [
+      3.56,
+      1.37,
+      44.44,
+      42.67
+    ],
+    "component_count": 4,
+    "hole_count": 0,
+    "is_valid": true,
+    "validity": "Valid Geometry"
+  },
+  "normalization": {
+    "coordinate_precision": 1e-09,
+    "coordinate_system": "svg_y_down",
+    "curve_flatten_tolerance": 0.02,
+    "fill_rule": "nonzero",
+    "units": "svg_user_units"
+  },
+  "primitive_hints": [
+    {
+      "bounds": [
+        24.0,
+        32.03,
+        29.34,
+        42.67
+      ],
+      "fill": "#702c20",
+      "has_transform": false,
+      "index": 0,
+      "kind": "Polygon"
+    },
+    {
+      "bounds": [
+        3.56,
+        14.23,
+        8.89,
+        42.67
+      ],
+      "fill": "#702c20",
+      "has_transform": false,
+      "index": 1,
+      "kind": "Rect"
+    },
+    {
+      "bounds": [
+        8.89,
+        1.37,
+        44.44,
+        42.67
+      ],
+      "fill": "#702c20",
+      "has_transform": false,
+      "index": 2,
+      "kind": "Polygon"
+    },
+    {
+      "bounds": [
+        16.0,
+        21.33,
+        21.33,
+        26.67
+      ],
+      "fill": "#702c20",
+      "has_transform": false,
+      "index": 3,
+      "kind": "Rect"
+    }
+  ],
+  "schema": "visit.icon-reference.v1",
+  "source": {
+    "path": "SVG/Visit_Icon_VacationRental.svg",
+    "sha256": "e61d8f3bc16d81b6eee4db8496817688566ee2fa8fbf43411c42e20c2e666c0c",
+    "viewBox": [
+      0.0,
+      0.0,
+      48.0,
+      48.0
+    ]
+  },
+  "style": {
+    "canonical_fill": "#702c20",
+    "fills": [
+      "#702c20"
+    ]
+  },
+  "unsupported_elements": []
+}

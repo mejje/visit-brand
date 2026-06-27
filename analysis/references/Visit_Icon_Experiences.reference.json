@@ -1,0 +1,107 @@
+{
+  "geometry": {
+    "format": "wkb_hex",
+    "value": "01060000000500000001030000000100000007000000C3F5285C8FE240407B14AE47E17A1C400000000000003840A4703D0AD7A3FC3F713D0AD7A3702C40713D0AD7A3701C40713D0AD7A3702C40EC51B81E85EB28403D0AD7A370FD37407B14AE47E17A1C40C3F5285C8FE24040EC51B81E85EB2840C3F5285C8FE240407B14AE47E17A1C40010300000001000000070000006666666666661C400000000000003840E17A14AE47E12840F6285C8FC2752C406666666666661C40F6285C8FC2752C4052B81E85EB51FC3F000000000000384052B81E85EB511C40A4703D0AD7E34040E17A14AE47E12840A4703D0AD7E340406666666666661C40000000000000384001030000000100000007000000E17A14AE47E1384000000000000038400AD7A3703D8A3340A4703D0AD7E340406666666666E63840A4703D0AD7E34040B81E85EB51383E400000000000003840E17A14AE47E13840F6285C8FC2752C400AD7A3703D8A3340F6285C8FC2752C40E17A14AE47E138400000000000003840010300000001000000070000008FC2F5285C6F4440F6285C8FC2752C4085EB51B81EC54140F6285C8FC2752C408FC2F5285C6F4440000000000000384085EB51B81EC54140A4703D0AD7E3404052B81E85EB714440A4703D0AD7E340407B14AE47E11A474000000000000038408FC2F5285C6F4440F6285C8FC2752C4001030000000100000007000000713D0AD7A3702C4048E17A14AEC74140713D0AD7A3702C4014AE47E17A74444000000000000038403D0AD7A3701D4740C3F5285C8FE240403333333333734440C3F5285C8FE2404048E17A14AEC741403D0AD7A370FD374052B81E85EB714440713D0AD7A3702C4048E17A14AEC74140"
+  },
+  "icon_id": "Visit_Icon_Experiences",
+  "metrics": {
+    "area": 522.08295,
+    "bounds": [
+      1.77,
+      1.79,
+      46.21,
+      46.23
+    ],
+    "component_count": 5,
+    "hole_count": 0,
+    "is_valid": true,
+    "validity": "Valid Geometry"
+  },
+  "normalization": {
+    "coordinate_precision": 1e-09,
+    "coordinate_system": "svg_y_down",
+    "curve_flatten_tolerance": 0.02,
+    "fill_rule": "nonzero",
+    "units": "svg_user_units"
+  },
+  "primitive_hints": [
+    {
+      "bounds": [
+        14.22,
+        35.56,
+        33.77,
+        46.23
+      ],
+      "fill": "#702c20",
+      "has_transform": false,
+      "index": 0,
+      "kind": "Polygon"
+    },
+    {
+      "bounds": [
+        14.22,
+        1.79,
+        33.77,
+        12.46
+      ],
+      "fill": "#702c20",
+      "has_transform": false,
+      "index": 1,
+      "kind": "Polygon"
+    },
+    {
+      "bounds": [
+        35.54,
+        14.23,
+        46.21,
+        33.78
+      ],
+      "fill": "#702c20",
+      "has_transform": false,
+      "index": 2,
+      "kind": "Polygon"
+    },
+    {
+      "bounds": [
+        19.54,
+        14.23,
+        30.22,
+        33.78
+      ],
+      "fill": "#702c20",
+      "has_transform": false,
+      "index": 3,
+      "kind": "Polygon"
+    },
+    {
+      "bounds": [
+        1.77,
+        14.23,
+        12.44,
+        33.78
+      ],
+      "fill": "#702c20",
+      "has_transform": false,
+      "index": 4,
+      "kind": "Polygon"
+    }
+  ],
+  "schema": "visit.icon-reference.v1",
+  "source": {
+    "path": "SVG/Visit_Icon_Experiences.svg",
+    "sha256": "5dba23406b6865c26e84e42342e890b8b8771dcfb859fb02b9465395eaf15e4e",
+    "viewBox": [
+      0.0,
+      0.0,
+      48.0,
+      48.0
+    ]
+  },
+  "style": {
+    "canonical_fill": "#702c20",
+    "fills": [
+      "#702c20"
+    ]
+  },
+  "unsupported_elements": []
+}

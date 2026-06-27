@@ -1,0 +1,290 @@
+{
+  "generator": "tools/icon_reference.py",
+  "icons": {
+    "Visit_Icon_Amusement park": {
+      "canonical_svg": "analysis/references/Visit_Icon_Amusement park.canonical.svg",
+      "metrics": {
+        "area": 424.864719102,
+        "bounds": [
+          5.0,
+          5.0,
+          43.0,
+          43.0
+        ],
+        "component_count": 9,
+        "hole_count": 0,
+        "is_valid": true,
+        "validity": "Valid Geometry"
+      },
+      "reference_json": "analysis/references/Visit_Icon_Amusement park.reference.json",
+      "sha256": "0f65f1c19fc999812932c29304091598c469ba9853e0510f85768dd117d4d8f2",
+      "source": "SVG/Visit_Icon_Amusement park.svg",
+      "unsupported_elements": []
+    },
+    "Visit_Icon_DestinationBuilding": {
+      "canonical_svg": "analysis/references/Visit_Icon_DestinationBuilding.canonical.svg",
+      "metrics": {
+        "area": 562.3052,
+        "bounds": [
+          3.55,
+          5.33,
+          46.64,
+          42.67
+        ],
+        "component_count": 4,
+        "hole_count": 0,
+        "is_valid": true,
+        "validity": "Valid Geometry"
+      },
+      "reference_json": "analysis/references/Visit_Icon_DestinationBuilding.reference.json",
+      "sha256": "d11f9bafd65e1238b63cfb7792164e98e964a8f27c85952d31402448f21af769",
+      "source": "SVG/Visit_Icon_DestinationBuilding.svg",
+      "unsupported_elements": []
+    },
+    "Visit_Icon_Experiences": {
+      "canonical_svg": "analysis/references/Visit_Icon_Experiences.canonical.svg",
+      "metrics": {
+        "area": 522.08295,
+        "bounds": [
+          1.77,
+          1.79,
+          46.21,
+          46.23
+        ],
+        "component_count": 5,
+        "hole_count": 0,
+        "is_valid": true,
+        "validity": "Valid Geometry"
+      },
+      "reference_json": "analysis/references/Visit_Icon_Experiences.reference.json",
+      "sha256": "5dba23406b6865c26e84e42342e890b8b8771dcfb859fb02b9465395eaf15e4e",
+      "source": "SVG/Visit_Icon_Experiences.svg",
+      "unsupported_elements": []
+    },
+    "Visit_Icon_Ferry operator": {
+      "canonical_svg": "analysis/references/Visit_Icon_Ferry operator.canonical.svg",
+      "metrics": {
+        "area": 484.22,
+        "bounds": [
+          5.0,
+          5.0,
+          43.0,
+          43.0
+        ],
+        "component_count": 9,
+        "hole_count": 0,
+        "is_valid": true,
+        "validity": "Valid Geometry"
+      },
+      "reference_json": "analysis/references/Visit_Icon_Ferry operator.reference.json",
+      "sha256": "6dafc2b1de5f7e045ea84eff573c1a17387ccd8cf818059ecbef7323812ccfa4",
+      "source": "SVG/Visit_Icon_Ferry operator.svg",
+      "unsupported_elements": []
+    },
+    "Visit_Icon_Homeowner": {
+      "canonical_svg": "analysis/references/Visit_Icon_Homeowner.canonical.svg",
+      "metrics": {
+        "area": 471.0444,
+        "bounds": [
+          5.0,
+          5.0,
+          43.0,
+          43.0
+        ],
+        "component_count": 6,
+        "hole_count": 0,
+        "is_valid": true,
+        "validity": "Valid Geometry"
+      },
+      "reference_json": "analysis/references/Visit_Icon_Homeowner.reference.json",
+      "sha256": "f7aba7cd2d6394e7ffc3c8d66d922c2ef4eccd8dfe7f236b793155d5eea8c5c1",
+      "source": "SVG/Visit_Icon_Homeowner.svg",
+      "unsupported_elements": []
+    },
+    "Visit_Icon_Hospitality": {
+      "canonical_svg": "analysis/references/Visit_Icon_Hospitality.canonical.svg",
+      "metrics": {
+        "area": 446.2993,
+        "bounds": [
+          3.55,
+          3.54,
+          44.46,
+          44.45
+        ],
+        "component_count": 5,
+        "hole_count": 0,
+        "is_valid": true,
+        "validity": "Valid Geometry"
+      },
+      "reference_json": "analysis/references/Visit_Icon_Hospitality.reference.json",
+      "sha256": "1a47d9fb54166e312d2f871902cacb27905b7dfeda0f00bdc50b768464e82591",
+      "source": "SVG/Visit_Icon_Hospitality.svg",
+      "unsupported_elements": []
+    },
+    "Visit_Icon_Hotel": {
+      "canonical_svg": "analysis/references/Visit_Icon_Hotel.canonical.svg",
+      "metrics": {
+        "area": 492.0,
+        "bounds": [
+          9.0,
+          5.0,
+          39.0,
+          43.0
+        ],
+        "component_count": 7,
+        "hole_count": 0,
+        "is_valid": true,
+        "validity": "Valid Geometry"
+      },
+      "reference_json": "analysis/references/Visit_Icon_Hotel.reference.json",
+      "sha256": "91dffdbc7cdc93f5ed980568b706b30f23f6068924bc6e7a830193a91de70ce3",
+      "source": "SVG/Visit_Icon_Hotel.svg",
+      "unsupported_elements": []
+    },
+    "Visit_Icon_Platform": {
+      "canonical_svg": "analysis/references/Visit_Icon_Platform.canonical.svg",
+      "metrics": {
+        "area": 455.9545,
+        "bounds": [
+          1.79,
+          1.7,
+          46.21,
+          46.22
+        ],
+        "component_count": 8,
+        "hole_count": 0,
+        "is_valid": true,
+        "validity": "Valid Geometry"
+      },
+      "reference_json": "analysis/references/Visit_Icon_Platform.reference.json",
+      "sha256": "1dfbe28877e213514039c35a99f1a0116b8fde82c6af03466ccd57c885c05e1b",
+      "source": "SVG/Visit_Icon_Platform.svg",
+      "unsupported_elements": []
+    },
+    "Visit_Icon_Resort": {
+      "canonical_svg": "analysis/references/Visit_Icon_Resort.canonical.svg",
+      "metrics": {
+        "area": 576.0,
+        "bounds": [
+          5.0,
+          5.0,
+          43.0,
+          43.0
+        ],
+        "component_count": 5,
+        "hole_count": 0,
+        "is_valid": true,
+        "validity": "Valid Geometry"
+      },
+      "reference_json": "analysis/references/Visit_Icon_Resort.reference.json",
+      "sha256": "318dc9586e1139cca10a9b3662c26d0d0891d2e24882f35744d86ef2248ec336",
+      "source": "SVG/Visit_Icon_Resort.svg",
+      "unsupported_elements": []
+    },
+    "Visit_Icon_Ski resort": {
+      "canonical_svg": "analysis/references/Visit_Icon_Ski resort.canonical.svg",
+      "metrics": {
+        "area": 545.9086,
+        "bounds": [
+          3.99,
+          5.0,
+          44.0,
+          43.0
+        ],
+        "component_count": 6,
+        "hole_count": 0,
+        "is_valid": true,
+        "validity": "Valid Geometry"
+      },
+      "reference_json": "analysis/references/Visit_Icon_Ski resort.reference.json",
+      "sha256": "ced32713b491bb251e68df0e5645d3ed7f8b390c1b2f94e47e21d586332f2beb",
+      "source": "SVG/Visit_Icon_Ski resort.svg",
+      "unsupported_elements": []
+    },
+    "Visit_Icon_Solceller": {
+      "canonical_svg": "analysis/references/Visit_Icon_Solceller.canonical.svg",
+      "metrics": {
+        "area": 454.2181,
+        "bounds": [
+          5.0,
+          4.76,
+          43.0,
+          43.0
+        ],
+        "component_count": 3,
+        "hole_count": 0,
+        "is_valid": true,
+        "validity": "Valid Geometry"
+      },
+      "reference_json": "analysis/references/Visit_Icon_Solceller.reference.json",
+      "sha256": "15f200ed533caa5d575c594946d49357b618bf2c8ad308bf2d901d4493b93436",
+      "source": "SVG/Visit_Icon_Solceller.svg",
+      "unsupported_elements": []
+    },
+    "Visit_Icon_Tour operator": {
+      "canonical_svg": "analysis/references/Visit_Icon_Tour operator.canonical.svg",
+      "metrics": {
+        "area": 335.115,
+        "bounds": [
+          5.0,
+          5.0,
+          43.0,
+          44.41
+        ],
+        "component_count": 7,
+        "hole_count": 0,
+        "is_valid": true,
+        "validity": "Valid Geometry"
+      },
+      "reference_json": "analysis/references/Visit_Icon_Tour operator.reference.json",
+      "sha256": "fc1ff30b35491d2bafe166111683aab40b731cf91c5451f030cd60a8456740bf",
+      "source": "SVG/Visit_Icon_Tour operator.svg",
+      "unsupported_elements": []
+    },
+    "Visit_Icon_Travel agent": {
+      "canonical_svg": "analysis/references/Visit_Icon_Travel agent.canonical.svg",
+      "metrics": {
+        "area": 428.4771,
+        "bounds": [
+          6.0,
+          7.0,
+          43.41264279,
+          45.0
+        ],
+        "component_count": 5,
+        "hole_count": 0,
+        "is_valid": true,
+        "validity": "Valid Geometry"
+      },
+      "reference_json": "analysis/references/Visit_Icon_Travel agent.reference.json",
+      "sha256": "d78393038a8aa3b276b511a913c28db801d65b15963ae8685e07c48af952ca09",
+      "source": "SVG/Visit_Icon_Travel agent.svg",
+      "unsupported_elements": []
+    },
+    "Visit_Icon_VacationRental": {
+      "canonical_svg": "analysis/references/Visit_Icon_VacationRental.canonical.svg",
+      "metrics": {
+        "area": 526.94355,
+        "bounds": [
+          3.56,
+          1.37,
+          44.44,
+          42.67
+        ],
+        "component_count": 4,
+        "hole_count": 0,
+        "is_valid": true,
+        "validity": "Valid Geometry"
+      },
+      "reference_json": "analysis/references/Visit_Icon_VacationRental.reference.json",
+      "sha256": "e61d8f3bc16d81b6eee4db8496817688566ee2fa8fbf43411c42e20c2e666c0c",
+      "source": "SVG/Visit_Icon_VacationRental.svg",
+      "unsupported_elements": []
+    }
+  },
+  "schema": "visit.icon-reference-manifest.v1",
+  "settings": {
+    "coordinate_precision": 1e-09,
+    "curve_flatten_tolerance": 0.02
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "geometry": {
+    "format": "wkb_hex",
+    "value": "01060000000800000001030000000100000005000000295C8FC2F5A83A40C3F5285C8FC20B4014AE47E17A543540333333333333FB3F14AE47E17A543540EC51B81E85EB2840295C8FC2F5A83A40F6285C8FC2752C40295C8FC2F5A83A40C3F5285C8FC20B400103000000010000000500000000000000000033406666666666662E4048E17A14AEC726405C8FC2F5285C1E407B14AE47E17A1940B81E85EB51382440F6285C8FC2F52B40F6285C8FC2B5314000000000000033406666666666662E400103000000010000000500000052B81E85EB113E403D0AD7A3703D2C40AE47E17A144E4040A4703D0AD723334014AE47E17A144440AE47E17A142E27408FC2F5285CCF424048E17A14AE471A4052B81E85EB113E403D0AD7A3703D2C4001030000000100000005000000A4703D0AD7A3FC3F6666666666A63A406666666666E628406666666666A63A40713D0AD7A3702C4052B81E85EB5135407B14AE47E17A0C4052B81E85EB513540A4703D0AD7A3FC3F6666666666A63A4001030000000100000005000000B81E85EB513846406666666666A63A407B14AE47E11A474052B81E85EB51354048E17A14AEC7414052B81E85EB51354085EB51B81EE540406666666666A63A40B81E85EB513846406666666666A63A40010300000001000000050000008FC2F5285CCF4440295C8FC2F5E84240295C8FC2F5084140C3F5285C8F423E400AD7A3703D0A3D40A4703D0AD7634040CDCCCCCCCC4C4240EC51B81E852B44408FC2F5285CCF4440295C8FC2F5E84240010300000001000000050000006666666666A63140CDCCCCCCCC0C41403D0AD7A3703D2E4052B81E85EB113D407B14AE47E17A1E400AD7A3703D4A4240CDCCCCCCCC4C2440CDCCCCCCCCCC44406666666666A63140CDCCCCCCCC0C414001030000000100000005000000295C8FC2F5A83A4085EB51B81EC5414014AE47E17A543540C3F5285C8FE2404014AE47E17A5435409A99999999394640295C8FC2F5A83A405C8FC2F5281C4740295C8FC2F5A83A4085EB51B81EC54140"
+  },
+  "icon_id": "Visit_Icon_Platform",
+  "metrics": {
+    "area": 455.9545,
+    "bounds": [
+      1.79,
+      1.7,
+      46.21,
+      46.22
+    ],
+    "component_count": 8,
+    "hole_count": 0,
+    "is_valid": true,
+    "validity": "Valid Geometry"
+  },
+  "normalization": {
+    "coordinate_precision": 1e-09,
+    "coordinate_system": "svg_y_down",
+    "curve_flatten_tolerance": 0.02,
+    "fill_rule": "nonzero",
+    "units": "svg_user_units"
+  },
+  "primitive_hints": [
+    {
+      "bounds": [
+        21.33,
+        1.7,
+        26.66,
+        14.23
+      ],
+      "fill": "#702c20",
+      "has_transform": false,
+      "index": 0,
+      "kind": "Polygon"
+    },
+    {
+      "bounds": [
+        21.33,
+        33.77,
+        26.66,
+        46.22
+      ],
+      "fill": "#702c20",
+      "has_transform": false,
+      "index": 1,
+      "kind": "Polygon"
+    },
+    {
+      "bounds": [
+        6.37,
+        7.59,
+        19.0,
+        17.71
+      ],
+      "fill": "#702c20",
+      "has_transform": false,
+      "index": 2,
+      "kind": "Polygon"
+    },
+    {
+      "bounds": [
+        29.04,
+        30.26,
+        41.62,
+        40.34
+      ],
+      "fill": "#702c20",
+      "has_transform": false,
+      "index": 3,
+      "kind": "Polygon"
+    },
+    {
+      "bounds": [
+        30.07,
+        6.57,
+        40.16,
+        19.14
+      ],
+      "fill": "#702c20",
+      "has_transform": false,
+      "index": 4,
+      "kind": "Polygon"
+    },
+    {
+      "bounds": [
+        7.62,
+        29.07,
+        17.65,
+        41.6
+      ],
+      "fill": "#702c20",
+      "has_transform": false,
+      "index": 5,
+      "kind": "Polygon"
+    },
+    {
+      "bounds": [
+        33.79,
+        21.32,
+        46.21,
+        26.65
+      ],
+      "fill": "#702c20",
+      "has_transform": false,
+      "index": 6,
+      "kind": "Polygon"
+    },
+    {
+      "bounds": [
+        1.79,
+        21.32,
+        14.22,
+        26.65
+      ],
+      "fill": "#702c20",
+      "has_transform": false,
+      "index": 7,
+      "kind": "Polygon"
+    }
+  ],
+  "schema": "visit.icon-reference.v1",
+  "source": {
+    "path": "SVG/Visit_Icon_Platform.svg",
+    "sha256": "1dfbe28877e213514039c35a99f1a0116b8fde82c6af03466ccd57c885c05e1b",
+    "viewBox": [
+      0.0,
+      0.0,
+      48.0,
+      48.0
+    ]
+  },
+  "style": {
+    "canonical_fill": "#702c20",
+    "fills": [
+      "#702c20"
+    ]
+  },
+  "unsupported_elements": []
+}

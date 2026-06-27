@@ -1,0 +1,107 @@
+{
+  "geometry": {
+    "format": "wkb_hex",
+    "value": "01060000000500000001030000000100000007000000A4703D0AD7E3404052B81E85EB510C40C3F5285C8F023840C3F5285C8FC22140F6285C8FC2752C4052B81E85EB510C40F6285C8FC2752C40C3F5285C8FC221400000000000003840713D0AD7A3702C40A4703D0AD7E34040CDCCCCCCCCCC2140A4703D0AD7E3404052B81E85EB510C4001030000000100000007000000713D0AD7A3702C403D0AD7A370FD3740CDCCCCCCCCCC2140EC51B81E856B2C406666666666660C40EC51B81E856B2C4048E17A14AEC721403D0AD7A370FD37406666666666660C40C3F5285C8FE2404048E17A14AEC72140C3F5285C8FE24040713D0AD7A3702C403D0AD7A370FD3740010300000001000000070000007B14AE47E13A4640C3F5285C8FE240408FC2F5285C8F43403D0AD7A370FD37407B14AE47E13A4640EC51B81E856B2C40CDCCCCCCCC8C4340EC51B81E856B2C40A4703D0AD7E340403D0AD7A370FD37408FC2F5285C8F4340C3F5285C8FE240407B14AE47E13A4640C3F5285C8FE2404001030000000100000005000000285C8FC2F5A83A40285C8FC2F5A83A40285C8FC2F5A83A4014AE47E17A54354014AE47E17A54354014AE47E17A54354014AE47E17A543540285C8FC2F5A83A40285C8FC2F5A83A40285C8FC2F5A83A4001030000000100000007000000F6285C8FC2752C40AE47E17A148E4340F6285C8FC2752C409A99999999394640C3F5285C8F0238408FC2F5285C8F4340A4703D0AD7E340409A99999999394640A4703D0AD7E34040CDCCCCCCCC8C43400000000000003840A4703D0AD7E34040F6285C8FC2752C40AE47E17A148E4340"
+  },
+  "icon_id": "Visit_Icon_Hospitality",
+  "metrics": {
+    "area": 446.2993,
+    "bounds": [
+      3.55,
+      3.54,
+      44.46,
+      44.45
+    ],
+    "component_count": 5,
+    "hole_count": 0,
+    "is_valid": true,
+    "validity": "Valid Geometry"
+  },
+  "normalization": {
+    "coordinate_precision": 1e-09,
+    "coordinate_system": "svg_y_down",
+    "curve_flatten_tolerance": 0.02,
+    "fill_rule": "nonzero",
+    "units": "svg_user_units"
+  },
+  "primitive_hints": [
+    {
+      "bounds": [
+        21.33,
+        21.33,
+        26.66,
+        26.66
+      ],
+      "fill": "#702c20",
+      "has_transform": false,
+      "index": 0,
+      "kind": "Rect"
+    },
+    {
+      "bounds": [
+        3.55,
+        14.21,
+        14.22,
+        33.77
+      ],
+      "fill": "#702c20",
+      "has_transform": false,
+      "index": 1,
+      "kind": "Polygon"
+    },
+    {
+      "bounds": [
+        33.78,
+        14.21,
+        44.46,
+        33.77
+      ],
+      "fill": "#702c20",
+      "has_transform": false,
+      "index": 2,
+      "kind": "Polygon"
+    },
+    {
+      "bounds": [
+        14.23,
+        3.54,
+        33.78,
+        14.22
+      ],
+      "fill": "#702c20",
+      "has_transform": false,
+      "index": 3,
+      "kind": "Polygon"
+    },
+    {
+      "bounds": [
+        14.23,
+        33.78,
+        33.78,
+        44.45
+      ],
+      "fill": "#702c20",
+      "has_transform": false,
+      "index": 4,
+      "kind": "Polygon"
+    }
+  ],
+  "schema": "visit.icon-reference.v1",
+  "source": {
+    "path": "SVG/Visit_Icon_Hospitality.svg",
+    "sha256": "1a47d9fb54166e312d2f871902cacb27905b7dfeda0f00bdc50b768464e82591",
+    "viewBox": [
+      0.0,
+      0.0,
+      48.0,
+      48.0
+    ]
+  },
+  "style": {
+    "canonical_fill": "#702c20",
+    "fills": [
+      "#702c20"
+    ]
+  },
+  "unsupported_elements": []
+}

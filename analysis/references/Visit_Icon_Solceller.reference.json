@@ -1,0 +1,83 @@
+{
+  "geometry": {
+    "format": "wkb_hex",
+    "value": "0106000000030000000103000000010000000D000000D7A3703D0A973D400AD7A3703D0A13400000000000003840AE47E17A14AE2440295C8FC2F56832400AD7A3703D0A1340AE47E17A142E2F405C8FC2F5285C1E40EC51B81E852B3540D7A3703D0A572A400000000000001440D7A3703D0A573D400000000000001440000000000080414000000000000038400000000000003040000000000080454000000000008041400000000000804540D7A3703D0A573D4014AE47E17AD43A40D7A3703D0A572A4014AE47E17A3440405C8FC2F5285C1E40D7A3703D0A973D400AD7A3703D0A13400103000000010000000500000000000000000036400000000000003E40000000000000364000000000000042400000000000003A4000000000000042400000000000003A400000000000003E4000000000000036400000000000003E40010300000001000000050000000000000000001440000000000080434000000000000014400000000000804540000000000080454000000000008045400000000000804540000000000080434000000000000014400000000000804340"
+  },
+  "icon_id": "Visit_Icon_Solceller",
+  "metrics": {
+    "area": 454.2181,
+    "bounds": [
+      5.0,
+      4.76,
+      43.0,
+      43.0
+    ],
+    "component_count": 3,
+    "hole_count": 0,
+    "is_valid": true,
+    "validity": "Valid Geometry"
+  },
+  "normalization": {
+    "coordinate_precision": 1e-09,
+    "coordinate_system": "svg_y_down",
+    "curve_flatten_tolerance": 0.02,
+    "fill_rule": "nonzero",
+    "units": "svg_user_units"
+  },
+  "primitive_hints": [
+    {
+      "bounds": [
+        5.0,
+        39.0,
+        43.0,
+        43.0
+      ],
+      "fill": "#7a261b",
+      "has_transform": false,
+      "index": 0,
+      "kind": "Rect"
+    },
+    {
+      "bounds": [
+        22.0,
+        30.0,
+        26.0,
+        36.0
+      ],
+      "fill": "#7a261b",
+      "has_transform": false,
+      "index": 1,
+      "kind": "Rect"
+    },
+    {
+      "bounds": [
+        5.0,
+        4.76,
+        43.0,
+        35.0
+      ],
+      "fill": "#7a261b",
+      "has_transform": false,
+      "index": 2,
+      "kind": "Polygon"
+    }
+  ],
+  "schema": "visit.icon-reference.v1",
+  "source": {
+    "path": "SVG/Visit_Icon_Solceller.svg",
+    "sha256": "15f200ed533caa5d575c594946d49357b618bf2c8ad308bf2d901d4493b93436",
+    "viewBox": [
+      0.0,
+      0.0,
+      48.0,
+      48.0
+    ]
+  },
+  "style": {
+    "canonical_fill": "#7a261b",
+    "fills": [
+      "#7a261b"
+    ]
+  },
+  "unsupported_elements": []
+}
