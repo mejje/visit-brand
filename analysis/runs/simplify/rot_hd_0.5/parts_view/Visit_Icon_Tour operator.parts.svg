@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <path fill="#e54444" stroke="#333" stroke-width="0.2" fill-rule="evenodd" d="M 18 21 L 22 17 L 22 14 L 18 10 Z" opacity="0.85"/>
+  <path fill="#e5ce44" stroke="#333" stroke-width="0.2" fill-rule="evenodd" d="M 17 5 L 12 5 L 9 9 L 17 9 Z" opacity="0.85"/>
+  <path fill="#72e544" stroke="#333" stroke-width="0.2" fill-rule="evenodd" d="M 9 10 L 5 10 L 5 19.37 L 13.63 27.46 L 16.37 24.54 L 9 17.63 Z" opacity="0.85"/>
+  <path fill="#44e5a0" stroke="#333" stroke-width="0.2" fill-rule="evenodd" d="M 39 22 L 39 37 L 43 33 L 43 26 Z" opacity="0.85"/>
+  <path fill="#44a0e5" stroke="#333" stroke-width="0.2" fill-rule="evenodd" d="M 27 21 L 38 21 L 38 17 L 30 17 Z" opacity="0.85"/>
+  <path fill="#7244e5" stroke="#333" stroke-width="0.2" fill-rule="evenodd" d="M 27 22 L 23 22 L 23 35.83 L 31.59 44.41 L 34.41 41.59 L 27 34.17 Z" opacity="0.85"/>
+  <path fill="#e544ce" stroke="#333" stroke-width="0.2" fill-rule="evenodd" d="M 31 25 L 35 25 L 35 31 L 31 31 Z" opacity="0.85"/>
+</svg>

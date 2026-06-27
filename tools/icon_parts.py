@@ -458,9 +458,13 @@ def render_command(args: argparse.Namespace) -> int:
     svg_dir.mkdir(parents=True, exist_ok=True)
     overlay_dir = out_dir / "overlays"
     overlay_dir.mkdir(parents=True, exist_ok=True)
+    outlines_dir = out_dir / "outlines"
+    if args.outlines:
+        outlines_dir.mkdir(parents=True, exist_ok=True)
 
     ref_dir = Path(args.references)
     refs = {r[0]: r for r in load_references(ref_dir)}
+    outline_colors = ["#E53E3E", "#3182CE", "#38A169", "#DD6B20", "#805AD5", "#D69E2E"]
 
     for icon_id, icon_spec in sorted(spec["icons"].items()):
         ref_info = refs.get(icon_id)
@@ -478,9 +482,34 @@ def render_command(args: argparse.Namespace) -> int:
         overlay = render_overlay_svg(ref, ref_geom, recon_geom, precision, icon_id)
         (overlay_dir / f"{icon_id}.overlay.svg").write_text(overlay, encoding="utf-8")
 
+        if args.outlines:
+            outline_paths = []
+            for i, inst in enumerate(icon_spec["instances"]):
+                pid = inst["part"]
+                pdef = parts[pid]
+                anchor = "centroid" if inst.get("rotate") is not None else "min_corner"
+                base = part_to_geometry(pdef, anchor=anchor)
+                placed = place_part(base, inst["at"][0], inst["at"][1], inst.get("rotate", 0) or 0)
+                d = iref.geometry_to_path_data(placed, precision)
+                color = outline_colors[i % len(outline_colors)]
+                outline_paths.append(
+                    f'  <path fill="none" stroke="{color}" stroke-width="0.5" fill-rule="evenodd" d="{d}"/>'
+                )
+            viewbox = ref["source"]["viewBox"]
+            vb_text = " ".join(iref.format_float(v, precision) for v in viewbox)
+            outlines_svg = (
+                '<?xml version="1.0" encoding="UTF-8"?>\n'
+                f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{vb_text}">\n'
+                + "\n".join(outline_paths) + "\n</svg>\n"
+            )
+            (outlines_dir / f"{icon_id}.outlines.svg").write_text(outlines_svg, encoding="utf-8")
+
         print(f"  rendered {icon_id}")
 
-    print(f"render: wrote SVGs to {svg_dir}, overlays to {overlay_dir}")
+    msg = f"render: wrote SVGs to {svg_dir}, overlays to {overlay_dir}"
+    if args.outlines:
+        msg += f", outlines to {outlines_dir}"
+    print(msg)
     return 0
 
 
@@ -1282,6 +1311,7 @@ def build_parser() -> argparse.ArgumentParser:
     rend.add_argument("--spec", default="analysis/runs/exact/part-spec.exact.v1.json", help="Part spec JSON")
     rend.add_argument("--references", default="analysis/references", help="Reference JSON directory")
     rend.add_argument("--out", default="analysis/runs/exact", help="Output directory for SVGs and overlays")
+    rend.add_argument("--outlines", action="store_true", help="Also render per-part colored outline SVGs")
     rend.set_defaults(func=render_command)
 
     scor = subparsers.add_parser("score", help="Score part spec against references")
