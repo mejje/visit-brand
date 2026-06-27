@@ -1,7 +1,7 @@
 {
   "allowed_transforms": {
     "mirror": false,
-    "rotate": false,
+    "rotate": true,
     "scale": false,
     "translate": true
   },
@@ -96,26 +96,29 @@
         },
         {
           "at": [
-            12.43,
-            30.22
+            21.32,
+            32.89
           ],
           "part": "part_0004",
+          "rotate": 180.0,
           "source_index": 1
         },
         {
           "at": [
-            33.77,
-            5.34
+            40.205,
+            12.89
           ],
           "part": "part_0005",
+          "rotate": 295.276,
           "source_index": 2
         },
         {
           "at": [
-            28.03,
-            20.44
+            34.46,
+            27.995
           ],
-          "part": "part_0006",
+          "part": "part_0005",
+          "rotate": 64.77,
           "source_index": 3
         }
       ]
@@ -188,10 +191,11 @@
         },
         {
           "at": [
-            23.17,
-            23.17
+            34.5,
+            34.5
           ],
           "part": "part_0014",
+          "rotate": 315.0,
           "source_index": 2
         },
         {
@@ -264,19 +268,20 @@
         },
         {
           "at": [
-            13.167548959,
-            13.167548959
+            13.085,
+            13.085
           ],
           "part": "part_0019",
+          "rotate": 135.0,
           "source_index": 2
         },
         {
           "at": [
-            34.832451041,
-            13.167548959
+            34.915,
+            13.085
           ],
           "part": "part_0019",
-          "rotate": 90,
+          "rotate": 225.0,
           "source_index": 3
         },
         {
@@ -397,10 +402,11 @@
         },
         {
           "at": [
-            9.0,
-            10.0
+            11.0,
+            26.5
           ],
-          "part": "part_0029",
+          "part": "part_0012",
+          "rotate": 90.0,
           "source_index": 6
         }
       ]
@@ -413,6 +419,7 @@
             7.965
           ],
           "part": "part_0030",
+          "rotate": 90.0,
           "source_index": 0
         },
         {
@@ -421,24 +428,25 @@
             39.995
           ],
           "part": "part_0030",
-          "rotate": 0,
+          "rotate": 90.0,
           "source_index": 1
         },
         {
           "at": [
-            12.684524398,
-            12.651474995
+            12.685,
+            12.655
           ],
-          "part": "part_0032",
+          "part": "part_0030",
+          "rotate": 225.0,
           "source_index": 2
         },
         {
           "at": [
-            35.331480336,
-            35.299257623
+            35.33,
+            35.3
           ],
-          "part": "part_0032",
-          "rotate": 0.0,
+          "part": "part_0030",
+          "rotate": 225.038,
           "source_index": 3
         },
         {
@@ -446,35 +454,33 @@
             35.115,
             12.855
           ],
-          "part": "part_0032",
-          "rotate": 90,
+          "part": "part_0030",
+          "rotate": 315.0,
           "source_index": 4
         },
         {
           "at": [
-            12.635732965,
-            35.336485435
+            12.635,
+            35.335
           ],
-          "part": "part_0032",
-          "rotate": 270,
+          "part": "part_0030",
+          "rotate": 315.0,
           "source_index": 5
         },
         {
           "at": [
-            40.0,
-            23.985
+            33.79,
+            21.32
           ],
           "part": "part_0030",
-          "rotate": 90,
           "source_index": 6
         },
         {
           "at": [
-            8.005,
-            23.985
+            1.79,
+            21.32
           ],
           "part": "part_0030",
-          "rotate": 90,
           "source_index": 7
         }
       ]
@@ -491,10 +497,11 @@
         },
         {
           "at": [
-            5.0,
-            28.0
+            7.0,
+            35.5
           ],
           "part": "part_0038",
+          "rotate": 90.0,
           "source_index": 1
         },
         {
@@ -527,20 +534,20 @@
       "instances": [
         {
           "at": [
-            13.167548959,
-            13.167548959
+            13.085,
+            13.085
           ],
           "part": "part_0019",
-          "rotate": 0,
+          "rotate": 135.0,
           "source_index": 0
         },
         {
           "at": [
-            34.832451041,
-            13.167548959
+            34.915,
+            13.085
           ],
           "part": "part_0019",
-          "rotate": 90,
+          "rotate": 225.0,
           "source_index": 1
         },
         {
@@ -569,10 +576,11 @@
         },
         {
           "at": [
-            3.99,
-            13.88
+            13.965,
+            23.855
           ],
           "part": "part_0044",
+          "rotate": 135.0,
           "source_index": 5
         }
       ]
@@ -678,10 +686,11 @@
         },
         {
           "at": [
-            19.929626587,
-            13.248554134
+            31.671134688,
+            24.990062236
           ],
           "part": "part_0053",
+          "rotate": 315.0,
           "source_index": 1
         },
         {
@@ -715,10 +724,11 @@
       "instances": [
         {
           "at": [
-            24.0,
-            32.03
+            26.67,
+            37.35
           ],
           "part": "part_0057",
+          "rotate": 270.0,
           "source_index": 0
         },
         {
@@ -742,7 +752,7 @@
             16.0,
             21.33
           ],
-          "part": "part_0060",
+          "part": "part_0023",
           "source_index": 3
         }
       ]
@@ -874,64 +884,42 @@
         30.21,
         35.56
       ],
-      "geometry": {
-        "format": "wkb_hex",
-        "value": "010300000001000000050000000000000000000000608FC2F5285C15400000000000802E40608FC2F5285C154048E17A14AEC7314000000000000000008014AE47E17AFC3F00000000000000000000000000000000608FC2F5285C1540"
-      },
-      "kind": "polygon",
+      "height": 5.34,
+      "kind": "rect",
       "print": {
-        "min_feature": 5.63
+        "min_feature": 5.34
       },
       "source_primitives": [
         {
           "icon": "Visit_Icon_DestinationBuilding",
           "index": 1
         }
-      ]
+      ],
+      "width": 17.78
     },
     "part_0005": {
       "bounds": [
         33.77,
         5.34,
-        46.64,
-        20.44
+        52.920210000000004,
+        10.532413
       ],
-      "geometry": {
-        "format": "wkb_hex",
-        "value": "01030000000100000005000000F0285C8FC2F516403433333333332E403C0AD7A370BD2940000000000000000080EB51B81E851C40000000000000000000000000000000003433333333332E40F0285C8FC2F516403433333333332E40"
-      },
-      "kind": "polygon",
+      "height": 5.192413,
+      "kind": "rect",
       "print": {
-        "min_feature": 5.74
+        "min_feature": 5.192413
       },
       "source_primitives": [
         {
           "icon": "Visit_Icon_DestinationBuilding",
           "index": 2
-        }
-      ]
-    },
-    "part_0006": {
-      "bounds": [
-        28.03,
-        20.44,
-        40.89,
-        35.55
-      ],
-      "geometry": {
-        "format": "wkb_hex",
-        "value": "01030000000100000005000000000000000000000000000000000000007814AE47E17A1C40B61E85EB51382E40B81E85EB51B82940B61E85EB51382E40F8285C8FC2F51640000000000000000000000000000000000000000000000000"
-      },
-      "kind": "polygon",
-      "print": {
-        "min_feature": 5.74
-      },
-      "source_primitives": [
+        },
         {
           "icon": "Visit_Icon_DestinationBuilding",
           "index": 3
         }
-      ]
+      ],
+      "width": 19.15021
     },
     "part_0007": {
       "bounds": [
@@ -1003,6 +991,10 @@
         {
           "icon": "Visit_Icon_Ferry operator",
           "index": 0
+        },
+        {
+          "icon": "Visit_Icon_Hotel",
+          "index": 6
         }
       ],
       "width": 33.0
@@ -1034,20 +1026,18 @@
         43.0,
         43.0
       ],
-      "geometry": {
-        "format": "wkb_hex",
-        "value": "01030000000100000005000000000000000000000014AE47E17AD43340A0703D0AD7A3164014AE47E17AD4334014AE47E17AD43340A0703D0AD7A3164014AE47E17AD433400000000000000000000000000000000014AE47E17AD43340"
-      },
-      "kind": "polygon",
+      "height": 4.002224,
+      "kind": "rect",
       "print": {
-        "min_feature": 5.66
+        "min_feature": 4.002224
       },
       "source_primitives": [
         {
           "icon": "Visit_Icon_Ferry operator",
           "index": 2
         }
-      ]
+      ],
+      "width": 28.043855
     },
     "part_0015": {
       "bounds": [
@@ -1151,16 +1141,13 @@
       "bounds": [
         5.0,
         5.0,
-        24.0,
-        24.0
+        31.870058,
+        9.002224
       ],
-      "geometry": {
-        "format": "wkb_hex",
-        "value": "010300000001000000050000001E9326FAC85520C02069750197B014401E9326FAC85520C0E26CD90537AA2540E26CD90537AA25401E9326FAC85520C02069750197B014401E9326FAC85520C01E9326FAC85520C02069750197B01440"
-      },
-      "kind": "polygon",
+      "height": 4.002224,
+      "kind": "rect",
       "print": {
-        "min_feature": 5.66
+        "min_feature": 4.002224
       },
       "source_primitives": [
         {
@@ -1179,7 +1166,8 @@
           "icon": "Visit_Icon_Ski resort",
           "index": 1
         }
-      ]
+      ],
+      "width": 26.870058
     },
     "part_0021": {
       "bounds": [
@@ -1269,10 +1257,10 @@
       "bounds": [
         21.33,
         21.33,
-        26.66,
-        26.66
+        26.659999999999997,
+        26.669999999999998
       ],
-      "height": 5.33,
+      "height": 5.34,
       "kind": "rect",
       "print": {
         "min_feature": 5.33
@@ -1281,6 +1269,10 @@
         {
           "icon": "Visit_Icon_Hospitality",
           "index": 0
+        },
+        {
+          "icon": "Visit_Icon_VacationRental",
+          "index": 3
         }
       ],
       "width": 5.33
@@ -1311,42 +1303,17 @@
         }
       ]
     },
-    "part_0029": {
-      "bounds": [
-        9.0,
-        10.0,
-        13.0,
-        43.0
-      ],
-      "geometry": {
-        "format": "wkb_hex",
-        "value": "010300000001000000050000000000000000000000000000000080404000000000000010400000000000804040000000000000104000000000000000000000000000000000000000000000104000000000000000000000000000804040"
-      },
-      "kind": "polygon",
-      "print": {
-        "min_feature": 4.0
-      },
-      "source_primitives": [
-        {
-          "icon": "Visit_Icon_Hotel",
-          "index": 6
-        }
-      ]
-    },
     "part_0030": {
       "bounds": [
         21.33,
         1.7,
-        26.66,
-        14.23
+        33.86,
+        7.045727
       ],
-      "geometry": {
-        "format": "wkb_hex",
-        "value": "0103000000010000000500000054B81E85EB5105C07C14AE47E1FA114054B81E85EB51054090C2F5285C0F194054B81E85EB5105407B14AE47E1FA11C054B81E85EB5105C090C2F5285C0F19C054B81E85EB5105C07C14AE47E1FA1140"
-      },
-      "kind": "polygon",
+      "height": 5.345727,
+      "kind": "rect",
       "print": {
-        "min_feature": 5.62
+        "min_feature": 5.345727
       },
       "source_primitives": [
         {
@@ -1357,32 +1324,6 @@
           "icon": "Visit_Icon_Platform",
           "index": 1
         },
-        {
-          "icon": "Visit_Icon_Platform",
-          "index": 6
-        },
-        {
-          "icon": "Visit_Icon_Platform",
-          "index": 7
-        }
-      ]
-    },
-    "part_0032": {
-      "bounds": [
-        6.37,
-        7.59,
-        19.0,
-        17.71
-      ],
-      "geometry": {
-        "format": "wkb_hex",
-        "value": "010300000001000000050000005DC304AF124219C092B88FD7F05404C050E815A044BAF43F1F8A9EFAED3B144027284D090C4319402666F513616304402055F4365FB6F4BF5D8A0F4DF33E14C05DC304AF124219C092B88FD7F05404C0"
-      },
-      "kind": "polygon",
-      "print": {
-        "min_feature": 5.61
-      },
-      "source_primitives": [
         {
           "icon": "Visit_Icon_Platform",
           "index": 2
@@ -1398,8 +1339,17 @@
         {
           "icon": "Visit_Icon_Platform",
           "index": 5
+        },
+        {
+          "icon": "Visit_Icon_Platform",
+          "index": 6
+        },
+        {
+          "icon": "Visit_Icon_Platform",
+          "index": 7
         }
-      ]
+      ],
+      "width": 12.53
     },
     "part_0038": {
       "bounds": [
@@ -1408,11 +1358,8 @@
         9.0,
         43.0
       ],
-      "geometry": {
-        "format": "wkb_hex",
-        "value": "0103000000010000000500000000000000000000000000000000002E4000000000000010400000000000002E40000000000000104000000000000000000000000000000000000000000000104000000000000000000000000000002E40"
-      },
-      "kind": "polygon",
+      "height": 4.0,
+      "kind": "rect",
       "print": {
         "min_feature": 4.0
       },
@@ -1421,7 +1368,8 @@
           "icon": "Visit_Icon_Resort",
           "index": 1
         }
-      ]
+      ],
+      "width": 15.0
     },
     "part_0039": {
       "bounds": [
@@ -1496,20 +1444,18 @@
         23.94,
         31.0
       ],
-      "geometry": {
-        "format": "wkb_hex",
-        "value": "010300000001000000050000003433333333F33340A4703D0AD7A306401E85EB51B81E3140000000000000000000000000000000001E85EB51B81E3140A4703D0AD7A316401E85EB51B81E31403433333333F33340A4703D0AD7A30640"
-      },
-      "kind": "polygon",
+      "height": 4.002224,
+      "kind": "rect",
       "print": {
-        "min_feature": 4.0
+        "min_feature": 4.002224
       },
       "source_primitives": [
         {
           "icon": "Visit_Icon_Ski resort",
           "index": 5
         }
-      ]
+      ],
+      "width": 24.211336
     },
     "part_0045": {
       "bounds": [
@@ -1606,11 +1552,8 @@
         38.0,
         21.0
       ],
-      "geometry": {
-        "format": "wkb_hex",
-        "value": "010300000001000000050000000000000000000000000000000000104000000000000026400000000000001040000000000000264000000000000000000000000000000840000000000000000000000000000000000000000000001040"
-      },
-      "kind": "polygon",
+      "height": 4.0,
+      "kind": "rect",
       "print": {
         "min_feature": 4.0
       },
@@ -1619,7 +1562,8 @@
           "icon": "Visit_Icon_Tour operator",
           "index": 4
         }
-      ]
+      ],
+      "width": 11.0
     },
     "part_0051": {
       "bounds": [
@@ -1672,11 +1616,8 @@
         43.41264279,
         36.731570337
       ],
-      "geometry": {
-        "format": "wkb_hex",
-        "value": "0103000000010000000500000000000000507300BECE335C2693A734407C3E5A2693A73440000000008018B9BDF6252AF3A67B374004737E669EA0064070C86E669EA00640481B2CF3A67B374000000000507300BECE335C2693A73440"
-      },
-      "kind": "bar",
+      "height": 4.0,
+      "kind": "rect",
       "print": {
         "min_feature": 4.0
       },
@@ -1685,7 +1626,8 @@
           "icon": "Visit_Icon_Travel agent",
           "index": 1
         }
-      ]
+      ],
+      "width": 29.21
     },
     "part_0054": {
       "bounds": [
@@ -1742,11 +1684,8 @@
         29.34,
         42.67
       ],
-      "geometry": {
-        "format": "wkb_hex",
-        "value": "01030000000100000005000000000000000000000048E17A14AE4725405C8FC2F5285C154048E17A14AE4725405C8FC2F5285C1540E0A3703D0AD7FB3F00000000000000000000000000000000000000000000000048E17A14AE472540"
-      },
-      "kind": "polygon",
+      "height": 5.34,
+      "kind": "rect",
       "print": {
         "min_feature": 5.34
       },
@@ -1755,7 +1694,8 @@
           "icon": "Visit_Icon_VacationRental",
           "index": 0
         }
-      ]
+      ],
+      "width": 10.64
     },
     "part_0058": {
       "bounds": [
@@ -1798,26 +1738,6 @@
           "index": 2
         }
       ]
-    },
-    "part_0060": {
-      "bounds": [
-        16.0,
-        21.33,
-        21.33,
-        26.67
-      ],
-      "height": 5.34,
-      "kind": "rect",
-      "print": {
-        "min_feature": 5.33
-      },
-      "source_primitives": [
-        {
-          "icon": "Visit_Icon_VacationRental",
-          "index": 3
-        }
-      ],
-      "width": 5.33
     }
   },
   "schema": "visit.icon-parts.v1",

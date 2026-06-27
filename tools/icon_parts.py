@@ -395,8 +395,7 @@ def reconstruct_icon(
 ) -> tuple[object, list[dict]]:
     """Reconstruct icon geometry from instances. Returns (unioned_geometry, instance_details).
 
-    Supports both min_corner anchor (no rotation) and centroid anchor (with rotation).
-    Anchor is detected from instance: if "rotate" present, uses centroid anchor.
+    Supports both min_corner anchor (no rotate field) and centroid anchor (rotate present, even 0.0).
     """
     instance_geoms = []
     details = []
@@ -624,6 +623,78 @@ def part_geometry(part_def: dict, anchor: str = "min_corner") -> object:
     return part_to_geometry(part_def, anchor=anchor)
 
 
+# ---- oriented bounding-box rect fitting ----
+
+
+def decompose_oriented_rect_fit(spec: dict, coverage_threshold: float = 0.85) -> dict:
+    """Replace polygon/bar/custom parts with their tightest oriented bounding-box rect
+    when the part's area covers >= coverage_threshold of the bounding box.
+
+    Parts that are already rect-like become deduplicable oriented rects.
+    Complex shapes (low coverage) are left unchanged.
+    """
+    import math
+
+    spec = deep_copy_spec(spec)
+    parts = spec["parts"]
+
+    for pid, pdef in list(parts.items()):
+        if pdef["kind"] == "rect":
+            continue
+        geom = part_geometry(pdef, anchor="min_corner")
+        if geom.is_empty or geom.area == 0:
+            continue
+        obb = geom.minimum_rotated_rectangle
+        polygon_area = geom.area
+        obb_area = obb.area
+        if obb_area == 0:
+            continue
+        coverage = polygon_area / obb_area
+        if coverage < coverage_threshold:
+            continue
+
+        obb_coords = list(obb.exterior.coords)
+        if len(obb_coords) < 5:
+            continue
+        x0, y0 = obb_coords[0]
+        x1, y1 = obb_coords[1]
+        x3, y3 = obb_coords[3]
+        w = math.hypot(x1 - x0, y1 - y0)
+        h = math.hypot(x3 - x0, y3 - y0)
+        angle = math.degrees(math.atan2(y1 - y0, x1 - x0))
+        if angle < -0.01:
+            angle += 360
+
+        cx, cy = obb.centroid.x, obb.centroid.y
+        pdef["kind"] = "rect"
+        pdef["width"] = round(w, 6)
+        pdef["height"] = round(h, 6)
+        pdef["print"]["min_feature"] = round(min(w, h), 6)
+        pdef.pop("geometry", None)
+
+        use_rotation = abs(angle) > 0.01
+
+        for icon_spec in spec["icons"].values():
+            for inst in icon_spec["instances"]:
+                if inst["part"] != pid:
+                    continue
+                if use_rotation:
+                    # OBB centroid is in canonical space; convert to SVG space
+                    svg_cx = inst["at"][0] + cx
+                    svg_cy = inst["at"][1] + cy
+                    inst["at"] = [round(svg_cx, 9), round(svg_cy, 9)]
+                    inst["rotate"] = round(angle, 3)
+                else:
+                    svg_mx = inst["at"][0] + obb.bounds[0]
+                    svg_my = inst["at"][1] + obb.bounds[1]
+                    inst["at"] = [round(svg_mx, 9), round(svg_my, 9)]
+
+        if "allowed_transforms" in spec and use_rotation:
+            spec["allowed_transforms"]["rotate"] = True
+
+    return spec
+
+
 def decompose_polygons_to_bbox_rects(spec: dict) -> dict:
     """Replace every polygon/bar/custom_polygon part with its bounding-box rect.
 
@@ -829,9 +900,10 @@ def cluster_polygons_by_hausdorff(
     return result_clusters, member_rotation if allow_rotation else None
 
 
-def _convert_to_centroid_anchor(spec: dict) -> dict:
-    """Convert polygon/bar/custom parts to centroid-anchored geometry.
+def _convert_to_centroid_anchor(spec: dict, part_ids: set[str] | None = None) -> dict:
+    """Convert specified polygon/bar/custom parts to centroid-anchored geometry.
 
+    If part_ids is None, converts ALL non-rect parts.
     Updates part geometry to be centroid-centered and recalculates all instance
     'at' positions from min-corner to centroid coordinates.
     """
@@ -841,6 +913,8 @@ def _convert_to_centroid_anchor(spec: dict) -> dict:
     centroid_offsets: dict[str, tuple[float, float]] = {}
     for pid, pdef in parts.items():
         if pdef["kind"] == "rect":
+            continue
+        if part_ids is not None and pid not in part_ids:
             continue
         geom = part_geometry(pdef, anchor="min_corner")
         cx, cy = geom.centroid.x, geom.centroid.y
@@ -859,7 +933,8 @@ def _convert_to_centroid_anchor(spec: dict) -> dict:
                 round(inst["at"][1] + oy, 9),
             ]
 
-    spec["allowed_transforms"]["rotate"] = True
+    if part_ids is None:
+        spec["allowed_transforms"]["rotate"] = True
     return spec
 
 
@@ -875,7 +950,8 @@ def merge_polygon_clusters(
     use_rotation = rotations is not None
 
     if use_rotation:
-        spec = _convert_to_centroid_anchor(spec)
+        all_clustered = {pid for cluster in clusters for pid in cluster}
+        spec = _convert_to_centroid_anchor(spec, part_ids=all_clustered)
 
     spec = deep_copy_spec(spec)
     parts = spec["parts"]
@@ -918,8 +994,7 @@ def merge_polygon_clusters(
                 inst["part"] = best
                 if use_rotation:
                     angle = keeper_rots.get(old_pid, 0.0)
-                    if abs(angle) > 0.01:
-                        inst["rotate"] = round(angle, 3)
+                    inst["rotate"] = round(angle, 3)
 
     return spec
 
@@ -1033,6 +1108,24 @@ def simplify_command(args: argparse.Namespace) -> int:
                 {"rect_clusters": len(rect_clusters), "poly_clusters": len(poly_clusters)},
             )
 
+    # ---- oriented bounding-box rect fitting ----
+    if not args.no_oriented_rect:
+        for threshold in args.oriented_rect_thresholds or [0.85, 0.90, 0.95]:
+            oriented_spec = decompose_oriented_rect_fit(spec, coverage_threshold=threshold)
+            # After converting rect-like polys to rects, run rect clustering to deduplicate
+            rect_clusters = cluster_rects_by_size(oriented_spec["parts"], 1.0)
+            if rect_clusters:
+                oriented_spec = merge_rect_clusters(oriented_spec, rect_clusters)
+            # Then run polygon Hausdorff with rotation on remaining polygons
+            poly_clusters, poly_rot = cluster_polygons_by_hausdorff(
+                oriented_spec["parts"], 0.5, allow_rotation=True
+            )
+            if poly_clusters:
+                oriented_spec = merge_polygon_clusters(
+                    oriented_spec, poly_clusters, rotations=poly_rot
+                )
+            _log_candidate(oriented_spec, f"oriented_rect_fit_{threshold}")
+
     # ---- bounding-box decomposition (radical) ----
     if not args.no_bbox_decompose:
         bbox_spec = decompose_polygons_to_bbox_rects_fixed(spec)
@@ -1096,6 +1189,8 @@ def build_parser() -> argparse.ArgumentParser:
     simp.add_argument("--polygon-tolerances", nargs="*", type=float, help="Hausdorff tolerance steps for polygon merging")
     simp.add_argument("--no-bbox-decompose", action="store_true", help="Skip bounding-box decomposition")
     simp.add_argument("--no-rotation", action="store_true", help="Skip rotated polygon comparison")
+    simp.add_argument("--no-oriented-rect", action="store_true", help="Skip oriented bounding-box rect fitting")
+    simp.add_argument("--oriented-rect-thresholds", nargs="*", type=float, help="Coverage thresholds for oriented rect fit (default: 0.85 0.90 0.95)")
     simp.set_defaults(func=simplify_command)
 
     return parser

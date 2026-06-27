@@ -1,7 +1,7 @@
 {
   "allowed_transforms": {
     "mirror": false,
-    "rotate": false,
+    "rotate": true,
     "scale": false,
     "translate": true
   },
@@ -678,10 +678,11 @@
         },
         {
           "at": [
-            19.929626587,
-            13.248554134
+            31.671134688,
+            24.990062236
           ],
           "part": "part_0053",
+          "rotate": 315.0,
           "source_index": 1
         },
         {
@@ -742,7 +743,7 @@
             16.0,
             21.33
           ],
-          "part": "part_0060",
+          "part": "part_0023",
           "source_index": 3
         }
       ]
@@ -1269,10 +1270,10 @@
       "bounds": [
         21.33,
         21.33,
-        26.66,
-        26.66
+        26.659999999999997,
+        26.669999999999998
       ],
-      "height": 5.33,
+      "height": 5.34,
       "kind": "rect",
       "print": {
         "min_feature": 5.33
@@ -1281,6 +1282,10 @@
         {
           "icon": "Visit_Icon_Hospitality",
           "index": 0
+        },
+        {
+          "icon": "Visit_Icon_VacationRental",
+          "index": 3
         }
       ],
       "width": 5.33
@@ -1672,11 +1677,8 @@
         43.41264279,
         36.731570337
       ],
-      "geometry": {
-        "format": "wkb_hex",
-        "value": "0103000000010000000500000000000000507300BECE335C2693A734407C3E5A2693A73440000000008018B9BDF6252AF3A67B374004737E669EA0064070C86E669EA00640481B2CF3A67B374000000000507300BECE335C2693A73440"
-      },
-      "kind": "bar",
+      "height": 4.0,
+      "kind": "rect",
       "print": {
         "min_feature": 4.0
       },
@@ -1685,7 +1687,8 @@
           "icon": "Visit_Icon_Travel agent",
           "index": 1
         }
-      ]
+      ],
+      "width": 29.21
     },
     "part_0054": {
       "bounds": [
@@ -1798,26 +1801,6 @@
           "index": 2
         }
       ]
-    },
-    "part_0060": {
-      "bounds": [
-        16.0,
-        21.33,
-        21.33,
-        26.67
-      ],
-      "height": 5.34,
-      "kind": "rect",
-      "print": {
-        "min_feature": 5.33
-      },
-      "source_primitives": [
-        {
-          "icon": "Visit_Icon_VacationRental",
-          "index": 3
-        }
-      ],
-      "width": 5.33
     }
   },
   "schema": "visit.icon-parts.v1",
