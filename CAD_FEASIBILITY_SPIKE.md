@@ -93,7 +93,7 @@ reference geometry is broadly compatible with the build123d sketch-to-STEP path.
 ## Follow-Up Questions
 
 - Does the generated STEP open cleanly in FreeCAD?
-- Does the generated STEP import cleanly in UltiMaker Cura?
-- Does Cura preserve separate STEP bodies/parts well enough for the employee workflow?
+- Does the generated STEP import cleanly in PrusaSlicer?
+- Does PrusaSlicer preserve separate STEP bodies/parts well enough for the employee workflow?
 - Should the front icon be one combined solid or separate STEP bodies per physical snap-in part?
 - How should wall thickness and hollow translucent parts be represented before the part-library split exists?

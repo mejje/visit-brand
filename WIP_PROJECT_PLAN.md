@@ -125,8 +125,9 @@ Detailed implementation spike: `CAD_FEASIBILITY_SPIKE.md`
 - **RESEARCH TODO:** Prototype one backplate and one hollow front part in CadQuery.
 - **RESEARCH TODO:** Prototype the same part in build123d.
 - **RESEARCH TODO:** Compare Shapely polygon import, offsetting, shelling, fillets/chamfers, STEP part export, STEP assembly export, STEP re-import, and CLI automation.
-- **RESEARCH TODO:** Validate generated STEP files in **UltiMaker Cura** as the only supported slicer workflow for the maker guide. Cura is free/open-source, widely used across third-party printers, and current UltiMaker docs list STEP/IGES-compatible input: <https://ultimaker.com/software/ultimaker-cura/>, <https://support.makerbot.com/s/article/1667337565297>.
-- **RESEARCH TODO:** Confirm whether Cura preserves separate STEP bodies/parts well enough for the employee workflow.
+- **RESEARCH TODO:** Validate generated STEP files in **PrusaSlicer** as the only supported slicer workflow for the maker guide. PrusaSlicer is free/open-source, cross-platform, documents native STEP import, and includes/imports third-party printer profiles: <https://www.prusa3d.com/p/prusaslicer/>, <https://help.prusa3d.com/article/supported-file-formats_1772>, <https://help.prusa3d.com/article/profiles-for-3rd-party-printers_246178>.
+- **RESEARCH TODO:** Confirm whether PrusaSlicer preserves separate STEP bodies/parts well enough for the employee workflow.
+- **RESEARCH NOTE:** Do not use UltiMaker Cura as the supported slicer workflow unless native free STEP support is confirmed. Current UltiMaker documentation describes CAD file import through an UltiMaker Cura CAD plugin/subscription workflow, which is not acceptable for this project: <https://support.makerbot.com/s/article/1667412730014>.
 - **RESEARCH TODO:** Decide the production CAD stack after prototype evidence, not preference.
 - **RESEARCH TODO:** Document that non-STEP CAD exports are out of scope unless a future explicit requirement overrides the STEP-only decision.
 
@@ -275,7 +276,7 @@ Detailed implementation plan: `REFERENCE_RENDERING_PLAN.md`
 - [ ] Generate one STEP backplate and one STEP translucent front icon from source geometry.
 - [ ] Add editable extrusion-depth and wall-thickness parameters.
 - [ ] Validate STEP re-import in FreeCAD or another CAD viewer.
-- [ ] Validate UltiMaker Cura STEP import before any physical print.
+- [ ] Validate PrusaSlicer STEP import before any physical print.
 - [ ] Print snap-fit coupons.
 - [ ] Print one complete small icon.
 - [ ] Record printer, filament, nozzle, layer height, clearances, and fit outcome.
@@ -321,12 +322,12 @@ Required docs:
 - **Customization:** edit parameter file, regenerate STEP files, import them into the slicer, and print larger versions.
 - **Maker Workshop:** suggested agenda, shared printer workflow, group assembly session, safety notes.
 
-Supported slicer workflow: document **UltiMaker Cura** only, using it as the public-printer baseline for STEP import, printer profile selection, slicing, and troubleshooting.
+Supported slicer workflow: document **PrusaSlicer** only, using it as the public-printer baseline for native STEP import, printer profile selection, slicing, and troubleshooting.
 
 ## Risks And Unknowns
 
 - Snap-fit tolerances vary heavily by printer, material, nozzle, temperature, and slicer settings.
-- STEP import quality may vary by slicer; the project should validate UltiMaker Cura before promising employee-friendly printing.
+- STEP import quality may vary by slicer; the project should validate PrusaSlicer before promising employee-friendly printing.
 - Translucent white filament may look too opaque unless wall thickness and infill are tuned.
 - Hollow translucent parts may need drain/vent holes, support strategy, or minimum face thickness rules.
 - Nails may be unsuitable for some cubicle walls or workplace policies.
