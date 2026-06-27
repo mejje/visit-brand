@@ -277,11 +277,63 @@ Recommended progression:
 Initial recommendation:
 
 ```text
-Phase 1: custom deterministic evaluator + greedy/local search
-Phase 2: pymoo NSGA-II for Pareto search
+Phase 1: custom deterministic evaluator + greedy/local search      COMPLETE
+Phase 2: pymoo NSGA-II for Pareto search                          NEXT
 Phase 3: OR-Tools CP-SAT for finite discrete subproblems
 Phase 4: SciPy for continuous tuning only where useful
 ```
+
+Do not start by hand-writing a full genetic algorithm. First make candidate scoring, caching, visualization, and reproducibility solid; then plug in the optimizer.
+
+
+## pymoo Integration Plan
+
+### What pymoo searches over
+
+The greedy pass (Phase 1) explored merging existing parts — merging similar rects, clustering similar polygons, and sharing parts across icons via rotation. Phase 1 found a strong baseline: **42 parts at 0.075% error**.
+
+pymoo adds value by searching over a **larger candidate pool** that includes decomposed sub-parts. Instead of deciding *which existing polygons to merge*, pymoo decides *which decomposition of each polygon into smaller primitives* produces the smallest shared part library.
+
+### Candidate generation (pre-processing, not pymoo's job)
+
+Before pymoo runs, each polygon in the exact baseline is decomposed into candidate representations:
+
+1. **As-is**: the original polygon (default, always available).
+2. **Grid-split**: divide the polygon's bounding box into a 2x2 grid of rects. Keep only rects whose area falls inside the polygon.
+3. **Strip-split**: split along the polygon's dominant axis into 2-4 equal-width strips.
+4. **Inscribed-rect**: extract the largest axis-aligned rectangle fully contained within the polygon. The remainder becomes a second polygon part.
+
+Each decomposition is scored individually (via the existing `score_spec` loop) and contributes candidate parts to the pool. Some decompositions will be rejected outright if they increase visual error beyond a threshold.
+
+### pymoo chromosome
+
+The chromosome is a **composition vector** over the candidate pool:
+
+- For each distinct part candidate (including all decomposition options), a binary gene: **include** (1) or **exclude** (0).
+- For each icon instance, if the original part was decomposed, the chromosome also encodes which decomposition option to use (an integer gene per instance).
+
+This gives pymoo two kinds of decisions:
+1. **Part selection**: which candidate parts go into the final kit.
+2. **Instance assignment**: for icon positions with multiple decomposition options, which option is used.
+
+### Objectives and constraints
+
+pymoo uses NSGA-II with these objectives to **minimize**:
+
+1. `unique_part_count` — number of distinct parts in the kit.
+2. `placed_instance_count` — total number of pieces employees must snap in.
+3. `area_error_ratio` — Shapely symmetric-difference area vs reference, summed across all 14 icons.
+4. `worst_icon_hausdorff` — worst-case Hausdorff distance across all icons (prevents one icon being ruined).
+
+**Constraints** (hard requirements):
+- Every icon must be fully reconstructable (no missing instances).
+- Minimum feature size: all parts must be printable (min dimension >= threshold).
+
+### Why decomposition belongs pre-pymoo, not inside pymoo
+
+pymoo is an evolutionary algorithm — it mutates and crosses over chromosomes. If decomposition decisions are in the chromosome, pymoo would need to generate and score arbitrary polygon splits at every generation, which is extremely slow (each Shapely score takes ~100ms per icon set).
+
+Instead, pre-generate a finite set of decomposition candidates (maybe 2-5 per complex polygon), pre-score each at the individual-part level, and let pymoo's chromosome simply select which pre-computed candidates to include. This keeps the black-box evaluation fast and the search space bounded.
 
 Do not start by hand-writing a full genetic algorithm. First make candidate scoring, caching, visualization, and reproducibility solid; then plug in the optimizer.
 

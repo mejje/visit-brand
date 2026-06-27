@@ -302,13 +302,13 @@ Tool: `tools/icon_parts.py` (bootstrap, render, score subcommands)
 - [x] Run greedy/local simplification via `tools/icon_parts.py simplify`:
   - Rect size merging: saves 1 part (61→60), near-zero error.
   - Polygon Hausdorff merging: saves 12 parts (61→49), 0.05% error, worst icon 0.44%.
-  - **Polygon Hausdorff + rotation**: saves 19 parts (61→42), 0.075% error, worst icon 0.78%.
+  - Polygon Hausdorff + rotation: saves 19 parts (61→42), 0.075% error, worst icon 0.78%.
   - Combined rect+polygon_rot: 41 parts at 0.076% error.
-  - 6 rotation-aware cross-icon clusters found (Platform self-symmetry, Experiences↔Hospitality↔Platform, Ferry↔Ski resort, Travel agent↔Tour operator).
+  - 6 rotation-aware cross-icon clusters found.
 - [x] Log Pareto rows per candidate (`analysis/runs/simplify/pareto.jsonl`).
 - [x] Allow rotation in part placements (centroid anchoring, 0/90/180/270 degree rotations).
-- [ ] Implement sub-part decomposition (split large polygons into shared rects/bars/strokes).
-- [ ] Run pymoo NSGA-II multi-objective search.
+- [ ] Pre-generate polygon decomposition candidates (grid-split, strip-split, inscribed-rect).
+- [ ] Build pymoo NSGA-II pipeline: chromosome selects which candidate parts to include and which decomposition per instance. Objectives: minimize unique parts, placed instances, area error, worst-icon Hausdorff.
 - [ ] Generate Pareto frontier reports.
 - [ ] Review trade-offs with brand/design stakeholders.
 - [ ] Select a recommended part library for physical testing.
@@ -361,8 +361,8 @@ Completed:
 5. ~~Greedy simplification~~ → Done: 61→42 parts (31% reduction) at 0.075% area error via rect merge + polygon Hausdorff + rotation clustering.
 
 Current priorities:
-- **Sub-part decomposition**: split large polygons into shared rects/bars/strokes (Stage 6 continued).
-- **pymoo NSGA-II**: multi-objective Pareto search over the stable candidate space.
+- **Polygon decomposition candidate generation**: grid-split, strip-split, inscribed-rect pre-processing.
+- **pymoo NSGA-II**: chromosome selects from the pre-generated candidate pool; multi-objective Pareto search.
 - **Physical prototype**: print snap-fit coupons, validate PrusaSlicer STEP import.
 - **Design review** with facilities/brand/design before locking mounting and visual tolerance decisions.
 
