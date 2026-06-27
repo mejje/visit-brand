@@ -1,7 +1,7 @@
 {
   "allowed_transforms": {
     "mirror": false,
-    "rotate": false,
+    "rotate": true,
     "scale": false,
     "translate": true
   },

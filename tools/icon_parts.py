@@ -876,8 +876,8 @@ def _convert_to_centroid_anchor(spec: dict, part_ids: set[str] | None = None) ->
                 round(inst["at"][1] + oy, 9),
             ]
 
-    if part_ids is None:
-        spec["allowed_transforms"]["rotate"] = True
+    if centroid_offsets:
+        spec.setdefault("allowed_transforms", {})["rotate"] = True
     return spec
 
 
