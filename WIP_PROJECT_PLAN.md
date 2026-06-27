@@ -303,12 +303,11 @@ Tool: `tools/icon_parts.py` (bootstrap, render, score subcommands)
   - Rect size merging: saves 1 part (61→60), near-zero error.
   - Polygon Hausdorff merging: saves 12 parts (61→49), 0.05% error, worst icon 0.44%.
   - **Polygon Hausdorff + rotation**: saves 19 parts (61→42), 0.075% error, worst icon 0.78%.
-  - Bounding-box decomposition: 52 parts but 130% error (rejected).
   - Combined rect+polygon_rot: 41 parts at 0.076% error.
   - 6 rotation-aware cross-icon clusters found (Platform self-symmetry, Experiences↔Hospitality↔Platform, Ferry↔Ski resort, Travel agent↔Tour operator).
 - [x] Log Pareto rows per candidate (`analysis/runs/simplify/pareto.jsonl`).
 - [x] Allow rotation in part placements (centroid anchoring, 0/90/180/270 degree rotations).
-- [ ] Run sub-part decomposition (split large polygons into shared rects/bars/strokes).
+- [ ] Implement sub-part decomposition (split large polygons into shared rects/bars/strokes).
 - [ ] Run pymoo NSGA-II multi-objective search.
 - [ ] Generate Pareto frontier reports.
 - [ ] Review trade-offs with brand/design stakeholders.
