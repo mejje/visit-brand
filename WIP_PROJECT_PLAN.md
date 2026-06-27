@@ -219,10 +219,13 @@ analysis/
     *.reference.json
     *.canonical.svg
   runs/
-    <run>/
-      part-library.yaml
-      metrics.json
+    exact/
+      part-spec.exact.v1.json
+      svgs/
+        *.reconstructed.svg
       overlays/
+        *.overlay.svg
+      metrics.json
   reconstructed/
   reports/
 cad/
@@ -237,11 +240,10 @@ docs/
   workshop-guide.md
 tools/
   icon_reference.py
+  icon_parts.py          # bootstrap, render, score subcommands
+  export_step.py
   generate_candidates.py
   optimize_part_library.py
-  render_reconstruction.py
-  compare_geometry.py
-  export_cad.py
 ```
 
 Suggested Python libraries to evaluate:
@@ -260,22 +262,24 @@ Suggested Python libraries to evaluate:
 
 Detailed implementation plan: `REFERENCE_RENDERING_PLAN.md`
 
-- [ ] Parse every SVG.
-- [ ] Resolve style classes, fills, `viewBox`, and transforms.
-- [ ] Export generated `*.reference.json` files with source hashes, parser settings, metrics, and Shapely-compatible geometry snapshots.
-- [ ] Export normalized reference SVGs generated from reference geometry.
-- [ ] Generate canonical SVGs and overlay templates for every icon.
-- [ ] Add `manifest.json` with source hashes, generator versions, precision, and curve tolerance.
-- [ ] Add a stale-reference check command for CI.
-- [ ] Document source geometry quirks.
-- [ ] Decide curve-flattening tolerance for path-based icons.
+Tool: `tools/icon_reference.py` (build, check, verify, render subcommands)
+
+- [x] Parse every SVG (14 icons).
+- [x] Resolve style classes, fills, `viewBox`, and transforms.
+- [x] Export generated `*.reference.json` files with source hashes, parser settings, metrics, and Shapely-compatible geometry snapshots.
+- [x] Export normalized reference SVGs generated from reference geometry.
+- [x] Generate canonical SVGs and overlay templates for every icon.
+- [x] Add `manifest.json` with source hashes, generator versions, precision, and curve tolerance.
+- [x] Add a stale-reference check command for CI.
+- [x] Document source geometry quirks.
+- [x] Decide curve-flattening tolerance for path-based icons (0.02 SVG units).
 
 ### Milestone 2: First Physical Prototype
 
-- [ ] Select provisional CAD stack.
-- [ ] Generate one STEP backplate and one STEP translucent front icon from source geometry.
-- [ ] Add editable extrusion-depth and wall-thickness parameters.
-- [ ] Validate STEP re-import in FreeCAD or another CAD viewer.
+- [x] Select provisional CAD stack (build123d over CadQuery, based on STEP re-import quality).
+- [x] Generate one STEP front icon from source geometry (`tools/export_step.py`).
+- [x] Validate STEP re-import with zero volume delta.
+- [x] Add editable extrusion-depth and wall-thickness parameters.
 - [ ] Validate PrusaSlicer STEP import before any physical print.
 - [ ] Print snap-fit coupons.
 - [ ] Print one complete small icon.
@@ -283,17 +287,21 @@ Detailed implementation plan: `REFERENCE_RENDERING_PLAN.md`
 
 ### Milestone 3: Simplified Part Library Prototype
 
-- [ ] Generate exact primitive-based reconstruction for all icons as a parametric 2D part spec.
-- [ ] Generate first simplified candidate library.
-- [ ] Convert part specs into Shapely geometry for scoring.
-- [ ] Export reconstructed SVGs and overlay reports.
-- [ ] Score reference deviation with Shapely as the primary geometry kernel.
-- [ ] Create visual overlay report.
+Tool: `tools/icon_parts.py` (bootstrap, render, score subcommands)
+
+- [x] Generate exact primitive-based reconstruction for all icons as a parametric 2D part spec (61 unique parts, 83 instances).
+- [x] Deduplicate identical shapes via canonical part signatures (rects by size, polygons by WKB hash).
+- [x] Convert part specs into Shapely geometry for scoring (reconstruction from placed instances).
+- [x] Export reconstructed SVGs and overlay reports (`analysis/runs/exact/svgs/`, `overlays/`).
+- [x] Score reference deviation with Shapely: area error ~1e-17, Hausdorff 0.0, bounds delta 0.0 across all 14 icons.
+- [x] Create visual overlay report (black reference + red dashed reconstruction per icon).
 
 ### Milestone 4: Optimization Loop
 
-- [ ] Implement objective scoring.
-- [ ] Run multiple optimization strategies.
+- [x] Implement objective scoring (area error, Hausdorff, bounds delta, component delta).
+- [ ] Run greedy/local simplification (merge similar rect sizes, bar widths, polygon clusters).
+- [ ] Log Pareto rows per candidate (unique parts vs. visual error vs. placed parts).
+- [ ] Run pymoo NSGA-II multi-objective search.
 - [ ] Generate Pareto frontier reports.
 - [ ] Review trade-offs with brand/design stakeholders.
 - [ ] Select a recommended part library for physical testing.
@@ -338,10 +346,14 @@ Supported slicer workflow: document **PrusaSlicer** only, using it as the public
 
 ## Immediate Next Steps
 
-1. **RESEARCH TODO:** Pick three representative icons for prototype analysis: one rect-heavy, one polygon-heavy, and one path/curve icon.
-2. **RESEARCH TODO:** Build `tools/icon_reference.py build` for deterministic `*.reference.json`, canonical SVG, and `manifest.json`.
-3. **RESEARCH TODO:** Prototype STEP generation in CadQuery and build123d using one simple icon.
-4. **RESEARCH TODO:** Design and print snap-fit tolerance coupons.
-5. **RESEARCH TODO:** Build `tools/compare_geometry.py` with Shapely symmetric-difference area, boundary distance, bounds delta, and overlay output.
-6. **RESEARCH TODO:** Review physical assumptions with facilities/brand/design before locking mounting and visual tolerance decisions.
+Completed:
+1. ~~Pick three representative icons for prototype analysis~~ → Four icons selected: Hotel (rect-heavy), Platform (polygon-only), Amusement Park (curved path), Travel Agent (transformed rect).
+2. ~~Build `tools/icon_reference.py build`~~ → Done: 14 icons, WKB references, canonical SVGs, manifest, check/verify commands.
+3. ~~Prototype STEP generation in CadQuery and build123d~~ → Done: build123d selected, `tools/export_step.py` working with zero re-import delta.
+5. ~~Build comparison tool~~ → Done: `tools/icon_parts.py score` with area error, Hausdorff, bounds delta, component delta.
+
+Current priorities:
+- **Greedy simplification** (Stage 6 of `ICON_ANALYSIS_PLAN.md`): merge near-identical rects, bars, and polygons; log Pareto rows.
+- **Physical prototype** (print snap-fit coupons, validate PrusaSlicer STEP import).
+- **Design review** with facilities/brand/design before locking mounting and visual tolerance decisions.
 
