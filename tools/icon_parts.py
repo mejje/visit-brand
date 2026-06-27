@@ -18,6 +18,7 @@ from typing import Any, Sequence
 from shapely import wkb
 from shapely.geometry import MultiPolygon, Polygon
 from shapely.ops import unary_union
+import numpy as np
 from svgelements import SVG
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -621,6 +622,206 @@ def merge_rect_clusters(spec: dict, clusters: list[list[str]]) -> dict:
 def part_geometry(part_def: dict, anchor: str = "min_corner") -> object:
     """Load a part's Shapely geometry at origin. Delegates to shared part_to_geometry."""
     return part_to_geometry(part_def, anchor=anchor)
+
+
+# ---- polygon grid-split decomposition ----
+
+
+def decompose_grid_split(
+    spec: dict, cols: int = 2, rows: int = 2, min_cell_area: float = 1.0
+) -> dict:
+    """Split polygon/bar/custom parts into axis-aligned rect sub-parts via grid overlay."""
+    from shapely.geometry import box as shapely_box
+
+    spec = deep_copy_spec(spec)
+    parts = spec["parts"]
+    new_parts: dict[str, dict] = {}
+    part_remap: dict[str, list[str]] = {}
+    next_pid = max(int(p.replace("part_", "")) for p in parts) + 1
+
+    for pid, pdef in list(parts.items()):
+        if pdef["kind"] == "rect":
+            continue
+        geom = part_geometry(pdef, anchor="min_corner")
+        if geom.is_empty or geom.area == 0:
+            continue
+        min_x, min_y, max_x, max_y = geom.bounds
+        if max_x - min_x <= 0 or max_y - min_y <= 0:
+            continue
+        w = (max_x - min_x) / cols
+        h = (max_y - min_y) / rows
+        if w < min_cell_area or h < min_cell_area:
+            continue
+
+        sub_pids = []
+        for r in range(rows):
+            for c in range(cols):
+                cell = shapely_box(
+                    min_x + c * w, min_y + r * h,
+                    min_x + (c + 1) * w, min_y + (r + 1) * h,
+                )
+                if geom.intersects(cell):
+                    cell_pid = f"part_{next_pid:04d}"
+                    next_pid += 1
+                    sub_pids.append(cell_pid)
+                    new_parts[cell_pid] = {
+                        "kind": "rect",
+                        "width": round(w, 6),
+                        "height": round(h, 6),
+                        "bounds": [
+                            round(min_x + c * w, 9),
+                            round(min_y + r * h, 9),
+                            round(min_x + (c + 1) * w, 9),
+                            round(min_y + (r + 1) * h, 9),
+                        ],
+                        "print": {"min_feature": round(min(w, h), 6)},
+                        "source_primitives": list(pdef.get("source_primitives", [])),
+                    }
+        if len(sub_pids) >= 2:
+            part_remap[pid] = sub_pids
+
+    for pid, sub_pids in part_remap.items():
+        del parts[pid]
+    parts.update(new_parts)
+
+    for icon_spec in spec["icons"].values():
+        new_instances = []
+        for inst in icon_spec["instances"]:
+            pid = inst["part"]
+            if pid in part_remap:
+                for sub_pid in part_remap[pid]:
+                    new_instances.append({
+                        "part": sub_pid,
+                        "at": inst["at"],
+                    })
+            else:
+                new_instances.append(inst)
+        icon_spec["instances"] = new_instances
+
+    return spec
+
+
+# ---- largest inscribed rectangle decomposition ----
+
+
+def _largest_inscribed_rect(geom, step: float = 1.0, size_classes: list[float] | None = None):
+    """Find the largest axis-aligned rectangle fully contained in the polygon.
+
+    Grid-samples possible positions and size classes. Returns a Shapely box or None.
+    """
+    from shapely.geometry import box as shapely_box
+
+    if size_classes is None:
+        size_classes = [2, 4, 6, 8, 12, 16, 20, 24, 32, 40]
+
+    min_x, min_y, max_x, max_y = geom.bounds
+    best_rect = None
+    best_area = 0.0
+
+    x_positions = list(float(x) for x in np.arange(min_x, max_x - 1, step)) + [min_x]
+    y_positions = list(float(y) for y in np.arange(min_y, max_y - 1, step)) + [min_y]
+
+    for x in x_positions:
+        for y in y_positions:
+            for w in size_classes:
+                if x + w > max_x:
+                    break
+                for h in size_classes:
+                    if y + h > max_y:
+                        break
+                    candidate = shapely_box(x, y, x + w, y + h)
+                    if geom.contains(candidate):
+                        area = w * h
+                        if area > best_area:
+                            best_area = area
+                            best_rect = candidate
+    return best_rect
+
+
+def decompose_inscribed_rect(
+    spec: dict, coverage_threshold: float = 0.4, step: float = 1.0
+) -> dict:
+    """Extract the largest inscribed axis-aligned rectangle from each polygon.
+
+    If the rectangle covers >= coverage_threshold of the polygon's area:
+    - Extract it as a rect part
+    - Keep the remainder polygon (polygon minus rect) as a separate part
+
+    This turns 1 polygon into at most 2 parts, and the rect can be shared.
+    """
+    from shapely.geometry import box as shapely_box
+
+    spec = deep_copy_spec(spec)
+    parts = spec["parts"]
+    new_parts: dict[str, dict] = {}
+    part_remap: dict[str, str] = {}
+    part_add: dict[str, str] = {}  # pid -> new remainder part pid
+    next_pid = max(int(p.replace("part_", "")) for p in parts) + 1
+
+    for pid, pdef in list(parts.items()):
+        if pdef["kind"] == "rect":
+            continue
+        geom = part_geometry(pdef, anchor="min_corner")
+        if geom.is_empty or geom.area < 4:
+            continue
+
+        best_rect = _largest_inscribed_rect(geom, step=step)
+        if best_rect is None:
+            continue
+        rect_area = best_rect.area
+        coverage = rect_area / geom.area
+        if coverage < coverage_threshold:
+            continue
+
+        # Extract rectangle
+        rx, ry, rw, rh = best_rect.bounds
+        rect_w = rw - rx
+        rect_h = rh - ry
+
+        rect_pid = f"part_{next_pid:04d}"
+        next_pid += 1
+        new_parts[rect_pid] = {
+            "kind": "rect",
+            "width": round(rect_w, 6),
+            "height": round(rect_h, 6),
+            "bounds": [round(rx, 9), round(ry, 9), round(rw, 9), round(rh, 9)],
+            "print": {"min_feature": round(min(rect_w, rect_h), 6)},
+            "source_primitives": list(pdef.get("source_primitives", [])),
+        }
+        part_remap[pid] = rect_pid
+
+        # Remainder polygon
+        remainder = geom.difference(best_rect)
+        if not remainder.is_empty and remainder.area > 1:
+            remainder = iref.canonical_geometry(remainder)
+            rem_pid = f"part_{next_pid:04d}"
+            next_pid += 1
+            new_parts[rem_pid] = {
+                "kind": "polygon",
+                "bounds": [round(v, 9) for v in remainder.bounds],
+                "geometry": {"format": "wkb_hex", "value": remainder.wkb_hex},
+                "print": {"min_feature": max(0.01, round(min(remainder.bounds[2] - remainder.bounds[0], remainder.bounds[3] - remainder.bounds[1]), 6) or 0.01)},
+                "source_primitives": list(pdef.get("source_primitives", [])),
+            }
+            part_add[pid] = rem_pid
+
+    for pid, rect_pid in part_remap.items():
+        del parts[pid]
+    parts.update(new_parts)
+
+    for icon_spec in spec["icons"].values():
+        new_instances = []
+        for inst in icon_spec["instances"]:
+            pid = inst["part"]
+            if pid in part_remap:
+                new_instances.append({"part": part_remap[pid], "at": inst["at"]})
+                if pid in part_add:
+                    new_instances.append({"part": part_add[pid], "at": inst["at"]})
+            else:
+                new_instances.append(inst)
+        icon_spec["instances"] = new_instances
+
+    return spec
 
 
 def decompose_polygons_to_bbox_rects(spec: dict) -> dict:
