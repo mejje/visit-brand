@@ -1,0 +1,1904 @@
+{
+  "allowed_transforms": {
+    "mirror": false,
+    "rotate": false,
+    "scale": false,
+    "translate": true
+  },
+  "coordinate_system": "svg_y_down",
+  "generator": "tools/icon_parts.py bootstrap",
+  "icons": {
+    "Visit_Icon_Amusement park": {
+      "instances": [
+        {
+          "at": [
+            12.0,
+            12.01
+          ],
+          "part": "part_0000",
+          "source_index": 0
+        },
+        {
+          "at": [
+            10.17,
+            29.17
+          ],
+          "part": "part_0001",
+          "source_index": 1
+        },
+        {
+          "at": [
+            5.0,
+            21.0
+          ],
+          "part": "part_0002",
+          "source_index": 2
+        },
+        {
+          "at": [
+            9.0,
+            9.0
+          ],
+          "part": "part_0002",
+          "source_index": 3
+        },
+        {
+          "at": [
+            22.0,
+            5.0
+          ],
+          "part": "part_0002",
+          "source_index": 4
+        },
+        {
+          "at": [
+            9.0,
+            33.0
+          ],
+          "part": "part_0002",
+          "source_index": 5
+        },
+        {
+          "at": [
+            39.0,
+            21.0
+          ],
+          "part": "part_0002",
+          "source_index": 6
+        },
+        {
+          "at": [
+            35.0,
+            9.0
+          ],
+          "part": "part_0002",
+          "source_index": 7
+        },
+        {
+          "at": [
+            35.0,
+            33.0
+          ],
+          "part": "part_0002",
+          "source_index": 8
+        }
+      ]
+    },
+    "Visit_Icon_DestinationBuilding": {
+      "instances": [
+        {
+          "at": [
+            3.55,
+            5.33
+          ],
+          "part": "part_0003",
+          "source_index": 0
+        },
+        {
+          "at": [
+            12.43,
+            30.22
+          ],
+          "part": "part_0004",
+          "source_index": 1
+        },
+        {
+          "at": [
+            33.77,
+            5.34
+          ],
+          "part": "part_0005",
+          "source_index": 2
+        },
+        {
+          "at": [
+            28.03,
+            20.44
+          ],
+          "part": "part_0006",
+          "source_index": 3
+        }
+      ]
+    },
+    "Visit_Icon_Experiences": {
+      "instances": [
+        {
+          "at": [
+            14.22,
+            35.56
+          ],
+          "part": "part_0007",
+          "source_index": 0
+        },
+        {
+          "at": [
+            14.22,
+            1.79
+          ],
+          "part": "part_0007",
+          "source_index": 1
+        },
+        {
+          "at": [
+            35.54,
+            14.23
+          ],
+          "part": "part_0009",
+          "source_index": 2
+        },
+        {
+          "at": [
+            19.54,
+            14.23
+          ],
+          "part": "part_0010",
+          "source_index": 3
+        },
+        {
+          "at": [
+            1.77,
+            14.23
+          ],
+          "part": "part_0009",
+          "source_index": 4
+        }
+      ]
+    },
+    "Visit_Icon_Ferry operator": {
+      "instances": [
+        {
+          "at": [
+            5.0,
+            23.0
+          ],
+          "part": "part_0012",
+          "source_index": 0
+        },
+        {
+          "at": [
+            5.0,
+            39.0
+          ],
+          "part": "part_0013",
+          "source_index": 1
+        },
+        {
+          "at": [
+            23.17,
+            23.17
+          ],
+          "part": "part_0014",
+          "source_index": 2
+        },
+        {
+          "at": [
+            8.0,
+            31.0
+          ],
+          "part": "part_0002",
+          "source_index": 3
+        },
+        {
+          "at": [
+            16.0,
+            31.0
+          ],
+          "part": "part_0002",
+          "source_index": 4
+        },
+        {
+          "at": [
+            5.0,
+            12.0
+          ],
+          "part": "part_0015",
+          "source_index": 5
+        },
+        {
+          "at": [
+            25.0,
+            10.0
+          ],
+          "part": "part_0016",
+          "source_index": 6
+        },
+        {
+          "at": [
+            17.0,
+            5.0
+          ],
+          "part": "part_0017",
+          "source_index": 7
+        },
+        {
+          "at": [
+            27.0,
+            5.0
+          ],
+          "part": "part_0017",
+          "source_index": 8
+        }
+      ]
+    },
+    "Visit_Icon_Homeowner": {
+      "instances": [
+        {
+          "at": [
+            9.0,
+            21.0
+          ],
+          "part": "part_0018",
+          "source_index": 0
+        },
+        {
+          "at": [
+            35.0,
+            21.0
+          ],
+          "part": "part_0018",
+          "source_index": 1
+        },
+        {
+          "at": [
+            5.0,
+            5.0
+          ],
+          "part": "part_0019",
+          "source_index": 2
+        },
+        {
+          "at": [
+            24.0,
+            5.0
+          ],
+          "part": "part_0019",
+          "source_index": 3
+        },
+        {
+          "at": [
+            22.0,
+            29.0
+          ],
+          "part": "part_0021",
+          "source_index": 4
+        },
+        {
+          "at": [
+            5.0,
+            39.0
+          ],
+          "part": "part_0022",
+          "source_index": 5
+        }
+      ]
+    },
+    "Visit_Icon_Hospitality": {
+      "instances": [
+        {
+          "at": [
+            21.33,
+            21.33
+          ],
+          "part": "part_0023",
+          "source_index": 0
+        },
+        {
+          "at": [
+            3.55,
+            14.21
+          ],
+          "part": "part_0024",
+          "source_index": 1
+        },
+        {
+          "at": [
+            33.78,
+            14.21
+          ],
+          "part": "part_0025",
+          "source_index": 2
+        },
+        {
+          "at": [
+            14.23,
+            3.54
+          ],
+          "part": "part_0026",
+          "source_index": 3
+        },
+        {
+          "at": [
+            14.23,
+            33.78
+          ],
+          "part": "part_0007",
+          "source_index": 4
+        }
+      ]
+    },
+    "Visit_Icon_Hotel": {
+      "instances": [
+        {
+          "at": [
+            17.0,
+            13.0
+          ],
+          "part": "part_0021",
+          "source_index": 0
+        },
+        {
+          "at": [
+            27.0,
+            13.0
+          ],
+          "part": "part_0021",
+          "source_index": 1
+        },
+        {
+          "at": [
+            17.0,
+            23.0
+          ],
+          "part": "part_0021",
+          "source_index": 2
+        },
+        {
+          "at": [
+            22.0,
+            37.0
+          ],
+          "part": "part_0021",
+          "source_index": 3
+        },
+        {
+          "at": [
+            27.0,
+            23.0
+          ],
+          "part": "part_0021",
+          "source_index": 4
+        },
+        {
+          "at": [
+            9.0,
+            5.0
+          ],
+          "part": "part_0028",
+          "source_index": 5
+        },
+        {
+          "at": [
+            9.0,
+            10.0
+          ],
+          "part": "part_0029",
+          "source_index": 6
+        }
+      ]
+    },
+    "Visit_Icon_Platform": {
+      "instances": [
+        {
+          "at": [
+            21.33,
+            1.7
+          ],
+          "part": "part_0030",
+          "source_index": 0
+        },
+        {
+          "at": [
+            21.33,
+            33.77
+          ],
+          "part": "part_0031",
+          "source_index": 1
+        },
+        {
+          "at": [
+            6.37,
+            7.59
+          ],
+          "part": "part_0032",
+          "source_index": 2
+        },
+        {
+          "at": [
+            29.04,
+            30.26
+          ],
+          "part": "part_0033",
+          "source_index": 3
+        },
+        {
+          "at": [
+            30.07,
+            6.57
+          ],
+          "part": "part_0034",
+          "source_index": 4
+        },
+        {
+          "at": [
+            7.62,
+            29.07
+          ],
+          "part": "part_0035",
+          "source_index": 5
+        },
+        {
+          "at": [
+            33.79,
+            21.32
+          ],
+          "part": "part_0036",
+          "source_index": 6
+        },
+        {
+          "at": [
+            1.79,
+            21.32
+          ],
+          "part": "part_0037",
+          "source_index": 7
+        }
+      ]
+    },
+    "Visit_Icon_Resort": {
+      "instances": [
+        {
+          "at": [
+            13.0,
+            5.0
+          ],
+          "part": "part_0028",
+          "source_index": 0
+        },
+        {
+          "at": [
+            5.0,
+            28.0
+          ],
+          "part": "part_0038",
+          "source_index": 1
+        },
+        {
+          "at": [
+            18.0,
+            37.0
+          ],
+          "part": "part_0021",
+          "source_index": 2
+        },
+        {
+          "at": [
+            26.0,
+            13.0
+          ],
+          "part": "part_0021",
+          "source_index": 3
+        },
+        {
+          "at": [
+            5.0,
+            10.0
+          ],
+          "part": "part_0039",
+          "source_index": 4
+        }
+      ]
+    },
+    "Visit_Icon_Ski resort": {
+      "instances": [
+        {
+          "at": [
+            5.0,
+            5.0
+          ],
+          "part": "part_0019",
+          "source_index": 0
+        },
+        {
+          "at": [
+            24.0,
+            5.0
+          ],
+          "part": "part_0019",
+          "source_index": 1
+        },
+        {
+          "at": [
+            21.0,
+            37.0
+          ],
+          "part": "part_0021",
+          "source_index": 2
+        },
+        {
+          "at": [
+            5.17,
+            25.17
+          ],
+          "part": "part_0042",
+          "source_index": 3
+        },
+        {
+          "at": [
+            25.59,
+            17.57
+          ],
+          "part": "part_0043",
+          "source_index": 4
+        },
+        {
+          "at": [
+            3.99,
+            13.88
+          ],
+          "part": "part_0044",
+          "source_index": 5
+        }
+      ]
+    },
+    "Visit_Icon_Solceller": {
+      "instances": [
+        {
+          "at": [
+            5.0,
+            39.0
+          ],
+          "part": "part_0022",
+          "source_index": 0
+        },
+        {
+          "at": [
+            22.0,
+            30.0
+          ],
+          "part": "part_0021",
+          "source_index": 1
+        },
+        {
+          "at": [
+            5.0,
+            4.76
+          ],
+          "part": "part_0045",
+          "source_index": 2
+        }
+      ]
+    },
+    "Visit_Icon_Tour operator": {
+      "instances": [
+        {
+          "at": [
+            18.0,
+            10.0
+          ],
+          "part": "part_0016",
+          "source_index": 0
+        },
+        {
+          "at": [
+            9.0,
+            5.0
+          ],
+          "part": "part_0017",
+          "source_index": 1
+        },
+        {
+          "at": [
+            5.0,
+            10.0
+          ],
+          "part": "part_0048",
+          "source_index": 2
+        },
+        {
+          "at": [
+            39.0,
+            22.0
+          ],
+          "part": "part_0038",
+          "source_index": 3
+        },
+        {
+          "at": [
+            27.0,
+            17.0
+          ],
+          "part": "part_0050",
+          "source_index": 4
+        },
+        {
+          "at": [
+            23.0,
+            22.0
+          ],
+          "part": "part_0051",
+          "source_index": 5
+        },
+        {
+          "at": [
+            31.0,
+            25.0
+          ],
+          "part": "part_0021",
+          "source_index": 6
+        }
+      ]
+    },
+    "Visit_Icon_Travel agent": {
+      "instances": [
+        {
+          "at": [
+            14.27,
+            7.0
+          ],
+          "part": "part_0052",
+          "source_index": 0
+        },
+        {
+          "at": [
+            19.929626587,
+            13.248554134
+          ],
+          "part": "part_0053",
+          "source_index": 1
+        },
+        {
+          "at": [
+            6.0,
+            14.0
+          ],
+          "part": "part_0054",
+          "source_index": 2
+        },
+        {
+          "at": [
+            33.0,
+            28.0
+          ],
+          "part": "part_0055",
+          "source_index": 3
+        },
+        {
+          "at": [
+            6.12,
+            29.99
+          ],
+          "part": "part_0056",
+          "source_index": 4
+        }
+      ]
+    },
+    "Visit_Icon_VacationRental": {
+      "instances": [
+        {
+          "at": [
+            24.0,
+            32.03
+          ],
+          "part": "part_0057",
+          "source_index": 0
+        },
+        {
+          "at": [
+            3.56,
+            14.23
+          ],
+          "part": "part_0058",
+          "source_index": 1
+        },
+        {
+          "at": [
+            8.89,
+            1.37
+          ],
+          "part": "part_0059",
+          "source_index": 2
+        },
+        {
+          "at": [
+            16.0,
+            21.33
+          ],
+          "part": "part_0060",
+          "source_index": 3
+        }
+      ]
+    }
+  },
+  "parts": {
+    "part_0000": {
+      "bounds": [
+        12.0,
+        12.01,
+        35.99,
+        32.49
+      ],
+      "height": 20.48,
+      "kind": "rect",
+      "print": {
+        "min_feature": 20.48
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Amusement park",
+          "index": 0
+        }
+      ],
+      "width": 23.99
+    },
+    "part_0001": {
+      "bounds": [
+        10.17,
+        29.17,
+        37.83,
+        43.0
+      ],
+      "height": 13.83,
+      "kind": "rect",
+      "print": {
+        "min_feature": 13.83
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Amusement park",
+          "index": 1
+        }
+      ],
+      "width": 27.66
+    },
+    "part_0002": {
+      "bounds": [
+        5.0,
+        21.0,
+        9.0,
+        25.0
+      ],
+      "height": 4.0,
+      "kind": "rect",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Amusement park",
+          "index": 2
+        },
+        {
+          "icon": "Visit_Icon_Amusement park",
+          "index": 3
+        },
+        {
+          "icon": "Visit_Icon_Amusement park",
+          "index": 4
+        },
+        {
+          "icon": "Visit_Icon_Amusement park",
+          "index": 5
+        },
+        {
+          "icon": "Visit_Icon_Amusement park",
+          "index": 6
+        },
+        {
+          "icon": "Visit_Icon_Amusement park",
+          "index": 7
+        },
+        {
+          "icon": "Visit_Icon_Amusement park",
+          "index": 8
+        },
+        {
+          "icon": "Visit_Icon_Ferry operator",
+          "index": 3
+        },
+        {
+          "icon": "Visit_Icon_Ferry operator",
+          "index": 4
+        }
+      ],
+      "width": 4.0
+    },
+    "part_0003": {
+      "bounds": [
+        3.55,
+        5.33,
+        36.31,
+        42.67
+      ],
+      "height": 37.34,
+      "kind": "rect",
+      "print": {
+        "min_feature": 32.76
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_DestinationBuilding",
+          "index": 0
+        }
+      ],
+      "width": 32.76
+    },
+    "part_0004": {
+      "bounds": [
+        12.43,
+        30.22,
+        30.21,
+        35.56
+      ],
+      "height": 5.34,
+      "kind": "rect",
+      "print": {
+        "min_feature": 5.34
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_DestinationBuilding",
+          "index": 1
+        }
+      ],
+      "width": 17.78
+    },
+    "part_0005": {
+      "bounds": [
+        33.77,
+        5.34,
+        46.64,
+        20.44
+      ],
+      "height": 15.1,
+      "kind": "rect",
+      "print": {
+        "min_feature": 12.87
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_DestinationBuilding",
+          "index": 2
+        }
+      ],
+      "width": 12.87
+    },
+    "part_0006": {
+      "bounds": [
+        28.03,
+        20.44,
+        40.89,
+        35.55
+      ],
+      "height": 15.11,
+      "kind": "rect",
+      "print": {
+        "min_feature": 12.86
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_DestinationBuilding",
+          "index": 3
+        }
+      ],
+      "width": 12.86
+    },
+    "part_0007": {
+      "bounds": [
+        14.22,
+        35.56,
+        33.77,
+        46.23
+      ],
+      "height": 10.67,
+      "kind": "rect",
+      "print": {
+        "min_feature": 10.67
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Experiences",
+          "index": 0
+        },
+        {
+          "icon": "Visit_Icon_Experiences",
+          "index": 1
+        },
+        {
+          "icon": "Visit_Icon_Hospitality",
+          "index": 4
+        }
+      ],
+      "width": 19.55
+    },
+    "part_0009": {
+      "bounds": [
+        35.54,
+        14.23,
+        46.21,
+        33.78
+      ],
+      "height": 19.55,
+      "kind": "rect",
+      "print": {
+        "min_feature": 10.67
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Experiences",
+          "index": 2
+        },
+        {
+          "icon": "Visit_Icon_Experiences",
+          "index": 4
+        }
+      ],
+      "width": 10.67
+    },
+    "part_0010": {
+      "bounds": [
+        19.54,
+        14.23,
+        30.22,
+        33.78
+      ],
+      "height": 19.55,
+      "kind": "rect",
+      "print": {
+        "min_feature": 10.68
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Experiences",
+          "index": 3
+        }
+      ],
+      "width": 10.68
+    },
+    "part_0012": {
+      "bounds": [
+        5.0,
+        23.0,
+        38.0,
+        27.0
+      ],
+      "height": 4.0,
+      "kind": "rect",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Ferry operator",
+          "index": 0
+        }
+      ],
+      "width": 33.0
+    },
+    "part_0013": {
+      "bounds": [
+        5.0,
+        39.0,
+        22.0,
+        43.0
+      ],
+      "height": 4.0,
+      "kind": "rect",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Ferry operator",
+          "index": 1
+        }
+      ],
+      "width": 17.0
+    },
+    "part_0014": {
+      "bounds": [
+        23.17,
+        23.17,
+        43.0,
+        43.0
+      ],
+      "height": 19.83,
+      "kind": "rect",
+      "print": {
+        "min_feature": 19.83
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Ferry operator",
+          "index": 2
+        }
+      ],
+      "width": 19.83
+    },
+    "part_0015": {
+      "bounds": [
+        5.0,
+        12.0,
+        19.0,
+        21.0
+      ],
+      "height": 9.0,
+      "kind": "rect",
+      "print": {
+        "min_feature": 9.0
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Ferry operator",
+          "index": 5
+        }
+      ],
+      "width": 14.0
+    },
+    "part_0016": {
+      "bounds": [
+        25.0,
+        10.0,
+        29.0,
+        21.0
+      ],
+      "height": 11.0,
+      "kind": "rect",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Ferry operator",
+          "index": 6
+        },
+        {
+          "icon": "Visit_Icon_Tour operator",
+          "index": 0
+        }
+      ],
+      "width": 4.0
+    },
+    "part_0017": {
+      "bounds": [
+        17.0,
+        5.0,
+        25.0,
+        9.0
+      ],
+      "height": 4.0,
+      "kind": "rect",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Ferry operator",
+          "index": 7
+        },
+        {
+          "icon": "Visit_Icon_Ferry operator",
+          "index": 8
+        },
+        {
+          "icon": "Visit_Icon_Tour operator",
+          "index": 1
+        }
+      ],
+      "width": 8.0
+    },
+    "part_0018": {
+      "bounds": [
+        9.0,
+        21.0,
+        13.0,
+        35.0
+      ],
+      "height": 14.0,
+      "kind": "rect",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Homeowner",
+          "index": 0
+        },
+        {
+          "icon": "Visit_Icon_Homeowner",
+          "index": 1
+        }
+      ],
+      "width": 4.0
+    },
+    "part_0019": {
+      "bounds": [
+        5.0,
+        5.0,
+        24.0,
+        24.0
+      ],
+      "height": 19.0,
+      "kind": "rect",
+      "print": {
+        "min_feature": 19.0
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Homeowner",
+          "index": 2
+        },
+        {
+          "icon": "Visit_Icon_Homeowner",
+          "index": 3
+        },
+        {
+          "icon": "Visit_Icon_Ski resort",
+          "index": 0
+        },
+        {
+          "icon": "Visit_Icon_Ski resort",
+          "index": 1
+        }
+      ],
+      "width": 19.0
+    },
+    "part_0021": {
+      "bounds": [
+        22.0,
+        29.0,
+        26.0,
+        35.0
+      ],
+      "height": 6.0,
+      "kind": "rect",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Homeowner",
+          "index": 4
+        },
+        {
+          "icon": "Visit_Icon_Hotel",
+          "index": 0
+        },
+        {
+          "icon": "Visit_Icon_Hotel",
+          "index": 1
+        },
+        {
+          "icon": "Visit_Icon_Hotel",
+          "index": 2
+        },
+        {
+          "icon": "Visit_Icon_Hotel",
+          "index": 3
+        },
+        {
+          "icon": "Visit_Icon_Hotel",
+          "index": 4
+        },
+        {
+          "icon": "Visit_Icon_Resort",
+          "index": 2
+        },
+        {
+          "icon": "Visit_Icon_Resort",
+          "index": 3
+        },
+        {
+          "icon": "Visit_Icon_Ski resort",
+          "index": 2
+        },
+        {
+          "icon": "Visit_Icon_Solceller",
+          "index": 1
+        },
+        {
+          "icon": "Visit_Icon_Tour operator",
+          "index": 6
+        }
+      ],
+      "width": 4.0
+    },
+    "part_0022": {
+      "bounds": [
+        5.0,
+        39.0,
+        43.0,
+        43.0
+      ],
+      "height": 4.0,
+      "kind": "rect",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Homeowner",
+          "index": 5
+        },
+        {
+          "icon": "Visit_Icon_Solceller",
+          "index": 0
+        }
+      ],
+      "width": 38.0
+    },
+    "part_0023": {
+      "bounds": [
+        21.33,
+        21.33,
+        26.66,
+        26.66
+      ],
+      "height": 5.33,
+      "kind": "rect",
+      "print": {
+        "min_feature": 5.33
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Hospitality",
+          "index": 0
+        }
+      ],
+      "width": 5.33
+    },
+    "part_0024": {
+      "bounds": [
+        3.55,
+        14.21,
+        14.22,
+        33.77
+      ],
+      "height": 19.56,
+      "kind": "rect",
+      "print": {
+        "min_feature": 10.67
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Hospitality",
+          "index": 1
+        }
+      ],
+      "width": 10.67
+    },
+    "part_0025": {
+      "bounds": [
+        33.78,
+        14.21,
+        44.46,
+        33.77
+      ],
+      "height": 19.56,
+      "kind": "rect",
+      "print": {
+        "min_feature": 10.68
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Hospitality",
+          "index": 2
+        }
+      ],
+      "width": 10.68
+    },
+    "part_0026": {
+      "bounds": [
+        14.23,
+        3.54,
+        33.78,
+        14.22
+      ],
+      "height": 10.68,
+      "kind": "rect",
+      "print": {
+        "min_feature": 10.68
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Hospitality",
+          "index": 3
+        }
+      ],
+      "width": 19.55
+    },
+    "part_0028": {
+      "bounds": [
+        9.0,
+        5.0,
+        39.0,
+        43.0
+      ],
+      "height": 38.0,
+      "kind": "rect",
+      "print": {
+        "min_feature": 30.0
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Hotel",
+          "index": 5
+        },
+        {
+          "icon": "Visit_Icon_Resort",
+          "index": 0
+        }
+      ],
+      "width": 30.0
+    },
+    "part_0029": {
+      "bounds": [
+        9.0,
+        10.0,
+        13.0,
+        43.0
+      ],
+      "height": 33.0,
+      "kind": "rect",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Hotel",
+          "index": 6
+        }
+      ],
+      "width": 4.0
+    },
+    "part_0030": {
+      "bounds": [
+        21.33,
+        1.7,
+        26.66,
+        14.23
+      ],
+      "height": 12.53,
+      "kind": "rect",
+      "print": {
+        "min_feature": 5.33
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Platform",
+          "index": 0
+        }
+      ],
+      "width": 5.33
+    },
+    "part_0031": {
+      "bounds": [
+        21.33,
+        33.77,
+        26.66,
+        46.22
+      ],
+      "height": 12.45,
+      "kind": "rect",
+      "print": {
+        "min_feature": 5.33
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Platform",
+          "index": 1
+        }
+      ],
+      "width": 5.33
+    },
+    "part_0032": {
+      "bounds": [
+        6.37,
+        7.59,
+        19.0,
+        17.71
+      ],
+      "height": 10.12,
+      "kind": "rect",
+      "print": {
+        "min_feature": 10.12
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Platform",
+          "index": 2
+        }
+      ],
+      "width": 12.63
+    },
+    "part_0033": {
+      "bounds": [
+        29.04,
+        30.26,
+        41.62,
+        40.34
+      ],
+      "height": 10.08,
+      "kind": "rect",
+      "print": {
+        "min_feature": 10.08
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Platform",
+          "index": 3
+        }
+      ],
+      "width": 12.58
+    },
+    "part_0034": {
+      "bounds": [
+        30.07,
+        6.57,
+        40.16,
+        19.14
+      ],
+      "height": 12.57,
+      "kind": "rect",
+      "print": {
+        "min_feature": 10.09
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Platform",
+          "index": 4
+        }
+      ],
+      "width": 10.09
+    },
+    "part_0035": {
+      "bounds": [
+        7.62,
+        29.07,
+        17.65,
+        41.6
+      ],
+      "height": 12.53,
+      "kind": "rect",
+      "print": {
+        "min_feature": 10.03
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Platform",
+          "index": 5
+        }
+      ],
+      "width": 10.03
+    },
+    "part_0036": {
+      "bounds": [
+        33.79,
+        21.32,
+        46.21,
+        26.65
+      ],
+      "height": 5.33,
+      "kind": "rect",
+      "print": {
+        "min_feature": 5.33
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Platform",
+          "index": 6
+        }
+      ],
+      "width": 12.42
+    },
+    "part_0037": {
+      "bounds": [
+        1.79,
+        21.32,
+        14.22,
+        26.65
+      ],
+      "height": 5.33,
+      "kind": "rect",
+      "print": {
+        "min_feature": 5.33
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Platform",
+          "index": 7
+        }
+      ],
+      "width": 12.43
+    },
+    "part_0038": {
+      "bounds": [
+        5.0,
+        28.0,
+        9.0,
+        43.0
+      ],
+      "height": 15.0,
+      "kind": "rect",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Resort",
+          "index": 1
+        },
+        {
+          "icon": "Visit_Icon_Tour operator",
+          "index": 3
+        }
+      ],
+      "width": 4.0
+    },
+    "part_0039": {
+      "bounds": [
+        5.0,
+        10.0,
+        35.0,
+        43.0
+      ],
+      "height": 33.0,
+      "kind": "rect",
+      "print": {
+        "min_feature": 30.0
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Resort",
+          "index": 4
+        }
+      ],
+      "width": 30.0
+    },
+    "part_0042": {
+      "bounds": [
+        5.17,
+        25.17,
+        40.83,
+        43.0
+      ],
+      "height": 17.83,
+      "kind": "rect",
+      "print": {
+        "min_feature": 17.83
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Ski resort",
+          "index": 3
+        }
+      ],
+      "width": 35.66
+    },
+    "part_0043": {
+      "bounds": [
+        25.59,
+        17.57,
+        44.0,
+        31.0
+      ],
+      "height": 13.43,
+      "kind": "rect",
+      "print": {
+        "min_feature": 13.43
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Ski resort",
+          "index": 4
+        }
+      ],
+      "width": 18.41
+    },
+    "part_0044": {
+      "bounds": [
+        3.99,
+        13.88,
+        23.94,
+        31.0
+      ],
+      "height": 17.12,
+      "kind": "rect",
+      "print": {
+        "min_feature": 17.12
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Ski resort",
+          "index": 5
+        }
+      ],
+      "width": 19.95
+    },
+    "part_0045": {
+      "bounds": [
+        5.0,
+        4.76,
+        43.0,
+        35.0
+      ],
+      "height": 30.24,
+      "kind": "rect",
+      "print": {
+        "min_feature": 30.24
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Solceller",
+          "index": 2
+        }
+      ],
+      "width": 38.0
+    },
+    "part_0048": {
+      "bounds": [
+        5.0,
+        10.0,
+        16.37,
+        27.46
+      ],
+      "height": 17.46,
+      "kind": "rect",
+      "print": {
+        "min_feature": 11.37
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Tour operator",
+          "index": 2
+        }
+      ],
+      "width": 11.37
+    },
+    "part_0050": {
+      "bounds": [
+        27.0,
+        17.0,
+        38.0,
+        21.0
+      ],
+      "height": 4.0,
+      "kind": "rect",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Tour operator",
+          "index": 4
+        }
+      ],
+      "width": 11.0
+    },
+    "part_0051": {
+      "bounds": [
+        23.0,
+        22.0,
+        34.41,
+        44.41
+      ],
+      "height": 22.41,
+      "kind": "rect",
+      "print": {
+        "min_feature": 11.41
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Tour operator",
+          "index": 5
+        }
+      ],
+      "width": 11.41
+    },
+    "part_0052": {
+      "bounds": [
+        14.27,
+        7.0,
+        42.0,
+        31.07
+      ],
+      "height": 24.07,
+      "kind": "rect",
+      "print": {
+        "min_feature": 24.07
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Travel agent",
+          "index": 0
+        }
+      ],
+      "width": 27.73
+    },
+    "part_0053": {
+      "bounds": [
+        19.929626587,
+        13.248554134,
+        43.41264279,
+        36.731570337
+      ],
+      "height": 23.483016,
+      "kind": "rect",
+      "print": {
+        "min_feature": 23.483016
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Travel agent",
+          "index": 1
+        }
+      ],
+      "width": 23.483016
+    },
+    "part_0054": {
+      "bounds": [
+        6.0,
+        14.0,
+        23.0,
+        18.0
+      ],
+      "height": 4.0,
+      "kind": "rect",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Travel agent",
+          "index": 2
+        }
+      ],
+      "width": 17.0
+    },
+    "part_0055": {
+      "bounds": [
+        33.0,
+        28.0,
+        37.0,
+        45.0
+      ],
+      "height": 17.0,
+      "kind": "rect",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Travel agent",
+          "index": 3
+        }
+      ],
+      "width": 4.0
+    },
+    "part_0056": {
+      "bounds": [
+        6.12,
+        29.99,
+        20.98,
+        44.85
+      ],
+      "height": 14.86,
+      "kind": "rect",
+      "print": {
+        "min_feature": 14.86
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_Travel agent",
+          "index": 4
+        }
+      ],
+      "width": 14.86
+    },
+    "part_0057": {
+      "bounds": [
+        24.0,
+        32.03,
+        29.34,
+        42.67
+      ],
+      "height": 10.64,
+      "kind": "rect",
+      "print": {
+        "min_feature": 5.34
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_VacationRental",
+          "index": 0
+        }
+      ],
+      "width": 5.34
+    },
+    "part_0058": {
+      "bounds": [
+        3.56,
+        14.23,
+        8.89,
+        42.67
+      ],
+      "height": 28.44,
+      "kind": "rect",
+      "print": {
+        "min_feature": 5.33
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_VacationRental",
+          "index": 1
+        }
+      ],
+      "width": 5.33
+    },
+    "part_0059": {
+      "bounds": [
+        8.89,
+        1.37,
+        44.44,
+        42.67
+      ],
+      "height": 41.3,
+      "kind": "rect",
+      "print": {
+        "min_feature": 35.55
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_VacationRental",
+          "index": 2
+        }
+      ],
+      "width": 35.55
+    },
+    "part_0060": {
+      "bounds": [
+        16.0,
+        21.33,
+        21.33,
+        26.67
+      ],
+      "height": 5.34,
+      "kind": "rect",
+      "print": {
+        "min_feature": 5.33
+      },
+      "source_primitives": [
+        {
+          "icon": "Visit_Icon_VacationRental",
+          "index": 3
+        }
+      ],
+      "width": 5.33
+    }
+  },
+  "schema": "visit.icon-parts.v1",
+  "settings": {
+    "coordinate_precision": 1e-09,
+    "curve_flatten_tolerance": 0.02
+  },
+  "units": "svg_user_units"
+}

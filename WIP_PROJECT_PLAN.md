@@ -299,8 +299,15 @@ Tool: `tools/icon_parts.py` (bootstrap, render, score subcommands)
 ### Milestone 4: Optimization Loop
 
 - [x] Implement objective scoring (area error, Hausdorff, bounds delta, component delta).
-- [ ] Run greedy/local simplification (merge similar rect sizes, bar widths, polygon clusters).
-- [ ] Log Pareto rows per candidate (unique parts vs. visual error vs. placed parts).
+- [x] Run greedy/local simplification via `tools/icon_parts.py simplify`:
+  - Rect size merging: saves 1 part (61→60), near-zero error.
+  - Polygon Hausdorff merging: saves 12 parts (61→49), 0.05% error, worst icon 0.44%.
+  - Bounding-box decomposition: 52 parts but 130% error (too aggressive).
+  - Combined rect+polygon: best result 48 parts at 0.05% error.
+  - 11 cross-icon polygon clusters identified (Experiences↔Hospitality, Ferry↔Ski resort, etc.).
+- [x] Log Pareto rows per candidate (`analysis/runs/simplify/pareto.jsonl`).
+- [ ] Allow rotation in part placements (would merge more mirrored/rotated polygons).
+- [ ] Run sub-part decomposition (split large polygons into shared rects/bars/strokes).
 - [ ] Run pymoo NSGA-II multi-objective search.
 - [ ] Generate Pareto frontier reports.
 - [ ] Review trade-offs with brand/design stakeholders.

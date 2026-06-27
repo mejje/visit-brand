@@ -281,6 +281,70 @@ def bootstrap_command(args: argparse.Namespace) -> int:
 
 
 # ---------------------------------------------------------------------------
+# shared scoring
+# ---------------------------------------------------------------------------
+
+
+def score_spec(spec: dict, refs: dict[str, tuple]) -> dict:
+    """Score a part spec in memory against loaded references. Returns summary dict."""
+    precision = spec["settings"]["coordinate_precision"]
+    parts = spec["parts"]
+
+    results: list[dict] = []
+    total_area_error = 0.0
+    total_ref_area = 0.0
+    max_hausdorff = 0.0
+
+    for icon_id, icon_spec in sorted(spec["icons"].items()):
+        ref_info = refs.get(icon_id)
+        if ref_info is None:
+            continue
+        _, _, ref, ref_geom = ref_info
+
+        recon_geom, _details = reconstruct_icon(icon_spec, parts, precision)
+
+        sym_diff = ref_geom.symmetric_difference(recon_geom)
+        area_error = sym_diff.area
+        ref_area = ref_geom.area
+        area_ratio = area_error / ref_area if ref_area > 0 else 0.0
+
+        hausdorff = ref_geom.hausdorff_distance(recon_geom)
+
+        ref_bounds = ref_geom.bounds
+        recon_bounds = recon_geom.bounds
+        bounds_delta = max(abs(ref_bounds[i] - recon_bounds[i]) for i in range(4))
+
+        ref_components = iref.extract_polygons(ref_geom)
+        recon_components = iref.extract_polygons(recon_geom)
+
+        results.append({
+            "icon_id": icon_id,
+            "area_error_ratio": area_ratio,
+            "hausdorff_distance": hausdorff,
+            "bounds_delta": bounds_delta,
+            "component_delta": len(recon_components) - len(ref_components),
+            "ref_components": len(ref_components),
+        })
+        total_area_error += area_error
+        total_ref_area += ref_area
+        if hausdorff > max_hausdorff:
+            max_hausdorff = hausdorff
+
+    unique_parts = len(parts)
+    total_instances = sum(len(ic["instances"]) for ic in spec["icons"].values())
+    overall_ratio = total_area_error / total_ref_area if total_ref_area > 0 else 0.0
+
+    return {
+        "unique_parts": unique_parts,
+        "total_instances": total_instances,
+        "overall_area_error_ratio": overall_ratio,
+        "total_area_error": total_area_error,
+        "worst_hausdorff": max_hausdorff,
+        "per_icon": results,
+    }
+
+
+# ---------------------------------------------------------------------------
 # render
 # ---------------------------------------------------------------------------
 
@@ -406,85 +470,31 @@ def score_command(args: argparse.Namespace) -> int:
 
     spec = json.loads(spec_path.read_text(encoding="utf-8"))
     precision = spec["settings"]["coordinate_precision"]
-    parts = spec["parts"]
 
     ref_dir = Path(args.references)
     refs = {r[0]: r for r in load_references(ref_dir)}
 
-    results: list[dict] = []
-    total_area_error = 0.0
-    total_ref_area = 0.0
+    summary = score_spec(spec, refs)
 
-    for icon_id, icon_spec in sorted(spec["icons"].items()):
-        ref_info = refs.get(icon_id)
-        if ref_info is None:
-            print(f"  Warning: no reference found for {icon_id}, skipping")
-            continue
-        _, _, ref, ref_geom = ref_info
-
-        recon_geom, _details = reconstruct_icon(icon_spec, parts, precision)
-
-        sym_diff = ref_geom.symmetric_difference(recon_geom)
-        area_error = sym_diff.area
-        ref_area = ref_geom.area
-        area_ratio = area_error / ref_area if ref_area > 0 else 0.0
-
-        hausdorff = ref_geom.hausdorff_distance(recon_geom)
-
-        ref_bounds = ref_geom.bounds
-        recon_bounds = recon_geom.bounds
-        bounds_delta = max(
-            abs(ref_bounds[i] - recon_bounds[i]) for i in range(4)
-        )
-
-        ref_components = iref.extract_polygons(ref_geom)
-        recon_components = iref.extract_polygons(recon_geom)
-        component_delta = len(recon_components) - len(ref_components)
-
-        ref_metrics = ref.get("metrics", {})
-        icon_result = {
-            "icon_id": icon_id,
-            "area_error": iref.round_float(area_error, precision),
-            "area_error_ratio": iref.round_float(area_ratio, 1e-12),
-            "hausdorff_distance": iref.round_float(hausdorff, precision),
-            "bounds_delta": iref.round_float(bounds_delta, precision),
-            "component_delta": component_delta,
-            "ref_components": len(ref_components),
-            "recon_components": len(recon_components),
-            "ref_area": iref.round_float(ref_area, precision),
-            "recon_area": iref.round_float(recon_geom.area, precision),
-        }
-        results.append(icon_result)
-        total_area_error += area_error
-        total_ref_area += ref_area
-
-        if args.verbose:
+    if args.verbose:
+        for r in summary["per_icon"]:
             print(
-                f"  {icon_id}: area_err={area_ratio:.6g}, "
-                f"hausdorff={hausdorff:.4f}, "
-                f"bounds_delta={bounds_delta:.4f}, "
-                f"comp_delta={component_delta}"
+                f"  {r['icon_id']}: area_err={r['area_error_ratio']:.6g}, "
+                f"hausdorff={r['hausdorff_distance']:.4f}, "
+                f"bounds_delta={r['bounds_delta']:.4f}, "
+                f"comp_delta={r['component_delta']}"
             )
-
-    unique_parts = len(parts)
-    total_instances = sum(len(ic["instances"]) for ic in spec["icons"].values())
-    overall_area_ratio = total_area_error / total_ref_area if total_ref_area > 0 else 0.0
-
-    summary = {
-        "unique_parts": unique_parts,
-        "total_instances": total_instances,
-        "icons_scored": len(results),
-        "overall_area_error_ratio": iref.round_float(overall_area_ratio, 1e-12),
-        "total_area_error": iref.round_float(total_area_error, precision),
-        "per_icon": results,
-    }
 
     if args.json:
         print(json.dumps(summary, indent=2, sort_keys=True))
     else:
-        print(f"score: {len(results)} icons, {unique_parts} unique parts, {total_instances} instances")
-        print(f"  overall area error ratio: {overall_area_ratio:.6g}")
-        for r in results:
+        print(
+            f"score: {len(summary['per_icon'])} icons, "
+            f"{summary['unique_parts']} unique parts, "
+            f"{summary['total_instances']} instances"
+        )
+        print(f"  overall area error ratio: {summary['overall_area_error_ratio']:.6g}")
+        for r in summary["per_icon"]:
             print(
                 f"  {r['icon_id']:30s}  area_err={r['area_error_ratio']:.6g}  "
                 f"hausdorff={r['hausdorff_distance']:.4f}"
@@ -492,8 +502,404 @@ def score_command(args: argparse.Namespace) -> int:
 
     if args.out:
         out_path = Path(args.out)
-        out_path.write_text(json.dumps({"summary": summary}, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        data = {"summary": summary}
+        data["summary"]["per_icon"] = [
+            {
+                k: iref.round_float(v, precision) if isinstance(v, float) else v
+                for k, v in r.items()
+            }
+            for r in summary["per_icon"]
+        ]
+        out_path.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n", encoding="utf-8")
         print(f"  wrote metrics to {out_path}")
+
+    return 0
+
+
+# ---------------------------------------------------------------------------
+# simplify
+# ---------------------------------------------------------------------------
+
+
+def deep_copy_spec(spec: dict) -> dict:
+    """Deep copy a part spec so mutations don't leak."""
+    return json.loads(json.dumps(spec))
+
+
+def cluster_rects_by_size(parts: dict, tolerance: float) -> list[list[str]]:
+    """Group rect parts within `tolerance` of each cluster's reference size (non-chaining).
+
+    Uses a leader-based approach: each rect starts as its own cluster leader.
+    A rect joins an existing cluster only if both dimensions are within `tolerance`
+    of the cluster leader. No chaining — avoids merging distant rects through intermediates.
+    """
+    rect_ids = sorted(
+        [pid for pid, pdef in parts.items() if pdef.get("kind") == "rect"],
+        key=lambda pid: (parts[pid]["width"], parts[pid]["height"]),
+    )
+    if not rect_ids:
+        return []
+
+    clusters: list[tuple[float, float, set[str]]] = []
+    for pid in rect_ids:
+        w = parts[pid]["width"]
+        h = parts[pid]["height"]
+        found = False
+        for cw, ch, cids in clusters:
+            if abs(w - cw) <= tolerance and abs(h - ch) <= tolerance:
+                cids.add(pid)
+                found = True
+                break
+        if not found:
+            clusters.append((w, h, {pid}))
+
+    return [sorted(c) for _, _, c in clusters if len(c) > 1]
+
+
+def merge_rect_clusters(spec: dict, clusters: list[list[str]]) -> dict:
+    """Create a new spec where each rect cluster is replaced by its largest member."""
+    spec = deep_copy_spec(spec)
+    parts = spec["parts"]
+
+    for cluster in clusters:
+        max_w = max(parts[pid]["width"] for pid in cluster)
+        max_h = max(parts[pid]["height"] for pid in cluster)
+        keeper = cluster[0]
+
+        parts[keeper]["width"] = max_w
+        parts[keeper]["height"] = max_h
+        parts[keeper]["print"]["min_feature"] = min(max_w, max_h)
+        parts[keeper]["bounds"] = [
+            parts[keeper]["bounds"][0],
+            parts[keeper]["bounds"][1],
+            parts[keeper]["bounds"][0] + max_w,
+            parts[keeper]["bounds"][1] + max_h,
+        ]
+        for pid in cluster[1:]:
+            if "source_primitives" in parts[pid]:
+                parts[keeper].setdefault("source_primitives", []).extend(
+                    parts[pid]["source_primitives"]
+                )
+            del parts[pid]
+
+        for icon_spec in spec["icons"].values():
+            for inst in icon_spec["instances"]:
+                if inst["part"] in cluster:
+                    inst["part"] = keeper
+
+    return spec
+
+
+# ---- polygon decomposition strategies ----
+
+
+def part_geometry(part_def: dict) -> object:
+    """Load a part's Shapely geometry at origin."""
+    kind = part_def["kind"]
+    if kind == "rect":
+        return Polygon([
+            (0, 0), (part_def["width"], 0),
+            (part_def["width"], part_def["height"]),
+            (0, part_def["height"]), (0, 0),
+        ])
+    return wkb.loads(part_def["geometry"]["value"], hex=True)
+
+
+def decompose_polygons_to_bbox_rects(spec: dict) -> dict:
+    """Replace every polygon/bar/custom_polygon part with its bounding-box rect.
+
+    This is a radical decomposition: all non-rect shapes become axis-aligned rects.
+    Returns a new spec with significantly fewer unique parts (all rects of the same
+    size deduplicate), at the cost of potentially large visual error.
+    """
+    spec = deep_copy_spec(spec)
+    parts = spec["parts"]
+
+    bbox_map: dict[str, tuple[float, float, str]] = {}
+    # pid -> (w, h, keeper_pid)
+
+    for pid, pdef in list(parts.items()):
+        if pdef["kind"] == "rect":
+            continue
+        geom = part_geometry(pdef)
+        min_x, min_y, max_x, max_y = geom.bounds
+        w = max_x - min_x
+        h = max_y - min_y
+        if w <= 0 or h <= 0:
+            continue
+        sig = (round(w, 6), round(h, 6))
+        if sig in bbox_map:
+            keeper = bbox_map[sig][2]
+            if "source_primitives" in parts[pid]:
+                parts[keeper].setdefault("source_primitives", []).extend(
+                    parts[pid]["source_primitives"]
+                )
+            del parts[pid]
+        else:
+            pdef["kind"] = "rect"
+            pdef["width"] = w
+            pdef["height"] = h
+            pdef["print"]["min_feature"] = min(w, h)
+            pdef.pop("geometry", None)
+            bbox_map[sig] = (w, h, pid)
+
+    for icon_spec in spec["icons"].values():
+        for inst in icon_spec["instances"]:
+            pid = inst["part"]
+            if pid in parts and parts[pid]["kind"] == "rect":
+                continue
+            if pid not in parts:
+                for (w, h, keeper) in bbox_map.values():
+                    old_geom = None
+                    # Remap: the old pid was in the bbox_map
+                continue
+            # Should not happen after remap
+    return spec
+
+
+def decompose_polygons_to_bbox_rects_fixed(spec: dict) -> dict:
+    """Replace polygon/bar/custom_polygon parts with bounding-box rects.
+
+    Track the old→new mapping and remap all icon instances.
+    Rect parts are left unchanged.
+    """
+    spec = deep_copy_spec(spec)
+    parts = spec["parts"]
+
+    pid_remap: dict[str, str] = {}
+    bbox_sig_to_keeper: dict[tuple[float, float], str] = {}
+
+    for pid, pdef in sorted(parts.items()):
+        if pdef["kind"] == "rect":
+            continue
+        geom = part_geometry(pdef)
+        min_x, min_y, max_x, max_y = geom.bounds
+        w = round(max_x - min_x, 6)
+        h = round(max_y - min_y, 6)
+        if w <= 0 or h <= 0:
+            pdef["kind"] = "rect"
+            pdef["width"] = w
+            pdef["height"] = h
+            pdef["print"]["min_feature"] = 0.0
+            pdef.pop("geometry", None)
+            continue
+
+        sig = (w, h)
+        if sig in bbox_sig_to_keeper:
+            keeper = bbox_sig_to_keeper[sig]
+            if "source_primitives" in pdef:
+                parts[keeper].setdefault("source_primitives", []).extend(
+                    pdef["source_primitives"]
+                )
+            pid_remap[pid] = keeper
+        else:
+            pdef["kind"] = "rect"
+            pdef["width"] = w
+            pdef["height"] = h
+            pdef["print"]["min_feature"] = min(w, h)
+            pdef.pop("geometry", None)
+            bbox_sig_to_keeper[sig] = pid
+
+    for pid in pid_remap:
+        if pid in parts:
+            del parts[pid]
+
+    for icon_spec in spec["icons"].values():
+        for inst in icon_spec["instances"]:
+            if inst["part"] in pid_remap:
+                inst["part"] = pid_remap[inst["part"]]
+
+    return spec
+
+
+def cluster_polygons_by_hausdorff(parts: dict, tolerance: float) -> list[list[str]]:
+    """Group polygon/bar/custom parts whose normalized Hausdorff distance <= tolerance.
+
+    Each part is loaded, normalized to origin, and compared to cluster leaders.
+    Uses leader-based non-chaining clustering (same pattern as rect clustering).
+    """
+    poly_ids = sorted(
+        [
+            pid
+            for pid, pdef in parts.items()
+            if pdef.get("kind") in {"polygon", "bar", "custom_polygon"}
+        ],
+        key=lambda pid: parts[pid].get("bounds", [0, 0, 0, 0]),
+    )
+    if len(poly_ids) < 2:
+        return []
+
+    polys: dict[str, object] = {}
+    for pid in poly_ids:
+        try:
+            polys[pid] = part_geometry(parts[pid])
+        except Exception:
+            continue
+
+    sorted_ids = sorted(
+        polys,
+        key=lambda pid: (
+            len(list(polys[pid].exterior.coords)) if polys[pid].geom_type == "Polygon" else 99,
+            polys[pid].area,
+        ),
+    )
+
+    clusters: list[tuple[object, set[str]]] = []
+    for pid in sorted_ids:
+        geom = polys[pid]
+        found = False
+        for leader_geom, cids in clusters:
+            try:
+                hd = leader_geom.hausdorff_distance(geom)
+            except Exception:
+                continue
+            if hd <= tolerance:
+                cids.add(pid)
+                found = True
+                break
+        if not found:
+            clusters.append((geom, {pid}))
+
+    return [sorted(c) for _, c in clusters if len(c) > 1]
+
+
+def merge_polygon_clusters(spec: dict, clusters: list[list[str]]) -> dict:
+    """Create a spec where polygon clusters are merged to the most-used part."""
+    spec = deep_copy_spec(spec)
+    parts = spec["parts"]
+
+    for cluster in clusters:
+        best = max(
+            cluster,
+            key=lambda pid: len(parts[pid].get("source_primitives", [])),
+        )
+        for pid in cluster:
+            if pid == best:
+                continue
+            if "source_primitives" in parts[pid]:
+                parts[best].setdefault("source_primitives", []).extend(
+                    parts[pid]["source_primitives"]
+                )
+            del parts[pid]
+
+        for icon_spec in spec["icons"].values():
+            for inst in icon_spec["instances"]:
+                if inst["part"] in cluster and inst["part"] != best:
+                    inst["part"] = best
+
+    return spec
+
+
+def simplify_command(args: argparse.Namespace) -> int:
+    spec_path = Path(args.spec)
+    if not spec_path.exists():
+        raise SystemExit(f"Part spec not found: {spec_path}")
+
+    spec = json.loads(spec_path.read_text(encoding="utf-8"))
+
+    ref_dir = Path(args.references)
+    refs = {r[0]: r for r in load_references(ref_dir)}
+
+    out_dir = Path(args.out)
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    baseline = score_spec(spec, refs)
+    pareto_rows: list[dict] = [
+        {
+            "label": "exact_baseline",
+            "unique_parts": baseline["unique_parts"],
+            "total_instances": baseline["total_instances"],
+            "area_error_ratio": baseline["overall_area_error_ratio"],
+            "total_area_error": baseline["total_area_error"],
+        }
+    ]
+
+    def _log_candidate(
+        merged_spec: dict, label: str, extra: dict | None = None
+    ) -> None:
+        result = score_spec(merged_spec, refs)
+        merged_path = out_dir / f"part-spec.{label}.v1.json"
+        merged_path.write_text(
+            json.dumps(merged_spec, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+        )
+        worst_icon = max(
+            (r["area_error_ratio"] for r in result["per_icon"]), default=0
+        )
+        row: dict = {
+            "label": label,
+            "unique_parts": result["unique_parts"],
+            "total_instances": result["total_instances"],
+            "area_error_ratio": result["overall_area_error_ratio"],
+            "total_area_error": round(result["total_area_error"], 6),
+            "worst_icon_error": worst_icon,
+            "worst_hausdorff": result["worst_hausdorff"],
+        }
+        if extra:
+            row.update(extra)
+        pareto_rows.append(row)
+        print(
+            f"  {label}: {result['unique_parts']} parts "
+            f"(area_err={result['overall_area_error_ratio']:.6g})"
+        )
+
+    # ---- rect size merges ----
+    rect_tolerances = args.rect_tolerances or [0.5, 1.0, 2.0, 4.0]
+    for tol in rect_tolerances:
+        clusters = cluster_rects_by_size(spec["parts"], tol)
+        if not clusters:
+            print(f"  rect_tol={tol}: no mergeable clusters")
+            continue
+        merged = merge_rect_clusters(spec, clusters)
+        _log_candidate(merged, f"rect_tol_{tol}", {"clusters_merged": len(clusters)})
+
+    # ---- polygon Hausdorff merges ----
+    poly_tolerances = args.polygon_tolerances or [0.5, 1.0, 2.0]
+    for tol in poly_tolerances:
+        clusters = cluster_polygons_by_hausdorff(spec["parts"], tol)
+        if not clusters:
+            print(f"  poly_hd={tol}: no mergeable clusters")
+            continue
+        merged = merge_polygon_clusters(spec, clusters)
+        _log_candidate(merged, f"poly_hausdorff_{tol}", {"clusters_merged": len(clusters)})
+
+    # ---- combined: rect merging (safe) + polygon Hausdorff ----
+    for rtol in rect_tolerances:
+        for ptol in poly_tolerances:
+            rect_clusters = cluster_rects_by_size(spec["parts"], rtol)
+            poly_clusters = cluster_polygons_by_hausdorff(spec["parts"], ptol)
+            if not rect_clusters and not poly_clusters:
+                continue
+            merged = spec
+            if rect_clusters:
+                merged = merge_rect_clusters(merged, rect_clusters)
+            if poly_clusters:
+                merged = merge_polygon_clusters(merged, poly_clusters)
+            _log_candidate(
+                merged,
+                f"combined_rtol{rtol}_phd{ptol}",
+                {"rect_clusters": len(rect_clusters), "poly_clusters": len(poly_clusters)},
+            )
+
+    # ---- bounding-box decomposition (radical) ----
+    if not args.no_bbox_decompose:
+        bbox_spec = decompose_polygons_to_bbox_rects_fixed(spec)
+        _log_candidate(bbox_spec, "bbox_decompose")
+
+    # ---- Pareto summary ----
+    pareto_path = out_dir / "pareto.jsonl"
+    with pareto_path.open("w", encoding="utf-8") as f:
+        for row in pareto_rows:
+            f.write(json.dumps(row) + "\n")
+
+    print(f"\nsimplify: {len(pareto_rows)} candidates logged to {pareto_path}")
+    print(f"\n{'label':<22s} {'parts':>6s} {'inst':>6s} {'area_err':>12s}  {'hausdorff':>10s}")
+    print("-" * 64)
+    for row in pareto_rows:
+        h = row.get("worst_hausdorff", 0)
+        print(
+            f"{row['label']:<22s} {row['unique_parts']:>6d} {row['total_instances']:>6d} "
+            f"{row['area_error_ratio']:>12.6g}  {h:>10.4f}"
+        )
 
     return 0
 
@@ -528,6 +934,15 @@ def build_parser() -> argparse.ArgumentParser:
     scor.add_argument("--verbose", action="store_true")
     scor.add_argument("--json", action="store_true", help="Print metrics as JSON")
     scor.set_defaults(func=score_command)
+
+    simp = subparsers.add_parser("simplify", help="Greedy simplification: merge similar parts and score trades")
+    simp.add_argument("--spec", default="analysis/runs/exact/part-spec.exact.v1.json", help="Part spec JSON")
+    simp.add_argument("--references", default="analysis/references", help="Reference JSON directory")
+    simp.add_argument("--out", default="analysis/runs/simplify", help="Output directory for merged specs and Pareto log")
+    simp.add_argument("--rect-tolerances", nargs="*", type=float, help="Size tolerance steps for rect merging")
+    simp.add_argument("--polygon-tolerances", nargs="*", type=float, help="Hausdorff tolerance steps for polygon merging")
+    simp.add_argument("--no-bbox-decompose", action="store_true", help="Skip bounding-box decomposition")
+    simp.set_defaults(func=simplify_command)
 
     return parser
 
