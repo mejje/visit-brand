@@ -93,8 +93,7 @@ reference geometry is broadly compatible with the build123d sketch-to-STEP path.
 ## Follow-Up Questions
 
 - Does the generated STEP open cleanly in FreeCAD?
-- Does the generated STEP import cleanly in UltiMaker Cura as the primary broad-user slicer target?
-- Does the generated STEP also import cleanly in PrusaSlicer as the secondary STEP compatibility check?
-- Does OrcaSlicer handle the generated STEP cleanly for users already in that printer/profile ecosystem?
+- Does the generated STEP import cleanly in UltiMaker Cura?
+- Does Cura preserve separate STEP bodies/parts well enough for the employee workflow?
 - Should the front icon be one combined solid or separate STEP bodies per physical snap-in part?
 - How should wall thickness and hollow translucent parts be represented before the part-library split exists?
