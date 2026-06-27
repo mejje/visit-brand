@@ -307,8 +307,8 @@ Tool: `tools/icon_parts.py` (bootstrap, render, score subcommands)
   - 6 rotation-aware cross-icon clusters found.
 - [x] Log Pareto rows per candidate (`analysis/runs/simplify/pareto.jsonl`).
 - [x] Allow rotation in part placements (centroid anchoring, 0/90/180/270 degree rotations).
-- [ ] Pre-generate polygon decomposition candidates (grid-split, strip-split, inscribed-rect).
-- [ ] Build pymoo NSGA-II pipeline: chromosome selects which candidate parts to include and which decomposition per instance. Objectives: minimize unique parts, placed instances, area error, worst-icon Hausdorff.
+- [ ] ~~Pre-generate polygon decomposition candidates~~ — Attempted grid-split and largest-inscribed-rect strategies. Both produced worse results than greedy clustering (either more parts or higher error). Abandoned. Irregular icon polygons don't decompose well into axis-aligned rects; the greedy Hausdorff approach preserves shape fidelity better.
+- [ ] Build pymoo NSGA-II pipeline (see `ICON_ANALYSIS_PLAN.md` pymoo Integration Plan).
 - [ ] Generate Pareto frontier reports.
 - [ ] Review trade-offs with brand/design stakeholders.
 - [ ] Select a recommended part library for physical testing.
@@ -361,8 +361,8 @@ Completed:
 5. ~~Greedy simplification~~ → Done: 61→42 parts (31% reduction) at 0.075% area error via rect merge + polygon Hausdorff + rotation clustering.
 
 Current priorities:
-- **Polygon decomposition candidate generation**: grid-split, strip-split, inscribed-rect pre-processing.
-- **pymoo NSGA-II**: chromosome selects from the pre-generated candidate pool; multi-objective Pareto search.
+- ~~Polygon decomposition~~ (abandoned — inscribed rect and grid-split both fail on irregular icons)
+- **pymoo NSGA-II** for multi-objective search over remaining strategies
 - **Physical prototype**: print snap-fit coupons, validate PrusaSlicer STEP import.
 - **Design review** with facilities/brand/design before locking mounting and visual tolerance decisions.
 

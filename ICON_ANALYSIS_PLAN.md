@@ -335,6 +335,8 @@ pymoo is an evolutionary algorithm — it mutates and crosses over chromosomes. 
 
 Instead, pre-generate a finite set of decomposition candidates (maybe 2-5 per complex polygon), pre-score each at the individual-part level, and let pymoo's chromosome simply select which pre-computed candidates to include. This keeps the black-box evaluation fast and the search space bounded.
 
+**Status note (2026-06-28):** Grid-split and largest-inscribed-rect decomposition strategies were attempted and abandoned. Both produced worse results than the greedy Hausdorff clustering approach: more parts, higher area error, and visible shape distortion. Irregular icon polygons (diagonal edges, curved paths) don't decompose well into axis-aligned rectangles. The greedy Hausdorff approach (61→42 parts, 0.075% error) remains the best result.
+
 Do not start by hand-writing a full genetic algorithm. First make candidate scoring, caching, visualization, and reproducibility solid; then plug in the optimizer.
 
 ### Optimizer Research Notes
