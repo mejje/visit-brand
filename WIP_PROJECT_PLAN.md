@@ -358,10 +358,12 @@ Completed:
 1. ~~Pick three representative icons for prototype analysis~~ → Four icons selected: Hotel (rect-heavy), Platform (polygon-only), Amusement Park (curved path), Travel Agent (transformed rect).
 2. ~~Build `tools/icon_reference.py build`~~ → Done: 14 icons, WKB references, canonical SVGs, manifest, check/verify commands.
 3. ~~Prototype STEP generation in CadQuery and build123d~~ → Done: build123d selected, `tools/export_step.py` working with zero re-import delta.
-5. ~~Build comparison tool~~ → Done: `tools/icon_parts.py score` with area error, Hausdorff, bounds delta, component delta.
+4. ~~Build comparison tool~~ → Done: `tools/icon_parts.py score` with area error, Hausdorff, bounds delta, component delta.
+5. ~~Greedy simplification~~ → Done: 61→42 parts (31% reduction) at 0.075% area error via rect merge + polygon Hausdorff + rotation clustering.
 
 Current priorities:
-- **Greedy simplification** (Stage 6 of `ICON_ANALYSIS_PLAN.md`): merge near-identical rects, bars, and polygons; log Pareto rows.
-- **Physical prototype** (print snap-fit coupons, validate PrusaSlicer STEP import).
+- **Sub-part decomposition**: split large polygons into shared rects/bars/strokes (Stage 6 continued).
+- **pymoo NSGA-II**: multi-objective Pareto search over the stable candidate space.
+- **Physical prototype**: print snap-fit coupons, validate PrusaSlicer STEP import.
 - **Design review** with facilities/brand/design before locking mounting and visual tolerance decisions.
 
