@@ -64,11 +64,12 @@ All inspected SVGs use a `48 x 48` viewBox and filled vector primitives. Most ge
    - Scripted model definitions for backplates, front shells, snap features, test coupons, and export assemblies.
    - Parameter presets for small, medium, and large desk display sizes.
 
-2. **Generated print files**
-   - STL and/or 3MF files for each icon.
+2. **Generated CAD and print handoff files**
+   - STEP files for each icon, backplate, front assembly, and fit coupon.
    - Single-session layouts for basic printers.
    - Multi-session larger parts for employee-owned printers.
    - Fit calibration coupons with snap tabs and sockets.
+   - No STL deliverables. Mesh conversion, if needed, should happen inside the user's slicer or a documented local slicer workflow.
 
 3. **Icon analysis software**
    - Import original SVGs.
@@ -96,32 +97,36 @@ All inspected SVGs use a `48 x 48` viewBox and filled vector primitives. Most ge
 
 The modeling workflow should be scriptable and parametric, because the project needs repeatable generation from SVG data and easy tuning of tolerances.
 
+The generated CAD handoff format should be **STEP only**. STEP is the canonical interchange format for CAD review, downstream CAD editing, slicer import where supported, and archival generated geometry. STL should not be generated or shipped as a project deliverable.
+
 ### Current Shortlist
 
-- **CadQuery**: Python-based parametric CAD. Its official documentation describes it as a Python library for parametric 3D CAD models and lists STEP, AMF, 3MF, and STL output support: <https://cadquery.readthedocs.io/>.
-- **build123d**: Python-based parametric BREP modeling built on Open Cascade, with an expressive Python API suitable for 3D printing workflows: <https://build123d.readthedocs.io/>.
-- **FreeCAD**: Open-source parametric modeler with Python support and a visual CAD environment. Good candidate for inspection, interchange, and manual validation: <https://github.com/FreeCAD/FreeCAD>.
-- **OpenSCAD**: Free script-based solid CAD tool. Strong for approachable parametric models, but likely less comfortable for SVG-driven geometry optimization than a Python-first workflow: <https://openscad.org/>.
+- **CadQuery**: Python-based parametric CAD. Strong candidate if it can reliably turn Shapely-derived profiles into solids and export clean STEP parts/assemblies. Its documentation covers STEP import/export and assembly export: <https://cadquery.readthedocs.io/en/latest/importexport.html>.
+- **build123d**: Python-based parametric BREP modeling built on Open Cascade. Strong candidate if its sketch/profile workflow maps cleanly from Shapely polygons and exports clean STEP parts/assemblies. Its documentation covers `import_step` and `export_step`: <https://build123d.readthedocs.io/en/latest/import_export.html>.
+- **FreeCAD**: Open-source parametric modeler with Python support and a visual CAD environment. Good candidate for STEP inspection, interchange validation, and manual QA: <https://wiki.freecad.org/Import_Export_Preferences>.
+- **OpenSCAD**: De-prioritized for production unless a reliable STEP/BREP path is proven, because the project now requires STEP as the generated handoff format.
 
 ### Initial Recommendation
 
-Start with a Python-first pipeline and prototype both **CadQuery** and **build123d** on one icon.
+Start with a Python-first pipeline and prototype both **CadQuery** and **build123d** on one icon, using STEP export as the deciding handoff test.
 
 Reasoning:
 
 - The SVG parsing, geometry simplification, scoring, and optimization will likely be Python anyway.
 - A Python CAD library avoids passing fragile intermediate geometry between unrelated tools.
 - Both CadQuery and build123d are built around parametric CAD-as-code, which fits the need to regenerate variants.
-- FreeCAD can remain the visual QA and manual-inspection tool even if the production generator is code-first.
+- STEP keeps generated geometry editable and inspectable in other CAD tools.
+- FreeCAD can remain the visual QA and STEP round-trip inspection tool even if the production generator is code-first.
 
 ### CAD Research TODOs
 
 - **RESEARCH TODO:** Prototype one backplate and one hollow front part in CadQuery.
 - **RESEARCH TODO:** Prototype the same part in build123d.
-- **RESEARCH TODO:** Compare SVG polygon import, offsetting, shelling, fillets/chamfers, assembly export, 3MF export, and CLI automation.
-- **RESEARCH TODO:** Confirm whether exported 3MF files preserve multiple bodies/material groups in the slicers employees are likely to use.
+- **RESEARCH TODO:** Compare Shapely polygon import, offsetting, shelling, fillets/chamfers, STEP part export, STEP assembly export, STEP re-import, and CLI automation.
+- **RESEARCH TODO:** Confirm whether target slicers can import the generated STEP files directly and preserve separate bodies/parts well enough for the employee workflow.
+- **RESEARCH TODO:** Validate STEP import first in PrusaSlicer and/or Bambu Studio, both of which document STEP import support: <https://help.prusa3d.com/article/first-print-with-prusaslicer_1753> and <https://wiki.bambulab.com/en/software/bambu-studio/step>.
 - **RESEARCH TODO:** Decide the production CAD stack after prototype evidence, not preference.
-- **RESEARCH TODO:** Decide whether to provide OpenSCAD exports for advanced hobbyists or keep the public source in Python only.
+- **RESEARCH TODO:** Document that non-STEP CAD exports are out of scope unless a future explicit requirement overrides the STEP-only decision.
 
 ## Parametric Model Requirements
 
@@ -178,7 +183,7 @@ Goal: create a canonical physical part library that can reconstruct all source i
 - Generated reference artifacts are recreated from SVGs and not hand-edited.
 - Shapely is the primary geometry comparison kernel.
 - A project-native parametric 2D part spec is the editable optimizer format.
-- CadQuery or build123d should consume the same part spec for downstream CAD generation.
+- CadQuery or build123d should consume the same part spec for downstream STEP generation.
 
 ### Current Source Summary
 
@@ -221,6 +226,7 @@ cad/
   parameters/
   generators/
   exports/
+    step/
 docs/
   maker-guide.md
   printer-setup.md
@@ -241,7 +247,7 @@ Suggested Python libraries to evaluate:
 - Polygon geometry: `shapely`.
 - SVG rendering: generated directly from Shapely geometry.
 - Optimization: custom Pareto evaluator first, `pymoo` NSGA-II for multi-objective search, OR-Tools CP-SAT for finite discrete subproblems, and `scipy.optimize` for continuous tuning.
-- CAD generation: CadQuery or build123d.
+- CAD generation: CadQuery or build123d, selected by STEP export/re-import quality.
 
 **RESEARCH TODO:** Validate exact library choices by building a small proof of concept against `Visit_Icon_Hotel.svg`, `Visit_Icon_Platform.svg`, `Visit_Icon_Amusement park.svg`, and `Visit_Icon_Travel agent.svg`.
 
@@ -264,8 +270,10 @@ Detailed implementation plan: `REFERENCE_RENDERING_PLAN.md`
 ### Milestone 2: First Physical Prototype
 
 - [ ] Select provisional CAD stack.
-- [ ] Generate one backplate and one translucent front icon from source geometry.
+- [ ] Generate one STEP backplate and one STEP translucent front icon from source geometry.
 - [ ] Add editable extrusion-depth and wall-thickness parameters.
+- [ ] Validate STEP re-import in FreeCAD or another CAD viewer.
+- [ ] Validate target slicer STEP import before any physical print.
 - [ ] Print snap-fit coupons.
 - [ ] Print one complete small icon.
 - [ ] Record printer, filament, nozzle, layer height, clearances, and fit outcome.
@@ -308,14 +316,15 @@ Required docs:
 - **Fit Calibration:** print tolerance coupon, choose clearance preset, regenerate parts if needed.
 - **Assembly:** identify parts, snap order, troubleshooting tight or loose fits.
 - **Mounting:** nail/pin/adhesive options, cubicle-wall cautions, removal instructions.
-- **Customization:** edit parameter file, regenerate STL/3MF, print larger versions.
+- **Customization:** edit parameter file, regenerate STEP files, import them into the slicer, and print larger versions.
 - **Maker Workshop:** suggested agenda, shared printer workflow, group assembly session, safety notes.
 
-**RESEARCH TODO:** Decide whether docs should assume a named slicer workflow or remain slicer-neutral.
+**RESEARCH TODO:** Decide whether docs should assume a named slicer workflow with STEP import or remain slicer-neutral.
 
 ## Risks And Unknowns
 
 - Snap-fit tolerances vary heavily by printer, material, nozzle, temperature, and slicer settings.
+- STEP import quality may vary by slicer; the project should validate at least one named slicer workflow before promising employee-friendly printing.
 - Translucent white filament may look too opaque unless wall thickness and infill are tuned.
 - Hollow translucent parts may need drain/vent holes, support strategy, or minimum face thickness rules.
 - Nails may be unsuitable for some cubicle walls or workplace policies.
@@ -328,7 +337,7 @@ Required docs:
 
 1. **RESEARCH TODO:** Pick three representative icons for prototype analysis: one rect-heavy, one polygon-heavy, and one path/curve icon.
 2. **RESEARCH TODO:** Build `tools/icon_reference.py build` for deterministic `*.reference.json`, canonical SVG, and `manifest.json`.
-3. **RESEARCH TODO:** Prototype the CAD stack in CadQuery and build123d using one simple icon.
+3. **RESEARCH TODO:** Prototype STEP generation in CadQuery and build123d using one simple icon.
 4. **RESEARCH TODO:** Design and print snap-fit tolerance coupons.
 5. **RESEARCH TODO:** Build `tools/compare_geometry.py` with Shapely symmetric-difference area, boundary distance, bounds delta, and overlay output.
 6. **RESEARCH TODO:** Review physical assumptions with facilities/brand/design before locking mounting and visual tolerance decisions.

@@ -23,12 +23,12 @@ Use Shapely as the primary comparison kernel, but do not make Shapely serializat
 Recommended roles:
 
 - **Raw SVG:** immutable brand/design reference.
-- **Generated reference artifacts:** reproducible source-to-geometry snapshots, canonical SVGs, previews, overlays, metrics, and manifests.
+- **Generated reference artifacts:** reproducible source-to-geometry snapshots, canonical SVGs, overlays, metrics, and manifests.
 - **Parametric 2D part spec:** editable project-native format for reusable physical parts, placements, transforms, and optimizer output.
 - **Shapely geometry:** in-memory scoring representation generated from both the source references and the parametric part spec.
-- **CadQuery/build123d:** downstream CAD generation from the same parametric 2D part spec.
+- **CadQuery/build123d:** downstream STEP generation from the same parametric 2D part spec.
 
-This makes Shapely the geometry judge, not the design language. The optimizer should iterate on part definitions and placements, then convert each candidate to Shapely geometry for scoring and to CAD sketches/wires for printing.
+This makes Shapely the geometry judge, not the design language. The optimizer should iterate on part definitions and placements, then convert each candidate to Shapely geometry for scoring and to CAD sketches/wires for STEP export.
 
 ## Parametric 2D Part Spec
 
@@ -94,7 +94,7 @@ Plain polygon JSON is also incomplete as an authoring format:
 
 - It loses whether a shape was intended as a rectangle, bar, arc band, or reusable physical part.
 - It does not naturally capture allowed transforms, snap hints, printability constraints, or assembly intent.
-- It can be converted into CAD profiles, but it is less useful for generating clean parametric CAD than a part spec with dimensions and transforms.
+- It can be converted into CAD profiles, but it is less useful for generating clean parametric STEP geometry than a part spec with dimensions and transforms.
 
 Canonical SVG and polygon/WKB/WKT geometry are still useful, but only as generated artifacts for scoring, review, and regression tests.
 

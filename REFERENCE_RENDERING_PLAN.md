@@ -6,7 +6,7 @@ Last updated: 2026-06-27
 
 Build a small, deterministic reference-rendering pipeline for the current brand icon SVGs.
 
-The immediate purpose is to create trustworthy generated artifacts that make later Shapely scoring and CAD generation easier to validate:
+The immediate purpose is to create trustworthy generated artifacts that make later Shapely scoring and STEP generation easier to validate:
 
 ```text
 SVG source
@@ -207,7 +207,7 @@ The broader project still uses:
 
 - Shapely as the primary geometry comparison kernel.
 - A parametric 2D part spec as the editable optimizer format.
-- CadQuery or build123d as downstream CAD generators.
+- CadQuery or build123d as downstream STEP generators.
 
 ## Research Notes
 
