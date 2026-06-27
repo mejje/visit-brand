@@ -349,19 +349,31 @@ def score_spec(spec: dict, refs: dict[str, tuple]) -> dict:
 # ---------------------------------------------------------------------------
 
 
-def part_to_geometry(part_def: dict) -> object:
-    """Convert a part definition to Shapely geometry at origin."""
+def part_to_geometry(part_def: dict, anchor: str = "min_corner") -> object:
+    """Convert a part definition to Shapely geometry at origin.
+
+    anchor="min_corner" (default): top-left corner at (0,0).
+    anchor="centroid": part centroid at (0,0), for rotation support.
+    """
+    from shapely import affinity
+
     kind = part_def["kind"]
     if kind == "rect":
         w = part_def["width"]
         h = part_def["height"]
-        return Polygon([
+        geom = Polygon([
             (0, 0), (w, 0), (w, h), (0, h), (0, 0)
         ])
-    geom_info = part_def["geometry"]
-    if geom_info["format"] != "wkb_hex":
-        raise ValueError(f"Unsupported geometry format: {geom_info['format']}")
-    return wkb.loads(geom_info["value"], hex=True)
+    else:
+        geom_info = part_def["geometry"]
+        if geom_info["format"] != "wkb_hex":
+            raise ValueError(f"Unsupported geometry format: {geom_info['format']}")
+        geom = wkb.loads(geom_info["value"], hex=True)
+
+    if anchor == "centroid":
+        cx, cy = geom.centroid.x, geom.centroid.y
+        geom = affinity.translate(geom, xoff=-cx, yoff=-cy)
+    return geom
 
 
 def translate_geometry(geom, dx: float, dy: float) -> object:
@@ -370,20 +382,34 @@ def translate_geometry(geom, dx: float, dy: float) -> object:
     return affinity.translate(geom, xoff=dx, yoff=dy)
 
 
+def place_part(geom, at_x: float, at_y: float, rotate: float = 0.0) -> object:
+    """Place part geometry: rotate around origin, then translate to (at_x, at_y)."""
+    from shapely import affinity
+    if rotate != 0.0:
+        geom = affinity.rotate(geom, rotate, origin=(0, 0))
+    return affinity.translate(geom, xoff=at_x, yoff=at_y)
+
+
 def reconstruct_icon(
     icon_spec: dict, parts: dict, precision: float
 ) -> tuple[object, list[dict]]:
-    """Reconstruct icon geometry from instances. Returns (unioned_geometry, instance_details)."""
+    """Reconstruct icon geometry from instances. Returns (unioned_geometry, instance_details).
+
+    Supports both min_corner anchor (no rotation) and centroid anchor (with rotation).
+    Anchor is detected from instance: if "rotate" present, uses centroid anchor.
+    """
     instance_geoms = []
     details = []
     for inst in icon_spec["instances"]:
         part_id = inst["part"]
         part_def = parts[part_id]
-        base_geom = part_to_geometry(part_def)
+        rotate = inst.get("rotate", None)
+        anchor = "centroid" if rotate is not None else "min_corner"
+        base_geom = part_to_geometry(part_def, anchor=anchor)
         at_x, at_y = inst["at"]
-        placed = translate_geometry(base_geom, at_x, at_y)
+        placed = place_part(base_geom, at_x, at_y, rotate=rotate or 0.0)
         instance_geoms.append(placed)
-        details.append({"part": part_id, "at": [at_x, at_y], "geom": placed})
+        details.append({"part": part_id, "at": [at_x, at_y], "geom": placed, "rotate": rotate})
     if not instance_geoms:
         return MultiPolygon([]), []
     return iref.canonical_geometry(unary_union(instance_geoms)), details
@@ -593,16 +619,9 @@ def merge_rect_clusters(spec: dict, clusters: list[list[str]]) -> dict:
 # ---- polygon decomposition strategies ----
 
 
-def part_geometry(part_def: dict) -> object:
-    """Load a part's Shapely geometry at origin."""
-    kind = part_def["kind"]
-    if kind == "rect":
-        return Polygon([
-            (0, 0), (part_def["width"], 0),
-            (part_def["width"], part_def["height"]),
-            (0, part_def["height"]), (0, 0),
-        ])
-    return wkb.loads(part_def["geometry"]["value"], hex=True)
+def part_geometry(part_def: dict, anchor: str = "min_corner") -> object:
+    """Load a part's Shapely geometry at origin. Delegates to shared part_to_geometry."""
+    return part_to_geometry(part_def, anchor=anchor)
 
 
 def decompose_polygons_to_bbox_rects(spec: dict) -> dict:
@@ -712,12 +731,43 @@ def decompose_polygons_to_bbox_rects_fixed(spec: dict) -> dict:
     return spec
 
 
-def cluster_polygons_by_hausdorff(parts: dict, tolerance: float) -> list[list[str]]:
-    """Group polygon/bar/custom parts whose normalized Hausdorff distance <= tolerance.
+def _try_rotated_hausdorff(geom_a, geom_b, angles=(0, 90, 180, 270)) -> tuple[float, float]:
+    """Return (min_hausdorff, best_angle) for geom_b rotated against geom_a."""
+    from shapely import affinity
 
-    Each part is loaded, normalized to origin, and compared to cluster leaders.
-    Uses leader-based non-chaining clustering (same pattern as rect clustering).
+    best_hd = float("inf")
+    best_angle = 0.0
+    for angle in angles:
+        rotated = affinity.rotate(geom_b, angle, origin=(0, 0))
+        try:
+            hd = geom_a.hausdorff_distance(rotated)
+        except Exception:
+            continue
+        if hd < best_hd:
+            best_hd = hd
+            best_angle = angle
+    if best_hd == float("inf"):
+        try:
+            best_hd = geom_a.hausdorff_distance(geom_b)
+        except Exception:
+            pass
+    return best_hd, best_angle
+
+
+def cluster_polygons_by_hausdorff(
+    parts: dict, tolerance: float, allow_rotation: bool = False
+) -> tuple[list[list[str]], dict[str, float] | None]:
+    """Group polygon/bar/custom parts by Hausdorff distance.
+
+    If allow_rotation, tries rotating each candidate at 0/90/180/270 degrees
+    and records the best angle per member. Returns (clusters, rotations) where
+    rotations maps part_id -> best_rotation_angle. Returns None for rotations if
+    not using rotation.
+
+    Uses leader-based non-chaining clustering.
     """
+    angles = (0, 90, 180, 270) if allow_rotation else (0,)
+
     poly_ids = sorted(
         [
             pid
@@ -727,12 +777,13 @@ def cluster_polygons_by_hausdorff(parts: dict, tolerance: float) -> list[list[st
         key=lambda pid: parts[pid].get("bounds", [0, 0, 0, 0]),
     )
     if len(poly_ids) < 2:
-        return []
+        return [], {} if allow_rotation else None
 
+    anchor = "centroid" if allow_rotation else "min_corner"
     polys: dict[str, object] = {}
     for pid in poly_ids:
         try:
-            polys[pid] = part_geometry(parts[pid])
+            polys[pid] = part_geometry(parts[pid], anchor=anchor)
         except Exception:
             continue
 
@@ -745,26 +796,76 @@ def cluster_polygons_by_hausdorff(parts: dict, tolerance: float) -> list[list[st
     )
 
     clusters: list[tuple[object, set[str]]] = []
+    member_rotation: dict[str, float] = {}
+
     for pid in sorted_ids:
         geom = polys[pid]
         found = False
         for leader_geom, cids in clusters:
-            try:
-                hd = leader_geom.hausdorff_distance(geom)
-            except Exception:
-                continue
+            hd, angle = _try_rotated_hausdorff(leader_geom, geom, angles=angles)
             if hd <= tolerance:
                 cids.add(pid)
+                member_rotation[pid] = angle
                 found = True
                 break
         if not found:
             clusters.append((geom, {pid}))
+            member_rotation[pid] = 0.0
 
-    return [sorted(c) for _, c in clusters if len(c) > 1]
+    result_clusters = [sorted(c) for _, c in clusters if len(c) > 1]
+    if not result_clusters:
+        return [], {} if allow_rotation else None
+    return result_clusters, member_rotation if allow_rotation else None
 
 
-def merge_polygon_clusters(spec: dict, clusters: list[list[str]]) -> dict:
-    """Create a spec where polygon clusters are merged to the most-used part."""
+def _convert_to_centroid_anchor(spec: dict) -> dict:
+    """Convert polygon/bar/custom parts to centroid-anchored geometry.
+
+    Updates part geometry to be centroid-centered and recalculates all instance
+    'at' positions from min-corner to centroid coordinates.
+    """
+    spec = deep_copy_spec(spec)
+    parts = spec["parts"]
+
+    centroid_offsets: dict[str, tuple[float, float]] = {}
+    for pid, pdef in parts.items():
+        if pdef["kind"] == "rect":
+            continue
+        geom = part_geometry(pdef, anchor="min_corner")
+        cx, cy = geom.centroid.x, geom.centroid.y
+        centroid_offsets[pid] = (cx, cy)
+        centered = part_to_geometry(pdef, anchor="centroid")
+        pdef["geometry"] = {"format": "wkb_hex", "value": centered.wkb_hex}
+
+    for icon_spec in spec["icons"].values():
+        for inst in icon_spec["instances"]:
+            pid = inst["part"]
+            if pid not in centroid_offsets:
+                continue
+            ox, oy = centroid_offsets[pid]
+            inst["at"] = [
+                round(inst["at"][0] + ox, 9),
+                round(inst["at"][1] + oy, 9),
+            ]
+
+    spec["allowed_transforms"]["rotate"] = True
+    return spec
+
+
+def merge_polygon_clusters(
+    spec: dict, clusters: list[list[str]], rotations: dict[str, float] | None = None
+) -> dict:
+    """Create a spec where polygon clusters are merged to the most-used part.
+
+    If rotations is provided, parts are centroid-anchored and instances record
+    rotation offsets. The spec is converted to centroid anchor before merging.
+    Rotation angles are recomputed relative to the keeper part.
+    """
+    use_rotation = rotations is not None
+
+    if use_rotation:
+        spec = _convert_to_centroid_anchor(spec)
+
     spec = deep_copy_spec(spec)
     parts = spec["parts"]
 
@@ -773,6 +874,22 @@ def merge_polygon_clusters(spec: dict, clusters: list[list[str]]) -> dict:
             cluster,
             key=lambda pid: len(parts[pid].get("source_primitives", [])),
         )
+
+        if use_rotation:
+            keeper_geom = part_geometry(parts[best], anchor="centroid")
+            # Recompute rotation of each member relative to keeper
+            keeper_rots: dict[str, float] = {}
+            for pid in cluster:
+                if pid == best:
+                    keeper_rots[pid] = 0.0
+                    continue
+                member_geom = part_geometry(parts[pid], anchor="centroid")
+                # Find rotation of keeper that best matches member
+                _hd, angle = _try_rotated_hausdorff(
+                    member_geom, keeper_geom, angles=(0, 90, 180, 270)
+                )
+                keeper_rots[pid] = angle
+
         for pid in cluster:
             if pid == best:
                 continue
@@ -784,8 +901,14 @@ def merge_polygon_clusters(spec: dict, clusters: list[list[str]]) -> dict:
 
         for icon_spec in spec["icons"].values():
             for inst in icon_spec["instances"]:
-                if inst["part"] in cluster and inst["part"] != best:
-                    inst["part"] = best
+                if inst["part"] not in cluster or inst["part"] == best:
+                    continue
+                old_pid = inst["part"]
+                inst["part"] = best
+                if use_rotation:
+                    angle = keeper_rots.get(old_pid, 0.0)
+                    if abs(angle) > 0.01:
+                        inst["rotate"] = round(angle, 3)
 
     return spec
 
@@ -852,31 +975,50 @@ def simplify_command(args: argparse.Namespace) -> int:
         merged = merge_rect_clusters(spec, clusters)
         _log_candidate(merged, f"rect_tol_{tol}", {"clusters_merged": len(clusters)})
 
-    # ---- polygon Hausdorff merges ----
+    # ---- polygon Hausdorff merges (no rotation) ----
     poly_tolerances = args.polygon_tolerances or [0.5, 1.0, 2.0]
     for tol in poly_tolerances:
-        clusters = cluster_polygons_by_hausdorff(spec["parts"], tol)
+        clusters, _rot = cluster_polygons_by_hausdorff(spec["parts"], tol, allow_rotation=False)
         if not clusters:
             print(f"  poly_hd={tol}: no mergeable clusters")
             continue
         merged = merge_polygon_clusters(spec, clusters)
         _log_candidate(merged, f"poly_hausdorff_{tol}", {"clusters_merged": len(clusters)})
 
-    # ---- combined: rect merging (safe) + polygon Hausdorff ----
+    # ---- polygon Hausdorff merges (with rotation) ----
+    if not args.no_rotation:
+        for tol in poly_tolerances:
+            clusters, rotations = cluster_polygons_by_hausdorff(
+                spec["parts"], tol, allow_rotation=True
+            )
+            if not clusters:
+                print(f"  poly_rot_hd={tol}: no mergeable clusters")
+                continue
+            merged = merge_polygon_clusters(spec, clusters, rotations=rotations)
+            _log_candidate(
+                merged, f"poly_rot_hausdorff_{tol}", {"clusters_merged": len(clusters)}
+            )
+
+    # ---- combined: rect merging + polygon Hausdorff (with rotation) ----
     for rtol in rect_tolerances:
         for ptol in poly_tolerances:
             rect_clusters = cluster_rects_by_size(spec["parts"], rtol)
-            poly_clusters = cluster_polygons_by_hausdorff(spec["parts"], ptol)
+            poly_clusters, poly_rot = cluster_polygons_by_hausdorff(
+                spec["parts"], ptol, allow_rotation=not args.no_rotation
+            )
             if not rect_clusters and not poly_clusters:
                 continue
             merged = spec
             if rect_clusters:
                 merged = merge_rect_clusters(merged, rect_clusters)
             if poly_clusters:
-                merged = merge_polygon_clusters(merged, poly_clusters)
+                merged = merge_polygon_clusters(
+                    merged, poly_clusters, rotations=poly_rot if not args.no_rotation else None
+                )
+            rot_tag = "_rot" if not args.no_rotation else ""
             _log_candidate(
                 merged,
-                f"combined_rtol{rtol}_phd{ptol}",
+                f"combined_rtol{rtol}_phd{ptol}{rot_tag}",
                 {"rect_clusters": len(rect_clusters), "poly_clusters": len(poly_clusters)},
             )
 
@@ -942,6 +1084,7 @@ def build_parser() -> argparse.ArgumentParser:
     simp.add_argument("--rect-tolerances", nargs="*", type=float, help="Size tolerance steps for rect merging")
     simp.add_argument("--polygon-tolerances", nargs="*", type=float, help="Hausdorff tolerance steps for polygon merging")
     simp.add_argument("--no-bbox-decompose", action="store_true", help="Skip bounding-box decomposition")
+    simp.add_argument("--no-rotation", action="store_true", help="Skip rotated polygon comparison")
     simp.set_defaults(func=simplify_command)
 
     return parser
