@@ -120,11 +120,15 @@ Reasoning:
 
 ### CAD Research TODOs
 
+Detailed implementation spike: `CAD_FEASIBILITY_SPIKE.md`
+
 - **RESEARCH TODO:** Prototype one backplate and one hollow front part in CadQuery.
 - **RESEARCH TODO:** Prototype the same part in build123d.
 - **RESEARCH TODO:** Compare Shapely polygon import, offsetting, shelling, fillets/chamfers, STEP part export, STEP assembly export, STEP re-import, and CLI automation.
 - **RESEARCH TODO:** Confirm whether target slicers can import the generated STEP files directly and preserve separate bodies/parts well enough for the employee workflow.
-- **RESEARCH TODO:** Validate STEP import first in PrusaSlicer and/or Bambu Studio, both of which document STEP import support: <https://help.prusa3d.com/article/first-print-with-prusaslicer_1753> and <https://wiki.bambulab.com/en/software/bambu-studio/step>.
+- **RESEARCH TODO:** Validate STEP import first in **UltiMaker Cura** as the broad public-printer baseline. Cura is free/open-source, widely used across third-party printers, and current UltiMaker docs list STEP/IGES-compatible input: <https://ultimaker.com/software/ultimaker-cura/>, <https://support.makerbot.com/s/article/1667337565297>.
+- **RESEARCH TODO:** Use **PrusaSlicer** as the secondary STEP sanity check because it is free/open-source, cross-platform, documents STEP import, and includes/imports third-party printer profiles: <https://www.prusa3d.com/p/prusaslicer/>, <https://help.prusa3d.com/article/supported-file-formats_1772>, <https://help.prusa3d.com/article/profiles-for-3rd-party-printers_246178>.
+- **RESEARCH TODO:** Keep **OrcaSlicer** as an extra community-printer check and **Bambu Studio** as an optional Bambu-specific check, not the default public workflow.
 - **RESEARCH TODO:** Decide the production CAD stack after prototype evidence, not preference.
 - **RESEARCH TODO:** Document that non-STEP CAD exports are out of scope unless a future explicit requirement overrides the STEP-only decision.
 
@@ -319,7 +323,7 @@ Required docs:
 - **Customization:** edit parameter file, regenerate STEP files, import them into the slicer, and print larger versions.
 - **Maker Workshop:** suggested agenda, shared printer workflow, group assembly session, safety notes.
 
-**RESEARCH TODO:** Decide whether docs should assume a named slicer workflow with STEP import or remain slicer-neutral.
+Recommended default slicer workflow: document **UltiMaker Cura** first for broad public-printer familiarity and third-party printer support. Mention PrusaSlicer as the secondary STEP compatibility path, and OrcaSlicer for users whose printer/profile workflow is already there.
 
 ## Risks And Unknowns
 
