@@ -17,6 +17,7 @@ from shapely.geometry import MultiPolygon, Point, Polygon
 FIXED_STEP_TIMESTAMP = "2026-06-27T00:00:00"
 KIT_SCHEMA = "visit.icon-kit.v1"
 SNAP_COUPON_SCHEMA = "visit.snapfit-coupon.v1"
+SOCKET_BACKPLATE_SCHEMA = "visit.socket-backplate.v1"
 DEFAULT_KIT_SPEC = "analysis/runs/simplify/part-spec.combined_rtol1.0_phd0.5_rot.v1.json"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -180,6 +181,48 @@ def snap_peg_positions(
         }
         for x, y in selected
     ], None
+
+
+def local_snap_peg_positions_svg(
+    local_geometry,
+    scale: float,
+    radius_mm: float,
+    edge_clearance_mm: float,
+    max_pegs: int,
+) -> tuple[list[dict], str | None]:
+    geometry_mm = svg_to_mm_geometry(local_geometry, scale)
+    pegs_mm, reason = snap_peg_positions(
+        geometry_mm,
+        radius_mm=radius_mm,
+        edge_clearance_mm=edge_clearance_mm,
+        max_pegs=max_pegs,
+    )
+    if not pegs_mm:
+        return [], reason
+    return [
+        {
+            "x_svg": peg["x_mm"] / scale,
+            "y_svg": -peg["y_mm"] / scale,
+            "radius_mm": peg["radius_mm"],
+        }
+        for peg in pegs_mm
+    ], None
+
+
+def place_svg_point(x_svg: float, y_svg: float, at_x: float, at_y: float, rotate: float = 0.0) -> tuple[float, float]:
+    placed = ip.place_part(Point(x_svg, y_svg), at_x, at_y, rotate=rotate)
+    return float(placed.x), float(placed.y)
+
+
+def svg_point_to_plate_mm(
+    x_svg: float,
+    y_svg: float,
+    source_size_svg: float,
+    icon_size_mm: float,
+    margin_mm: float,
+) -> tuple[float, float]:
+    scale = icon_size_mm / source_size_svg
+    return margin_mm + x_svg * scale, margin_mm + (source_size_svg - y_svg) * scale
 
 
 def part_usage_by_icon(counts_by_icon: dict[str, Counter], part_id: str) -> dict[str, int]:
@@ -711,6 +754,226 @@ def snap_coupon_shape(b, args: argparse.Namespace, clearances: list[float]):
     return b.Compound(children=[male, socket], label="snapfit_coupon"), manifest
 
 
+def socket_backplate_plan(args: argparse.Namespace) -> tuple[dict, list[dict]]:
+    spec_path = Path(args.spec)
+    spec = load_part_spec(spec_path)
+    if args.icon not in spec["icons"]:
+        raise SystemExit(f"Icon not found in part spec: {args.icon}")
+    if args.icon_size_mm <= 0:
+        raise SystemExit("Icon size must be positive")
+    if args.source_size_svg <= 0:
+        raise SystemExit("Source SVG size must be positive")
+    if args.backplate_margin_mm < 0:
+        raise SystemExit("Backplate margin must be zero or positive")
+    if args.backplate_thickness_mm <= 0:
+        raise SystemExit("Backplate thickness must be positive")
+    if args.socket_depth_mm <= 0:
+        raise SystemExit("Socket depth must be positive")
+    if args.socket_depth_mm >= args.backplate_thickness_mm:
+        raise SystemExit("Socket depth must be less than backplate thickness")
+    if args.socket_clearance_mm < 0:
+        raise SystemExit("Socket clearance must be zero or positive")
+    if args.pin_hole_diameter_mm <= 0:
+        raise SystemExit("Pin hole diameter must be positive")
+    if args.pin_hole_side_inset_mm <= args.pin_hole_diameter_mm / 2:
+        raise SystemExit("Pin hole side inset must leave room for the hole radius")
+    if args.pin_hole_top_inset_mm <= args.pin_hole_diameter_mm / 2:
+        raise SystemExit("Pin hole top inset must leave room for the hole radius")
+    if args.snap_peg_radius_mm <= 0:
+        raise SystemExit("Snap peg radius must be positive")
+    if args.snap_edge_clearance_mm < 0:
+        raise SystemExit("Snap edge clearance must be zero or positive")
+    if args.snap_max_pegs <= 0:
+        raise SystemExit("Snap max pegs must be positive")
+
+    scale = args.icon_size_mm / args.source_size_svg
+    sockets = []
+    skipped = []
+    for instance_index, inst in enumerate(spec["icons"][args.icon]["instances"]):
+        part_id = inst["part"]
+        part_def = spec["parts"][part_id]
+        rotate = inst.get("rotate", None)
+        anchor = "centroid" if rotate is not None else "min_corner"
+        local_geometry = ip.part_to_geometry(part_def, anchor=anchor)
+        local_pegs, reason = local_snap_peg_positions_svg(
+            local_geometry,
+            scale=scale,
+            radius_mm=args.snap_peg_radius_mm,
+            edge_clearance_mm=args.snap_edge_clearance_mm,
+            max_pegs=args.snap_max_pegs,
+        )
+        if not local_pegs:
+            skipped.append({
+                "instance_index": instance_index,
+                "part": part_id,
+                "reason": reason,
+            })
+            continue
+
+        at_x, at_y = inst["at"]
+        rotation = rotate or 0.0
+        for peg_index, peg in enumerate(local_pegs, start=1):
+            icon_x, icon_y = place_svg_point(
+                peg["x_svg"],
+                peg["y_svg"],
+                at_x,
+                at_y,
+                rotate=rotation,
+            )
+            plate_x, plate_y = svg_point_to_plate_mm(
+                icon_x,
+                icon_y,
+                source_size_svg=args.source_size_svg,
+                icon_size_mm=args.icon_size_mm,
+                margin_mm=args.backplate_margin_mm,
+            )
+            sockets.append({
+                "socket_id": f"socket_{instance_index + 1:02d}_{peg_index:02d}",
+                "instance_index": instance_index,
+                "source_index": inst.get("source_index"),
+                "part": part_id,
+                "peg_index": peg_index,
+                "rotate": rotate,
+                "icon_svg": [round(icon_x, 9), round(icon_y, 9)],
+                "x_mm": round(plate_x, 6),
+                "y_mm": round(plate_y, 6),
+                "peg_radius_mm": round(args.snap_peg_radius_mm, 6),
+                "socket_radius_mm": round(args.snap_peg_radius_mm + args.socket_clearance_mm, 6),
+            })
+
+    width = args.icon_size_mm + args.backplate_margin_mm * 2
+    height = args.icon_size_mm + args.backplate_margin_mm * 2
+    if args.pin_hole_side_inset_mm >= width / 2:
+        raise SystemExit("Pin hole side inset is too large for the backplate width")
+    if args.pin_hole_top_inset_mm >= height:
+        raise SystemExit("Pin hole top inset is too large for the backplate height")
+
+    pin_holes = [
+        {
+            "hole_id": "pin_left",
+            "x_mm": round(args.pin_hole_side_inset_mm, 6),
+            "y_mm": round(height - args.pin_hole_top_inset_mm, 6),
+            "diameter_mm": round(args.pin_hole_diameter_mm, 6),
+        },
+        {
+            "hole_id": "pin_right",
+            "x_mm": round(width - args.pin_hole_side_inset_mm, 6),
+            "y_mm": round(height - args.pin_hole_top_inset_mm, 6),
+            "diameter_mm": round(args.pin_hole_diameter_mm, 6),
+        },
+    ]
+
+    socket_radius = args.snap_peg_radius_mm + args.socket_clearance_mm
+    collisions = []
+    for i, a in enumerate(sockets):
+        for b_socket in sockets[i + 1:]:
+            distance = ((a["x_mm"] - b_socket["x_mm"]) ** 2 + (a["y_mm"] - b_socket["y_mm"]) ** 2) ** 0.5
+            if distance < socket_radius * 2:
+                collisions.append({
+                    "a": a["socket_id"],
+                    "b": b_socket["socket_id"],
+                    "distance_mm": round(distance, 6),
+                })
+    if collisions:
+        raise SystemExit(f"Socket collisions detected: {collisions}")
+    hole_collisions = []
+    for socket in sockets:
+        for hole in pin_holes:
+            distance = ((socket["x_mm"] - hole["x_mm"]) ** 2 + (socket["y_mm"] - hole["y_mm"]) ** 2) ** 0.5
+            if distance < socket["socket_radius_mm"] + hole["diameter_mm"] / 2:
+                hole_collisions.append({
+                    "socket": socket["socket_id"],
+                    "pin_hole": hole["hole_id"],
+                    "distance_mm": round(distance, 6),
+                })
+    if hole_collisions:
+        raise SystemExit(f"Pin holes overlap snap sockets: {hole_collisions}")
+
+    manifest = {
+        "schema": SOCKET_BACKPLATE_SCHEMA,
+        "generator": "tools/export_step.py socket-backplate",
+        "source_spec": spec_path.as_posix(),
+        "source_spec_hash": file_sha256(spec_path),
+        "icon": args.icon,
+        "icon_size_mm": args.icon_size_mm,
+        "source_size_svg": args.source_size_svg,
+        "scale_svg_to_mm": scale,
+        "backplate": {
+            "width_mm": round(width, 6),
+            "height_mm": round(height, 6),
+            "thickness_mm": args.backplate_thickness_mm,
+            "margin_mm": args.backplate_margin_mm,
+            "pin_holes": pin_holes,
+        },
+        "snap_fit": {
+            "style": "friction_peg_socket",
+            "provisional": args.provisional,
+            "peg_radius_mm": args.snap_peg_radius_mm,
+            "socket_clearance_mm": args.socket_clearance_mm,
+            "socket_radius_mm": round(socket_radius, 6),
+            "socket_depth_mm": args.socket_depth_mm,
+            "snap_edge_clearance_mm": args.snap_edge_clearance_mm,
+            "max_pegs_per_piece": args.snap_max_pegs,
+        },
+        "sockets": sockets,
+        "skipped_instances": skipped,
+    }
+    return manifest, sockets
+
+
+def socket_backplate_shape(b, manifest: dict, args: argparse.Namespace):
+    backplate = manifest["backplate"]
+    socket_z = args.backplate_thickness_mm - args.socket_depth_mm
+    with b.BuildPart() as backplate_builder:
+        b.Box(
+            backplate["width_mm"],
+            backplate["height_mm"],
+            args.backplate_thickness_mm,
+            align=(b.Align.MIN, b.Align.MIN, b.Align.MIN),
+        )
+        for socket in manifest["sockets"]:
+            with b.Locations((socket["x_mm"], socket["y_mm"], socket_z)):
+                b.Cylinder(
+                    socket["socket_radius_mm"],
+                    args.socket_depth_mm,
+                    align=(b.Align.CENTER, b.Align.CENTER, b.Align.MIN),
+                    mode=b.Mode.SUBTRACT,
+                )
+        pin_cut_height = args.backplate_thickness_mm + 0.2
+        for hole in backplate["pin_holes"]:
+            with b.Locations((hole["x_mm"], hole["y_mm"], -0.1)):
+                b.Cylinder(
+                    hole["diameter_mm"] / 2,
+                    pin_cut_height,
+                    align=(b.Align.CENTER, b.Align.CENTER, b.Align.MIN),
+                    mode=b.Mode.SUBTRACT,
+                )
+    part = backplate_builder.part
+    part.label = f"{args.icon}_socket_backplate"
+    return part
+
+
+def socket_backplate_command(args: argparse.Namespace) -> int:
+    b = require_build123d()
+    manifest, _sockets = socket_backplate_plan(args)
+    shape = socket_backplate_shape(b, manifest, args)
+    output_path = Path(args.out)
+    manifest["output"] = export_shape_step(
+        b,
+        shape,
+        output_path,
+        verify_import=args.verify_import,
+        volume_tolerance=args.volume_tolerance,
+    )
+    manifest_path = Path(args.manifest) if args.manifest else output_path.with_suffix(".manifest.json")
+    write_manifest(manifest_path, manifest)
+    print(
+        f"socket backplate: {args.icon}, {len(manifest['sockets'])} sockets -> {output_path.as_posix()}"
+    )
+    print(f"socket backplate manifest: {manifest_path.as_posix()}")
+    return 0
+
+
 def snap_coupon_command(args: argparse.Namespace) -> int:
     b = require_build123d()
     clearances = parse_clearances(args.clearances)
@@ -855,6 +1118,33 @@ def add_snap_coupon_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--volume-tolerance", type=float, default=1e-6)
 
 
+def add_socket_backplate_arguments(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--spec", default=DEFAULT_KIT_SPEC, help="Input part spec JSON")
+    parser.add_argument("--icon", required=True, help="Icon id to generate a socket backplate for")
+    parser.add_argument("--out", required=True, help="Output socket backplate STEP file")
+    parser.add_argument("--manifest", help="Optional output manifest JSON path")
+    parser.add_argument("--icon-size-mm", type=float, default=120.0)
+    parser.add_argument("--source-size-svg", type=float, default=48.0)
+    parser.add_argument("--backplate-margin-mm", type=float, default=6.0)
+    parser.add_argument("--backplate-thickness-mm", type=float, default=4.0)
+    parser.add_argument("--pin-hole-diameter-mm", type=float, default=2.0)
+    parser.add_argument("--pin-hole-side-inset-mm", type=float, default=12.0)
+    parser.add_argument("--pin-hole-top-inset-mm", type=float, default=6.0)
+    parser.add_argument("--socket-clearance-mm", type=float, default=0.3)
+    parser.add_argument("--socket-depth-mm", type=float, default=3.2)
+    parser.add_argument("--snap-peg-radius-mm", type=float, default=1.8)
+    parser.add_argument("--snap-edge-clearance-mm", type=float, default=1.0)
+    parser.add_argument("--snap-max-pegs", type=int, default=2)
+    parser.add_argument(
+        "--provisional",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Mark socket clearance as provisional until coupon print validation",
+    )
+    parser.add_argument("--verify-import", action="store_true", help="Re-import exported STEP and compare volume")
+    parser.add_argument("--volume-tolerance", type=float, default=1e-6)
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -886,6 +1176,13 @@ def build_parser() -> argparse.ArgumentParser:
     coupon = subparsers.add_parser("snap-coupon", help="Export a friction-peg snap-fit clearance coupon")
     add_snap_coupon_arguments(coupon)
     coupon.set_defaults(func=snap_coupon_command)
+
+    backplate = subparsers.add_parser(
+        "socket-backplate",
+        help="Export a socket backplate matching snap-enabled icon front pieces",
+    )
+    add_socket_backplate_arguments(backplate)
+    backplate.set_defaults(func=socket_backplate_command)
 
     return parser
 

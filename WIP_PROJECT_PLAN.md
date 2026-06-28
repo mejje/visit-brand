@@ -288,6 +288,9 @@ Tool: `tools/icon_reference.py` (build, check, verify, render subcommands)
   - `tools/export_step.py snap-coupon` exports a tapered friction-peg clearance coupon.
   - `tools/export_step.py kit --snap-style friction-peg` adds back-side pegs to front icon pieces.
   - Current test output: `analysis/runs/snapfit/friction-peg-v1/`.
+- [x] Generate first socket backplate STEP artifact.
+  - `tools/export_step.py socket-backplate` creates a provisional Platform backplate with matching blind sockets and two tiny pin holes for wall attachment.
+  - Current test output: `analysis/runs/snapfit/friction-peg-v1/Visit_Icon_Platform.socket-backplate.step`.
 - [ ] Validate PrusaSlicer STEP import before any physical print.
 - [ ] Print snap-fit coupons.
 - [ ] Print one complete small icon.
@@ -377,7 +380,7 @@ Completed:
 
 Current priorities:
 - **Snap-fit validation**: print the friction-peg coupon, choose a clearance, and record printer/material settings.
-- **Backplate/socket prototype**: generate a matching socket plate for the snap-enabled Platform kit after coupon clearance is chosen.
+- **Backplate/socket validation**: regenerate the Platform socket backplate with the coupon-selected clearance, then test the snap-enabled Platform kit against it.
 - **Slicer validation**: open generated STEP files in PrusaSlicer, checking native import and separate body handling.
 - **Design review** with facilities/brand/design before locking mounting and visual tolerance decisions.
 

@@ -54,13 +54,25 @@ python tools/export_step.py kit \
 - Platform snap kit: 2 part designs, 8 printed pieces, 1 plate.
 - Platform snap kit STEP re-import delta: `1e-09 mm^3`.
 - Universal single-icon dry run: all 41 part designs can accept the default pegs; 128 pegs across 65 printed pieces.
+- Platform socket backplate: 16 blind sockets, two `2.0 mm` through-holes for wall pins, and provisional `0.3 mm` socket clearance.
+- Platform socket backplate STEP re-import delta: `0.0 mm^3`.
+
+Generate the provisional Platform socket backplate:
+
+```text
+python tools/export_step.py socket-backplate \
+  --icon "Visit_Icon_Platform" \
+  --out analysis/runs/snapfit/friction-peg-v1/Visit_Icon_Platform.socket-backplate.step \
+  --manifest analysis/runs/snapfit/friction-peg-v1/Visit_Icon_Platform.socket-backplate.manifest.json \
+  --verify-import
+```
 
 ## Next Validation
 
 1. Print the snap coupon.
 2. Test peg insertion and removal against each clearance.
 3. Record printer, filament, nozzle, layer height, selected clearance, and failure mode.
-4. Use the selected clearance to generate the first socket/backplate prototype.
-5. Print the Platform snap kit plus matching socket/backplate as the first complete mechanical assembly.
+4. Regenerate the Platform socket backplate with the selected clearance.
+5. Print the Platform snap kit plus matching socket backplate as the first complete mechanical assembly.
 
 Do not lock the peg radius, clearance, or retention style until the coupon has been printed and handled.
