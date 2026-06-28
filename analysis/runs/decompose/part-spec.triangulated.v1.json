@@ -1,0 +1,5650 @@
+{
+  "allowed_transforms": {
+    "mirror": false,
+    "rotate": false,
+    "scale": false,
+    "translate": true
+  },
+  "coordinate_system": "svg_y_down",
+  "generator": "tools/icon_decompose.py generate triangulated",
+  "icons": {
+    "Visit_Icon_Amusement park": {
+      "instances": [
+        {
+          "at": [
+            12.0,
+            12.01
+          ],
+          "part": "decomp_0000",
+          "source_index": 0,
+          "source_part": "part_0000"
+        },
+        {
+          "at": [
+            10.17,
+            29.17
+          ],
+          "part": "decomp_0001",
+          "source_index": 1,
+          "source_part": "part_0001"
+        },
+        {
+          "at": [
+            10.17,
+            34.83
+          ],
+          "part": "decomp_0002",
+          "source_index": 1,
+          "source_part": "part_0001"
+        },
+        {
+          "at": [
+            24.0,
+            29.17
+          ],
+          "part": "decomp_0003",
+          "source_index": 1,
+          "source_part": "part_0001"
+        },
+        {
+          "at": [
+            24.0,
+            29.17
+          ],
+          "part": "decomp_0004",
+          "source_index": 1,
+          "source_part": "part_0001"
+        },
+        {
+          "at": [
+            5.0,
+            21.0
+          ],
+          "part": "decomp_0005",
+          "source_index": 2,
+          "source_part": "part_0002"
+        },
+        {
+          "at": [
+            9.0,
+            9.0
+          ],
+          "part": "decomp_0005",
+          "source_index": 3,
+          "source_part": "part_0002"
+        },
+        {
+          "at": [
+            22.0,
+            5.0
+          ],
+          "part": "decomp_0005",
+          "source_index": 4,
+          "source_part": "part_0002"
+        },
+        {
+          "at": [
+            9.0,
+            33.0
+          ],
+          "part": "decomp_0005",
+          "source_index": 5,
+          "source_part": "part_0002"
+        },
+        {
+          "at": [
+            39.0,
+            21.0
+          ],
+          "part": "decomp_0005",
+          "source_index": 6,
+          "source_part": "part_0002"
+        },
+        {
+          "at": [
+            35.0,
+            9.0
+          ],
+          "part": "decomp_0005",
+          "source_index": 7,
+          "source_part": "part_0002"
+        },
+        {
+          "at": [
+            35.0,
+            33.0
+          ],
+          "part": "decomp_0005",
+          "source_index": 8,
+          "source_part": "part_0002"
+        }
+      ]
+    },
+    "Visit_Icon_DestinationBuilding": {
+      "instances": [
+        {
+          "at": [
+            3.55,
+            10.66
+          ],
+          "part": "decomp_0006",
+          "source_index": 0,
+          "source_part": "part_0003"
+        },
+        {
+          "at": [
+            3.55,
+            10.66
+          ],
+          "part": "decomp_0007",
+          "source_index": 0,
+          "source_part": "part_0003"
+        },
+        {
+          "at": [
+            8.86,
+            5.33
+          ],
+          "part": "decomp_0008",
+          "source_index": 0,
+          "source_part": "part_0003"
+        },
+        {
+          "at": [
+            8.86,
+            10.66
+          ],
+          "part": "decomp_0009",
+          "source_index": 0,
+          "source_part": "part_0003"
+        },
+        {
+          "at": [
+            8.88,
+            5.33
+          ],
+          "part": "decomp_0010",
+          "source_index": 0,
+          "source_part": "part_0003"
+        },
+        {
+          "at": [
+            10.64,
+            5.33
+          ],
+          "part": "decomp_0011",
+          "source_index": 0,
+          "source_part": "part_0003"
+        },
+        {
+          "at": [
+            12.43,
+            30.22
+          ],
+          "part": "decomp_0012",
+          "source_index": 1,
+          "source_part": "part_0004"
+        },
+        {
+          "at": [
+            14.21,
+            30.22
+          ],
+          "part": "decomp_0013",
+          "source_index": 1,
+          "source_part": "part_0004"
+        },
+        {
+          "at": [
+            33.77,
+            5.34
+          ],
+          "part": "decomp_0014",
+          "source_index": 2,
+          "source_part": "part_0005"
+        },
+        {
+          "at": [
+            39.51,
+            5.34
+          ],
+          "part": "decomp_0015",
+          "source_index": 2,
+          "source_part": "part_0005"
+        },
+        {
+          "at": [
+            28.03,
+            20.44
+          ],
+          "part": "decomp_0016",
+          "source_index": 3,
+          "source_part": "part_0006"
+        },
+        {
+          "at": [
+            33.77,
+            20.44
+          ],
+          "part": "decomp_0017",
+          "source_index": 3,
+          "source_part": "part_0006"
+        }
+      ]
+    },
+    "Visit_Icon_Experiences": {
+      "instances": [
+        {
+          "at": [
+            14.22,
+            35.56
+          ],
+          "part": "decomp_0018",
+          "source_index": 0,
+          "source_part": "part_0007"
+        },
+        {
+          "at": [
+            14.22,
+            40.89
+          ],
+          "part": "decomp_0019",
+          "source_index": 0,
+          "source_part": "part_0007"
+        },
+        {
+          "at": [
+            23.99,
+            35.56
+          ],
+          "part": "decomp_0020",
+          "source_index": 0,
+          "source_part": "part_0007"
+        },
+        {
+          "at": [
+            23.99,
+            40.89
+          ],
+          "part": "decomp_0021",
+          "source_index": 0,
+          "source_part": "part_0007"
+        },
+        {
+          "at": [
+            14.22,
+            1.79
+          ],
+          "part": "decomp_0022",
+          "source_index": 1,
+          "source_part": "part_0008"
+        },
+        {
+          "at": [
+            14.22,
+            7.11
+          ],
+          "part": "decomp_0023",
+          "source_index": 1,
+          "source_part": "part_0008"
+        },
+        {
+          "at": [
+            23.99,
+            1.79
+          ],
+          "part": "decomp_0024",
+          "source_index": 1,
+          "source_part": "part_0008"
+        },
+        {
+          "at": [
+            23.99,
+            7.12
+          ],
+          "part": "decomp_0025",
+          "source_index": 1,
+          "source_part": "part_0008"
+        },
+        {
+          "at": [
+            35.54,
+            14.23
+          ],
+          "part": "decomp_0026",
+          "source_index": 2,
+          "source_part": "part_0009"
+        },
+        {
+          "at": [
+            35.54,
+            24.0
+          ],
+          "part": "decomp_0027",
+          "source_index": 2,
+          "source_part": "part_0009"
+        },
+        {
+          "at": [
+            40.87,
+            14.23
+          ],
+          "part": "decomp_0028",
+          "source_index": 2,
+          "source_part": "part_0009"
+        },
+        {
+          "at": [
+            40.87,
+            24.0
+          ],
+          "part": "decomp_0029",
+          "source_index": 2,
+          "source_part": "part_0009"
+        },
+        {
+          "at": [
+            19.54,
+            14.23
+          ],
+          "part": "decomp_0030",
+          "source_index": 3,
+          "source_part": "part_0010"
+        },
+        {
+          "at": [
+            19.54,
+            24.0
+          ],
+          "part": "decomp_0031",
+          "source_index": 3,
+          "source_part": "part_0010"
+        },
+        {
+          "at": [
+            24.88,
+            14.23
+          ],
+          "part": "decomp_0032",
+          "source_index": 3,
+          "source_part": "part_0010"
+        },
+        {
+          "at": [
+            24.88,
+            24.0
+          ],
+          "part": "decomp_0033",
+          "source_index": 3,
+          "source_part": "part_0010"
+        },
+        {
+          "at": [
+            1.77,
+            14.23
+          ],
+          "part": "decomp_0034",
+          "source_index": 4,
+          "source_part": "part_0011"
+        },
+        {
+          "at": [
+            1.77,
+            24.0
+          ],
+          "part": "decomp_0035",
+          "source_index": 4,
+          "source_part": "part_0011"
+        },
+        {
+          "at": [
+            7.08,
+            24.0
+          ],
+          "part": "decomp_0036",
+          "source_index": 4,
+          "source_part": "part_0011"
+        },
+        {
+          "at": [
+            7.1,
+            14.23
+          ],
+          "part": "decomp_0037",
+          "source_index": 4,
+          "source_part": "part_0011"
+        }
+      ]
+    },
+    "Visit_Icon_Ferry operator": {
+      "instances": [
+        {
+          "at": [
+            5.0,
+            23.0
+          ],
+          "part": "decomp_0038",
+          "source_index": 0,
+          "source_part": "part_0012"
+        },
+        {
+          "at": [
+            5.0,
+            39.0
+          ],
+          "part": "decomp_0039",
+          "source_index": 1,
+          "source_part": "part_0013"
+        },
+        {
+          "at": [
+            23.17,
+            23.17
+          ],
+          "part": "decomp_0040",
+          "source_index": 2,
+          "source_part": "part_0014"
+        },
+        {
+          "at": [
+            28.83,
+            23.17
+          ],
+          "part": "decomp_0041",
+          "source_index": 2,
+          "source_part": "part_0014"
+        },
+        {
+          "at": [
+            8.0,
+            31.0
+          ],
+          "part": "decomp_0005",
+          "source_index": 3,
+          "source_part": "part_0002"
+        },
+        {
+          "at": [
+            16.0,
+            31.0
+          ],
+          "part": "decomp_0005",
+          "source_index": 4,
+          "source_part": "part_0002"
+        },
+        {
+          "at": [
+            5.0,
+            12.0
+          ],
+          "part": "decomp_0042",
+          "source_index": 5,
+          "source_part": "part_0015"
+        },
+        {
+          "at": [
+            5.0,
+            12.0
+          ],
+          "part": "decomp_0043",
+          "source_index": 5,
+          "source_part": "part_0015"
+        },
+        {
+          "at": [
+            15.0,
+            12.0
+          ],
+          "part": "decomp_0044",
+          "source_index": 5,
+          "source_part": "part_0015"
+        },
+        {
+          "at": [
+            15.0,
+            16.0
+          ],
+          "part": "decomp_0045",
+          "source_index": 5,
+          "source_part": "part_0015"
+        },
+        {
+          "at": [
+            15.0,
+            16.0
+          ],
+          "part": "decomp_0046",
+          "source_index": 5,
+          "source_part": "part_0015"
+        },
+        {
+          "at": [
+            25.0,
+            10.0
+          ],
+          "part": "decomp_0047",
+          "source_index": 6,
+          "source_part": "part_0016"
+        },
+        {
+          "at": [
+            25.0,
+            14.0
+          ],
+          "part": "decomp_0048",
+          "source_index": 6,
+          "source_part": "part_0016"
+        },
+        {
+          "at": [
+            17.0,
+            5.0
+          ],
+          "part": "decomp_0049",
+          "source_index": 7,
+          "source_part": "part_0017"
+        },
+        {
+          "at": [
+            20.0,
+            5.0
+          ],
+          "part": "decomp_0050",
+          "source_index": 7,
+          "source_part": "part_0017"
+        },
+        {
+          "at": [
+            27.0,
+            5.0
+          ],
+          "part": "decomp_0049",
+          "source_index": 8,
+          "source_part": "part_0017"
+        },
+        {
+          "at": [
+            30.0,
+            5.0
+          ],
+          "part": "decomp_0050",
+          "source_index": 8,
+          "source_part": "part_0017"
+        }
+      ]
+    },
+    "Visit_Icon_Homeowner": {
+      "instances": [
+        {
+          "at": [
+            9.0,
+            21.0
+          ],
+          "part": "decomp_0051",
+          "source_index": 0,
+          "source_part": "part_0018"
+        },
+        {
+          "at": [
+            35.0,
+            21.0
+          ],
+          "part": "decomp_0051",
+          "source_index": 1,
+          "source_part": "part_0018"
+        },
+        {
+          "at": [
+            5.0,
+            5.0
+          ],
+          "part": "decomp_0052",
+          "source_index": 2,
+          "source_part": "part_0019"
+        },
+        {
+          "at": [
+            5.0,
+            5.0
+          ],
+          "part": "decomp_0053",
+          "source_index": 2,
+          "source_part": "part_0019"
+        },
+        {
+          "at": [
+            24.0,
+            5.0
+          ],
+          "part": "decomp_0054",
+          "source_index": 3,
+          "source_part": "part_0020"
+        },
+        {
+          "at": [
+            24.0,
+            5.0
+          ],
+          "part": "decomp_0055",
+          "source_index": 3,
+          "source_part": "part_0020"
+        },
+        {
+          "at": [
+            22.0,
+            29.0
+          ],
+          "part": "decomp_0056",
+          "source_index": 4,
+          "source_part": "part_0021"
+        },
+        {
+          "at": [
+            5.0,
+            39.0
+          ],
+          "part": "decomp_0057",
+          "source_index": 5,
+          "source_part": "part_0022"
+        }
+      ]
+    },
+    "Visit_Icon_Hospitality": {
+      "instances": [
+        {
+          "at": [
+            21.33,
+            21.33
+          ],
+          "part": "decomp_0058",
+          "source_index": 0,
+          "source_part": "part_0023"
+        },
+        {
+          "at": [
+            3.55,
+            14.21
+          ],
+          "part": "decomp_0059",
+          "source_index": 1,
+          "source_part": "part_0024"
+        },
+        {
+          "at": [
+            3.55,
+            23.99
+          ],
+          "part": "decomp_0060",
+          "source_index": 1,
+          "source_part": "part_0024"
+        },
+        {
+          "at": [
+            8.89,
+            14.21
+          ],
+          "part": "decomp_0061",
+          "source_index": 1,
+          "source_part": "part_0024"
+        },
+        {
+          "at": [
+            8.89,
+            23.99
+          ],
+          "part": "decomp_0062",
+          "source_index": 1,
+          "source_part": "part_0024"
+        },
+        {
+          "at": [
+            33.78,
+            14.21
+          ],
+          "part": "decomp_0063",
+          "source_index": 2,
+          "source_part": "part_0025"
+        },
+        {
+          "at": [
+            33.78,
+            23.99
+          ],
+          "part": "decomp_0064",
+          "source_index": 2,
+          "source_part": "part_0025"
+        },
+        {
+          "at": [
+            39.1,
+            14.21
+          ],
+          "part": "decomp_0065",
+          "source_index": 2,
+          "source_part": "part_0025"
+        },
+        {
+          "at": [
+            39.12,
+            23.99
+          ],
+          "part": "decomp_0066",
+          "source_index": 2,
+          "source_part": "part_0025"
+        },
+        {
+          "at": [
+            14.23,
+            3.54
+          ],
+          "part": "decomp_0067",
+          "source_index": 3,
+          "source_part": "part_0026"
+        },
+        {
+          "at": [
+            14.23,
+            8.88
+          ],
+          "part": "decomp_0068",
+          "source_index": 3,
+          "source_part": "part_0026"
+        },
+        {
+          "at": [
+            24.0,
+            8.88
+          ],
+          "part": "decomp_0069",
+          "source_index": 3,
+          "source_part": "part_0026"
+        },
+        {
+          "at": [
+            24.01,
+            3.54
+          ],
+          "part": "decomp_0070",
+          "source_index": 3,
+          "source_part": "part_0026"
+        },
+        {
+          "at": [
+            14.23,
+            33.78
+          ],
+          "part": "decomp_0071",
+          "source_index": 4,
+          "source_part": "part_0027"
+        },
+        {
+          "at": [
+            14.23,
+            39.11
+          ],
+          "part": "decomp_0072",
+          "source_index": 4,
+          "source_part": "part_0027"
+        },
+        {
+          "at": [
+            24.0,
+            33.78
+          ],
+          "part": "decomp_0073",
+          "source_index": 4,
+          "source_part": "part_0027"
+        },
+        {
+          "at": [
+            24.01,
+            39.1
+          ],
+          "part": "decomp_0074",
+          "source_index": 4,
+          "source_part": "part_0027"
+        }
+      ]
+    },
+    "Visit_Icon_Hotel": {
+      "instances": [
+        {
+          "at": [
+            17.0,
+            13.0
+          ],
+          "part": "decomp_0056",
+          "source_index": 0,
+          "source_part": "part_0021"
+        },
+        {
+          "at": [
+            27.0,
+            13.0
+          ],
+          "part": "decomp_0056",
+          "source_index": 1,
+          "source_part": "part_0021"
+        },
+        {
+          "at": [
+            17.0,
+            23.0
+          ],
+          "part": "decomp_0056",
+          "source_index": 2,
+          "source_part": "part_0021"
+        },
+        {
+          "at": [
+            22.0,
+            37.0
+          ],
+          "part": "decomp_0056",
+          "source_index": 3,
+          "source_part": "part_0021"
+        },
+        {
+          "at": [
+            27.0,
+            23.0
+          ],
+          "part": "decomp_0056",
+          "source_index": 4,
+          "source_part": "part_0021"
+        },
+        {
+          "at": [
+            9.0,
+            5.0
+          ],
+          "part": "decomp_0075",
+          "source_index": 5,
+          "source_part": "part_0028"
+        },
+        {
+          "at": [
+            9.0,
+            5.0
+          ],
+          "part": "decomp_0076",
+          "source_index": 5,
+          "source_part": "part_0028"
+        },
+        {
+          "at": [
+            35.0,
+            5.0
+          ],
+          "part": "decomp_0044",
+          "source_index": 5,
+          "source_part": "part_0028"
+        },
+        {
+          "at": [
+            35.0,
+            9.0
+          ],
+          "part": "decomp_0077",
+          "source_index": 5,
+          "source_part": "part_0028"
+        },
+        {
+          "at": [
+            35.0,
+            9.0
+          ],
+          "part": "decomp_0078",
+          "source_index": 5,
+          "source_part": "part_0028"
+        },
+        {
+          "at": [
+            9.0,
+            10.0
+          ],
+          "part": "decomp_0079",
+          "source_index": 6,
+          "source_part": "part_0029"
+        },
+        {
+          "at": [
+            9.0,
+            14.0
+          ],
+          "part": "decomp_0080",
+          "source_index": 6,
+          "source_part": "part_0029"
+        }
+      ]
+    },
+    "Visit_Icon_Platform": {
+      "instances": [
+        {
+          "at": [
+            21.33,
+            1.7
+          ],
+          "part": "decomp_0081",
+          "source_index": 0,
+          "source_part": "part_0030"
+        },
+        {
+          "at": [
+            21.33,
+            3.47
+          ],
+          "part": "decomp_0082",
+          "source_index": 0,
+          "source_part": "part_0030"
+        },
+        {
+          "at": [
+            21.33,
+            33.77
+          ],
+          "part": "decomp_0083",
+          "source_index": 1,
+          "source_part": "part_0031"
+        },
+        {
+          "at": [
+            21.33,
+            35.54
+          ],
+          "part": "decomp_0084",
+          "source_index": 1,
+          "source_part": "part_0031"
+        },
+        {
+          "at": [
+            6.37,
+            7.59
+          ],
+          "part": "decomp_0085",
+          "source_index": 2,
+          "source_part": "part_0032"
+        },
+        {
+          "at": [
+            11.39,
+            7.59
+          ],
+          "part": "decomp_0086",
+          "source_index": 2,
+          "source_part": "part_0032"
+        },
+        {
+          "at": [
+            29.04,
+            30.26
+          ],
+          "part": "decomp_0087",
+          "source_index": 3,
+          "source_part": "part_0033"
+        },
+        {
+          "at": [
+            34.07,
+            30.26
+          ],
+          "part": "decomp_0088",
+          "source_index": 3,
+          "source_part": "part_0033"
+        },
+        {
+          "at": [
+            30.07,
+            6.57
+          ],
+          "part": "decomp_0089",
+          "source_index": 4,
+          "source_part": "part_0034"
+        },
+        {
+          "at": [
+            30.07,
+            11.59
+          ],
+          "part": "decomp_0090",
+          "source_index": 4,
+          "source_part": "part_0034"
+        },
+        {
+          "at": [
+            7.62,
+            29.07
+          ],
+          "part": "decomp_0091",
+          "source_index": 5,
+          "source_part": "part_0035"
+        },
+        {
+          "at": [
+            7.62,
+            34.1
+          ],
+          "part": "decomp_0092",
+          "source_index": 5,
+          "source_part": "part_0035"
+        },
+        {
+          "at": [
+            33.79,
+            21.32
+          ],
+          "part": "decomp_0093",
+          "source_index": 6,
+          "source_part": "part_0036"
+        },
+        {
+          "at": [
+            35.56,
+            21.32
+          ],
+          "part": "decomp_0094",
+          "source_index": 6,
+          "source_part": "part_0036"
+        },
+        {
+          "at": [
+            1.79,
+            21.32
+          ],
+          "part": "decomp_0095",
+          "source_index": 7,
+          "source_part": "part_0037"
+        },
+        {
+          "at": [
+            3.56,
+            21.32
+          ],
+          "part": "decomp_0096",
+          "source_index": 7,
+          "source_part": "part_0037"
+        }
+      ]
+    },
+    "Visit_Icon_Resort": {
+      "instances": [
+        {
+          "at": [
+            13.0,
+            5.0
+          ],
+          "part": "decomp_0075",
+          "source_index": 0,
+          "source_part": "part_0028"
+        },
+        {
+          "at": [
+            13.0,
+            5.0
+          ],
+          "part": "decomp_0076",
+          "source_index": 0,
+          "source_part": "part_0028"
+        },
+        {
+          "at": [
+            39.0,
+            5.0
+          ],
+          "part": "decomp_0044",
+          "source_index": 0,
+          "source_part": "part_0028"
+        },
+        {
+          "at": [
+            39.0,
+            9.0
+          ],
+          "part": "decomp_0077",
+          "source_index": 0,
+          "source_part": "part_0028"
+        },
+        {
+          "at": [
+            39.0,
+            9.0
+          ],
+          "part": "decomp_0078",
+          "source_index": 0,
+          "source_part": "part_0028"
+        },
+        {
+          "at": [
+            5.0,
+            28.0
+          ],
+          "part": "decomp_0097",
+          "source_index": 1,
+          "source_part": "part_0038"
+        },
+        {
+          "at": [
+            5.0,
+            32.0
+          ],
+          "part": "decomp_0098",
+          "source_index": 1,
+          "source_part": "part_0038"
+        },
+        {
+          "at": [
+            18.0,
+            37.0
+          ],
+          "part": "decomp_0056",
+          "source_index": 2,
+          "source_part": "part_0021"
+        },
+        {
+          "at": [
+            26.0,
+            13.0
+          ],
+          "part": "decomp_0056",
+          "source_index": 3,
+          "source_part": "part_0021"
+        },
+        {
+          "at": [
+            5.0,
+            23.0
+          ],
+          "part": "decomp_0099",
+          "source_index": 4,
+          "source_part": "part_0039"
+        },
+        {
+          "at": [
+            5.0,
+            23.0
+          ],
+          "part": "decomp_0100",
+          "source_index": 4,
+          "source_part": "part_0039"
+        },
+        {
+          "at": [
+            13.0,
+            10.0
+          ],
+          "part": "decomp_0101",
+          "source_index": 4,
+          "source_part": "part_0039"
+        },
+        {
+          "at": [
+            13.0,
+            14.0
+          ],
+          "part": "decomp_0102",
+          "source_index": 4,
+          "source_part": "part_0039"
+        },
+        {
+          "at": [
+            13.0,
+            23.0
+          ],
+          "part": "decomp_0103",
+          "source_index": 4,
+          "source_part": "part_0039"
+        },
+        {
+          "at": [
+            13.0,
+            23.0
+          ],
+          "part": "decomp_0104",
+          "source_index": 4,
+          "source_part": "part_0039"
+        },
+        {
+          "at": [
+            17.0,
+            23.0
+          ],
+          "part": "decomp_0105",
+          "source_index": 4,
+          "source_part": "part_0039"
+        },
+        {
+          "at": [
+            17.0,
+            23.0
+          ],
+          "part": "decomp_0106",
+          "source_index": 4,
+          "source_part": "part_0039"
+        },
+        {
+          "at": [
+            31.0,
+            23.0
+          ],
+          "part": "decomp_0107",
+          "source_index": 4,
+          "source_part": "part_0039"
+        },
+        {
+          "at": [
+            31.0,
+            27.0
+          ],
+          "part": "decomp_0108",
+          "source_index": 4,
+          "source_part": "part_0039"
+        },
+        {
+          "at": [
+            31.0,
+            27.0
+          ],
+          "part": "decomp_0109",
+          "source_index": 4,
+          "source_part": "part_0039"
+        }
+      ]
+    },
+    "Visit_Icon_Ski resort": {
+      "instances": [
+        {
+          "at": [
+            5.0,
+            5.0
+          ],
+          "part": "decomp_0052",
+          "source_index": 0,
+          "source_part": "part_0040"
+        },
+        {
+          "at": [
+            5.0,
+            5.0
+          ],
+          "part": "decomp_0053",
+          "source_index": 0,
+          "source_part": "part_0040"
+        },
+        {
+          "at": [
+            24.0,
+            5.0
+          ],
+          "part": "decomp_0054",
+          "source_index": 1,
+          "source_part": "part_0041"
+        },
+        {
+          "at": [
+            24.0,
+            5.0
+          ],
+          "part": "decomp_0055",
+          "source_index": 1,
+          "source_part": "part_0041"
+        },
+        {
+          "at": [
+            21.0,
+            37.0
+          ],
+          "part": "decomp_0056",
+          "source_index": 2,
+          "source_part": "part_0021"
+        },
+        {
+          "at": [
+            5.17,
+            25.17
+          ],
+          "part": "decomp_0110",
+          "source_index": 3,
+          "source_part": "part_0042"
+        },
+        {
+          "at": [
+            5.17,
+            30.83
+          ],
+          "part": "decomp_0111",
+          "source_index": 3,
+          "source_part": "part_0042"
+        },
+        {
+          "at": [
+            23.0,
+            25.17
+          ],
+          "part": "decomp_0112",
+          "source_index": 3,
+          "source_part": "part_0042"
+        },
+        {
+          "at": [
+            23.0,
+            30.83
+          ],
+          "part": "decomp_0113",
+          "source_index": 3,
+          "source_part": "part_0042"
+        },
+        {
+          "at": [
+            25.59,
+            17.57
+          ],
+          "part": "decomp_0114",
+          "source_index": 4,
+          "source_part": "part_0043"
+        },
+        {
+          "at": [
+            25.59,
+            22.55
+          ],
+          "part": "decomp_0115",
+          "source_index": 4,
+          "source_part": "part_0043"
+        },
+        {
+          "at": [
+            30.57,
+            17.57
+          ],
+          "part": "decomp_0116",
+          "source_index": 4,
+          "source_part": "part_0043"
+        },
+        {
+          "at": [
+            30.57,
+            17.57
+          ],
+          "part": "decomp_0117",
+          "source_index": 4,
+          "source_part": "part_0043"
+        },
+        {
+          "at": [
+            3.99,
+            13.88
+          ],
+          "part": "decomp_0118",
+          "source_index": 5,
+          "source_part": "part_0044"
+        },
+        {
+          "at": [
+            9.65,
+            13.88
+          ],
+          "part": "decomp_0119",
+          "source_index": 5,
+          "source_part": "part_0044"
+        }
+      ]
+    },
+    "Visit_Icon_Solceller": {
+      "instances": [
+        {
+          "at": [
+            5.0,
+            39.0
+          ],
+          "part": "decomp_0057",
+          "source_index": 0,
+          "source_part": "part_0022"
+        },
+        {
+          "at": [
+            22.0,
+            30.0
+          ],
+          "part": "decomp_0056",
+          "source_index": 1,
+          "source_part": "part_0021"
+        },
+        {
+          "at": [
+            5.0,
+            13.17
+          ],
+          "part": "decomp_0120",
+          "source_index": 2,
+          "source_part": "part_0045"
+        },
+        {
+          "at": [
+            5.0,
+            16.0
+          ],
+          "part": "decomp_0121",
+          "source_index": 2,
+          "source_part": "part_0045"
+        },
+        {
+          "at": [
+            15.59,
+            4.76
+          ],
+          "part": "decomp_0122",
+          "source_index": 2,
+          "source_part": "part_0045"
+        },
+        {
+          "at": [
+            15.59,
+            7.59
+          ],
+          "part": "decomp_0123",
+          "source_index": 2,
+          "source_part": "part_0045"
+        },
+        {
+          "at": [
+            21.17,
+            10.34
+          ],
+          "part": "decomp_0124",
+          "source_index": 2,
+          "source_part": "part_0045"
+        },
+        {
+          "at": [
+            21.17,
+            13.17
+          ],
+          "part": "decomp_0125",
+          "source_index": 2,
+          "source_part": "part_0045"
+        },
+        {
+          "at": [
+            24.0,
+            4.76
+          ],
+          "part": "decomp_0126",
+          "source_index": 2,
+          "source_part": "part_0045"
+        },
+        {
+          "at": [
+            24.0,
+            7.59
+          ],
+          "part": "decomp_0127",
+          "source_index": 2,
+          "source_part": "part_0045"
+        },
+        {
+          "at": [
+            24.0,
+            13.17
+          ],
+          "part": "decomp_0128",
+          "source_index": 2,
+          "source_part": "part_0045"
+        },
+        {
+          "at": [
+            24.0,
+            16.0
+          ],
+          "part": "decomp_0129",
+          "source_index": 2,
+          "source_part": "part_0045"
+        }
+      ]
+    },
+    "Visit_Icon_Tour operator": {
+      "instances": [
+        {
+          "at": [
+            18.0,
+            10.0
+          ],
+          "part": "decomp_0047",
+          "source_index": 0,
+          "source_part": "part_0046"
+        },
+        {
+          "at": [
+            18.0,
+            14.0
+          ],
+          "part": "decomp_0130",
+          "source_index": 0,
+          "source_part": "part_0046"
+        },
+        {
+          "at": [
+            9.0,
+            5.0
+          ],
+          "part": "decomp_0049",
+          "source_index": 1,
+          "source_part": "part_0047"
+        },
+        {
+          "at": [
+            12.0,
+            5.0
+          ],
+          "part": "decomp_0050",
+          "source_index": 1,
+          "source_part": "part_0047"
+        },
+        {
+          "at": [
+            5.0,
+            10.0
+          ],
+          "part": "decomp_0131",
+          "source_index": 2,
+          "source_part": "part_0048"
+        },
+        {
+          "at": [
+            5.0,
+            10.0
+          ],
+          "part": "decomp_0132",
+          "source_index": 2,
+          "source_part": "part_0048"
+        },
+        {
+          "at": [
+            5.0,
+            17.63
+          ],
+          "part": "decomp_0133",
+          "source_index": 2,
+          "source_part": "part_0048"
+        },
+        {
+          "at": [
+            9.0,
+            17.63
+          ],
+          "part": "decomp_0134",
+          "source_index": 2,
+          "source_part": "part_0048"
+        },
+        {
+          "at": [
+            39.0,
+            22.0
+          ],
+          "part": "decomp_0135",
+          "source_index": 3,
+          "source_part": "part_0049"
+        },
+        {
+          "at": [
+            39.0,
+            26.0
+          ],
+          "part": "decomp_0136",
+          "source_index": 3,
+          "source_part": "part_0049"
+        },
+        {
+          "at": [
+            27.0,
+            17.0
+          ],
+          "part": "decomp_0137",
+          "source_index": 4,
+          "source_part": "part_0050"
+        },
+        {
+          "at": [
+            30.0,
+            17.0
+          ],
+          "part": "decomp_0138",
+          "source_index": 4,
+          "source_part": "part_0050"
+        },
+        {
+          "at": [
+            23.0,
+            22.0
+          ],
+          "part": "decomp_0139",
+          "source_index": 5,
+          "source_part": "part_0051"
+        },
+        {
+          "at": [
+            23.0,
+            22.0
+          ],
+          "part": "decomp_0140",
+          "source_index": 5,
+          "source_part": "part_0051"
+        },
+        {
+          "at": [
+            23.0,
+            34.17
+          ],
+          "part": "decomp_0141",
+          "source_index": 5,
+          "source_part": "part_0051"
+        },
+        {
+          "at": [
+            27.0,
+            34.17
+          ],
+          "part": "decomp_0142",
+          "source_index": 5,
+          "source_part": "part_0051"
+        },
+        {
+          "at": [
+            31.0,
+            25.0
+          ],
+          "part": "decomp_0056",
+          "source_index": 6,
+          "source_part": "part_0021"
+        }
+      ]
+    },
+    "Visit_Icon_Travel agent": {
+      "instances": [
+        {
+          "at": [
+            14.27,
+            7.0
+          ],
+          "part": "decomp_0143",
+          "source_index": 0,
+          "source_part": "part_0052"
+        },
+        {
+          "at": [
+            14.27,
+            11.0
+          ],
+          "part": "decomp_0144",
+          "source_index": 0,
+          "source_part": "part_0052"
+        },
+        {
+          "at": [
+            35.51,
+            7.0
+          ],
+          "part": "decomp_0145",
+          "source_index": 0,
+          "source_part": "part_0052"
+        },
+        {
+          "at": [
+            37.17,
+            7.0
+          ],
+          "part": "decomp_0146",
+          "source_index": 0,
+          "source_part": "part_0052"
+        },
+        {
+          "at": [
+            19.929626587,
+            13.248554134
+          ],
+          "part": "decomp_0147",
+          "source_index": 1,
+          "source_part": "part_0053"
+        },
+        {
+          "at": [
+            6.0,
+            14.0
+          ],
+          "part": "decomp_0148",
+          "source_index": 2,
+          "source_part": "part_0054"
+        },
+        {
+          "at": [
+            6.0,
+            14.0
+          ],
+          "part": "decomp_0149",
+          "source_index": 2,
+          "source_part": "part_0054"
+        },
+        {
+          "at": [
+            33.0,
+            28.0
+          ],
+          "part": "decomp_0150",
+          "source_index": 3,
+          "source_part": "part_0055"
+        },
+        {
+          "at": [
+            33.0,
+            32.0
+          ],
+          "part": "decomp_0151",
+          "source_index": 3,
+          "source_part": "part_0055"
+        },
+        {
+          "at": [
+            6.12,
+            29.99
+          ],
+          "part": "decomp_0152",
+          "source_index": 4,
+          "source_part": "part_0056"
+        },
+        {
+          "at": [
+            6.12,
+            29.99
+          ],
+          "part": "decomp_0153",
+          "source_index": 4,
+          "source_part": "part_0056"
+        }
+      ]
+    },
+    "Visit_Icon_VacationRental": {
+      "instances": [
+        {
+          "at": [
+            24.0,
+            32.03
+          ],
+          "part": "decomp_0154",
+          "source_index": 0,
+          "source_part": "part_0057"
+        },
+        {
+          "at": [
+            24.0,
+            33.77
+          ],
+          "part": "decomp_0155",
+          "source_index": 0,
+          "source_part": "part_0057"
+        },
+        {
+          "at": [
+            3.56,
+            14.23
+          ],
+          "part": "decomp_0156",
+          "source_index": 1,
+          "source_part": "part_0058"
+        },
+        {
+          "at": [
+            8.89,
+            1.37
+          ],
+          "part": "decomp_0157",
+          "source_index": 2,
+          "source_part": "part_0059"
+        },
+        {
+          "at": [
+            8.89,
+            7.12
+          ],
+          "part": "decomp_0158",
+          "source_index": 2,
+          "source_part": "part_0059"
+        },
+        {
+          "at": [
+            8.89,
+            8.49
+          ],
+          "part": "decomp_0159",
+          "source_index": 2,
+          "source_part": "part_0059"
+        },
+        {
+          "at": [
+            24.0,
+            1.37
+          ],
+          "part": "decomp_0160",
+          "source_index": 2,
+          "source_part": "part_0059"
+        },
+        {
+          "at": [
+            24.0,
+            7.11
+          ],
+          "part": "decomp_0161",
+          "source_index": 2,
+          "source_part": "part_0059"
+        },
+        {
+          "at": [
+            24.0,
+            7.11
+          ],
+          "part": "decomp_0162",
+          "source_index": 2,
+          "source_part": "part_0059"
+        },
+        {
+          "at": [
+            24.0,
+            12.84
+          ],
+          "part": "decomp_0163",
+          "source_index": 2,
+          "source_part": "part_0059"
+        },
+        {
+          "at": [
+            24.0,
+            12.84
+          ],
+          "part": "decomp_0164",
+          "source_index": 2,
+          "source_part": "part_0059"
+        },
+        {
+          "at": [
+            39.11,
+            19.93
+          ],
+          "part": "decomp_0165",
+          "source_index": 2,
+          "source_part": "part_0059"
+        },
+        {
+          "at": [
+            39.11,
+            19.93
+          ],
+          "part": "decomp_0166",
+          "source_index": 2,
+          "source_part": "part_0059"
+        },
+        {
+          "at": [
+            39.11,
+            19.96
+          ],
+          "part": "decomp_0167",
+          "source_index": 2,
+          "source_part": "part_0059"
+        },
+        {
+          "at": [
+            16.0,
+            21.33
+          ],
+          "part": "decomp_0168",
+          "source_index": 3,
+          "source_part": "part_0060"
+        }
+      ]
+    }
+  },
+  "parts": {
+    "decomp_0000": {
+      "bounds": [
+        0.0,
+        0.0,
+        23.99,
+        20.48
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000007000000018AE47E17A140C407B14AE47E17A34405E8FC2F5285C19406766666666A63140C6F5285C8F2A17403D0AD7A3080B3140A6703D0AD743154047E17A146E6530400200000000A81340D5A3703D1A6E2F40DAA3703D0A5712401D85EB51B8022E402A5C8FC2F550114031333333A38B2C40F6285C8FC2951040E17A14AEC70B2B403E0AD7A370251040F5285C8F1286294002000000000010403D0AD7A370FD27403E0AD7A37025104085EB51B8CE742640F6285C8FC29510409999999919EF24402A5C8FC2F550114049E17A143E6F2340DAA3703D0A5712405D8FC2F528F821400200000000A81340A5703D0AC78C2040A6703D0AD7431540DAA3703D0A601E40C6F5285C8F2A1740FEFFFFFF9FC91B405E8FC2F5285C19405A8FC2F5285C1940FEFFFFFF9FC91B40BEF5285C8F2A1740DAA3703D0A601E409E703D0AD7431540A5703D0AC78C2040FAFFFFFFFFA713405D8FC2F528F82140D2A3703D0A57124049E17A143E6F2340225C8FC2F55011409999999919EF2440EE285C8FC295104085EB51B8CE742640360AD7A3702510403D0AD7A370FD2740F4FFFFFFFFFF0F40F5285C8F12862940360AD7A370251040E17A14AEC70B2B40EE285C8FC295104033333333A38B2C40225C8FC2F55011401F85EB51B8022E40D2A3703D0A571240D9A3703D1A6E2F40FAFFFFFFFFA7134048E17A146E6530409E703D0AD74315403E0AD7A3080B3140BEF5285C8F2A17406666666666A631405A8FC2F5285C1940CCCCCCCCCC323240FEFFFFFF9FC91B4014AE47E17AAC3240DAA3703D0A601E403C0AD7A370133340A5703D0AC78C204046E17A14AE6733405D8FC2F528F821403233333333A9334049E17A143E6F23400000000000D833409999999919EF2440AE47E17A14F4334085EB51B8CE7426403C0AD7A370FD33403D0AD7A370FD2740AE47E17A14F43340F5285C8F128629400000000000D83340E17A14AEC70B2B403233333333A9334031333333A38B2C4046E17A14AE6733401D85EB51B8022E403C0AD7A370133340D5A3703D1A6E2F4014AE47E17AAC324047E17A146E653040CCCCCCCCCC3232403D0AD7A3080B31406666666666A631406766666666A631407A14AE47E17A34407B14AE47E17A34403C0AD7A3B0E7344051B81E856808344014AE47E17A4D35405D8FC2F5D0913340FEFFFFFF3FAC3540B71E85EB60173340FEFFFFFFFF03364085EB51B85E9932403C0AD7A3709E3640EB51B81EBD933140CACCCCCCCC1C374085EB51B81E833040AA47E17A147F37408DC2F5286CD32E40DE7A14AE47C5374051B81E856B932C406466666666EF37403D0AD7A3A04A2A403C0AD7A370FD37403D0AD7A370FD27406466666666EF37403D0AD7A340B02540DE7A14AE47C53740295C8FC275672340AA47E17A147F3740ED51B81E75272140CACCCCCCCC1C3740E27A14AE47E91D403C0AD7A3709E36404AE17A14CEA61940FEFFFFFFFF033640E27A14AE47901540FEFFFFFF3FAC354016AE47E13E98134014AE47E17A4D354086EB51B87EAE11403C0AD7A3B0E734405C8FC2F540A80F407A14AE47E17A344014AE47E17A140C4050B81E85680834400000000000AE08405C8FC2F5D091334048E17A14AE7F0540B81E85EB60173340EC51B81E8589024084EB51B85E993240D8A3703D0A97FF3FEA51B81EBD9331400800000000F0F53F84EB51B81E83304010AE47E17A14EC3F8DC2F5286CD32E40E0A3703D0A97DF3F51B81E856B932C4000AE47E17A14CC3F3D0AD7A3A04A2A4000AE47E17A14AC3F3D0AD7A370FD274000000000000000003D0AD7A340B0254000AE47E17A14AC3F295C8FC27567234000AE47E17A14CC3FED51B81E75272140E0A3703D0A97DF3FE27A14AE47E91D4010AE47E17A14EC3F4AE17A14CEA619400800000000F0F53FE27A14AE47901540D8A3703D0A97FF3F16AE47E13E981340EC51B81E8589024086EB51B87EAE114048E17A14AE7F05405C8FC2F540A80F400000000000AE084014AE47E17A140C4014AE47E17A140C400000000000AE08405C8FC2F540A80F4048E17A14AE7F054086EB51B87EAE1140EC51B81E8589024016AE47E13E981340D8A3703D0A97FF3FE27A14AE479015400800000000F0F53F4AE17A14CEA6194010AE47E17A14EC3FE27A14AE47E91D40E0A3703D0A97DF3FED51B81E7527214000AE47E17A14CC3F295C8FC27567234000AE47E17A14AC3F3D0AD7A340B0254000000000000000003D0AD7A370FD274000AE47E17A14AC3F3D0AD7A3A04A2A4000AE47E17A14CC3F51B81E856B932C40E0A3703D0A97DF3F8DC2F5286CD32E4010AE47E17A14EC3F85EB51B81E8330400800000000F0F53FEB51B81EBD933140D8A3703D0A97FF3F85EB51B85E993240EC51B81E85890240B71E85EB6017334048E17A14AE7F05405D8FC2F5D09133400000000000AE084051B81E856808344014AE47E17A140C407B14AE47E17A344018AE47E17A140C407B14AE47E17A3440"
+      },
+      "kind": "polygon",
+      "print": {
+        "min_feature": 0.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0000",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0001": {
+      "bounds": [
+        0.0,
+        0.0,
+        13.83,
+        13.83
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000000000285C8FC2F5A82B40295C8FC2F5A82B40A0703D0AD7A31640295C8FC2F5A82B4000000000000000000000000000000000285C8FC2F5A82B40"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0001",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0002": {
+      "bounds": [
+        0.0,
+        0.0,
+        13.83,
+        8.17
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000000000D8A3703D0A572040A4703D0AD7A31640D8A3703D0A572040295C8FC2F5A82B4000000000000000000000000000000000D8A3703D0A572040"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0001",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0003": {
+      "bounds": [
+        0.0,
+        0.0,
+        8.17,
+        13.83
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000D7A3703D0A572040285C8FC2F5A82B40000000000000000000000000000000000000000000000000A0703D0AD7A31640D7A3703D0A572040285C8FC2F5A82B40"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0001",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0004": {
+      "bounds": [
+        0.0,
+        0.0,
+        13.83,
+        13.83
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000D7A3703D0A572040285C8FC2F5A82B40275C8FC2F5A82B40285C8FC2F5A82B4000000000000000000000000000000000D7A3703D0A572040285C8FC2F5A82B40"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0001",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0005": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        4.0
+      ],
+      "height": 4.0,
+      "kind": "rect",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0002",
+          "strategy": "triangulate"
+        }
+      ],
+      "width": 4.0
+    },
+    "decomp_0006": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.31,
+        32.01
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000000000E27A14AE470140403D0AD7A3703D15400000000000000000000000000000000000000000000000000000000000000000E27A14AE47014040"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.31
+      },
+      "source_parts": [
+        {
+          "part": "part_0003",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0007": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.33,
+        32.01
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000000000E27A14AE4701404053B81E85EB511540E27A14AE470140403D0AD7A3703D154000000000000000000000000000000000E27A14AE47014040"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.33
+      },
+      "source_parts": [
+        {
+          "part": "part_0003",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0008": {
+      "bounds": [
+        0.0,
+        0.0,
+        1.78,
+        5.33
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000008014AE47E17AFC3F0000000000000000000000000000000052B81E85EB5115400016AE47E17A943F52B81E85EB5115408014AE47E17AFC3F0000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 0.02
+      },
+      "source_parts": [
+        {
+          "part": "part_0003",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0009": {
+      "bounds": [
+        0.0,
+        0.0,
+        0.02,
+        32.01
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000016AE47E17A943FE27A14AE470140400016AE47E17A943F0000000000000000000000000000000000000000000000000016AE47E17A943FE27A14AE47014040"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 0.02
+      },
+      "source_parts": [
+        {
+          "part": "part_0003",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0010": {
+      "bounds": [
+        0.0,
+        0.0,
+        24.91,
+        5.33
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000285C8FC2F5E8384052B81E85EB511540285C8FC2F528FC3F0000000000000000000000000000000052B81E85EB511540285C8FC2F5E8384052B81E85EB511540"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.61
+      },
+      "source_parts": [
+        {
+          "part": "part_0003",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0011": {
+      "bounds": [
+        0.0,
+        0.0,
+        25.67,
+        5.33
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000666666666626374052B81E85EB511540ED51B81E85AB3940000000000000000000000000000000000000000000000000666666666626374052B81E85EB511540"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.9
+      },
+      "source_parts": [
+        {
+          "part": "part_0003",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0012": {
+      "bounds": [
+        0.0,
+        0.0,
+        15.25,
+        5.34
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000000000608FC2F5285C15400000000000802E40608FC2F5285C15408014AE47E17AFC3F00000000000000000000000000000000608FC2F5285C1540"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.63
+      },
+      "source_parts": [
+        {
+          "part": "part_0004",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0013": {
+      "bounds": [
+        0.0,
+        0.0,
+        16.0,
+        5.34
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000703D0AD7A3F02A40608FC2F5285C15400000000000003040000000000000000000000000000000000000000000000000703D0AD7A3F02A40608FC2F5285C1540"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.91
+      },
+      "source_parts": [
+        {
+          "part": "part_0004",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0014": {
+      "bounds": [
+        0.0,
+        0.0,
+        7.13,
+        15.1
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000003433333333332E40F0285C8FC2F516403433333333332E4080EB51B81E851C40000000000000000000000000000000003433333333332E40"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.74
+      },
+      "source_parts": [
+        {
+          "part": "part_0005",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0015": {
+      "bounds": [
+        0.0,
+        0.0,
+        7.13,
+        15.1
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000003433333333332E4088EB51B81E851C400000000000000000400AD7A3703DF63F000000000000000000000000000000003433333333332E40"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.74
+      },
+      "source_parts": [
+        {
+          "part": "part_0005",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0016": {
+      "bounds": [
+        0.0,
+        0.0,
+        7.12,
+        15.11
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000007814AE47E17A1C40B61E85EB51382E40F8285C8FC2F516400000000000000000000000000000000000000000000000007814AE47E17A1C40B61E85EB51382E40"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.74
+      },
+      "source_parts": [
+        {
+          "part": "part_0006",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0017": {
+      "bounds": [
+        0.0,
+        0.0,
+        7.12,
+        15.11
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000AE47E17A14F63FB61E85EB51382E407814AE47E17A1C40B61E85EB51382E400000000000000000000000000000000000AE47E17A14F63FB61E85EB51382E40"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.74
+      },
+      "source_parts": [
+        {
+          "part": "part_0006",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0018": {
+      "bounds": [
+        0.0,
+        0.0,
+        9.77,
+        5.35
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000000000606666666666154009D7A3703D8A234050B81E85EB5115400000000000000000000000000000000000000000000000006066666666661540"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.35
+      },
+      "source_parts": [
+        {
+          "part": "part_0007",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0019": {
+      "bounds": [
+        0.0,
+        0.0,
+        9.78,
+        5.34
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000010AE47E17A943F8FC2F5285C8F2340588FC2F5285C154009D7A3703D8A2340000000000000000000000000000000000010AE47E17A943F"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.34
+      },
+      "source_parts": [
+        {
+          "part": "part_0007",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0020": {
+      "bounds": [
+        0.0,
+        0.0,
+        9.78,
+        5.34
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000093C2F5285C8F2340588FC2F5285C154093C2F5285C8F23400000000000000000000000000000000050B81E85EB51154093C2F5285C8F2340588FC2F5285C1540"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.34
+      },
+      "source_parts": [
+        {
+          "part": "part_0007",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0021": {
+      "bounds": [
+        0.0,
+        0.0,
+        9.78,
+        5.34
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000018AE47E17A843F588FC2F5285C154093C2F5285C8F23400010AE47E17A843F000000000000000000000000000000000018AE47E17A843F588FC2F5285C1540"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.34
+      },
+      "source_parts": [
+        {
+          "part": "part_0007",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0022": {
+      "bounds": [
+        0.0,
+        0.0,
+        9.78,
+        5.33
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000008FC2F5285C8F23400000000000000000000000000000000048E17A14AE47154009D7A3703D8A234052B81E85EB5115408FC2F5285C8F23400000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.33
+      },
+      "source_parts": [
+        {
+          "part": "part_0008",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0023": {
+      "bounds": [
+        0.0,
+        0.0,
+        9.77,
+        5.35
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000000000686666666666154009D7A3703D8A23400014AE47E17A843F0000000000000000000000000000000000000000000000006866666666661540"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.35
+      },
+      "source_parts": [
+        {
+          "part": "part_0008",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0024": {
+      "bounds": [
+        0.0,
+        0.0,
+        9.78,
+        5.33
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000093C2F5285C8F234052B81E85EB5115400018AE47E17A843F0000000000000000000000000000000052B81E85EB51154093C2F5285C8F234052B81E85EB511540"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.33
+      },
+      "source_parts": [
+        {
+          "part": "part_0008",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0025": {
+      "bounds": [
+        0.0,
+        0.0,
+        9.78,
+        5.34
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000093C2F5285C8F23405E8FC2F5285C154093C2F5285C8F234000000000000000000000000000000000000000000000000093C2F5285C8F23405E8FC2F5285C1540"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.34
+      },
+      "source_parts": [
+        {
+          "part": "part_0008",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0026": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.33,
+        9.77
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000050B81E85EB51154000000000000000000000000000000000000000000000000050B81E85EB5115400AD7A3703D8A234050B81E85EB5115400000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.33
+      },
+      "source_parts": [
+        {
+          "part": "part_0009",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0027": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.35,
+        9.78
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000000000000000000090C2F5285C8F2340686666666666154090C2F5285C8F234050B81E85EB5115400000000000000000000000000000000090C2F5285C8F2340"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.35
+      },
+      "source_parts": [
+        {
+          "part": "part_0009",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0028": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.34,
+        9.77
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000608FC2F5285C15400AD7A3703D8A23400000000000000000000000000000000000000000000000000AD7A3703D8A2340608FC2F5285C15400AD7A3703D8A2340"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.34
+      },
+      "source_parts": [
+        {
+          "part": "part_0009",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0029": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.34,
+        9.78
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000018AE47E17A943F90C2F5285C8F2340608FC2F5285C15400000000000000000000000000000000000000000000000000018AE47E17A943F90C2F5285C8F2340"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.34
+      },
+      "source_parts": [
+        {
+          "part": "part_0009",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0030": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.34,
+        9.77
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000005C8FC2F5285C15400000000000000000000000000000000000000000000000005C8FC2F5285C15400AD7A3703D8A23405C8FC2F5285C15400000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.34
+      },
+      "source_parts": [
+        {
+          "part": "part_0010",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0031": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.36,
+        9.78
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000000000000000000090C2F5285C8F2340703D0AD7A370154090C2F5285C8F23405C8FC2F5285C15400000000000000000000000000000000090C2F5285C8F2340"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.36
+      },
+      "source_parts": [
+        {
+          "part": "part_0010",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0032": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.34,
+        9.77
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000005C8FC2F5285C15400AD7A3703D8A23400000000000000000000000000000000000000000000000000AD7A3703D8A23405C8FC2F5285C15400AD7A3703D8A2340"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.34
+      },
+      "source_parts": [
+        {
+          "part": "part_0010",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0033": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.34,
+        9.78
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000014AE47E17A943F90C2F5285C8F23405C8FC2F5285C15400000000000000000000000000000000000000000000000000014AE47E17A943F90C2F5285C8F2340"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.34
+      },
+      "source_parts": [
+        {
+          "part": "part_0010",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0034": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.33,
+        9.77
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000052B81E85EB511540000000000000000000000000000000000AD7A3703D8A234052B81E85EB5115400AD7A3703D8A234052B81E85EB5115400000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.33
+      },
+      "source_parts": [
+        {
+          "part": "part_0011",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0035": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.33,
+        9.78
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000003E0AD7A3703D154090C2F5285C8F234052B81E85EB5115400000000000000000000000000000000000000000000000003E0AD7A3703D154090C2F5285C8F2340"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.33
+      },
+      "source_parts": [
+        {
+          "part": "part_0011",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0036": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.36,
+        9.78
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000000000000000000090C2F5285C8F2340703D0AD7A370154090C2F5285C8F23400014AE47E17A943F0000000000000000000000000000000090C2F5285C8F2340"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.36
+      },
+      "source_parts": [
+        {
+          "part": "part_0011",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0037": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.34,
+        9.77
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000005C8FC2F5285C154000000000000000000000000000000000000000000000000000000000000000000AD7A3703D8A23405C8FC2F5285C15400000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.34
+      },
+      "source_parts": [
+        {
+          "part": "part_0011",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0038": {
+      "bounds": [
+        0.0,
+        0.0,
+        33.0,
+        4.0
+      ],
+      "height": 4.0,
+      "kind": "rect",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0012",
+          "strategy": "triangulate"
+        }
+      ],
+      "width": 33.0
+    },
+    "decomp_0039": {
+      "bounds": [
+        0.0,
+        0.0,
+        17.0,
+        4.0
+      ],
+      "height": 4.0,
+      "kind": "rect",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0013",
+          "strategy": "triangulate"
+        }
+      ],
+      "width": 17.0
+    },
+    "decomp_0040": {
+      "bounds": [
+        0.0,
+        0.0,
+        19.83,
+        19.83
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000000000000000000014AE47E17AD43340A0703D0AD7A3164014AE47E17AD4334014AE47E17AD433400000000000000000000000000000000014AE47E17AD43340"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0014",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0041": {
+      "bounds": [
+        0.0,
+        0.0,
+        14.17,
+        19.83
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000000000000000000014AE47E17AD43340D8A3703D0A572C40A0703D0AD7A31640D8A3703D0A572C400000000000000000000000000000000014AE47E17AD43340"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0014",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0042": {
+      "bounds": [
+        0.0,
+        0.0,
+        10.0,
+        4.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000001040000000000000244000000000000000000000000000000000000000000000000000000000000000000000000000001040"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0015",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0043": {
+      "bounds": [
+        0.0,
+        0.0,
+        10.0,
+        4.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000001040000000000000244000000000000010400000000000002440000000000000000000000000000000000000000000001040"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0015",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0044": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        4.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000000000000000000000000000000000000010400000000000001040000000000000104000000000000000000000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0015",
+          "strategy": "triangulate"
+        },
+        {
+          "part": "part_0028",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0045": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        5.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000001440000000000000104000000000000000000000000000000000000000000000000000000000000000000000000000001440"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0015",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0046": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        5.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000001440000000000000104000000000000014400000000000001040000000000000000000000000000000000000000000001440"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0015",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0047": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        11.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000002640000000000000104000000000000010400000000000000000000000000000000000000000000000000000000000002640"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0016",
+          "strategy": "triangulate"
+        },
+        {
+          "part": "part_0046",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0048": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        7.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000001C4000000000000010400000000000001C400000000000001040000000000000000000000000000000000000000000001C40"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0016",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0049": {
+      "bounds": [
+        0.0,
+        0.0,
+        8.0,
+        4.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000001040000000000000204000000000000010400000000000000840000000000000000000000000000000000000000000001040"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0017",
+          "strategy": "triangulate"
+        },
+        {
+          "part": "part_0047",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0050": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.0,
+        4.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000014400000000000001040000000000000144000000000000000000000000000000000000000000000000000000000000014400000000000001040"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0017",
+          "strategy": "triangulate"
+        },
+        {
+          "part": "part_0047",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0051": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        14.0
+      ],
+      "height": 14.0,
+      "kind": "rect",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0018",
+          "strategy": "triangulate"
+        }
+      ],
+      "width": 4.0
+    },
+    "decomp_0052": {
+      "bounds": [
+        0.0,
+        0.0,
+        13.34,
+        19.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000003340AE47E17A14AE2A4000000000000000000000000000000000AE47E17A14AE2A4000000000000000000000000000003340"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0019",
+          "strategy": "triangulate"
+        },
+        {
+          "part": "part_0040",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0053": {
+      "bounds": [
+        0.0,
+        0.0,
+        19.0,
+        19.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000000000000000000000334000000000000033400000000000000000AE47E17A14AE2A40000000000000000000000000000000000000000000003340"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0019",
+          "strategy": "triangulate"
+        },
+        {
+          "part": "part_0040",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0054": {
+      "bounds": [
+        0.0,
+        0.0,
+        19.0,
+        13.34
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000000000000000000000000000000000000000000000003340AE47E17A14AE2A40A4703D0AD7A31640000000000000000000000000000000000000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0020",
+          "strategy": "triangulate"
+        },
+        {
+          "part": "part_0041",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0055": {
+      "bounds": [
+        0.0,
+        0.0,
+        19.0,
+        19.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000000000000000000000334000000000000033400000000000003340AE47E17A14AE2A4000000000000000000000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0020",
+          "strategy": "triangulate"
+        },
+        {
+          "part": "part_0041",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0056": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        6.0
+      ],
+      "height": 6.0,
+      "kind": "rect",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0021",
+          "strategy": "triangulate"
+        }
+      ],
+      "width": 4.0
+    },
+    "decomp_0057": {
+      "bounds": [
+        0.0,
+        0.0,
+        38.0,
+        4.0
+      ],
+      "height": 4.0,
+      "kind": "rect",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0022",
+          "strategy": "triangulate"
+        }
+      ],
+      "width": 38.0
+    },
+    "decomp_0058": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.33,
+        5.33
+      ],
+      "height": 5.33,
+      "kind": "rect",
+      "print": {
+        "min_feature": 5.33
+      },
+      "source_parts": [
+        {
+          "part": "part_0023",
+          "strategy": "triangulate"
+        }
+      ],
+      "width": 5.33
+    },
+    "decomp_0059": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.35,
+        9.78
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000067666666666615400000000000000000000000000000000000000000000000005D8FC2F5285C15408EC2F5285C8F234067666666666615400000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.35
+      },
+      "source_parts": [
+        {
+          "part": "part_0024",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0060": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.34,
+        9.78
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000000000000000000092C2F5285C8F23405D8FC2F5285C154092C2F5285C8F23405D8FC2F5285C15400000000000000000000000000000000092C2F5285C8F2340"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.34
+      },
+      "source_parts": [
+        {
+          "part": "part_0024",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0061": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.33,
+        9.78
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000053B81E85EB5115408EC2F5285C8F23400014AE47E17A843F000000000000000000000000000000008EC2F5285C8F234053B81E85EB5115408EC2F5285C8F2340"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.33
+      },
+      "source_parts": [
+        {
+          "part": "part_0024",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0062": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.33,
+        9.78
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000000000000000000092C2F5285C8F234053B81E85EB511540000000000000000000000000000000000000000000000000000000000000000092C2F5285C8F2340"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.33
+      },
+      "source_parts": [
+        {
+          "part": "part_0024",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0063": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.34,
+        9.78
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000048E17A14AE471540000000000000000000000000000000008EC2F5285C8F2340588FC2F5285C15408EC2F5285C8F234048E17A14AE4715400000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.34
+      },
+      "source_parts": [
+        {
+          "part": "part_0025",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0064": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.34,
+        9.78
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000588FC2F5285C154092C2F5285C8F2340588FC2F5285C1540000000000000000000000000000000000000000000000000588FC2F5285C154092C2F5285C8F2340"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.34
+      },
+      "source_parts": [
+        {
+          "part": "part_0025",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0065": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.36,
+        9.78
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000703D0AD7A37015400000000000000000000000000000000000000000000000000010AE47E17A943F8EC2F5285C8F2340703D0AD7A37015400000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.36
+      },
+      "source_parts": [
+        {
+          "part": "part_0025",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0066": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.34,
+        9.78
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000000000000000000092C2F5285C8F2340608FC2F5285C154092C2F5285C8F234000000000000000000000000000000000000000000000000092C2F5285C8F2340"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.34
+      },
+      "source_parts": [
+        {
+          "part": "part_0025",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0067": {
+      "bounds": [
+        0.0,
+        0.0,
+        9.78,
+        5.34
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000005D8FC2F5285C154090C2F5285C8F23405D8FC2F5285C15400000000000000000000000000000000000000000000000005D8FC2F5285C1540"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.34
+      },
+      "source_parts": [
+        {
+          "part": "part_0026",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0068": {
+      "bounds": [
+        0.0,
+        0.0,
+        9.78,
+        5.34
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000000000000000000000000000000000000AD7A3703D8A23405B8FC2F5285C154090C2F5285C8F2340000000000000000000000000000000000000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.34
+      },
+      "source_parts": [
+        {
+          "part": "part_0026",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0069": {
+      "bounds": [
+        0.0,
+        0.0,
+        9.78,
+        5.34
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000005B8FC2F5285C154090C2F5285C8F23400014AE47E17A943F0018AE47E17A843F000000000000000000000000000000005B8FC2F5285C1540"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.34
+      },
+      "source_parts": [
+        {
+          "part": "part_0026",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0070": {
+      "bounds": [
+        0.0,
+        0.0,
+        9.77,
+        5.36
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000AD7A3703D8A2340713D0AD7A37015400AD7A3703D8A2340000000000000000000000000000000005D8FC2F5285C15400AD7A3703D8A2340713D0AD7A3701540"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.36
+      },
+      "source_parts": [
+        {
+          "part": "part_0026",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0071": {
+      "bounds": [
+        0.0,
+        0.0,
+        9.78,
+        5.34
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000AD7A3703D8A23400000000000000000000000000000000050B81E85EB51154090C2F5285C8F2340588FC2F5285C15400AD7A3703D8A23400000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.34
+      },
+      "source_parts": [
+        {
+          "part": "part_0027",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0072": {
+      "bounds": [
+        0.0,
+        0.0,
+        9.78,
+        5.34
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000000000608FC2F5285C154090C2F5285C8F23400010AE47E17A843F000000000000000000000000000000000000000000000000608FC2F5285C1540"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.34
+      },
+      "source_parts": [
+        {
+          "part": "part_0027",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0073": {
+      "bounds": [
+        0.0,
+        0.0,
+        9.78,
+        5.34
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000090C2F5285C8F234048E17A14AE471540000000000000000000000000000000000018AE47E17A843F588FC2F5285C154090C2F5285C8F234048E17A14AE471540"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.34
+      },
+      "source_parts": [
+        {
+          "part": "part_0027",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0074": {
+      "bounds": [
+        0.0,
+        0.0,
+        9.77,
+        5.35
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000AD7A3703D8A234068666666666615400AD7A3703D8A2340000000000000000000000000000000000010AE47E17A943F0AD7A3703D8A23406866666666661540"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.35
+      },
+      "source_parts": [
+        {
+          "part": "part_0027",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0075": {
+      "bounds": [
+        0.0,
+        0.0,
+        26.0,
+        4.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000003A400000000000000000000000000000000000000000000010400000000000003A4000000000000010400000000000003A400000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0028",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0076": {
+      "bounds": [
+        0.0,
+        0.0,
+        26.0,
+        4.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000003A40000000000000000000000000000000000000000000000000000000000000000000000000000010400000000000003A400000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0028",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0077": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        34.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000004140000000000000104000000000000000000000000000000000000000000000000000000000000000000000000000004140"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0028",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0078": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        34.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000004140000000000000104000000000000041400000000000001040000000000000000000000000000000000000000000004140"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0028",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0079": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        33.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000010400000000000804040000000000000104000000000000000000000000000000000000000000000104000000000000010400000000000804040"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0029",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0080": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        29.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000003D4000000000000010400000000000003D400000000000000000000000000000000000000000000000000000000000003D40"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0029",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0081": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.33,
+        10.76
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000000000000000000086EB51B81E85254054B81E85EB51154053B81E85EB51FC3F00000000000000000000000000000000000000000000000086EB51B81E852540"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.62
+      },
+      "source_parts": [
+        {
+          "part": "part_0030",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0082": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.33,
+        10.76
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000007C14AE47E1FA214054B81E85EB51154086EB51B81E85254054B81E85EB511540000000000000000000000000000000007C14AE47E1FA2140"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.62
+      },
+      "source_parts": [
+        {
+          "part": "part_0030",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0083": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.33,
+        10.68
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000005C8FC2F5285C254054B81E85EB51154040B81E85EB51FC3F0000000000000000000000000000000000000000000000005C8FC2F5285C2540"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.62
+      },
+      "source_parts": [
+        {
+          "part": "part_0031",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0084": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.33,
+        10.68
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000000000000000000054B81E85EBD1214054B81E85EB5115405C8FC2F5285C254054B81E85EB5115400000000000000000000000000000000054B81E85EBD12140"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.62
+      },
+      "source_parts": [
+        {
+          "part": "part_0031",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0085": {
+      "bounds": [
+        0.0,
+        0.0,
+        7.61,
+        10.12
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000000000285C8FC2F5280440713D0AD7A3701E403E0AD7A3703D244015AE47E17A14144000000000000000000000000000000000285C8FC2F5280440"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.62
+      },
+      "source_parts": [
+        {
+          "part": "part_0032",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0086": {
+      "bounds": [
+        0.0,
+        0.0,
+        7.61,
+        10.12
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000B81E85EB51B804403E0AD7A3703D24406F3D0AD7A3701E40703D0AD7A3701E4000000000000000000000000000000000B81E85EB51B804403E0AD7A3703D2440"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.61
+      },
+      "source_parts": [
+        {
+          "part": "part_0032",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0087": {
+      "bounds": [
+        0.0,
+        0.0,
+        7.56,
+        10.08
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000000000285C8FC2F5280440400AD7A3703D1E402A5C8FC2F52824402085EB51B81E144000000000000000000000000000000000285C8FC2F5280440"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.63
+      },
+      "source_parts": [
+        {
+          "part": "part_0033",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0088": {
+      "bounds": [
+        0.0,
+        0.0,
+        7.55,
+        10.08
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000400AD7A3703D04402A5C8FC2F52824403033333333331E403C0AD7A3703D1E4000000000000000000000000000000000400AD7A3703D04402A5C8FC2F5282440"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.62
+      },
+      "source_parts": [
+        {
+          "part": "part_0033",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0089": {
+      "bounds": [
+        0.0,
+        0.0,
+        10.09,
+        7.55
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000AC47E17A142E244014AE47E17A1414403033333333331E40000000000000000000000000000000003233333333331E40AC47E17A142E244014AE47E17A141440"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.63
+      },
+      "source_parts": [
+        {
+          "part": "part_0034",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0090": {
+      "bounds": [
+        0.0,
+        0.0,
+        10.09,
+        7.55
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000050B81E85EB5104403433333333331E40AC47E17A142E2440000000000000000000000000000000003C0AD7A3703D044050B81E85EB5104403433333333331E40"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.63
+      },
+      "source_parts": [
+        {
+          "part": "part_0034",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0091": {
+      "bounds": [
+        0.0,
+        0.0,
+        10.03,
+        7.51
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000008EC2F5285C0F24402085EB51B81E1440FFFFFFFFFFFF1D400000000000000000000000000000000008D7A3703D0A1E408EC2F5285C0F24402085EB51B81E1440"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.63
+      },
+      "source_parts": [
+        {
+          "part": "part_0035",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0092": {
+      "bounds": [
+        0.0,
+        0.0,
+        10.03,
+        7.5
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000003E0AD7A3703D04400000000000001E408EC2F5285C0F244000000000000000000000000000000000D0A3703D0AD703403E0AD7A3703D04400000000000001E40"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.62
+      },
+      "source_parts": [
+        {
+          "part": "part_0035",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0093": {
+      "bounds": [
+        0.0,
+        0.0,
+        10.65,
+        5.33
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000000000000000000050B81E85EB511540CCCCCCCCCC4C254050B81E85EB51154060B81E85EB51FC3F0000000000000000000000000000000050B81E85EB511540"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.62
+      },
+      "source_parts": [
+        {
+          "part": "part_0036",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0094": {
+      "bounds": [
+        0.0,
+        0.0,
+        10.65,
+        5.33
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000C0F5285C8FC2214050B81E85EB511540CCCCCCCCCC4C2540000000000000000000000000000000000000000000000000C0F5285C8FC2214050B81E85EB511540"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.62
+      },
+      "source_parts": [
+        {
+          "part": "part_0036",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0095": {
+      "bounds": [
+        0.0,
+        0.0,
+        10.66,
+        5.33
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000000000000000000050B81E85EB51154052B81E85EB51254050B81E85EB51154052B81E85EB51FC3F0000000000000000000000000000000050B81E85EB511540"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.62
+      },
+      "source_parts": [
+        {
+          "part": "part_0037",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0096": {
+      "bounds": [
+        0.0,
+        0.0,
+        10.66,
+        5.33
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000048E17A14AEC7214050B81E85EB51154052B81E85EB51254000000000000000000000000000000000000000000000000048E17A14AEC7214050B81E85EB511540"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.62
+      },
+      "source_parts": [
+        {
+          "part": "part_0037",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0097": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        15.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000010400000000000002E40000000000000104000000000000000000000000000000000000000000000104000000000000010400000000000002E40"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0038",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0098": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        11.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000002640000000000000104000000000000026400000000000000000000000000000000000000000000000000000000000002640"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0038",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0099": {
+      "bounds": [
+        0.0,
+        0.0,
+        8.0,
+        4.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000001040000000000000204000000000000000000000000000000000000000000000000000000000000000000000000000001040"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0039",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0100": {
+      "bounds": [
+        0.0,
+        0.0,
+        8.0,
+        4.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000001040000000000000204000000000000010400000000000002040000000000000000000000000000000000000000000001040"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0039",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0101": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        13.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000000000000000104000000000000000000000000000000000000000000000104000000000000010400000000000002A4000000000000010400000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0039",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0102": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        9.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000000000000000000000000000000000000022400000000000001040000000000000224000000000000000000000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0039",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0103": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        4.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000000000000000000000000000000000000010400000000000001040000000000000000000000000000000000000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0039",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0104": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        4.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000001040000000000000104000000000000010400000000000001040000000000000000000000000000000000000000000001040"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0039",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0105": {
+      "bounds": [
+        0.0,
+        0.0,
+        14.0,
+        4.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000000000000000000000000000000010400000000000002C4000000000000010400000000000000000000000000000000000000000000000000000000000001040"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0039",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0106": {
+      "bounds": [
+        0.0,
+        0.0,
+        18.0,
+        4.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000032400000000000000000000000000000000000000000000000000000000000002C40000000000000104000000000000032400000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0039",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0107": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        4.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000010400000000000000000000000000000000000000000000010400000000000001040000000000000104000000000000010400000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0039",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0108": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        16.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000003040000000000000104000000000000000000000000000000000000000000000000000000000000000000000000000003040"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0039",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0109": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        16.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000003040000000000000104000000000000030400000000000001040000000000000000000000000000000000000000000003040"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0039",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0110": {
+      "bounds": [
+        0.0,
+        0.0,
+        17.83,
+        17.83
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000000000000000000014AE47E17AD4314014AE47E17AD43140A0703D0AD7A3164014AE47E17AD431400000000000000000000000000000000014AE47E17AD43140"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0042",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0111": {
+      "bounds": [
+        0.0,
+        0.0,
+        17.83,
+        12.17
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000000000D8A3703D0A572840A4703D0AD7A31640D8A3703D0A57284014AE47E17AD4314000000000000000000000000000000000D8A3703D0A572840"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0042",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0112": {
+      "bounds": [
+        0.0,
+        0.0,
+        17.83,
+        17.83
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000014AE47E17AD4314014AE47E17AD43140000000000000000000000000000000000000000000000000A0703D0AD7A3164014AE47E17AD4314014AE47E17AD43140"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0042",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0113": {
+      "bounds": [
+        0.0,
+        0.0,
+        17.83,
+        12.17
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000D8A3703D0A572840D8A3703D0A57284014AE47E17AD43140D8A3703D0A57284000000000000000000000000000000000D8A3703D0A572840D8A3703D0A572840"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0042",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0114": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.98,
+        5.66
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000000000EC51B81E85EB1340EC51B81E85EB1340A4703D0AD7A31640EC51B81E85EB134000000000000000000000000000000000EC51B81E85EB1340"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.03
+      },
+      "source_parts": [
+        {
+          "part": "part_0043",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0115": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.98,
+        2.83
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000000000A8703D0AD7A30640A0703D0AD7A30640EC51B81E85EB1340C0F5285C8FC2E53F00000000000000000000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 3.04
+      },
+      "source_parts": [
+        {
+          "part": "part_0043",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0116": {
+      "bounds": [
+        0.0,
+        0.0,
+        7.77,
+        13.43
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000018AE47E17A141F405C8FC2F528DC2A40000000000000000000000000000000000000000000000000A4703D0AD7A3164018AE47E17A141F405C8FC2F528DC2A40"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0043",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0117": {
+      "bounds": [
+        0.0,
+        0.0,
+        13.43,
+        13.43
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000018AE47E17A141F405C8FC2F528DC2A405C8FC2F528DC2A405C8FC2F528DC2A400000000000000000000000000000000018AE47E17A141F405C8FC2F528DC2A40"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0043",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0118": {
+      "bounds": [
+        0.0,
+        0.0,
+        17.12,
+        17.12
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000001E85EB51B81E3140A4703D0AD7A316401E85EB51B81E31401E85EB51B81E3140000000000000000000000000000000001E85EB51B81E3140"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0044",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0119": {
+      "bounds": [
+        0.0,
+        0.0,
+        14.29,
+        17.12
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000001E85EB51B81E314016AE47E17A942C40A4703D0AD7A30640EA51B81E85EB2640000000000000000000000000000000001E85EB51B81E3140"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0044",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0120": {
+      "bounds": [
+        0.0,
+        0.0,
+        19.0,
+        16.17
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000000000EB51B81E852B30400000000000003340A4703D0AD7A30640EC51B81E852B304000000000000000000000000000000000EB51B81E852B3040"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0045",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0121": {
+      "bounds": [
+        0.0,
+        0.0,
+        19.0,
+        19.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000003340000000000000334000000000000000000000000000000000AD47E17A14AE2A4000000000000000000000000000003340"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0045",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0122": {
+      "bounds": [
+        0.0,
+        0.0,
+        8.41,
+        5.58
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000090C2F5285C8F064000000000000000000000000000000000A4703D0AD7A3064052B81E85EBD1204052B81E85EB51164090C2F5285C8F06400000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0045",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0123": {
+      "bounds": [
+        0.0,
+        0.0,
+        8.41,
+        5.58
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000000000000000000000000054B81E85EB51164052B81E85EB51164052B81E85EBD12040000000000000064000000000000000000000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0045",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0124": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.66,
+        2.83
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000A0703D0AD7A3064000000000000000000000000000000000A4703D0AD7A30640A0703D0AD7A31640A4703D0AD7A30640A0703D0AD7A306400000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0045",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0125": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.66,
+        2.83
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000A0703D0AD7A30640A4703D0AD7A30640A0703D0AD7A31640000000000000000000000000000000000000000000000000A0703D0AD7A30640A4703D0AD7A30640"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0045",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0126": {
+      "bounds": [
+        0.0,
+        0.0,
+        8.41,
+        5.58
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000005C8FC2F5285C16400000000000000000000000000000000052B81E85EB51164050B81E85EBD12040A4703D0AD7A306405C8FC2F5285C16400000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0045",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0127": {
+      "bounds": [
+        0.0,
+        0.0,
+        8.41,
+        5.58
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000050B81E85EBD12040000000000000000000000000000000000000000000000640A0703D0AD7A3064052B81E85EB51164050B81E85EBD120400000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0045",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0128": {
+      "bounds": [
+        0.0,
+        0.0,
+        19.0,
+        16.17
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000000000A4703D0AD7A306400000000000003340EB51B81E852B3040A0703D0AD7A3064000000000000000000000000000000000A4703D0AD7A30640"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0045",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0129": {
+      "bounds": [
+        0.0,
+        0.0,
+        19.0,
+        19.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000000000000000334000000000000033400000000000003340AD47E17A14AE2A400000000000000000000000000000000000000000000033400000000000003340"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0045",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0130": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        7.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000001C40000000000000104000000000000008400000000000001040000000000000000000000000000000000000000000001C40"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 3.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0046",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0131": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        7.63
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000001040000000000000000000000000000000000000000000000000000000000000104084EB51B81E851E4000000000000010400000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0048",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0132": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        9.37
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000003E0AD7A370BD2240000000000000104084EB51B81E851E400000000000000000000000000000000000000000000000003E0AD7A370BD2240"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.36
+      },
+      "source_parts": [
+        {
+          "part": "part_0048",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0133": {
+      "bounds": [
+        0.0,
+        0.0,
+        8.63,
+        9.83
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000000000E0A3703D0AD7FB3FC3F5285C8F4221402A5C8FC2F5A82340000000000000104000000000000000000000000000000000E0A3703D0AD7FB3F"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.36
+      },
+      "source_parts": [
+        {
+          "part": "part_0048",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0134": {
+      "bounds": [
+        0.0,
+        0.0,
+        7.37,
+        9.83
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000086EB51B81E8512402A5C8FC2F5A823407C14AE47E17A1D40A4703D0AD7A31B400000000000000000000000000000000086EB51B81E8512402A5C8FC2F5A82340"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0048",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0135": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        15.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000002E40000000000000104000000000000010400000000000000000000000000000000000000000000000000000000000002E40"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0049",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0136": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        11.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000000000000000000000264000000000000010400000000000001C400000000000001040000000000000000000000000000000000000000000002640"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0049",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0137": {
+      "bounds": [
+        0.0,
+        0.0,
+        11.0,
+        4.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000001040000000000000264000000000000010400000000000000840000000000000000000000000000000000000000000001040"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0050",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0138": {
+      "bounds": [
+        0.0,
+        0.0,
+        8.0,
+        4.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000020400000000000001040000000000000204000000000000000000000000000000000000000000000000000000000000020400000000000001040"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0050",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0139": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        12.17
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000010400000000000000000000000000000000000000000000000000000000000001040D8A3703D0A57284000000000000010400000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0051",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0140": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        13.83
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000000000285C8FC2F5A82B400000000000001040D8A3703D0A572840000000000000000000000000000000000000000000000000285C8FC2F5A82B40"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.33
+      },
+      "source_parts": [
+        {
+          "part": "part_0051",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0141": {
+      "bounds": [
+        0.0,
+        0.0,
+        8.59,
+        10.24
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000000000000000000080C2F5285C8FFA3FAE47E17A142E21407814AE47E17A244000000000000010400000000000000000000000000000000080C2F5285C8FFA3F"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.33
+      },
+      "source_parts": [
+        {
+          "part": "part_0051",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0142": {
+      "bounds": [
+        0.0,
+        0.0,
+        7.41,
+        10.24
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000005C8FC2F5285C12407814AE47E17A2440A0703D0AD7A31D40B047E17A14AE1D40000000000000000000000000000000005C8FC2F5285C12407814AE47E17A2440"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 3.99
+      },
+      "source_parts": [
+        {
+          "part": "part_0051",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0143": {
+      "bounds": [
+        0.0,
+        0.0,
+        22.9,
+        21.24
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000003D0AD7A3703D35406766666666E6364000000000000010403D0AD7A3703D3540000000000000000000000000000000003D0AD7A3703D3540"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.33
+      },
+      "source_parts": [
+        {
+          "part": "part_0052",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0144": {
+      "bounds": [
+        0.0,
+        0.0,
+        22.9,
+        20.07
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000003D0AD7A3703D3140A8703D0AD7A3064052B81E85EB1134406766666666E63640000000000000000000000000000000003D0AD7A3703D3140"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0052",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0145": {
+      "bounds": [
+        0.0,
+        0.0,
+        6.49,
+        4.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000F8285C8FC2F51940000000000000000000000000000000000000000000000000A0C2F5285C8FFA3F0000000000001040F8285C8FC2F519400000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.33
+      },
+      "source_parts": [
+        {
+          "part": "part_0052",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0146": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.83,
+        4.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000050B81E85EB511340000000000000104050B81E85EB51134000000000000000000000000000000000000000000000104050B81E85EB5113400000000000001040"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0052",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0147": {
+      "bounds": [
+        0.0,
+        0.0,
+        23.483016203,
+        23.483016203
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000050000000000000000000000E64C5C2693A73440E64C5C2693A73440000000000000000060342CF3A67B3740C83B7F669EA00640C03B7F669EA0064060342CF3A67B37400000000000000000E64C5C2693A73440"
+      },
+      "kind": "polygon",
+      "print": {
+        "min_feature": 4.0
+      },
+      "source_parts": [
+        {
+          "part": "part_0053",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0148": {
+      "bounds": [
+        0.0,
+        0.0,
+        13.0,
+        4.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000000000000000000000000000000010400000000000002A4000000000000000000000000000001040000000000000000000000000000000000000000000001040"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0054",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0149": {
+      "bounds": [
+        0.0,
+        0.0,
+        17.0,
+        4.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000001040000000000000314000000000000010400000000000002A40000000000000000000000000000000000000000000001040"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0054",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0150": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        17.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000003140000000000000104000000000000010400000000000000000000000000000000000000000000000000000000000003140"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0055",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0151": {
+      "bounds": [
+        0.0,
+        0.0,
+        4.0,
+        13.0
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000002A40000000000000104000000000000022400000000000001040000000000000000000000000000000000000000000002A40"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0055",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0152": {
+      "bounds": [
+        0.0,
+        0.0,
+        14.86,
+        9.2
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000A3703D0AD7A31640000000000000000000000000000000000000000000000000B81E85EB51B82D406666666666662240A3703D0AD7A316400000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0056",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0153": {
+      "bounds": [
+        0.0,
+        0.0,
+        14.86,
+        14.86
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000B81E85EB51B82D40BA1E85EB51B82D40B81E85EB51B82D40666666666666224000000000000000000000000000000000B81E85EB51B82D40BA1E85EB51B82D40"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.66
+      },
+      "source_parts": [
+        {
+          "part": "part_0056",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0154": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.34,
+        10.64
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000000000000000000048E17A14AE4725405C8FC2F5285C1540E0A3703D0AD7FB3F00000000000000000000000000000000000000000000000048E17A14AE472540"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.62
+      },
+      "source_parts": [
+        {
+          "part": "part_0057",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0155": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.34,
+        8.9
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000000000CCCCCCCCCCCC21405C8FC2F5285C1540CCCCCCCCCCCC21405C8FC2F5285C154000000000000000000000000000000000CCCCCCCCCCCC2140"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.34
+      },
+      "source_parts": [
+        {
+          "part": "part_0057",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0156": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.33,
+        28.44
+      ],
+      "height": 28.44,
+      "kind": "rect",
+      "print": {
+        "min_feature": 5.33
+      },
+      "source_parts": [
+        {
+          "part": "part_0058",
+          "strategy": "triangulate"
+        }
+      ],
+      "width": 5.33
+    },
+    "decomp_0157": {
+      "bounds": [
+        0.0,
+        0.0,
+        15.12,
+        7.12
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000003E0AD7A3703D2E40000000000000000000000000000000007B14AE47E17A1C40B81E85EB51382E4000000000000017403E0AD7A3703D2E400000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.75
+      },
+      "source_parts": [
+        {
+          "part": "part_0059",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0158": {
+      "bounds": [
+        0.0,
+        0.0,
+        15.11,
+        3.548795812
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000000000EC51B81E85EBF53F42664E49D2451E405039F50EEF630C40B81E85EB51382E4000000000000000000000000000000000EC51B81E85EBF53F"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 7.88
+      },
+      "source_parts": [
+        {
+          "part": "part_0059",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0159": {
+      "bounds": [
+        0.0,
+        0.0,
+        7.568184991,
+        5.74
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000000000F5285C8FC2F5164042664E49D2451E405A10997F2C6E0140000000000000000000000000000000000000000000000000F5285C8FC2F51640"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.74
+      },
+      "source_parts": [
+        {
+          "part": "part_0059",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0160": {
+      "bounds": [
+        0.0,
+        0.0,
+        0.01,
+        5.75
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000018AE47E17A843F0000000000000000000000000000000000000000000017400018AE47E17A843FF6285C8FC2F516400018AE47E17A843F0000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 0.01
+      },
+      "source_parts": [
+        {
+          "part": "part_0059",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0161": {
+      "bounds": [
+        0.0,
+        0.0,
+        0.01,
+        5.73
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000000000EA51B81E85EB16400018AE47E17A843F000000000000000000000000000000000014AE47E17A843F0000000000000000EA51B81E85EB1640"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 0.01
+      },
+      "source_parts": [
+        {
+          "part": "part_0059",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0162": {
+      "bounds": [
+        0.0,
+        0.0,
+        15.11,
+        7.11
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000B81E85EB51382E40723D0AD7A3701C400018AE47E17A843F00000000000000000000000000000000EA51B81E85EB1640B81E85EB51382E40723D0AD7A3701C40"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.73
+      },
+      "source_parts": [
+        {
+          "part": "part_0059",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0163": {
+      "bounds": [
+        0.0,
+        0.0,
+        15.11,
+        7.09
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "01030000000100000004000000B81E85EB51382E4020AE47E17A14F63F00000000000000000000000000000000B81E85EB51382E405C8FC2F5285C1C40B81E85EB51382E4020AE47E17A14F63F"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.71
+      },
+      "source_parts": [
+        {
+          "part": "part_0059",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0164": {
+      "bounds": [
+        0.0,
+        0.0,
+        15.11,
+        7.12
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000000000000000000000000000000000000B81E85EB51382E407C14AE47E17A1C40B81E85EB51382E405C8FC2F5285C1C4000000000000000000000000000000000"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 0.03
+      },
+      "source_parts": [
+        {
+          "part": "part_0059",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0165": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.33,
+        0.03
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000000000002085EB51B89E3F50B81E85EB5115400000000000000000000000000000000000000000000000000000000000000000002085EB51B89E3F"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 0.03
+      },
+      "source_parts": [
+        {
+          "part": "part_0059",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0166": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.33,
+        22.74
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "0103000000010000000400000050B81E85EB5115403F0AD7A370BD364050B81E85EB51154000000000000000000000000000000000002085EB51B89E3F50B81E85EB5115403F0AD7A370BD3640"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.33
+      },
+      "source_parts": [
+        {
+          "part": "part_0059",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0167": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.33,
+        22.71
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000000000F7285C8FC2B5364050B81E85EB511540F7285C8FC2B53640000000000000000000000000000000000000000000000000F7285C8FC2B53640"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.33
+      },
+      "source_parts": [
+        {
+          "part": "part_0059",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0168": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.33,
+        5.34
+      ],
+      "height": 5.34,
+      "kind": "rect",
+      "print": {
+        "min_feature": 5.33
+      },
+      "source_parts": [
+        {
+          "part": "part_0060",
+          "strategy": "triangulate"
+        }
+      ],
+      "width": 5.33
+    }
+  },
+  "schema": "visit.icon-parts.v1",
+  "settings": {
+    "coordinate_precision": 1e-09,
+    "curve_flatten_tolerance": 0.02,
+    "decomposition_strategy": "triangulate",
+    "fallback_source_parts": 0,
+    "min_piece_area": 1e-08,
+    "split_source_parts": 50,
+    "triangulation_max_area_error_ratio": 1e-08,
+    "triangulation_max_hausdorff": 1e-06
+  },
+  "units": "svg_user_units"
+}

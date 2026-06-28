@@ -25,6 +25,7 @@ import icon_reference as iref  # noqa: E402
 
 PART_SCHEMA = "visit.icon-parts.v1"
 GENERATOR = "tools/icon_parts.py"
+GEOMETRY_PART_KINDS = {"polygon", "bar", "custom_polygon", "triangle"}
 
 
 def load_references(
@@ -797,7 +798,7 @@ def cluster_polygons_by_hausdorff(
         [
             pid
             for pid, pdef in parts.items()
-            if pdef.get("kind") in {"polygon", "bar", "custom_polygon"}
+            if pdef.get("kind") in GEOMETRY_PART_KINDS
         ],
         key=lambda pid: parts[pid].get("bounds", [0, 0, 0, 0]),
     )

@@ -299,9 +299,8 @@ pymoo adds value by searching over a **larger candidate pool** that includes dec
 Before pymoo runs, each polygon in the exact baseline is decomposed into candidate representations:
 
 1. **As-is**: the original polygon (default, always available).
-2. **Grid-split**: divide the polygon's bounding box into a 2x2 grid of rects. Keep only rects whose area falls inside the polygon.
-3. **Strip-split**: split along the polygon's dominant axis into 2-4 equal-width strips.
-4. **Inscribed-rect**: extract the largest axis-aligned rectangle fully contained within the polygon. The remainder becomes a second polygon part.
+2. **Triangulated**: split straight polygon parts into exact triangle/polygon pieces, while preserving curved `custom_polygon` parts and rotated `bar` parts as authored.
+3. **Rejected axis-aligned strategies**: grid-split, strip-split, and inscribed-rect splits are not current production candidates because they distort diagonal and irregular icon polygons.
 
 Each decomposition is scored individually (via the existing `score_spec` loop) and contributes candidate parts to the pool. Some decompositions will be rejected outright if they increase visual error beyond a threshold.
 
@@ -335,7 +334,7 @@ pymoo is an evolutionary algorithm — it mutates and crosses over chromosomes. 
 
 Instead, pre-generate a finite set of decomposition candidates (maybe 2-5 per complex polygon), pre-score each at the individual-part level, and let pymoo's chromosome simply select which pre-computed candidates to include. This keeps the black-box evaluation fast and the search space bounded.
 
-**Status note (2026-06-28):** Grid-split and largest-inscribed-rect decomposition strategies were attempted and abandoned. Both produced worse results than the greedy Hausdorff clustering approach: more parts, higher area error, and visible shape distortion. Irregular icon polygons (diagonal edges, curved paths) don't decompose well into axis-aligned rectangles. The greedy Hausdorff approach (61→42 parts, 0.075% error) remains the best result.
+**Status note (2026-06-28):** Grid-split and largest-inscribed-rect decomposition strategies were attempted and abandoned. Both produced worse results than the greedy Hausdorff clustering approach: more parts, higher area error, and visible shape distortion. `tools/icon_decompose.py` now provides a conservative triangulated candidate layer: 169 unique parts, 204 instances, area error ~3.5e-12, Hausdorff ~0. This is useful as a finite candidate pool, but it is not yet a better kit than the greedy Hausdorff result (61->42 parts, 0.075% error). A direct NSGA-II run over the full triangulated pool is too slow with the current uncached scoring loop.
 
 Do not start by hand-writing a full genetic algorithm. First make candidate scoring, caching, visualization, and reproducibility solid; then plug in the optimizer.
 
@@ -392,6 +391,28 @@ Done means:
 - Reports area error, Hausdorff distance, bounds delta, component counts, and hole counts per icon.
 - Aggregates summary across all icons.
 - Exact baseline scores zero (or floating-point epsilon) on all metrics.
+
+### Tool: `tools/icon_decompose.py`
+
+`tools/icon_decompose.py` pre-generates finite decomposition candidates before optimizer search:
+
+```bash
+python tools/icon_decompose.py generate --score --render
+python tools/icon_decompose.py score
+python tools/icon_decompose.py render
+```
+
+Current strategy:
+- Triangulate straight `polygon` parts into exact smaller pieces.
+- Preserve `rect`, `bar`, and `custom_polygon` parts as authored.
+- Reject local triangulations that fail tight Shapely fidelity checks.
+- Write `analysis/runs/decompose/part-spec.triangulated.v1.json`.
+- Write `analysis/runs/decompose/pareto.jsonl` and visual `.parts.svg` overlays.
+
+Current result:
+- Exact baseline: 61 unique parts, 83 instances, effectively zero error.
+- Triangulated candidate: 169 unique parts, 204 instances, effectively zero error.
+- Existing greedy simplification remains the best kit candidate until the optimizer has caching or a narrower decomposition chromosome.
 
 ### Acceptance Criteria for the Slice
 

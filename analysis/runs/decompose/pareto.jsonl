@@ -1,0 +1,2 @@
+{"area_error_ratio": 2.602516963674071e-17, "label": "exact", "spec": "part-spec.exact.v1.json", "total_area_error": 0.0, "total_instances": 83, "unique_parts": 61, "worst_hausdorff": 3.552713678800501e-15, "worst_icon_error": 1.8838330959050306e-16}
+{"area_error_ratio": 3.464467149366074e-12, "label": "triangulated", "spec": "part-spec.triangulated.v1.json", "total_area_error": 0.0, "total_instances": 204, "unique_parts": 169, "worst_hausdorff": 4.793144607082473e-10, "worst_icon_error": 5.437799316739144e-11}
