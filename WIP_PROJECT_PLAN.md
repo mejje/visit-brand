@@ -280,6 +280,9 @@ Tool: `tools/icon_reference.py` (build, check, verify, render subcommands)
 - [x] Generate one STEP front icon from source geometry (`tools/export_step.py`).
 - [x] Validate STEP re-import with zero volume delta.
 - [x] Add editable extrusion-depth and wall-thickness parameters.
+- [x] Generate an initial laid-out STEP kit from the selected part spec (`tools/export_step.py kit`).
+  - Current universal single-icon kit: 41 unique part designs, 65 printed pieces, 5 plates at 120 mm icon size on a 180 x 180 mm bed.
+  - Output: `analysis/runs/kits/recommended/universal-single-icon-kit.step` plus per-plate STEP files and manifest.
 - [ ] Validate PrusaSlicer STEP import before any physical print.
 - [ ] Print snap-fit coupons.
 - [ ] Print one complete small icon.
@@ -316,7 +319,9 @@ Tool: `tools/icon_parts.py` (bootstrap, render, score subcommands)
   - `analysis/runs/decompose/nsga2_top8/` is the current bounded exhaustive test loop for the triangulated pool.
 - [ ] Generate broader Pareto frontier reports from improved candidate-selection/search loops.
 - [ ] Review trade-offs with brand/design stakeholders.
-- [ ] Select a recommended part library for physical testing.
+- [x] Select a provisional recommended part library for physical testing.
+  - Current candidate: `analysis/runs/simplify/part-spec.combined_rtol1.0_phd0.5_rot.v1.json` (41 unique parts, 83 placed instances, ~0.0754% overall area error).
+  - This can change after design review, but it is good enough to drive the first STEP kit export and slicer validation.
 
 ### Milestone 5: Maker Toolkit
 
@@ -366,8 +371,8 @@ Completed:
 5. ~~Greedy simplification~~ → Done: 61→42 parts (31% reduction) at 0.075% area error via rect merge + polygon Hausdorff + rotation clustering.
 
 Current priorities:
-- **Optimizer next step**: reduce scoring cost per decision or reframe decomposition selection as a finite set-cover style problem.
-- **Candidate review**: compare the 42-part greedy result against bounded decomposition-derived candidates with overlays.
-- **Physical prototype**: print snap-fit coupons, validate PrusaSlicer STEP import.
+- **Slicer validation**: open the generated universal kit STEP and per-plate STEP files in PrusaSlicer, checking native import and separate body handling.
+- **Plate/size decision**: decide whether the basic kit should target smaller icon sizes, more plates, or per-icon layouts instead of the universal single-icon kit.
+- **Physical prototype**: print snap-fit coupons, then one complete small icon.
 - **Design review** with facilities/brand/design before locking mounting and visual tolerance decisions.
 

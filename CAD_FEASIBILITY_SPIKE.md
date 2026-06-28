@@ -1,6 +1,6 @@
 # CAD Feasibility Spike
 
-Last updated: 2026-06-27
+Last updated: 2026-06-28
 
 ## Goal
 
@@ -43,6 +43,17 @@ python tools/export_step.py front \
   --out cad/exports/step/Visit_Icon_Hotel.front.step \
   --icon-size-mm 120 \
   --front-depth-mm 8 \
+  --verify-import
+```
+
+The part-library kit exporter uses the selected part spec instead of a whole-icon reference:
+
+```text
+python tools/export_step.py kit \
+  --spec analysis/runs/simplify/part-spec.combined_rtol1.0_phd0.5_rot.v1.json \
+  --out analysis/runs/kits/recommended/universal-single-icon-kit.step \
+  --manifest analysis/runs/kits/recommended/universal-single-icon-kit.manifest.json \
+  --split-plates \
   --verify-import
 ```
 
@@ -89,6 +100,26 @@ The generated STEP file is deterministic across repeated exports when using the 
 A smoke test also exported all 14 current reference JSON files to temporary STEP files and
 re-imported each one with `reimport_delta=0.000000`. That means the current front-icon
 reference geometry is broadly compatible with the build123d sketch-to-STEP path.
+
+The first laid-out universal single-icon kit export also succeeded:
+
+```text
+python tools/export_step.py kit \
+  --out analysis/runs/kits/recommended/universal-single-icon-kit.step \
+  --manifest analysis/runs/kits/recommended/universal-single-icon-kit.manifest.json \
+  --split-plates \
+  --verify-import
+```
+
+Observed result:
+
+```text
+41 unique part designs, 65 printed pieces, 5 plates
+combined STEP reimport_delta=0.000000003mm^3
+```
+
+This proves the selected 41-part spec can be turned into separate laid-out STEP solids.
+It does not yet prove PrusaSlicer preserves those bodies in the desired workflow.
 
 ## Follow-Up Questions
 
