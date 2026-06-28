@@ -1,2 +1,3 @@
 __pycache__/
 *.py[cod]
+analysis/runs/**/score-cache.json

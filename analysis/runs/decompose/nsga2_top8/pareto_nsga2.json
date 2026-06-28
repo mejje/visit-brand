@@ -1,0 +1,347 @@
+[
+  {
+    "unique_parts": 110,
+    "score": 0.016251887659749904,
+    "merged_clusters": 8,
+    "decision": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "unique_parts": 112,
+    "score": 0.016243233302482143,
+    "merged_clusters": 7,
+    "decision": [
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "unique_parts": 113,
+    "score": 0.01622592867910128,
+    "merged_clusters": 7,
+    "decision": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "unique_parts": 115,
+    "score": 0.016217266090134658,
+    "merged_clusters": 6,
+    "decision": [
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "unique_parts": 117,
+    "score": 0.01605954613070617,
+    "merged_clusters": 7,
+    "decision": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "unique_parts": 118,
+    "score": 0.003216227672126251,
+    "merged_clusters": 7,
+    "decision": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "unique_parts": 120,
+    "score": 0.001336219328925665,
+    "merged_clusters": 6,
+    "decision": [
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "unique_parts": 122,
+    "score": 0.0013362193266457595,
+    "merged_clusters": 5,
+    "decision": [
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  {
+    "unique_parts": 123,
+    "score": 0.0013102521165781794,
+    "merged_clusters": 5,
+    "decision": [
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "unique_parts": 125,
+    "score": 0.001310252114298274,
+    "merged_clusters": 4,
+    "decision": [
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "unique_parts": 126,
+    "score": 0.0013102521140008882,
+    "merged_clusters": 4,
+    "decision": [
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "unique_parts": 127,
+    "score": 0.00042736282462357627,
+    "merged_clusters": 5,
+    "decision": [
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "unique_parts": 129,
+    "score": 0.00042736282234367073,
+    "merged_clusters": 4,
+    "decision": [
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "unique_parts": 130,
+    "score": 0.0003395956805462254,
+    "merged_clusters": 4,
+    "decision": [
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "unique_parts": 132,
+    "score": 0.00033959567826631994,
+    "merged_clusters": 3,
+    "decision": [
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "unique_parts": 133,
+    "score": 0.0003395956779689339,
+    "merged_clusters": 3,
+    "decision": [
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "unique_parts": 135,
+    "score": 0.00033959567549077604,
+    "merged_clusters": 2,
+    "decision": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "unique_parts": 161,
+    "score": 0.00020476492967622993,
+    "merged_clusters": 3,
+    "decision": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "unique_parts": 163,
+    "score": 0.00020476492739632447,
+    "merged_clusters": 2,
+    "decision": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "unique_parts": 164,
+    "score": 1.5186583728257624e-11,
+    "merged_clusters": 2,
+    "decision": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "unique_parts": 166,
+    "score": 1.2906678269422987e-11,
+    "merged_clusters": 1,
+    "decision": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "unique_parts": 167,
+    "score": 1.0735769634207851e-11,
+    "merged_clusters": 1,
+    "decision": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "unique_parts": 169,
+    "score": 8.257611756448547e-12,
+    "merged_clusters": 0,
+    "decision": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+]

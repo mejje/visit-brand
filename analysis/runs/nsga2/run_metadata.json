@@ -1,0 +1,54 @@
+{
+  "cluster_hash": "a2883fb1420d9265bebf0b771f190abe4816a8c120f936ebaa279216c6742c10",
+  "cluster_limit": null,
+  "generations": 30,
+  "max_exhaustive_decisions": 65536,
+  "mode": "nsga2",
+  "original_cluster_count": 6,
+  "population": 100,
+  "references": "analysis/references",
+  "schema": "visit.optimizer-run.v1",
+  "seed": 42,
+  "selected_clusters": [
+    [
+      "part_0017",
+      "part_0047"
+    ],
+    [
+      "part_0054",
+      "part_0055"
+    ],
+    [
+      "part_0032",
+      "part_0033",
+      "part_0034",
+      "part_0035"
+    ],
+    [
+      "part_0030",
+      "part_0031",
+      "part_0036",
+      "part_0037"
+    ],
+    [
+      "part_0019",
+      "part_0020",
+      "part_0040",
+      "part_0041"
+    ],
+    [
+      "part_0007",
+      "part_0008",
+      "part_0009",
+      "part_0010",
+      "part_0011",
+      "part_0024",
+      "part_0025",
+      "part_0026",
+      "part_0027"
+    ]
+  ],
+  "spec": "analysis/runs/exact/part-spec.exact.v1.json",
+  "spec_hash": "2c59b168212c9e368a51da3a3bff50e8a5427db6886ea202358d1607187f7e1f",
+  "used_cluster_count": 6
+}

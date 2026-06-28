@@ -311,8 +311,10 @@ Tool: `tools/icon_parts.py` (bootstrap, render, score subcommands)
   - Axis-aligned grid-split and largest-inscribed-rect strategies were attempted and abandoned because they distorted irregular icon polygons.
   - Current triangulated candidate preserves geometry nearly exactly: 169 unique parts, 204 instances, area error ~3.5e-12, Hausdorff ~0.
   - It is a candidate-pool feeder, not a recommended kit: the existing 42-part greedy Hausdorff result is still the best practical result.
-- [ ] Add cached/bounded pymoo search for decomposition candidate pools (the triangulated pool is too large for the current uncached optimizer loop).
-- [ ] Generate Pareto frontier reports.
+- [x] Add cached/bounded optimizer search for decomposition candidate pools.
+  - `tools/optimize_parts.py` now supports decision-score caching, persistent cache files, bounded cluster selection, exhaustive subset search, and reproducible run metadata.
+  - `analysis/runs/decompose/nsga2_top8/` is the current bounded exhaustive test loop for the triangulated pool.
+- [ ] Generate broader Pareto frontier reports from improved candidate-selection/search loops.
 - [ ] Review trade-offs with brand/design stakeholders.
 - [ ] Select a recommended part library for physical testing.
 
@@ -364,8 +366,8 @@ Completed:
 5. ~~Greedy simplification~~ → Done: 61→42 parts (31% reduction) at 0.075% area error via rect merge + polygon Hausdorff + rotation clustering.
 
 Current priorities:
-- **Cached decomposition optimizer**: wire the finite triangulated candidate pool into a faster pymoo/selection loop.
-- **Candidate review**: compare the 42-part greedy result against decomposition-derived candidates with overlays.
+- **Optimizer next step**: reduce scoring cost per decision or reframe decomposition selection as a finite set-cover style problem.
+- **Candidate review**: compare the 42-part greedy result against bounded decomposition-derived candidates with overlays.
 - **Physical prototype**: print snap-fit coupons, validate PrusaSlicer STEP import.
 - **Design review** with facilities/brand/design before locking mounting and visual tolerance decisions.
 

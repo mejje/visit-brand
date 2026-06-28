@@ -278,7 +278,7 @@ Initial recommendation:
 
 ```text
 Phase 1: custom deterministic evaluator + greedy/local search      COMPLETE
-Phase 2: pymoo NSGA-II for Pareto search                          NEXT
+Phase 2: pymoo NSGA-II plus bounded exhaustive search              ACTIVE
 Phase 3: OR-Tools CP-SAT for finite discrete subproblems
 Phase 4: SciPy for continuous tuning only where useful
 ```
@@ -334,9 +334,35 @@ pymoo is an evolutionary algorithm — it mutates and crosses over chromosomes. 
 
 Instead, pre-generate a finite set of decomposition candidates (maybe 2-5 per complex polygon), pre-score each at the individual-part level, and let pymoo's chromosome simply select which pre-computed candidates to include. This keeps the black-box evaluation fast and the search space bounded.
 
-**Status note (2026-06-28):** Grid-split and largest-inscribed-rect decomposition strategies were attempted and abandoned. Both produced worse results than the greedy Hausdorff clustering approach: more parts, higher area error, and visible shape distortion. `tools/icon_decompose.py` now provides a conservative triangulated candidate layer: 169 unique parts, 204 instances, area error ~3.5e-12, Hausdorff ~0. This is useful as a finite candidate pool, but it is not yet a better kit than the greedy Hausdorff result (61->42 parts, 0.075% error). A direct NSGA-II run over the full triangulated pool is too slow with the current uncached scoring loop.
+**Status note (2026-06-28):** Grid-split and largest-inscribed-rect decomposition strategies were attempted and abandoned. Both produced worse results than the greedy Hausdorff clustering approach: more parts, higher area error, and visible shape distortion. `tools/icon_decompose.py` now provides a conservative triangulated candidate layer: 169 unique parts, 204 instances, area error ~3.5e-12, Hausdorff ~0. This is useful as a finite candidate pool, but it is not yet a better kit than the greedy Hausdorff result (61->42 parts, 0.075% error). A direct NSGA-II run over the full triangulated pool is still heavy, so the current optimizer loop supports caching, cluster limits, and exhaustive search for bounded subsets.
 
 Do not start by hand-writing a full genetic algorithm. First make candidate scoring, caching, visualization, and reproducibility solid; then plug in the optimizer.
+
+### Current optimizer toolchain
+
+`tools/optimize_parts.py` searches over merge decisions generated from Shapely Hausdorff clusters. It can run NSGA-II for a broad search or exhaustive enumeration when the selected cluster count is intentionally small:
+
+```bash
+python tools/optimize_parts.py \
+  --spec analysis/runs/decompose/part-spec.triangulated.v1.json \
+  --references analysis/references \
+  --out analysis/runs/decompose/nsga2_top8 \
+  --cluster-limit 8 \
+  --exhaustive \
+  --max-exhaustive-decisions 1024
+```
+
+Implemented controls:
+- `--cache-path` writes a persistent decision-score cache keyed by spec hash and selected-cluster hash.
+- `--no-cache` disables in-memory and persistent cache lookups for verification runs.
+- `--cluster-limit N` keeps only the highest-saving clusters, preserving original cluster order in the chromosome.
+- `--exhaustive` evaluates every decision for the selected clusters and extracts the nondominated Pareto front.
+- `run_metadata.json` records the selected clusters, hashes, mode, seed, and limits for reproducibility.
+
+Current bounded run:
+- `analysis/runs/decompose/nsga2_top8/` evaluates the top 8 triangulated clusters exhaustively.
+- The run is reproducible and fast enough for the test loop, but it still does not beat the existing 42-part greedy Hausdorff result.
+- The next optimizer improvement should reduce scoring cost per decision or change the chromosome from whole-cluster merge flags to a finite set-cover style selection problem.
 
 ### Optimizer Research Notes
 

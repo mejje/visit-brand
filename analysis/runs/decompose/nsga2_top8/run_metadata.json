@@ -1,0 +1,100 @@
+{
+  "cluster_hash": "ca891fc9f114b8deb6a4411f2a114cb9b615bc6a1dd6fdf44e9764a908c359ad",
+  "cluster_limit": 8,
+  "generations": 30,
+  "max_exhaustive_decisions": 1024,
+  "mode": "exhaustive",
+  "original_cluster_count": 27,
+  "population": 100,
+  "references": "analysis/references",
+  "schema": "visit.optimizer-run.v1",
+  "seed": 42,
+  "selected_clusters": [
+    [
+      "decomp_0160",
+      "decomp_0161",
+      "decomp_0165"
+    ],
+    [
+      "decomp_0044",
+      "decomp_0103",
+      "decomp_0104",
+      "decomp_0107"
+    ],
+    [
+      "decomp_0045",
+      "decomp_0046",
+      "decomp_0050"
+    ],
+    [
+      "decomp_0020",
+      "decomp_0021",
+      "decomp_0022",
+      "decomp_0023",
+      "decomp_0026",
+      "decomp_0028",
+      "decomp_0030",
+      "decomp_0032",
+      "decomp_0035",
+      "decomp_0036",
+      "decomp_0059",
+      "decomp_0061",
+      "decomp_0064",
+      "decomp_0066",
+      "decomp_0069",
+      "decomp_0070",
+      "decomp_0071",
+      "decomp_0072"
+    ],
+    [
+      "decomp_0018",
+      "decomp_0019",
+      "decomp_0024",
+      "decomp_0025",
+      "decomp_0027",
+      "decomp_0029",
+      "decomp_0031",
+      "decomp_0033",
+      "decomp_0034",
+      "decomp_0037",
+      "decomp_0060",
+      "decomp_0062",
+      "decomp_0063",
+      "decomp_0065",
+      "decomp_0067",
+      "decomp_0068",
+      "decomp_0073",
+      "decomp_0074"
+    ],
+    [
+      "decomp_0085",
+      "decomp_0086",
+      "decomp_0087",
+      "decomp_0088",
+      "decomp_0089",
+      "decomp_0090",
+      "decomp_0091",
+      "decomp_0092"
+    ],
+    [
+      "decomp_0081",
+      "decomp_0082",
+      "decomp_0083",
+      "decomp_0084",
+      "decomp_0093",
+      "decomp_0094",
+      "decomp_0095",
+      "decomp_0096",
+      "decomp_0154"
+    ],
+    [
+      "decomp_0014",
+      "decomp_0015",
+      "decomp_0162",
+      "decomp_0163"
+    ]
+  ],
+  "spec": "analysis/runs/decompose/part-spec.triangulated.v1.json",
+  "spec_hash": "7150a6fcd92c184c0880f89e582d4947018c4132b18fb00f01b0a69e17a9a6ec",
+  "used_cluster_count": 8
+}
