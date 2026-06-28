@@ -11,11 +11,12 @@ from pathlib import Path
 from typing import Iterable, Sequence
 
 from shapely import affinity, wkb
-from shapely.geometry import MultiPolygon, Polygon
+from shapely.geometry import MultiPolygon, Point, Polygon
 
 
 FIXED_STEP_TIMESTAMP = "2026-06-27T00:00:00"
 KIT_SCHEMA = "visit.icon-kit.v1"
+SNAP_COUPON_SCHEMA = "visit.snapfit-coupon.v1"
 DEFAULT_KIT_SPEC = "analysis/runs/simplify/part-spec.combined_rtol1.0_phd0.5_rot.v1.json"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -107,6 +108,80 @@ def geometry_size(geometry) -> tuple[float, float]:
     return max_x - min_x, max_y - min_y
 
 
+def snap_enabled(args: argparse.Namespace) -> bool:
+    return getattr(args, "snap_style", "none") != "none"
+
+
+def snap_peg_positions(
+    geometry,
+    radius_mm: float,
+    edge_clearance_mm: float,
+    max_pegs: int,
+) -> tuple[list[dict], str | None]:
+    if max_pegs <= 0:
+        return [], "snap_max_pegs_is_zero"
+    if radius_mm <= 0:
+        return [], "snap_peg_radius_not_positive"
+    if edge_clearance_mm < 0:
+        return [], "snap_edge_clearance_negative"
+
+    inset = geometry.buffer(-(radius_mm + edge_clearance_mm))
+    if inset.is_empty:
+        return [], "footprint_too_small_for_snap_peg"
+
+    min_x, min_y, max_x, max_y = inset.bounds
+    fractions = (0.2, 0.35, 0.5, 0.65, 0.8)
+    candidates: list[tuple[float, float]] = []
+    for fx in fractions:
+        for fy in fractions:
+            point = Point(min_x + (max_x - min_x) * fx, min_y + (max_y - min_y) * fy)
+            if inset.covers(point):
+                candidates.append((float(point.x), float(point.y)))
+
+    rep = inset.representative_point()
+    candidates.append((float(rep.x), float(rep.y)))
+
+    unique_candidates = []
+    seen = set()
+    for x, y in candidates:
+        key = (round(x, 6), round(y, 6))
+        if key in seen:
+            continue
+        seen.add(key)
+        unique_candidates.append((x, y))
+
+    if not unique_candidates:
+        return [], "no_valid_interior_snap_point"
+
+    selected = [unique_candidates[0]]
+    while len(selected) < max_pegs and len(selected) < len(unique_candidates):
+        best = None
+        best_distance = -1.0
+        for candidate in unique_candidates:
+            if candidate in selected:
+                continue
+            distance = min(
+                ((candidate[0] - chosen[0]) ** 2 + (candidate[1] - chosen[1]) ** 2) ** 0.5
+                for chosen in selected
+            )
+            if distance > best_distance:
+                best = candidate
+                best_distance = distance
+        if best is None:
+            break
+        selected.append(best)
+
+    selected.sort()
+    return [
+        {
+            "x_mm": round(x, 6),
+            "y_mm": round(y, 6),
+            "radius_mm": round(radius_mm, 6),
+        }
+        for x, y in selected
+    ], None
+
+
 def part_usage_by_icon(counts_by_icon: dict[str, Counter], part_id: str) -> dict[str, int]:
     return {
         icon_id: int(counts[part_id])
@@ -119,6 +194,7 @@ def build_kit_pieces(
     spec: dict,
     quantities: Counter,
     scale: float,
+    args: argparse.Namespace,
 ) -> tuple[list[dict], dict[str, dict]]:
     pieces = []
     part_details = {}
@@ -127,6 +203,16 @@ def build_kit_pieces(
         geometry = svg_to_mm_geometry(ip.part_to_geometry(part_def), scale)
         width, height = geometry_size(geometry)
         min_x, min_y, max_x, max_y = geometry.bounds
+        snap_pegs: list[dict] = []
+        snap_status = "disabled"
+        if snap_enabled(args):
+            snap_pegs, reason = snap_peg_positions(
+                geometry,
+                radius_mm=args.snap_peg_radius_mm,
+                edge_clearance_mm=args.snap_edge_clearance_mm,
+                max_pegs=args.snap_max_pegs,
+            )
+            snap_status = "ok" if snap_pegs else f"skipped:{reason}"
         part_details[part_id] = {
             "kind": part_def["kind"],
             "quantity": int(quantities[part_id]),
@@ -143,6 +229,8 @@ def build_kit_pieces(
                 round(max_y, 6),
             ],
             "min_feature_mm": round(float(part_def.get("print", {}).get("min_feature", 0.0)) * scale, 6),
+            "snap_status": snap_status,
+            "snap_pegs": snap_pegs,
         }
         for copy_index in range(1, int(quantities[part_id]) + 1):
             pieces.append({
@@ -153,6 +241,7 @@ def build_kit_pieces(
                 "width": width,
                 "height": height,
                 "bounds": geometry.bounds,
+                "snap_pegs": snap_pegs,
             })
     return pieces, part_details
 
@@ -214,6 +303,14 @@ def layout_pieces(
             "geometry_yoff": cursor_y - min_y,
             "width_mm": round(width, 6),
             "height_mm": round(height, 6),
+            "snap_pegs_mm": [
+                {
+                    "x_mm": round(peg["x_mm"] + cursor_x - min_x, 6),
+                    "y_mm": round(peg["y_mm"] + cursor_y - min_y, 6),
+                    "radius_mm": peg["radius_mm"],
+                }
+                for peg in piece.get("snap_pegs", [])
+            ],
         })
 
         cursor_x += width + spacing_mm
@@ -231,12 +328,23 @@ def build_kit_plan(args: argparse.Namespace) -> tuple[dict, list[dict], dict[str
         raise SystemExit("Source SVG size must be positive")
     if args.front_depth_mm <= 0:
         raise SystemExit("Front depth must be positive")
+    if snap_enabled(args):
+        if args.snap_peg_radius_mm <= 0:
+            raise SystemExit("Snap peg radius must be positive")
+        if args.snap_peg_tip_radius_mm <= 0:
+            raise SystemExit("Snap peg tip radius must be positive")
+        if args.snap_peg_tip_radius_mm > args.snap_peg_radius_mm:
+            raise SystemExit("Snap peg tip radius must be less than or equal to the peg radius")
+        if args.snap_peg_height_mm <= 0:
+            raise SystemExit("Snap peg height must be positive")
+        if args.snap_max_pegs < 0:
+            raise SystemExit("Snap max pegs must be zero or positive")
 
     counts_by_icon = icon_part_counts(spec)
     quantities = kit_quantities(counts_by_icon, args.scope, args.icon)
     scale = args.icon_size_mm / args.source_size_svg
 
-    pieces, part_details = build_kit_pieces(spec, quantities, scale)
+    pieces, part_details = build_kit_pieces(spec, quantities, scale, args)
     placements = layout_pieces(
         pieces,
         bed_width_mm=args.bed_width_mm,
@@ -283,6 +391,14 @@ def build_kit_plan(args: argparse.Namespace) -> tuple[dict, list[dict], dict[str
             "spacing_mm": args.spacing_mm,
             "plate_count": plate_count,
             "pieces": layout_records,
+        },
+        "snap_fit": {
+            "style": args.snap_style,
+            "peg_radius_mm": args.snap_peg_radius_mm if snap_enabled(args) else None,
+            "peg_tip_radius_mm": args.snap_peg_tip_radius_mm if snap_enabled(args) else None,
+            "peg_height_mm": args.snap_peg_height_mm if snap_enabled(args) else None,
+            "edge_clearance_mm": args.snap_edge_clearance_mm if snap_enabled(args) else None,
+            "max_pegs_per_piece": args.snap_max_pegs if snap_enabled(args) else None,
         },
         "icons": usage_by_icon,
         "parts": part_details,
@@ -374,7 +490,14 @@ def export_front_command(args: argparse.Namespace) -> int:
     return 0
 
 
-def cad_geometry_to_part(b, geometry, front_depth_mm: float):
+def cad_geometry_to_part(
+    b,
+    geometry,
+    front_depth_mm: float,
+    snap_pegs: list[dict] | None = None,
+    snap_peg_height_mm: float = 0.0,
+    snap_peg_tip_radius_mm: float = 0.0,
+):
     with b.BuildPart() as part_builder:
         with b.BuildSketch(b.Plane.XY):
             for polygon in polygons(geometry):
@@ -388,6 +511,15 @@ def cad_geometry_to_part(b, geometry, front_depth_mm: float):
                         mode=b.Mode.SUBTRACT,
                     )
         b.extrude(amount=front_depth_mm)
+        for peg in snap_pegs or []:
+            with b.Locations((peg["x_mm"], peg["y_mm"], front_depth_mm)):
+                b.Cone(
+                    bottom_radius=peg["radius_mm"],
+                    top_radius=snap_peg_tip_radius_mm,
+                    height=snap_peg_height_mm,
+                    align=(b.Align.CENTER, b.Align.CENTER, b.Align.MIN),
+                    mode=b.Mode.ADD,
+                )
     return part_builder.part
 
 
@@ -397,6 +529,8 @@ def kit_compound(
     front_depth_mm: float,
     bed_depth_mm: float,
     plate_gap_mm: float,
+    snap_peg_height_mm: float = 0.0,
+    snap_peg_tip_radius_mm: float = 0.0,
     plate: int | None = None,
 ):
     children = []
@@ -411,7 +545,18 @@ def kit_compound(
             xoff=placement["geometry_xoff"],
             yoff=placement["geometry_yoff"] + plate_offset_y,
         )
-        part = cad_geometry_to_part(b, geometry, front_depth_mm)
+        snap_pegs = [
+            {**peg, "y_mm": peg["y_mm"] + plate_offset_y}
+            for peg in placement.get("snap_pegs_mm", [])
+        ]
+        part = cad_geometry_to_part(
+            b,
+            geometry,
+            front_depth_mm,
+            snap_pegs=snap_pegs,
+            snap_peg_height_mm=snap_peg_height_mm,
+            snap_peg_tip_radius_mm=snap_peg_tip_radius_mm,
+        )
         part.label = placement["piece_id"]
         children.append(part)
     if not children:
@@ -456,6 +601,137 @@ def write_manifest(path: Path, manifest: dict) -> None:
     path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
+def parse_clearances(value: str) -> list[float]:
+    clearances = []
+    for item in value.split(","):
+        item = item.strip()
+        if not item:
+            continue
+        clearances.append(float(item))
+    if not clearances:
+        raise SystemExit("At least one clearance value is required")
+    if any(clearance < 0 for clearance in clearances):
+        raise SystemExit("Snap clearances must be zero or positive")
+    return clearances
+
+
+def snap_coupon_shape(b, args: argparse.Namespace, clearances: list[float]):
+    if args.snap_peg_radius_mm <= 0:
+        raise SystemExit("Snap peg radius must be positive")
+    if args.snap_peg_tip_radius_mm <= 0:
+        raise SystemExit("Snap peg tip radius must be positive")
+    if args.snap_peg_tip_radius_mm > args.snap_peg_radius_mm:
+        raise SystemExit("Snap peg tip radius must be less than or equal to the peg radius")
+    if args.snap_peg_height_mm <= 0:
+        raise SystemExit("Snap peg height must be positive")
+    if args.coupon_socket_depth_mm <= 0:
+        raise SystemExit("Coupon socket depth must be positive")
+    if args.coupon_socket_block_thickness_mm <= args.coupon_socket_depth_mm:
+        raise SystemExit("Coupon socket block thickness must be greater than socket depth")
+
+    count = len(clearances)
+    length = args.coupon_edge_margin_mm * 2 + args.coupon_pitch_mm * (count - 1)
+    width = args.coupon_width_mm
+    peg_y = width / 2
+
+    peg_positions = [
+        (args.coupon_edge_margin_mm + index * args.coupon_pitch_mm, peg_y)
+        for index in range(count)
+    ]
+
+    with b.BuildPart() as male_builder:
+        b.Box(
+            length,
+            width,
+            args.coupon_base_thickness_mm,
+            align=(b.Align.MIN, b.Align.MIN, b.Align.MIN),
+        )
+        for x, y in peg_positions:
+            with b.Locations((x, y, args.coupon_base_thickness_mm)):
+                b.Cone(
+                    bottom_radius=args.snap_peg_radius_mm,
+                    top_radius=args.snap_peg_tip_radius_mm,
+                    height=args.snap_peg_height_mm,
+                    align=(b.Align.CENTER, b.Align.CENTER, b.Align.MIN),
+                    mode=b.Mode.ADD,
+                )
+    male = male_builder.part
+    male.label = "snap_coupon_male_pegs"
+
+    with b.BuildPart() as socket_builder:
+        b.Box(
+            length,
+            width,
+            args.coupon_socket_block_thickness_mm,
+            align=(b.Align.MIN, b.Align.MIN, b.Align.MIN),
+        )
+        socket_z = args.coupon_socket_block_thickness_mm - args.coupon_socket_depth_mm
+        for (x, y), clearance in zip(peg_positions, clearances):
+            with b.Locations((x, y, socket_z)):
+                b.Cylinder(
+                    args.snap_peg_radius_mm + clearance,
+                    args.coupon_socket_depth_mm,
+                    align=(b.Align.CENTER, b.Align.CENTER, b.Align.MIN),
+                    mode=b.Mode.SUBTRACT,
+                )
+    socket = socket_builder.part
+    socket = socket.moved(b.Location((0, width + args.coupon_gap_mm, 0)))
+    socket.label = "snap_coupon_socket_block"
+
+    manifest = {
+        "schema": SNAP_COUPON_SCHEMA,
+        "generator": "tools/export_step.py snap-coupon",
+        "snap_fit": {
+            "style": "friction_peg",
+            "peg_radius_mm": args.snap_peg_radius_mm,
+            "peg_tip_radius_mm": args.snap_peg_tip_radius_mm,
+            "peg_height_mm": args.snap_peg_height_mm,
+            "socket_depth_mm": args.coupon_socket_depth_mm,
+            "socket_block_thickness_mm": args.coupon_socket_block_thickness_mm,
+        },
+        "coupon": {
+            "male_base_thickness_mm": args.coupon_base_thickness_mm,
+            "width_mm": width,
+            "length_mm": length,
+            "pitch_mm": args.coupon_pitch_mm,
+            "gap_mm": args.coupon_gap_mm,
+            "tests": [
+                {
+                    "index": index + 1,
+                    "clearance_mm": clearance,
+                    "socket_radius_mm": round(args.snap_peg_radius_mm + clearance, 6),
+                    "x_mm": round(x, 6),
+                    "male_y_mm": round(y, 6),
+                    "socket_y_mm": round(y + width + args.coupon_gap_mm, 6),
+                }
+                for index, ((x, y), clearance) in enumerate(zip(peg_positions, clearances))
+            ],
+        },
+    }
+    return b.Compound(children=[male, socket], label="snapfit_coupon"), manifest
+
+
+def snap_coupon_command(args: argparse.Namespace) -> int:
+    b = require_build123d()
+    clearances = parse_clearances(args.clearances)
+    shape, manifest = snap_coupon_shape(b, args, clearances)
+    output_path = Path(args.out)
+    manifest["output"] = export_shape_step(
+        b,
+        shape,
+        output_path,
+        verify_import=args.verify_import,
+        volume_tolerance=args.volume_tolerance,
+    )
+    manifest_path = Path(args.manifest) if args.manifest else output_path.with_suffix(".manifest.json")
+    write_manifest(manifest_path, manifest)
+    print(
+        f"snap coupon: {len(clearances)} clearances -> {output_path.as_posix()}"
+    )
+    print(f"snap coupon manifest: {manifest_path.as_posix()}")
+    return 0
+
+
 def kit_manifest_command(args: argparse.Namespace) -> int:
     manifest, _placements, _spec = build_kit_plan(args)
     out_path = Path(args.out)
@@ -479,6 +755,8 @@ def export_kit_command(args: argparse.Namespace) -> int:
         front_depth_mm=args.front_depth_mm,
         bed_depth_mm=args.bed_depth_mm,
         plate_gap_mm=args.plate_gap_mm,
+        snap_peg_height_mm=args.snap_peg_height_mm if snap_enabled(args) else 0.0,
+        snap_peg_tip_radius_mm=args.snap_peg_tip_radius_mm if snap_enabled(args) else 0.0,
     )
     outputs = {
         "combined_step": export_shape_step(
@@ -503,6 +781,8 @@ def export_kit_command(args: argparse.Namespace) -> int:
                 front_depth_mm=args.front_depth_mm,
                 bed_depth_mm=args.bed_depth_mm,
                 plate_gap_mm=args.plate_gap_mm,
+                snap_peg_height_mm=args.snap_peg_height_mm if snap_enabled(args) else 0.0,
+                snap_peg_tip_radius_mm=args.snap_peg_tip_radius_mm if snap_enabled(args) else 0.0,
                 plate=plate,
             )
             plate_outputs.append(
@@ -544,6 +824,35 @@ def add_kit_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--bed-width-mm", type=float, default=180.0)
     parser.add_argument("--bed-depth-mm", type=float, default=180.0)
     parser.add_argument("--spacing-mm", type=float, default=4.0)
+    parser.add_argument(
+        "--snap-style",
+        choices=["none", "friction-peg"],
+        default="none",
+        help="Optional back-side snap feature for front pieces",
+    )
+    parser.add_argument("--snap-peg-radius-mm", type=float, default=1.8)
+    parser.add_argument("--snap-peg-tip-radius-mm", type=float, default=1.55)
+    parser.add_argument("--snap-peg-height-mm", type=float, default=3.0)
+    parser.add_argument("--snap-edge-clearance-mm", type=float, default=1.0)
+    parser.add_argument("--snap-max-pegs", type=int, default=2)
+
+
+def add_snap_coupon_arguments(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--out", required=True, help="Output snap-fit coupon STEP file")
+    parser.add_argument("--manifest", help="Optional output manifest JSON path")
+    parser.add_argument("--clearances", default="0.1,0.2,0.3,0.4")
+    parser.add_argument("--snap-peg-radius-mm", type=float, default=1.8)
+    parser.add_argument("--snap-peg-tip-radius-mm", type=float, default=1.55)
+    parser.add_argument("--snap-peg-height-mm", type=float, default=3.0)
+    parser.add_argument("--coupon-socket-depth-mm", type=float, default=3.2)
+    parser.add_argument("--coupon-socket-block-thickness-mm", type=float, default=4.0)
+    parser.add_argument("--coupon-base-thickness-mm", type=float, default=2.0)
+    parser.add_argument("--coupon-width-mm", type=float, default=16.0)
+    parser.add_argument("--coupon-pitch-mm", type=float, default=14.0)
+    parser.add_argument("--coupon-edge-margin-mm", type=float, default=8.0)
+    parser.add_argument("--coupon-gap-mm", type=float, default=8.0)
+    parser.add_argument("--verify-import", action="store_true", help="Re-import exported STEP and compare volume")
+    parser.add_argument("--volume-tolerance", type=float, default=1e-6)
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -573,6 +882,10 @@ def build_parser() -> argparse.ArgumentParser:
     kit.add_argument("--verify-import", action="store_true", help="Re-import exported STEP files and compare volume")
     kit.add_argument("--volume-tolerance", type=float, default=1e-6)
     kit.set_defaults(func=export_kit_command)
+
+    coupon = subparsers.add_parser("snap-coupon", help="Export a friction-peg snap-fit clearance coupon")
+    add_snap_coupon_arguments(coupon)
+    coupon.set_defaults(func=snap_coupon_command)
 
     return parser
 

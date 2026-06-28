@@ -130,6 +130,7 @@ Detailed implementation spike: `CAD_FEASIBILITY_SPIKE.md`
 - **RESEARCH NOTE:** Do not use UltiMaker Cura as the supported slicer workflow unless native free STEP support is confirmed. Current UltiMaker documentation describes CAD file import through an UltiMaker Cura CAD plugin/subscription workflow, which is not acceptable for this project: <https://support.makerbot.com/s/article/1667412730014>.
 - **RESEARCH TODO:** Decide the production CAD stack after prototype evidence, not preference.
 - **RESEARCH TODO:** Document that non-STEP CAD exports are out of scope unless a future explicit requirement overrides the STEP-only decision.
+- Snap-fit implementation spike: `SNAPFIT_DESIGN_PLAN.md`.
 
 ## Parametric Model Requirements
 
@@ -152,7 +153,7 @@ Minimum parameters:
 
 Snap-fit concepts to test:
 
-- Simple friction pegs into sockets.
+- Simple friction pegs into sockets. Current first-pass implementation uses tapered `1.8 mm` radius pegs with a `1.55 mm` tip radius and `3.0 mm` engagement height.
 - Dovetail slides.
 - Cantilever snap tabs.
 - Mushroom/keyhole studs.
@@ -283,6 +284,10 @@ Tool: `tools/icon_reference.py` (build, check, verify, render subcommands)
 - [x] Generate an initial laid-out STEP kit from the selected part spec (`tools/export_step.py kit`).
   - Current universal single-icon kit: 41 unique part designs, 65 printed pieces, 5 plates at 120 mm icon size on a 180 x 180 mm bed.
   - Output: `analysis/runs/kits/recommended/universal-single-icon-kit.step` plus per-plate STEP files and manifest.
+- [x] Generate first snap-fit STEP artifacts.
+  - `tools/export_step.py snap-coupon` exports a tapered friction-peg clearance coupon.
+  - `tools/export_step.py kit --snap-style friction-peg` adds back-side pegs to front icon pieces.
+  - Current test output: `analysis/runs/snapfit/friction-peg-v1/`.
 - [ ] Validate PrusaSlicer STEP import before any physical print.
 - [ ] Print snap-fit coupons.
 - [ ] Print one complete small icon.
@@ -371,8 +376,8 @@ Completed:
 5. ~~Greedy simplification~~ → Done: 61→42 parts (31% reduction) at 0.075% area error via rect merge + polygon Hausdorff + rotation clustering.
 
 Current priorities:
-- **Slicer validation**: open the generated universal kit STEP and per-plate STEP files in PrusaSlicer, checking native import and separate body handling.
-- **Plate/size decision**: decide whether the basic kit should target smaller icon sizes, more plates, or per-icon layouts instead of the universal single-icon kit.
-- **Physical prototype**: print snap-fit coupons, then one complete small icon.
+- **Snap-fit validation**: print the friction-peg coupon, choose a clearance, and record printer/material settings.
+- **Backplate/socket prototype**: generate a matching socket plate for the snap-enabled Platform kit after coupon clearance is chosen.
+- **Slicer validation**: open generated STEP files in PrusaSlicer, checking native import and separate body handling.
 - **Design review** with facilities/brand/design before locking mounting and visual tolerance decisions.
 

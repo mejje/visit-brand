@@ -1,0 +1,59 @@
+{
+  "coupon": {
+    "gap_mm": 8.0,
+    "length_mm": 58.0,
+    "male_base_thickness_mm": 2.0,
+    "pitch_mm": 14.0,
+    "tests": [
+      {
+        "clearance_mm": 0.1,
+        "index": 1,
+        "male_y_mm": 8.0,
+        "socket_radius_mm": 1.9,
+        "socket_y_mm": 32.0,
+        "x_mm": 8.0
+      },
+      {
+        "clearance_mm": 0.2,
+        "index": 2,
+        "male_y_mm": 8.0,
+        "socket_radius_mm": 2.0,
+        "socket_y_mm": 32.0,
+        "x_mm": 22.0
+      },
+      {
+        "clearance_mm": 0.3,
+        "index": 3,
+        "male_y_mm": 8.0,
+        "socket_radius_mm": 2.1,
+        "socket_y_mm": 32.0,
+        "x_mm": 36.0
+      },
+      {
+        "clearance_mm": 0.4,
+        "index": 4,
+        "male_y_mm": 8.0,
+        "socket_radius_mm": 2.2,
+        "socket_y_mm": 32.0,
+        "x_mm": 50.0
+      }
+    ],
+    "width_mm": 16.0
+  },
+  "generator": "tools/export_step.py snap-coupon",
+  "output": {
+    "path": "analysis/runs/snapfit/friction-peg-v1/snapfit-coupon.step",
+    "reimport_delta_mm3": 0.0,
+    "reimport_volume_mm3": 5504.470713,
+    "volume_mm3": 5504.470713
+  },
+  "schema": "visit.snapfit-coupon.v1",
+  "snap_fit": {
+    "peg_height_mm": 3.0,
+    "peg_radius_mm": 1.8,
+    "peg_tip_radius_mm": 1.55,
+    "socket_block_thickness_mm": 4.0,
+    "socket_depth_mm": 3.2,
+    "style": "friction_peg"
+  }
+}
