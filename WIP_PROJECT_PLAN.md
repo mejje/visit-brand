@@ -1,15 +1,16 @@
 # WIP Project Plan: 3D-Printed Modular Brand Icons
 
-Last updated: 2026-06-26
+Last updated: 2026-06-29
 
 ## Project Intent
 
 Create a complete maker-friendly toolkit that lets employees 3D print, assemble, and display the new stylized brand icons on cubicle or desk walls.
 
-The desired object is a two-layer physical icon:
+The desired object is a paired fixture for each physical icon part:
 
-- A backplate that can be fixed to a cubicle wall with nails, pins, or other approved fasteners.
-- A raised front icon assembly that snaps into the backplate.
+- A small hidden backplate for each icon part that can be fixed to a cubicle wall with two small nails, pins, or other approved fasteners.
+- Two holes per backplate so the backplate can be attached and oriented on the wall.
+- A raised hollow front part that snaps over the matching small backplate.
 - Front icon parts printed in translucent white, hollow or partially hollow, so they protrude from the wall and produce a dim see-through effect.
 - Parameters for scale, wall thickness, extrusion depth, snap-fit tolerance, backplate thickness, nail-hole style, and icon-part shell thickness.
 
@@ -45,33 +46,64 @@ All inspected SVGs use a `48 x 48` viewBox and filled vector primitives. Most ge
 
 - Employees can choose an icon, print a curated kit, and assemble it without CAD knowledge.
 - Makers can edit a small parameter file and regenerate printable assets.
-- The printable assets include backplates, snap-in front parts, and optional test coupons for fit calibration.
+- The printable assets include one small two-hole backplate per physical icon part, snap-on hollow front caps, and optional test coupons for fit calibration.
 - The simplified reusable part set can reconstruct every source icon within a documented deviation threshold.
 - Every simplified reconstruction can be rendered back to SVG and compared against the original reference SVG.
 - The toolkit explains printer setup, material choices, orientation, slicing assumptions, assembly, wall mounting, and safety limitations.
 
+## Status Dashboard
+
+| Workstream | Status | Current state |
+| --- | --- | --- |
+| Source SVG inventory | Done | 14 source SVGs inspected; all use a `48 x 48` viewBox. |
+| Reference geometry pipeline | Done | `tools/icon_reference.py` generated references, canonical SVGs, overlays, source hashes, and stale checks. |
+| Exact part-spec baseline | Done | `tools/icon_parts.py` generated exact reconstruction and near-zero-error scoring for all icons. |
+| Simplified reusable part library | In Progress | Current recommended candidate is 41 unique parts at ~0.0754% overall area error; stakeholder review still pending. |
+| CAD stack | In Progress | `build123d` is the selected prototype stack with successful STEP export/re-import; slicer and physical validation still pending. |
+| Plain universal front-piece STEP kit | Done | `analysis/runs/kits/recommended/universal-single-icon-kit.step`: 41 designs, 65 printed pieces, 5 plates. |
+| Corrected per-part fixture STEP kit | Done | `analysis/runs/snapfit/part-backplate-v1/universal-single-icon-fixture-kit.step`: 41 designs, 65 hollow caps, 65 two-hole backplates, 9 plates. |
+| Old peg/socket approach | Removed | The old generated artifacts and CLI paths were removed; current mechanical direction is hollow cap over per-part backplate. |
+| Marking and SVG legend system | Not Started | Needed before broad testing so employees know which piece goes where and how to orient it. |
+| PrusaSlicer validation | Not Started | Must confirm STEP body handling and usability before promising the workflow. |
+| Physical print validation | Not Started | No cap/backplate pair has been printed or handled yet. |
+| Facilities/wall mounting validation | Blocked / External | Needs representative cubicle/wall material and approval of pins/nails/alternatives. |
+| Maker documentation | Not Started | Quick start, slicer guide, assembly guide, and workshop guide remain to be written. |
+
+## Remaining Work Summary
+
+The project has working analysis, optimization, and STEP generation prototypes. What remains is mostly validation and productization:
+
+- Validate STEP import and separate body handling in PrusaSlicer.
+- Design and implement the piece marking plus per-icon SVG legend workflow.
+- Print and test representative hollow-cap/backplate pairs, then tune clearances and hole sizes.
+- Confirm wall/cubicle mounting rules and approved fastener options.
+- Run brand/design review on the 41-part simplified library and visual deviation.
+- Package final print layouts by icon/printer size and write the maker documentation.
+- Pilot the workflow with employees or a maker-space group.
+
 ## Key Design Questions
 
-- **RESEARCH TODO:** Decide whether each icon gets its own backplate with sockets, or whether a universal backplate with all possible socket locations is realistic.
-- **RESEARCH TODO:** Decide whether "one printed set can build any icon" means one physical superset of front parts plus icon-specific backplates, or one universal display system that can be reconfigured without reprinting the backplate.
-- **RESEARCH TODO:** Validate cubicle-wall fastener assumptions. Nails may not be allowed or may not hold well in some office panel systems. Include alternatives such as push pins, removable adhesive strips, magnetic plates, or over-wall hooks if needed.
-- **RESEARCH TODO:** Determine target icon sizes for the basic kit and larger kit, based on common consumer printer build plates.
-- **RESEARCH TODO:** Determine acceptable brand deviation thresholds with design/brand stakeholders before optimizing part reduction.
+- **DECISION:** Do not use a full-icon backplate. Generate one small backplate per physical icon part.
+- **DECISION:** Each small backplate has two holes for wall attachment and orientation. The hollow front part snaps over this backplate.
+- **DECISION:** The current universal fixture kit is a single-icon universal set: it includes every unique part design and the maximum quantities needed to build any one icon, not all icons simultaneously.
+- **BLOCKED / EXTERNAL:** Validate cubicle-wall fastener assumptions. Nails may not be allowed or may not hold well in some office panel systems. Include alternatives such as push pins, removable adhesive strips, magnetic plates, or over-wall hooks if needed.
+- **IN PROGRESS:** Determine target icon sizes for the basic kit and larger kit. Current prototype size is `120 mm` on a `180 x 180 mm` bed; final size presets are not locked.
+- **BLOCKED / EXTERNAL:** Determine acceptable brand deviation thresholds with design/brand stakeholders before locking the part library.
 
 ## Proposed Toolkit Deliverables
 
-1. **Parametric CAD source**
-   - Scripted model definitions for backplates, front shells, snap features, test coupons, and export assemblies.
+1. **Parametric CAD source** — **In Progress**
+   - Scripted model definitions for hollow front caps, per-part two-hole backplates, press-fit features, test coupons, and export assemblies.
    - Parameter presets for small, medium, and large desk display sizes.
 
-2. **Generated CAD and print handoff files**
-   - STEP files for each icon, backplate, front assembly, and fit coupon.
+2. **Generated CAD and print handoff files** — **In Progress**
+   - STEP files for each icon kit, hollow front cap set, per-part backplate set, and fit coupon.
    - Single-session layouts for basic printers.
    - Multi-session larger parts for employee-owned printers.
-   - Fit calibration coupons with snap tabs and sockets.
+   - Fit calibration coupons for cap/backplate clearance and mounting-hole usability.
    - No STL deliverables. Mesh conversion, if needed, should happen inside the user's slicer or a documented local slicer workflow.
 
-3. **Icon analysis software**
+3. **Icon analysis software** — **Mostly Done**
    - Import original SVGs.
    - Normalize geometry to a common coordinate system.
    - Convert filled SVG primitives into planar polygon geometry.
@@ -82,11 +114,11 @@ All inspected SVGs use a `48 x 48` viewBox and filled vector primitives. Most ge
    - Export reconstructed geometry, SVGs, and visual overlays.
    - Score deviation against the canonical reference geometry.
 
-4. **Optimization software**
+4. **Optimization software** — **In Progress**
    - Search for the best trade-off between part count, visual deviation, printability, and assembly complexity.
    - Produce reports showing trade-off curves and visual overlays.
 
-5. **Maker documentation**
+5. **Maker documentation** — **Not Started**
    - Quick-start guide.
    - Printer/material guide.
    - Assembly guide.
@@ -106,15 +138,15 @@ The generated CAD handoff format should be **STEP only**. STEP is the canonical 
 - **FreeCAD**: Open-source parametric modeler with Python support and a visual CAD environment. Good candidate for STEP inspection, interchange validation, and manual QA: <https://wiki.freecad.org/Import_Export_Preferences>.
 - **OpenSCAD**: De-prioritized for production unless a reliable STEP/BREP path is proven, because the project now requires STEP as the generated handoff format.
 
-### Initial Recommendation
+### Current CAD Direction
 
-Start with a Python-first pipeline and prototype both **CadQuery** and **build123d** on one icon, using STEP export as the deciding handoff test.
+Use a Python-first pipeline with **build123d** as the active prototype CAD stack. It has successfully exported and re-imported front pieces, laid-out front-piece kits, and corrected hollow-cap/backplate fixture kits as STEP.
 
 Reasoning:
 
 - The SVG parsing, geometry simplification, scoring, and optimization will likely be Python anyway.
 - A Python CAD library avoids passing fragile intermediate geometry between unrelated tools.
-- Both CadQuery and build123d are built around parametric CAD-as-code, which fits the need to regenerate variants.
+- build123d is built around parametric CAD-as-code, which fits the need to regenerate variants from the part spec.
 - STEP keeps generated geometry editable and inspectable in other CAD tools.
 - FreeCAD can remain the visual QA and STEP round-trip inspection tool even if the production generator is code-first.
 
@@ -122,14 +154,14 @@ Reasoning:
 
 Detailed implementation spike: `CAD_FEASIBILITY_SPIKE.md`
 
-- **RESEARCH TODO:** Prototype one backplate and one hollow front part in CadQuery.
-- **RESEARCH TODO:** Prototype the same part in build123d.
-- **RESEARCH TODO:** Compare Shapely polygon import, offsetting, shelling, fillets/chamfers, STEP part export, STEP assembly export, STEP re-import, and CLI automation.
-- **RESEARCH TODO:** Validate generated STEP files in **PrusaSlicer** as the only supported slicer workflow for the maker guide. PrusaSlicer is free/open-source, cross-platform, documents native STEP import, and includes/imports third-party printer profiles: <https://www.prusa3d.com/p/prusaslicer/>, <https://help.prusa3d.com/article/supported-file-formats_1772>, <https://help.prusa3d.com/article/profiles-for-3rd-party-printers_246178>.
-- **RESEARCH TODO:** Confirm whether PrusaSlicer preserves separate STEP bodies/parts well enough for the employee workflow.
+- **DEFERRED:** Prototype one backplate and one hollow front part in CadQuery. Not needed unless build123d fails slicer or physical validation.
+- **DONE:** Prototype the same part in build123d. Front pieces, universal kits, and hollow-cap/backplate fixture kits export and re-import as STEP.
+- **IN PROGRESS:** Compare Shapely polygon import, offsetting, shelling, fillets/chamfers, STEP part export, STEP assembly export, STEP re-import, and CLI automation. build123d is proven enough for current prototypes; slicer behavior and physical fit remain open.
+- **NOT STARTED:** Validate generated STEP files in **PrusaSlicer** as the only supported slicer workflow for the maker guide. PrusaSlicer is free/open-source, cross-platform, documents native STEP import, and includes/imports third-party printer profiles: <https://www.prusa3d.com/p/prusaslicer/>, <https://help.prusa3d.com/article/supported-file-formats_1772>, <https://help.prusa3d.com/article/profiles-for-3rd-party-printers_246178>.
+- **NOT STARTED:** Confirm whether PrusaSlicer preserves separate STEP bodies/parts well enough for the employee workflow.
 - **RESEARCH NOTE:** Do not use UltiMaker Cura as the supported slicer workflow unless native free STEP support is confirmed. Current UltiMaker documentation describes CAD file import through an UltiMaker Cura CAD plugin/subscription workflow, which is not acceptable for this project: <https://support.makerbot.com/s/article/1667412730014>.
-- **RESEARCH TODO:** Decide the production CAD stack after prototype evidence, not preference.
-- **RESEARCH TODO:** Document that non-STEP CAD exports are out of scope unless a future explicit requirement overrides the STEP-only decision.
+- **IN PROGRESS:** Decide the production CAD stack after prototype evidence, not preference. build123d is the provisional winner, pending slicer and physical validation.
+- **DONE:** Document that non-STEP CAD exports are out of scope unless a future explicit requirement overrides the STEP-only decision.
 - Snap-fit implementation spike: `SNAPFIT_DESIGN_PLAN.md`.
 
 ## Parametric Model Requirements
@@ -140,26 +172,27 @@ Minimum parameters:
 - `front_depth_mm`: distance the translucent icon protrudes from the wall.
 - `front_shell_wall_mm`: translucent shell wall thickness.
 - `front_face_thickness_mm`: visible front face thickness.
-- `backplate_thickness_mm`: backplate body thickness.
-- `backplate_margin_mm`: border around reconstructed icon geometry.
-- `snap_clearance_mm`: clearance between snap male/female features.
+- `backplate_thickness_mm`: per-part hidden backplate body thickness.
+- `fit_clearance_mm`: XY clearance between the hidden backplate and the hollow front cap cavity.
+- `z_clearance_mm`: depth clearance between the backplate and inside face of the cap.
+- `pin_hole_diameter_mm`: two-hole mounting diameter for each small backplate.
+- `pin_hole_edge_clearance_mm`: minimum material around each mounting hole.
 - `snap_engagement_mm`: insertion depth.
 - `snap_retention_lip_mm`: retention feature height.
 - `minimum_feature_mm`: smallest printable generated feature.
-- `nail_hole_diameter_mm`: fastener hole diameter.
 - `nail_head_relief_mm`: countersink or relief diameter.
 - `printer_nozzle_mm`: assumed nozzle size.
 - `layer_height_mm`: assumed layer height.
 
 Snap-fit concepts to test:
 
-- Simple friction pegs into sockets. Current first-pass implementation uses tapered `1.8 mm` radius pegs with a `1.55 mm` tip radius and `3.0 mm` engagement height.
+- Hollow cap press fit over a smaller two-hole backplate. Current first-pass implementation uses `1.0 mm` cap walls, `1.2 mm` face thickness, a `3.0 mm` backplate, and `0.25 mm` XY fit clearance.
 - Dovetail slides.
 - Cantilever snap tabs.
 - Mushroom/keyhole studs.
 - Swappable magnet pockets as an alternate premium variant.
 
-**RESEARCH TODO:** Print tolerance coupons before committing to a snap design. Test at least three clearances per printer/material combination.
+**NOT STARTED:** Print cap/backplate fit coupons before committing to the press-fit clearance. Test at least three XY clearances per printer/material combination.
 
 ## Scientific Icon Part-Set Analysis
 
@@ -174,7 +207,7 @@ Goal: create a canonical physical part library that can reconstruct all source i
 - Mirroring needs stakeholder approval, because mirrored asymmetry can feel off-brand.
 - Scaling individual parts independently should be avoided unless approved, because it can erode brand consistency.
 
-**RESEARCH TODO:** Confirm allowed transforms for reusable parts: translation only, translation + rotation, translation + rotation + mirroring, or limited scale classes.
+**DONE / WORKING DECISION:** Reusable parts may use translation plus 0/90/180/270 degree rotation with centroid anchoring. Mirroring and independent scaling remain disallowed until brand stakeholders approve them.
 
 ### Detailed Plans
 
@@ -255,7 +288,7 @@ Suggested Python libraries to evaluate:
 - Optimization: custom Pareto evaluator first, `pymoo` NSGA-II for multi-objective search, OR-Tools CP-SAT for finite discrete subproblems, and `scipy.optimize` for continuous tuning.
 - CAD generation: CadQuery or build123d, selected by STEP export/re-import quality.
 
-**RESEARCH TODO:** Validate exact library choices by building a small proof of concept against `Visit_Icon_Hotel.svg`, `Visit_Icon_Platform.svg`, `Visit_Icon_Amusement park.svg`, and `Visit_Icon_Travel agent.svg`.
+**DONE FOR CURRENT PROTOTYPE:** Library choices are validated enough to continue: `svgelements`, `shapely`, `pymoo`, and `build123d` are all in use. Revisit only if slicer validation or physical testing exposes a tool limitation.
 
 ## Design Phase Milestones
 
@@ -284,17 +317,20 @@ Tool: `tools/icon_reference.py` (build, check, verify, render subcommands)
 - [x] Generate an initial laid-out STEP kit from the selected part spec (`tools/export_step.py kit`).
   - Current universal single-icon kit: 41 unique part designs, 65 printed pieces, 5 plates at 120 mm icon size on a 180 x 180 mm bed.
   - Output: `analysis/runs/kits/recommended/universal-single-icon-kit.step` plus per-plate STEP files and manifest.
-- [x] Generate first snap-fit STEP artifacts.
-  - `tools/export_step.py snap-coupon` exports a tapered friction-peg clearance coupon.
-  - `tools/export_step.py kit --snap-style friction-peg` adds back-side pegs to front icon pieces.
-  - Current test output: `analysis/runs/snapfit/friction-peg-v1/`.
-- [x] Generate first socket backplate STEP artifact.
-  - `tools/export_step.py socket-backplate` creates a provisional Platform backplate with matching blind sockets and two tiny pin holes for wall attachment.
-  - Current test output: `analysis/runs/snapfit/friction-peg-v1/Visit_Icon_Platform.socket-backplate.step`.
-- [ ] Validate PrusaSlicer STEP import before any physical print.
-- [ ] Print snap-fit coupons.
-- [ ] Print one complete small icon.
-- [ ] Record printer, filament, nozzle, layer height, clearances, and fit outcome.
+- [x] Generate first corrected per-part fixture STEP artifact.
+  - `tools/export_step.py part-fixture-kit` creates hollow front caps plus one small two-hole backplate per physical icon part.
+  - Current Platform fixture: 2 unique part designs, 8 hollow front caps, 8 backplates, 16 total printed pieces, 1 plate, STEP re-import delta `0.000000002 mm^3`.
+  - Current test output: `analysis/runs/snapfit/part-backplate-v1/Visit_Icon_Platform.fixture-kit.step`.
+  - Universal single-icon fixture STEP: 41 unique part designs, 65 hollow front caps, 65 backplates, 130 total printed pieces, 9 plates, STEP re-import delta `0.000000398 mm^3`.
+- [ ] **Not Started:** Validate PrusaSlicer STEP import before any physical print.
+- [ ] **Not Started:** Design part marking and assembly legend system before broad physical testing.
+  - Each front cap/backplate pair needs a human-readable piece index.
+  - Markings should be printable or embossed/engraved on non-visible faces where possible.
+  - Generate an SVG legend per icon showing the icon outline, piece index, orientation, and matching front/backplate IDs.
+  - The generated manifest should map each physical piece ID to its icon placement, rotation, plate number, and legend label.
+- [ ] **Not Started:** Print one or two representative hollow-cap/backplate pairs.
+- [ ] **Not Started:** Print one complete small icon from the corrected per-part fixture kit.
+- [ ] **Not Started:** Record printer, filament, nozzle, layer height, clearances, and fit outcome.
 
 ### Milestone 3: Simplified Part Library Prototype
 
@@ -325,21 +361,23 @@ Tool: `tools/icon_parts.py` (bootstrap, render, score subcommands)
 - [x] Add cached/bounded optimizer search for decomposition candidate pools.
   - `tools/optimize_parts.py` now supports decision-score caching, persistent cache files, bounded cluster selection, exhaustive subset search, and reproducible run metadata.
   - `analysis/runs/decompose/nsga2_top8/` is the current bounded exhaustive test loop for the triangulated pool.
-- [ ] Generate broader Pareto frontier reports from improved candidate-selection/search loops.
-- [ ] Review trade-offs with brand/design stakeholders.
+- [ ] **In Progress:** Generate broader Pareto frontier reports from improved candidate-selection/search loops.
+- [ ] **Blocked / External:** Review trade-offs with brand/design stakeholders.
 - [x] Select a provisional recommended part library for physical testing.
   - Current candidate: `analysis/runs/simplify/part-spec.combined_rtol1.0_phd0.5_rot.v1.json` (41 unique parts, 83 placed instances, ~0.0754% overall area error).
   - This can change after design review, but it is good enough to drive the first STEP kit export and slicer validation.
 
 ### Milestone 5: Maker Toolkit
 
-- [ ] Create small single-session print layouts.
-- [ ] Create larger multi-session layouts.
-- [ ] Write maker quick-start guide.
-- [ ] Write print setup guide.
-- [ ] Write assembly and wall-mounting guide.
-- [ ] Package files by icon and by printer size.
-- [ ] Pilot with internal employees or a maker-space group.
+- [ ] **In Progress:** Create small single-session print layouts. Prototype universal layouts exist; final employee-ready packaging is not done.
+- [ ] **Not Started:** Create larger multi-session layouts.
+- [ ] **Not Started:** Generate per-icon SVG assembly legends with piece indexes and orientation markers.
+- [ ] **Not Started:** Add physical piece marking scheme for front caps and matching backplates.
+- [ ] **Not Started:** Write maker quick-start guide.
+- [ ] **Not Started:** Write print setup guide.
+- [ ] **Not Started:** Write assembly and wall-mounting guide.
+- [ ] **Not Started:** Package files by icon and by printer size.
+- [ ] **Not Started:** Pilot with internal employees or a maker-space group.
 
 ## Documentation Plan
 
@@ -347,13 +385,13 @@ Final documentation should be friendly, practical, and confidence-building.
 
 Required docs:
 
-- **Quick Start:** choose icon, download files, print, snap together, mount.
-- **Printer Setup:** material, nozzle, bed adhesion, supports, infill, layer height, translucent filament guidance.
-- **Fit Calibration:** print tolerance coupon, choose clearance preset, regenerate parts if needed.
-- **Assembly:** identify parts, snap order, troubleshooting tight or loose fits.
-- **Mounting:** nail/pin/adhesive options, cubicle-wall cautions, removal instructions.
-- **Customization:** edit parameter file, regenerate STEP files, import them into the slicer, and print larger versions.
-- **Maker Workshop:** suggested agenda, shared printer workflow, group assembly session, safety notes.
+- **Not Started - Quick Start:** choose icon, download files, print, snap together, mount.
+- **Not Started - Printer Setup:** material, nozzle, bed adhesion, supports, infill, layer height, translucent filament guidance.
+- **Not Started - Fit Calibration:** print cap/backplate clearance coupon, choose clearance preset, regenerate parts if needed.
+- **Not Started - Assembly:** identify indexed parts, match front caps to backplates, use the SVG legend for placement/orientation, snap order, troubleshooting tight or loose fits.
+- **Blocked / External - Mounting:** nail/pin/adhesive options, cubicle-wall cautions, removal instructions. Needs facilities/material validation.
+- **Not Started - Customization:** edit parameter file, regenerate STEP files, import them into the slicer, and print larger versions.
+- **Not Started - Maker Workshop:** suggested agenda, shared printer workflow, group assembly session, safety notes.
 
 Supported slicer workflow: document **PrusaSlicer** only, using it as the public-printer baseline for native STEP import, printer profile selection, slicing, and troubleshooting.
 
@@ -363,10 +401,12 @@ Supported slicer workflow: document **PrusaSlicer** only, using it as the public
 - STEP import quality may vary by slicer; the project should validate PrusaSlicer before promising employee-friendly printing.
 - Translucent white filament may look too opaque unless wall thickness and infill are tuned.
 - Hollow translucent parts may need drain/vent holes, support strategy, or minimum face thickness rules.
+- Per-part backplates must leave enough material for two mounting holes without weakening small icon parts.
 - Nails may be unsuitable for some cubicle walls or workplace policies.
 - Simplifying icons into reusable parts may conflict with brand fidelity.
 - A universal part set might reduce uniqueness but increase assembly burden.
 - Very small pieces can become frustrating or unsafe to handle.
+- Without visible legends and hidden physical markings, employees may not know which part belongs where or how to orient it.
 - Single-session print layouts may require compromises on maximum icon size.
 
 ## Immediate Next Steps
@@ -379,8 +419,9 @@ Completed:
 5. ~~Greedy simplification~~ → Done: 61→42 parts (31% reduction) at 0.075% area error via rect merge + polygon Hausdorff + rotation clustering.
 
 Current priorities:
-- **Snap-fit validation**: print the friction-peg coupon, choose a clearance, and record printer/material settings.
-- **Backplate/socket validation**: regenerate the Platform socket backplate with the coupon-selected clearance, then test the snap-enabled Platform kit against it.
+- **Corrected fixture validation**: print one or two Platform hollow-cap/backplate pairs from `analysis/runs/snapfit/part-backplate-v1/`, test wall pin holes, and evaluate the `0.25 mm` cap fit clearance.
+- **Marking and legend design**: add per-piece IDs to manifests, decide where IDs can be physically marked, and generate a per-icon SVG legend showing piece indexes and orientation.
+- **Fixture kit expansion**: run `tools/export_step.py part-fixture-kit` for additional representative icons after the Platform pair validates.
 - **Slicer validation**: open generated STEP files in PrusaSlicer, checking native import and separate body handling.
 - **Design review** with facilities/brand/design before locking mounting and visual tolerance decisions.
 

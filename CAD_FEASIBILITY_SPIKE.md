@@ -121,10 +121,32 @@ combined STEP reimport_delta=0.000000003mm^3
 This proves the selected 41-part spec can be turned into separate laid-out STEP solids.
 It does not yet prove PrusaSlicer preserves those bodies in the desired workflow.
 
+## Current Mechanical Path
+
+The mechanical path is `tools/export_step.py part-fixture-kit`, which exports hollow front caps plus one small two-hole backplate for each physical icon part.
+
+Current Platform fixture result:
+
+```text
+python tools/export_step.py part-fixture-kit \
+  --scope icon \
+  --icon "Visit_Icon_Platform" \
+  --out analysis/runs/snapfit/part-backplate-v1/Visit_Icon_Platform.fixture-kit.step \
+  --manifest analysis/runs/snapfit/part-backplate-v1/Visit_Icon_Platform.fixture-kit.manifest.json \
+  --verify-import
+```
+
+Observed result:
+
+```text
+2 unique part designs, 8 hollow front caps, 8 backplates, 1 plate
+combined STEP reimport_delta=0.000000002mm^3
+```
+
 ## Follow-Up Questions
 
 - Does the generated STEP open cleanly in FreeCAD?
 - Does the generated STEP import cleanly in PrusaSlicer?
 - Does PrusaSlicer preserve separate STEP bodies/parts well enough for the employee workflow?
-- Should the front icon be one combined solid or separate STEP bodies per physical snap-in part?
-- How should wall thickness and hollow translucent parts be represented before the part-library split exists?
+- Does PrusaSlicer preserve the front-cap/backplate body labels well enough for the employee workflow?
+- Are the hollow cap walls and small backplate pin holes printable and usable at the current scale?

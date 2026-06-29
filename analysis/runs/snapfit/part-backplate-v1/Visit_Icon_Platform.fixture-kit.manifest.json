@@ -1,0 +1,551 @@
+{
+  "backplate": {
+    "pin_hole_diameter_mm": 1.6,
+    "pin_hole_edge_clearance_mm": 1.0,
+    "pin_hole_min_spacing_mm": 4.0,
+    "thickness_mm": 3.0,
+    "z_clearance_mm": 0.3
+  },
+  "front_cap": {
+    "cavity_depth_mm": 6.8,
+    "depth_mm": 8.0,
+    "face_thickness_mm": 1.2,
+    "fit_clearance_mm": 0.25,
+    "wall_thickness_mm": 1.0
+  },
+  "generator": "tools/export_step.py part-fixture-kit",
+  "icon": "Visit_Icon_Platform",
+  "icon_size_mm": 120.0,
+  "icons": {
+    "Visit_Icon_Amusement park": {
+      "parts": {
+        "part_0000": 1,
+        "part_0001": 1,
+        "part_0002": 7
+      },
+      "total_pieces": 9
+    },
+    "Visit_Icon_DestinationBuilding": {
+      "parts": {
+        "part_0003": 1,
+        "part_0004": 1,
+        "part_0005": 1,
+        "part_0006": 1
+      },
+      "total_pieces": 4
+    },
+    "Visit_Icon_Experiences": {
+      "parts": {
+        "part_0007": 5
+      },
+      "total_pieces": 5
+    },
+    "Visit_Icon_Ferry operator": {
+      "parts": {
+        "part_0002": 2,
+        "part_0012": 1,
+        "part_0013": 1,
+        "part_0014": 1,
+        "part_0015": 1,
+        "part_0016": 1,
+        "part_0017": 2
+      },
+      "total_pieces": 9
+    },
+    "Visit_Icon_Homeowner": {
+      "parts": {
+        "part_0018": 2,
+        "part_0019": 2,
+        "part_0021": 1,
+        "part_0022": 1
+      },
+      "total_pieces": 6
+    },
+    "Visit_Icon_Hospitality": {
+      "parts": {
+        "part_0007": 4,
+        "part_0023": 1
+      },
+      "total_pieces": 5
+    },
+    "Visit_Icon_Hotel": {
+      "parts": {
+        "part_0021": 5,
+        "part_0028": 1,
+        "part_0029": 1
+      },
+      "total_pieces": 7
+    },
+    "Visit_Icon_Platform": {
+      "parts": {
+        "part_0030": 4,
+        "part_0032": 4
+      },
+      "total_pieces": 8
+    },
+    "Visit_Icon_Resort": {
+      "parts": {
+        "part_0021": 2,
+        "part_0028": 1,
+        "part_0038": 1,
+        "part_0039": 1
+      },
+      "total_pieces": 5
+    },
+    "Visit_Icon_Ski resort": {
+      "parts": {
+        "part_0019": 2,
+        "part_0021": 1,
+        "part_0042": 1,
+        "part_0043": 1,
+        "part_0044": 1
+      },
+      "total_pieces": 6
+    },
+    "Visit_Icon_Solceller": {
+      "parts": {
+        "part_0021": 1,
+        "part_0022": 1,
+        "part_0045": 1
+      },
+      "total_pieces": 3
+    },
+    "Visit_Icon_Tour operator": {
+      "parts": {
+        "part_0017": 1,
+        "part_0021": 1,
+        "part_0046": 1,
+        "part_0048": 1,
+        "part_0049": 1,
+        "part_0050": 1,
+        "part_0051": 1
+      },
+      "total_pieces": 7
+    },
+    "Visit_Icon_Travel agent": {
+      "parts": {
+        "part_0052": 1,
+        "part_0053": 1,
+        "part_0054": 2,
+        "part_0056": 1
+      },
+      "total_pieces": 5
+    },
+    "Visit_Icon_VacationRental": {
+      "parts": {
+        "part_0023": 1,
+        "part_0057": 1,
+        "part_0058": 1,
+        "part_0059": 1
+      },
+      "total_pieces": 4
+    }
+  },
+  "layout": {
+    "bed_depth_mm": 180.0,
+    "bed_width_mm": 180.0,
+    "pieces": [
+      {
+        "copy_index": 1,
+        "height_mm": 31.325,
+        "part": "part_0030",
+        "piece_id": "part_0030__01__front_cap",
+        "plate": 1,
+        "role": "front_cap",
+        "width_mm": 13.325,
+        "x_mm": 0.0,
+        "y_mm": 0.0
+      },
+      {
+        "copy_index": 2,
+        "height_mm": 31.325,
+        "part": "part_0030",
+        "piece_id": "part_0030__02__front_cap",
+        "plate": 1,
+        "role": "front_cap",
+        "width_mm": 13.325,
+        "x_mm": 17.325,
+        "y_mm": 0.0
+      },
+      {
+        "copy_index": 3,
+        "height_mm": 31.325,
+        "part": "part_0030",
+        "piece_id": "part_0030__03__front_cap",
+        "plate": 1,
+        "role": "front_cap",
+        "width_mm": 13.325,
+        "x_mm": 34.65,
+        "y_mm": 0.0
+      },
+      {
+        "copy_index": 4,
+        "height_mm": 31.325,
+        "part": "part_0030",
+        "piece_id": "part_0030__04__front_cap",
+        "plate": 1,
+        "role": "front_cap",
+        "width_mm": 13.325,
+        "x_mm": 51.975,
+        "y_mm": 0.0
+      },
+      {
+        "copy_index": 1,
+        "height_mm": 27.860549,
+        "mount_holes_mm": [
+          {
+            "diameter_mm": 1.6,
+            "hole_id": "mount_01",
+            "x_mm": 71.46125,
+            "y_mm": 24.222558
+          },
+          {
+            "diameter_mm": 1.6,
+            "hole_id": "mount_02",
+            "x_mm": 77.96375,
+            "y_mm": 3.637992
+          }
+        ],
+        "part": "part_0030",
+        "piece_id": "part_0030__01__backplate",
+        "plate": 1,
+        "role": "part_backplate",
+        "width_mm": 10.825,
+        "x_mm": 69.3,
+        "y_mm": 0.0
+      },
+      {
+        "copy_index": 2,
+        "height_mm": 27.860549,
+        "mount_holes_mm": [
+          {
+            "diameter_mm": 1.6,
+            "hole_id": "mount_01",
+            "x_mm": 86.28625,
+            "y_mm": 24.222558
+          },
+          {
+            "diameter_mm": 1.6,
+            "hole_id": "mount_02",
+            "x_mm": 92.78875,
+            "y_mm": 3.637992
+          }
+        ],
+        "part": "part_0030",
+        "piece_id": "part_0030__02__backplate",
+        "plate": 1,
+        "role": "part_backplate",
+        "width_mm": 10.825,
+        "x_mm": 84.125,
+        "y_mm": 0.0
+      },
+      {
+        "copy_index": 3,
+        "height_mm": 27.860549,
+        "mount_holes_mm": [
+          {
+            "diameter_mm": 1.6,
+            "hole_id": "mount_01",
+            "x_mm": 101.11125,
+            "y_mm": 24.222558
+          },
+          {
+            "diameter_mm": 1.6,
+            "hole_id": "mount_02",
+            "x_mm": 107.61375,
+            "y_mm": 3.637992
+          }
+        ],
+        "part": "part_0030",
+        "piece_id": "part_0030__03__backplate",
+        "plate": 1,
+        "role": "part_backplate",
+        "width_mm": 10.825,
+        "x_mm": 98.95,
+        "y_mm": 0.0
+      },
+      {
+        "copy_index": 4,
+        "height_mm": 27.860549,
+        "mount_holes_mm": [
+          {
+            "diameter_mm": 1.6,
+            "hole_id": "mount_01",
+            "x_mm": 115.93625,
+            "y_mm": 24.222558
+          },
+          {
+            "diameter_mm": 1.6,
+            "hole_id": "mount_02",
+            "x_mm": 122.43875,
+            "y_mm": 3.637992
+          }
+        ],
+        "part": "part_0030",
+        "piece_id": "part_0030__04__backplate",
+        "plate": 1,
+        "role": "part_backplate",
+        "width_mm": 10.825,
+        "x_mm": 113.775,
+        "y_mm": 0.0
+      },
+      {
+        "copy_index": 1,
+        "height_mm": 25.3,
+        "part": "part_0032",
+        "piece_id": "part_0032__01__front_cap",
+        "plate": 1,
+        "role": "front_cap",
+        "width_mm": 31.575,
+        "x_mm": 128.6,
+        "y_mm": 0.0
+      },
+      {
+        "copy_index": 2,
+        "height_mm": 25.3,
+        "part": "part_0032",
+        "piece_id": "part_0032__02__front_cap",
+        "plate": 1,
+        "role": "front_cap",
+        "width_mm": 31.575,
+        "x_mm": 0.0,
+        "y_mm": 35.325
+      },
+      {
+        "copy_index": 3,
+        "height_mm": 25.3,
+        "part": "part_0032",
+        "piece_id": "part_0032__03__front_cap",
+        "plate": 1,
+        "role": "front_cap",
+        "width_mm": 31.575,
+        "x_mm": 35.575,
+        "y_mm": 35.325
+      },
+      {
+        "copy_index": 4,
+        "height_mm": 25.3,
+        "part": "part_0032",
+        "piece_id": "part_0032__04__front_cap",
+        "plate": 1,
+        "role": "front_cap",
+        "width_mm": 31.575,
+        "x_mm": 71.15,
+        "y_mm": 35.325
+      },
+      {
+        "copy_index": 1,
+        "height_mm": 22.257308,
+        "mount_holes_mm": [
+          {
+            "diameter_mm": 1.6,
+            "hole_id": "mount_01",
+            "x_mm": 110.826261,
+            "y_mm": 51.815432
+          },
+          {
+            "diameter_mm": 1.6,
+            "hole_id": "mount_02",
+            "x_mm": 129.977895,
+            "y_mm": 41.089933
+          }
+        ],
+        "part": "part_0032",
+        "piece_id": "part_0032__01__backplate",
+        "plate": 1,
+        "role": "part_backplate",
+        "width_mm": 27.355571,
+        "x_mm": 106.725,
+        "y_mm": 35.325
+      },
+      {
+        "copy_index": 2,
+        "height_mm": 22.257308,
+        "mount_holes_mm": [
+          {
+            "diameter_mm": 1.6,
+            "hole_id": "mount_01",
+            "x_mm": 142.181832,
+            "y_mm": 51.815432
+          },
+          {
+            "diameter_mm": 1.6,
+            "hole_id": "mount_02",
+            "x_mm": 161.333466,
+            "y_mm": 41.089933
+          }
+        ],
+        "part": "part_0032",
+        "piece_id": "part_0032__02__backplate",
+        "plate": 1,
+        "role": "part_backplate",
+        "width_mm": 27.355571,
+        "x_mm": 138.080571,
+        "y_mm": 35.325
+      },
+      {
+        "copy_index": 3,
+        "height_mm": 22.257308,
+        "mount_holes_mm": [
+          {
+            "diameter_mm": 1.6,
+            "hole_id": "mount_01",
+            "x_mm": 4.101261,
+            "y_mm": 81.115432
+          },
+          {
+            "diameter_mm": 1.6,
+            "hole_id": "mount_02",
+            "x_mm": 23.252895,
+            "y_mm": 70.389933
+          }
+        ],
+        "part": "part_0032",
+        "piece_id": "part_0032__03__backplate",
+        "plate": 1,
+        "role": "part_backplate",
+        "width_mm": 27.355571,
+        "x_mm": 0.0,
+        "y_mm": 64.625
+      },
+      {
+        "copy_index": 4,
+        "height_mm": 22.257308,
+        "mount_holes_mm": [
+          {
+            "diameter_mm": 1.6,
+            "hole_id": "mount_01",
+            "x_mm": 35.456832,
+            "y_mm": 81.115432
+          },
+          {
+            "diameter_mm": 1.6,
+            "hole_id": "mount_02",
+            "x_mm": 54.608466,
+            "y_mm": 70.389933
+          }
+        ],
+        "part": "part_0032",
+        "piece_id": "part_0032__04__backplate",
+        "plate": 1,
+        "role": "part_backplate",
+        "width_mm": 27.355571,
+        "x_mm": 31.355571,
+        "y_mm": 64.625
+      }
+    ],
+    "plate_count": 1,
+    "spacing_mm": 4.0,
+    "strategy": "shelf_height_desc"
+  },
+  "outputs": {
+    "combined_step": {
+      "path": "analysis/runs/snapfit/part-backplate-v1/Visit_Icon_Platform.fixture-kit.step",
+      "reimport_delta_mm3": 2e-09,
+      "reimport_volume_mm3": 13870.018947,
+      "volume_mm3": 13870.018947
+    }
+  },
+  "parts": {
+    "part_0030": {
+      "backplate": {
+        "footprint_mm": {
+          "height": 27.860549,
+          "width": 10.825
+        },
+        "mount_holes": [
+          {
+            "diameter_mm": 1.6,
+            "hole_id": "mount_01",
+            "x_mm": -3.25125,
+            "y_mm": 10.292283
+          },
+          {
+            "diameter_mm": 1.6,
+            "hole_id": "mount_02",
+            "x_mm": 3.25125,
+            "y_mm": -10.292283
+          }
+        ]
+      },
+      "front_cap": {
+        "cavity_footprint_mm": {
+          "height": 28.55344,
+          "width": 11.325
+        },
+        "outer_footprint_mm": {
+          "height": 31.325,
+          "width": 13.325
+        }
+      },
+      "kind": "polygon",
+      "min_feature_mm": 14.05,
+      "quantity": 4,
+      "source_bounds_svg": [
+        21.33,
+        1.7,
+        26.66,
+        14.23
+      ],
+      "source_count": 4,
+      "used_by_icons": {
+        "Visit_Icon_Platform": 4
+      }
+    },
+    "part_0032": {
+      "backplate": {
+        "footprint_mm": {
+          "height": 22.257308,
+          "width": 27.355571
+        },
+        "mount_holes": [
+          {
+            "diameter_mm": 1.6,
+            "hole_id": "mount_01",
+            "x_mm": -9.575828,
+            "y_mm": 5.364791
+          },
+          {
+            "diameter_mm": 1.6,
+            "hole_id": "mount_02",
+            "x_mm": 9.575806,
+            "y_mm": -5.360708
+          }
+        ]
+      },
+      "front_cap": {
+        "cavity_footprint_mm": {
+          "height": 22.865846,
+          "width": 28.199457
+        },
+        "outer_footprint_mm": {
+          "height": 25.3,
+          "width": 31.575
+        }
+      },
+      "kind": "polygon",
+      "min_feature_mm": 14.025,
+      "quantity": 4,
+      "source_bounds_svg": [
+        6.37,
+        7.59,
+        19.0,
+        17.71
+      ],
+      "source_count": 4,
+      "used_by_icons": {
+        "Visit_Icon_Platform": 4
+      }
+    }
+  },
+  "scale_svg_to_mm": 2.5,
+  "schema": "visit.part-fixture-kit.v1",
+  "scope": "single_icon",
+  "source_size_svg": 48.0,
+  "source_spec": "analysis/runs/simplify/part-spec.combined_rtol1.0_phd0.5_rot.v1.json",
+  "source_spec_hash": "aa7aedea2b42d278a2e9e2aca207328cf89b95fed39b3d8513bb9f61665932ad",
+  "total_front_caps": 8,
+  "total_part_backplates": 8,
+  "total_printed_pieces": 16,
+  "total_unique_part_designs": 2
+}

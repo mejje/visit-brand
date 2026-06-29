@@ -16,8 +16,7 @@ from shapely.geometry import MultiPolygon, Point, Polygon
 
 FIXED_STEP_TIMESTAMP = "2026-06-27T00:00:00"
 KIT_SCHEMA = "visit.icon-kit.v1"
-SNAP_COUPON_SCHEMA = "visit.snapfit-coupon.v1"
-SOCKET_BACKPLATE_SCHEMA = "visit.socket-backplate.v1"
+PART_FIXTURE_KIT_SCHEMA = "visit.part-fixture-kit.v1"
 DEFAULT_KIT_SPEC = "analysis/runs/simplify/part-spec.combined_rtol1.0_phd0.5_rot.v1.json"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -109,38 +108,48 @@ def geometry_size(geometry) -> tuple[float, float]:
     return max_x - min_x, max_y - min_y
 
 
-def snap_enabled(args: argparse.Namespace) -> bool:
-    return getattr(args, "snap_style", "none") != "none"
-
-
-def snap_peg_positions(
-    geometry,
-    radius_mm: float,
-    edge_clearance_mm: float,
-    max_pegs: int,
-) -> tuple[list[dict], str | None]:
-    if max_pegs <= 0:
-        return [], "snap_max_pegs_is_zero"
-    if radius_mm <= 0:
-        return [], "snap_peg_radius_not_positive"
-    if edge_clearance_mm < 0:
-        return [], "snap_edge_clearance_negative"
-
-    inset = geometry.buffer(-(radius_mm + edge_clearance_mm))
+def inset_geometry(geometry, inset_mm: float, label: str):
+    if inset_mm < 0:
+        raise SystemExit(f"{label} inset must be zero or positive")
+    if inset_mm == 0:
+        return geometry
+    inset = geometry.buffer(-inset_mm, join_style=2)
     if inset.is_empty:
-        return [], "footprint_too_small_for_snap_peg"
+        raise SystemExit(f"{label} inset of {inset_mm:.3f}mm removes the part footprint")
+    return inset
 
-    min_x, min_y, max_x, max_y = inset.bounds
-    fractions = (0.2, 0.35, 0.5, 0.65, 0.8)
+
+def mounting_hole_positions(
+    geometry,
+    hole_radius_mm: float,
+    edge_clearance_mm: float,
+    min_spacing_mm: float,
+) -> tuple[list[dict], str | None]:
+    if hole_radius_mm <= 0:
+        return [], "hole_radius_not_positive"
+    if edge_clearance_mm < 0:
+        return [], "hole_edge_clearance_negative"
+    if min_spacing_mm < 0:
+        return [], "hole_min_spacing_negative"
+
+    usable = geometry.buffer(-(hole_radius_mm + edge_clearance_mm), join_style=2)
+    if usable.is_empty:
+        return [], "backplate_too_small_for_mounting_holes"
+
+    min_x, min_y, max_x, max_y = usable.bounds
+    fractions = tuple(index / 20 for index in range(1, 20))
     candidates: list[tuple[float, float]] = []
     for fx in fractions:
         for fy in fractions:
             point = Point(min_x + (max_x - min_x) * fx, min_y + (max_y - min_y) * fy)
-            if inset.covers(point):
+            if usable.covers(point):
                 candidates.append((float(point.x), float(point.y)))
 
-    rep = inset.representative_point()
+    rep = usable.representative_point()
     candidates.append((float(rep.x), float(rep.y)))
+    for component in polygons(usable):
+        component_rep = component.representative_point()
+        candidates.append((float(component_rep.x), float(component_rep.y)))
 
     unique_candidates = []
     seen = set()
@@ -151,78 +160,37 @@ def snap_peg_positions(
         seen.add(key)
         unique_candidates.append((x, y))
 
-    if not unique_candidates:
-        return [], "no_valid_interior_snap_point"
+    if len(unique_candidates) < 2:
+        return [], "not_enough_valid_mounting_hole_points"
 
-    selected = [unique_candidates[0]]
-    while len(selected) < max_pegs and len(selected) < len(unique_candidates):
-        best = None
-        best_distance = -1.0
-        for candidate in unique_candidates:
-            if candidate in selected:
-                continue
-            distance = min(
-                ((candidate[0] - chosen[0]) ** 2 + (candidate[1] - chosen[1]) ** 2) ** 0.5
-                for chosen in selected
-            )
+    best_pair = None
+    best_distance = -1.0
+    for index, first in enumerate(unique_candidates):
+        for second in unique_candidates[index + 1:]:
+            distance = ((first[0] - second[0]) ** 2 + (first[1] - second[1]) ** 2) ** 0.5
             if distance > best_distance:
-                best = candidate
+                best_pair = (first, second)
                 best_distance = distance
-        if best is None:
-            break
-        selected.append(best)
 
-    selected.sort()
+    if best_pair is None:
+        return [], "no_mounting_hole_pair_found"
+    if best_distance < min_spacing_mm:
+        return [], f"mounting_hole_spacing_below_{min_spacing_mm:.3f}mm"
+
     return [
         {
-            "x_mm": round(x, 6),
-            "y_mm": round(y, 6),
-            "radius_mm": round(radius_mm, 6),
-        }
-        for x, y in selected
-    ], None
-
-
-def local_snap_peg_positions_svg(
-    local_geometry,
-    scale: float,
-    radius_mm: float,
-    edge_clearance_mm: float,
-    max_pegs: int,
-) -> tuple[list[dict], str | None]:
-    geometry_mm = svg_to_mm_geometry(local_geometry, scale)
-    pegs_mm, reason = snap_peg_positions(
-        geometry_mm,
-        radius_mm=radius_mm,
-        edge_clearance_mm=edge_clearance_mm,
-        max_pegs=max_pegs,
-    )
-    if not pegs_mm:
-        return [], reason
-    return [
+            "hole_id": "mount_01",
+            "x_mm": round(best_pair[0][0], 6),
+            "y_mm": round(best_pair[0][1], 6),
+            "diameter_mm": round(hole_radius_mm * 2, 6),
+        },
         {
-            "x_svg": peg["x_mm"] / scale,
-            "y_svg": -peg["y_mm"] / scale,
-            "radius_mm": peg["radius_mm"],
-        }
-        for peg in pegs_mm
+            "hole_id": "mount_02",
+            "x_mm": round(best_pair[1][0], 6),
+            "y_mm": round(best_pair[1][1], 6),
+            "diameter_mm": round(hole_radius_mm * 2, 6),
+        },
     ], None
-
-
-def place_svg_point(x_svg: float, y_svg: float, at_x: float, at_y: float, rotate: float = 0.0) -> tuple[float, float]:
-    placed = ip.place_part(Point(x_svg, y_svg), at_x, at_y, rotate=rotate)
-    return float(placed.x), float(placed.y)
-
-
-def svg_point_to_plate_mm(
-    x_svg: float,
-    y_svg: float,
-    source_size_svg: float,
-    icon_size_mm: float,
-    margin_mm: float,
-) -> tuple[float, float]:
-    scale = icon_size_mm / source_size_svg
-    return margin_mm + x_svg * scale, margin_mm + (source_size_svg - y_svg) * scale
 
 
 def part_usage_by_icon(counts_by_icon: dict[str, Counter], part_id: str) -> dict[str, int]:
@@ -237,7 +205,6 @@ def build_kit_pieces(
     spec: dict,
     quantities: Counter,
     scale: float,
-    args: argparse.Namespace,
 ) -> tuple[list[dict], dict[str, dict]]:
     pieces = []
     part_details = {}
@@ -246,16 +213,6 @@ def build_kit_pieces(
         geometry = svg_to_mm_geometry(ip.part_to_geometry(part_def), scale)
         width, height = geometry_size(geometry)
         min_x, min_y, max_x, max_y = geometry.bounds
-        snap_pegs: list[dict] = []
-        snap_status = "disabled"
-        if snap_enabled(args):
-            snap_pegs, reason = snap_peg_positions(
-                geometry,
-                radius_mm=args.snap_peg_radius_mm,
-                edge_clearance_mm=args.snap_edge_clearance_mm,
-                max_pegs=args.snap_max_pegs,
-            )
-            snap_status = "ok" if snap_pegs else f"skipped:{reason}"
         part_details[part_id] = {
             "kind": part_def["kind"],
             "quantity": int(quantities[part_id]),
@@ -272,8 +229,6 @@ def build_kit_pieces(
                 round(max_y, 6),
             ],
             "min_feature_mm": round(float(part_def.get("print", {}).get("min_feature", 0.0)) * scale, 6),
-            "snap_status": snap_status,
-            "snap_pegs": snap_pegs,
         }
         for copy_index in range(1, int(quantities[part_id]) + 1):
             pieces.append({
@@ -284,7 +239,6 @@ def build_kit_pieces(
                 "width": width,
                 "height": height,
                 "bounds": geometry.bounds,
-                "snap_pegs": snap_pegs,
             })
     return pieces, part_details
 
@@ -335,7 +289,7 @@ def layout_pieces(
             row_height = 0.0
 
         min_x, min_y, _max_x, _max_y = piece["bounds"]
-        placements.append({
+        record = {
             "piece_id": piece["piece_id"],
             "part": piece["part"],
             "copy_index": piece["copy_index"],
@@ -346,15 +300,19 @@ def layout_pieces(
             "geometry_yoff": cursor_y - min_y,
             "width_mm": round(width, 6),
             "height_mm": round(height, 6),
-            "snap_pegs_mm": [
+        }
+        if "role" in piece:
+            record["role"] = piece["role"]
+        if "mount_holes" in piece:
+            record["mount_holes_mm"] = [
                 {
-                    "x_mm": round(peg["x_mm"] + cursor_x - min_x, 6),
-                    "y_mm": round(peg["y_mm"] + cursor_y - min_y, 6),
-                    "radius_mm": peg["radius_mm"],
+                    **hole,
+                    "x_mm": round(hole["x_mm"] + cursor_x - min_x, 6),
+                    "y_mm": round(hole["y_mm"] + cursor_y - min_y, 6),
                 }
-                for peg in piece.get("snap_pegs", [])
-            ],
-        })
+                for hole in piece["mount_holes"]
+            ]
+        placements.append(record)
 
         cursor_x += width + spacing_mm
         row_height = max(row_height, height)
@@ -371,23 +329,12 @@ def build_kit_plan(args: argparse.Namespace) -> tuple[dict, list[dict], dict[str
         raise SystemExit("Source SVG size must be positive")
     if args.front_depth_mm <= 0:
         raise SystemExit("Front depth must be positive")
-    if snap_enabled(args):
-        if args.snap_peg_radius_mm <= 0:
-            raise SystemExit("Snap peg radius must be positive")
-        if args.snap_peg_tip_radius_mm <= 0:
-            raise SystemExit("Snap peg tip radius must be positive")
-        if args.snap_peg_tip_radius_mm > args.snap_peg_radius_mm:
-            raise SystemExit("Snap peg tip radius must be less than or equal to the peg radius")
-        if args.snap_peg_height_mm <= 0:
-            raise SystemExit("Snap peg height must be positive")
-        if args.snap_max_pegs < 0:
-            raise SystemExit("Snap max pegs must be zero or positive")
 
     counts_by_icon = icon_part_counts(spec)
     quantities = kit_quantities(counts_by_icon, args.scope, args.icon)
     scale = args.icon_size_mm / args.source_size_svg
 
-    pieces, part_details = build_kit_pieces(spec, quantities, scale, args)
+    pieces, part_details = build_kit_pieces(spec, quantities, scale)
     placements = layout_pieces(
         pieces,
         bed_width_mm=args.bed_width_mm,
@@ -435,14 +382,6 @@ def build_kit_plan(args: argparse.Namespace) -> tuple[dict, list[dict], dict[str
             "plate_count": plate_count,
             "pieces": layout_records,
         },
-        "snap_fit": {
-            "style": args.snap_style,
-            "peg_radius_mm": args.snap_peg_radius_mm if snap_enabled(args) else None,
-            "peg_tip_radius_mm": args.snap_peg_tip_radius_mm if snap_enabled(args) else None,
-            "peg_height_mm": args.snap_peg_height_mm if snap_enabled(args) else None,
-            "edge_clearance_mm": args.snap_edge_clearance_mm if snap_enabled(args) else None,
-            "max_pegs_per_piece": args.snap_max_pegs if snap_enabled(args) else None,
-        },
         "icons": usage_by_icon,
         "parts": part_details,
     }
@@ -450,6 +389,203 @@ def build_kit_plan(args: argparse.Namespace) -> tuple[dict, list[dict], dict[str
     pieces_by_id = {piece["piece_id"]: piece for piece in pieces}
     for placement in placements:
         placement["geometry"] = pieces_by_id[placement["piece_id"]]["geometry"]
+    return manifest, placements, spec
+
+
+def build_part_fixture_pieces(
+    spec: dict,
+    quantities: Counter,
+    scale: float,
+    args: argparse.Namespace,
+) -> tuple[list[dict], dict[str, dict]]:
+    pieces = []
+    part_details = {}
+    backplate_inset_mm = args.front_wall_thickness_mm + args.fit_clearance_mm
+    for part_id in sorted(quantities):
+        part_def = spec["parts"][part_id]
+        outer_geometry = svg_to_mm_geometry(ip.part_to_geometry(part_def), scale)
+        cavity_geometry = inset_geometry(
+            outer_geometry,
+            args.front_wall_thickness_mm,
+            f"{part_id} front cavity",
+        )
+        backplate_geometry = inset_geometry(
+            outer_geometry,
+            backplate_inset_mm,
+            f"{part_id} backplate",
+        )
+        holes, reason = mounting_hole_positions(
+            backplate_geometry,
+            hole_radius_mm=args.pin_hole_diameter_mm / 2,
+            edge_clearance_mm=args.pin_hole_edge_clearance_mm,
+            min_spacing_mm=args.pin_hole_min_spacing_mm,
+        )
+        if not holes:
+            raise SystemExit(f"{part_id} cannot fit two mounting holes: {reason}")
+
+        outer_width, outer_height = geometry_size(outer_geometry)
+        cavity_width, cavity_height = geometry_size(cavity_geometry)
+        backplate_width, backplate_height = geometry_size(backplate_geometry)
+        part_details[part_id] = {
+            "kind": part_def["kind"],
+            "quantity": int(quantities[part_id]),
+            "source_count": part_source_count(part_def),
+            "source_bounds_svg": part_def.get("bounds"),
+            "front_cap": {
+                "outer_footprint_mm": {
+                    "width": round(outer_width, 6),
+                    "height": round(outer_height, 6),
+                },
+                "cavity_footprint_mm": {
+                    "width": round(cavity_width, 6),
+                    "height": round(cavity_height, 6),
+                },
+            },
+            "backplate": {
+                "footprint_mm": {
+                    "width": round(backplate_width, 6),
+                    "height": round(backplate_height, 6),
+                },
+                "mount_holes": holes,
+            },
+            "min_feature_mm": round(float(part_def.get("print", {}).get("min_feature", 0.0)) * scale, 6),
+        }
+
+        for copy_index in range(1, int(quantities[part_id]) + 1):
+            pieces.append({
+                "piece_id": f"{part_id}__{copy_index:02d}__front_cap",
+                "role": "front_cap",
+                "part": part_id,
+                "copy_index": copy_index,
+                "geometry": outer_geometry,
+                "cavity_geometry": cavity_geometry,
+                "width": outer_width,
+                "height": outer_height,
+                "bounds": outer_geometry.bounds,
+            })
+            pieces.append({
+                "piece_id": f"{part_id}__{copy_index:02d}__backplate",
+                "role": "part_backplate",
+                "part": part_id,
+                "copy_index": copy_index,
+                "geometry": backplate_geometry,
+                "mount_holes": holes,
+                "width": backplate_width,
+                "height": backplate_height,
+                "bounds": backplate_geometry.bounds,
+            })
+    return pieces, part_details
+
+
+def build_part_fixture_kit_plan(args: argparse.Namespace) -> tuple[dict, list[dict], dict]:
+    spec_path = Path(args.spec)
+    spec = load_part_spec(spec_path)
+    if args.icon_size_mm <= 0:
+        raise SystemExit("Icon size must be positive")
+    if args.source_size_svg <= 0:
+        raise SystemExit("Source SVG size must be positive")
+    if args.front_depth_mm <= 0:
+        raise SystemExit("Front depth must be positive")
+    if args.front_wall_thickness_mm <= 0:
+        raise SystemExit("Front wall thickness must be positive")
+    if args.front_face_thickness_mm <= 0:
+        raise SystemExit("Front face thickness must be positive")
+    if args.front_face_thickness_mm >= args.front_depth_mm:
+        raise SystemExit("Front face thickness must be less than front depth")
+    if args.fit_clearance_mm < 0:
+        raise SystemExit("Fit clearance must be zero or positive")
+    if args.backplate_thickness_mm <= 0:
+        raise SystemExit("Backplate thickness must be positive")
+    cavity_depth = args.front_depth_mm - args.front_face_thickness_mm
+    if args.backplate_thickness_mm + args.z_clearance_mm > cavity_depth:
+        raise SystemExit(
+            "Backplate thickness plus z clearance must fit inside the hollow front cap cavity"
+        )
+    if args.pin_hole_diameter_mm <= 0:
+        raise SystemExit("Pin hole diameter must be positive")
+    if args.pin_hole_edge_clearance_mm < 0:
+        raise SystemExit("Pin hole edge clearance must be zero or positive")
+    if args.pin_hole_min_spacing_mm < args.pin_hole_diameter_mm:
+        raise SystemExit("Pin hole minimum spacing should be at least the hole diameter")
+
+    counts_by_icon = icon_part_counts(spec)
+    quantities = kit_quantities(counts_by_icon, args.scope, args.icon)
+    scale = args.icon_size_mm / args.source_size_svg
+    pieces, part_details = build_part_fixture_pieces(spec, quantities, scale, args)
+    placements = layout_pieces(
+        pieces,
+        bed_width_mm=args.bed_width_mm,
+        bed_depth_mm=args.bed_depth_mm,
+        spacing_mm=args.spacing_mm,
+    )
+
+    usage_by_icon = {
+        icon_id: {
+            "total_pieces": int(sum(counts.values())),
+            "parts": {part_id: int(count) for part_id, count in sorted(counts.items())},
+        }
+        for icon_id, counts in counts_by_icon.items()
+    }
+    for part_id, detail in part_details.items():
+        detail["used_by_icons"] = part_usage_by_icon(counts_by_icon, part_id)
+
+    plate_count = max((placement["plate"] for placement in placements), default=0)
+    layout_records = [
+        {
+            key: value
+            for key, value in placement.items()
+            if key not in {"geometry_xoff", "geometry_yoff", "geometry", "cavity_geometry", "mount_holes"}
+        }
+        for placement in placements
+    ]
+    manifest = {
+        "schema": PART_FIXTURE_KIT_SCHEMA,
+        "generator": "tools/export_step.py part-fixture-kit-manifest",
+        "source_spec": spec_path.as_posix(),
+        "source_spec_hash": file_sha256(spec_path),
+        "scope": format_scope(args.scope),
+        "icon": args.icon if args.scope == "icon" else None,
+        "icon_size_mm": args.icon_size_mm,
+        "source_size_svg": args.source_size_svg,
+        "scale_svg_to_mm": scale,
+        "total_unique_part_designs": len(quantities),
+        "total_front_caps": int(sum(quantities.values())),
+        "total_part_backplates": int(sum(quantities.values())),
+        "total_printed_pieces": len(pieces),
+        "front_cap": {
+            "depth_mm": args.front_depth_mm,
+            "wall_thickness_mm": args.front_wall_thickness_mm,
+            "face_thickness_mm": args.front_face_thickness_mm,
+            "cavity_depth_mm": round(cavity_depth, 6),
+            "fit_clearance_mm": args.fit_clearance_mm,
+        },
+        "backplate": {
+            "thickness_mm": args.backplate_thickness_mm,
+            "z_clearance_mm": args.z_clearance_mm,
+            "pin_hole_diameter_mm": args.pin_hole_diameter_mm,
+            "pin_hole_edge_clearance_mm": args.pin_hole_edge_clearance_mm,
+            "pin_hole_min_spacing_mm": args.pin_hole_min_spacing_mm,
+        },
+        "layout": {
+            "strategy": "shelf_height_desc",
+            "bed_width_mm": args.bed_width_mm,
+            "bed_depth_mm": args.bed_depth_mm,
+            "spacing_mm": args.spacing_mm,
+            "plate_count": plate_count,
+            "pieces": layout_records,
+        },
+        "icons": usage_by_icon,
+        "parts": part_details,
+    }
+
+    pieces_by_id = {piece["piece_id"]: piece for piece in pieces}
+    for placement in placements:
+        source_piece = pieces_by_id[placement["piece_id"]]
+        placement["geometry"] = source_piece["geometry"]
+        if "cavity_geometry" in source_piece:
+            placement["cavity_geometry"] = source_piece["cavity_geometry"]
+        if "mount_holes" in source_piece:
+            placement["mount_holes"] = source_piece["mount_holes"]
     return manifest, placements, spec
 
 
@@ -537,9 +673,6 @@ def cad_geometry_to_part(
     b,
     geometry,
     front_depth_mm: float,
-    snap_pegs: list[dict] | None = None,
-    snap_peg_height_mm: float = 0.0,
-    snap_peg_tip_radius_mm: float = 0.0,
 ):
     with b.BuildPart() as part_builder:
         with b.BuildSketch(b.Plane.XY):
@@ -554,16 +687,60 @@ def cad_geometry_to_part(
                         mode=b.Mode.SUBTRACT,
                     )
         b.extrude(amount=front_depth_mm)
-        for peg in snap_pegs or []:
-            with b.Locations((peg["x_mm"], peg["y_mm"], front_depth_mm)):
-                b.Cone(
-                    bottom_radius=peg["radius_mm"],
-                    top_radius=snap_peg_tip_radius_mm,
-                    height=snap_peg_height_mm,
-                    align=(b.Align.CENTER, b.Align.CENTER, b.Align.MIN),
-                    mode=b.Mode.ADD,
-                )
     return part_builder.part
+
+
+def sketch_geometry(b, geometry) -> None:
+    for polygon in polygons(geometry):
+        b.Polygon(
+            *ring_points(polygon.exterior.coords, lambda point: point),
+            mode=b.Mode.ADD,
+        )
+        for interior in polygon.interiors:
+            b.Polygon(
+                *ring_points(interior.coords, lambda point: point),
+                mode=b.Mode.SUBTRACT,
+            )
+
+
+def cad_geometry_to_hollow_front_cap(
+    b,
+    outer_geometry,
+    cavity_geometry,
+    front_depth_mm: float,
+    front_face_thickness_mm: float,
+):
+    cavity_depth = front_depth_mm - front_face_thickness_mm
+    with b.BuildPart() as part_builder:
+        with b.BuildSketch(b.Plane.XY):
+            sketch_geometry(b, outer_geometry)
+        b.extrude(amount=front_depth_mm)
+        with b.BuildSketch(b.Plane.XY.offset(front_face_thickness_mm)):
+            sketch_geometry(b, cavity_geometry)
+        b.extrude(amount=cavity_depth + 0.1, mode=b.Mode.SUBTRACT)
+    return part_builder.part
+
+
+def cad_geometry_to_part_backplate(
+    b,
+    geometry,
+    backplate_thickness_mm: float,
+    mount_holes: list[dict],
+):
+    with b.BuildPart() as backplate_builder:
+        with b.BuildSketch(b.Plane.XY):
+            sketch_geometry(b, geometry)
+        b.extrude(amount=backplate_thickness_mm)
+        pin_cut_height = backplate_thickness_mm + 0.2
+        for hole in mount_holes:
+            with b.Locations((hole["x_mm"], hole["y_mm"], -0.1)):
+                b.Cylinder(
+                    hole["diameter_mm"] / 2,
+                    pin_cut_height,
+                    align=(b.Align.CENTER, b.Align.CENTER, b.Align.MIN),
+                    mode=b.Mode.SUBTRACT,
+                )
+    return backplate_builder.part
 
 
 def kit_compound(
@@ -572,8 +749,6 @@ def kit_compound(
     front_depth_mm: float,
     bed_depth_mm: float,
     plate_gap_mm: float,
-    snap_peg_height_mm: float = 0.0,
-    snap_peg_tip_radius_mm: float = 0.0,
     plate: int | None = None,
 ):
     children = []
@@ -588,23 +763,67 @@ def kit_compound(
             xoff=placement["geometry_xoff"],
             yoff=placement["geometry_yoff"] + plate_offset_y,
         )
-        snap_pegs = [
-            {**peg, "y_mm": peg["y_mm"] + plate_offset_y}
-            for peg in placement.get("snap_pegs_mm", [])
-        ]
         part = cad_geometry_to_part(
             b,
             geometry,
             front_depth_mm,
-            snap_pegs=snap_pegs,
-            snap_peg_height_mm=snap_peg_height_mm,
-            snap_peg_tip_radius_mm=snap_peg_tip_radius_mm,
         )
         part.label = placement["piece_id"]
         children.append(part)
     if not children:
         raise SystemExit("No kit pieces to export")
     return b.Compound(children=children, label="visit_icon_kit")
+
+
+def part_fixture_kit_compound(
+    b,
+    placements: list[dict],
+    args: argparse.Namespace,
+    plate: int | None = None,
+):
+    children = []
+    for placement in placements:
+        if plate is not None and placement["plate"] != plate:
+            continue
+        plate_offset_y = 0.0
+        if plate is None:
+            plate_offset_y = (placement["plate"] - 1) * (args.bed_depth_mm + args.plate_gap_mm)
+        geometry = affinity.translate(
+            placement["geometry"],
+            xoff=placement["geometry_xoff"],
+            yoff=placement["geometry_yoff"] + plate_offset_y,
+        )
+        if placement["role"] == "front_cap":
+            cavity_geometry = affinity.translate(
+                placement["cavity_geometry"],
+                xoff=placement["geometry_xoff"],
+                yoff=placement["geometry_yoff"] + plate_offset_y,
+            )
+            part = cad_geometry_to_hollow_front_cap(
+                b,
+                geometry,
+                cavity_geometry,
+                front_depth_mm=args.front_depth_mm,
+                front_face_thickness_mm=args.front_face_thickness_mm,
+            )
+        elif placement["role"] == "part_backplate":
+            mount_holes = [
+                {**hole, "y_mm": hole["y_mm"] + plate_offset_y}
+                for hole in placement.get("mount_holes_mm", [])
+            ]
+            part = cad_geometry_to_part_backplate(
+                b,
+                geometry,
+                backplate_thickness_mm=args.backplate_thickness_mm,
+                mount_holes=mount_holes,
+            )
+        else:
+            raise SystemExit(f"Unknown fixture role: {placement['role']}")
+        part.label = placement["piece_id"]
+        children.append(part)
+    if not children:
+        raise SystemExit("No fixture kit pieces to export")
+    return b.Compound(children=children, label="visit_icon_part_fixture_kit")
 
 
 def export_shape_step(
@@ -644,357 +863,6 @@ def write_manifest(path: Path, manifest: dict) -> None:
     path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
-def parse_clearances(value: str) -> list[float]:
-    clearances = []
-    for item in value.split(","):
-        item = item.strip()
-        if not item:
-            continue
-        clearances.append(float(item))
-    if not clearances:
-        raise SystemExit("At least one clearance value is required")
-    if any(clearance < 0 for clearance in clearances):
-        raise SystemExit("Snap clearances must be zero or positive")
-    return clearances
-
-
-def snap_coupon_shape(b, args: argparse.Namespace, clearances: list[float]):
-    if args.snap_peg_radius_mm <= 0:
-        raise SystemExit("Snap peg radius must be positive")
-    if args.snap_peg_tip_radius_mm <= 0:
-        raise SystemExit("Snap peg tip radius must be positive")
-    if args.snap_peg_tip_radius_mm > args.snap_peg_radius_mm:
-        raise SystemExit("Snap peg tip radius must be less than or equal to the peg radius")
-    if args.snap_peg_height_mm <= 0:
-        raise SystemExit("Snap peg height must be positive")
-    if args.coupon_socket_depth_mm <= 0:
-        raise SystemExit("Coupon socket depth must be positive")
-    if args.coupon_socket_block_thickness_mm <= args.coupon_socket_depth_mm:
-        raise SystemExit("Coupon socket block thickness must be greater than socket depth")
-
-    count = len(clearances)
-    length = args.coupon_edge_margin_mm * 2 + args.coupon_pitch_mm * (count - 1)
-    width = args.coupon_width_mm
-    peg_y = width / 2
-
-    peg_positions = [
-        (args.coupon_edge_margin_mm + index * args.coupon_pitch_mm, peg_y)
-        for index in range(count)
-    ]
-
-    with b.BuildPart() as male_builder:
-        b.Box(
-            length,
-            width,
-            args.coupon_base_thickness_mm,
-            align=(b.Align.MIN, b.Align.MIN, b.Align.MIN),
-        )
-        for x, y in peg_positions:
-            with b.Locations((x, y, args.coupon_base_thickness_mm)):
-                b.Cone(
-                    bottom_radius=args.snap_peg_radius_mm,
-                    top_radius=args.snap_peg_tip_radius_mm,
-                    height=args.snap_peg_height_mm,
-                    align=(b.Align.CENTER, b.Align.CENTER, b.Align.MIN),
-                    mode=b.Mode.ADD,
-                )
-    male = male_builder.part
-    male.label = "snap_coupon_male_pegs"
-
-    with b.BuildPart() as socket_builder:
-        b.Box(
-            length,
-            width,
-            args.coupon_socket_block_thickness_mm,
-            align=(b.Align.MIN, b.Align.MIN, b.Align.MIN),
-        )
-        socket_z = args.coupon_socket_block_thickness_mm - args.coupon_socket_depth_mm
-        for (x, y), clearance in zip(peg_positions, clearances):
-            with b.Locations((x, y, socket_z)):
-                b.Cylinder(
-                    args.snap_peg_radius_mm + clearance,
-                    args.coupon_socket_depth_mm,
-                    align=(b.Align.CENTER, b.Align.CENTER, b.Align.MIN),
-                    mode=b.Mode.SUBTRACT,
-                )
-    socket = socket_builder.part
-    socket = socket.moved(b.Location((0, width + args.coupon_gap_mm, 0)))
-    socket.label = "snap_coupon_socket_block"
-
-    manifest = {
-        "schema": SNAP_COUPON_SCHEMA,
-        "generator": "tools/export_step.py snap-coupon",
-        "snap_fit": {
-            "style": "friction_peg",
-            "peg_radius_mm": args.snap_peg_radius_mm,
-            "peg_tip_radius_mm": args.snap_peg_tip_radius_mm,
-            "peg_height_mm": args.snap_peg_height_mm,
-            "socket_depth_mm": args.coupon_socket_depth_mm,
-            "socket_block_thickness_mm": args.coupon_socket_block_thickness_mm,
-        },
-        "coupon": {
-            "male_base_thickness_mm": args.coupon_base_thickness_mm,
-            "width_mm": width,
-            "length_mm": length,
-            "pitch_mm": args.coupon_pitch_mm,
-            "gap_mm": args.coupon_gap_mm,
-            "tests": [
-                {
-                    "index": index + 1,
-                    "clearance_mm": clearance,
-                    "socket_radius_mm": round(args.snap_peg_radius_mm + clearance, 6),
-                    "x_mm": round(x, 6),
-                    "male_y_mm": round(y, 6),
-                    "socket_y_mm": round(y + width + args.coupon_gap_mm, 6),
-                }
-                for index, ((x, y), clearance) in enumerate(zip(peg_positions, clearances))
-            ],
-        },
-    }
-    return b.Compound(children=[male, socket], label="snapfit_coupon"), manifest
-
-
-def socket_backplate_plan(args: argparse.Namespace) -> tuple[dict, list[dict]]:
-    spec_path = Path(args.spec)
-    spec = load_part_spec(spec_path)
-    if args.icon not in spec["icons"]:
-        raise SystemExit(f"Icon not found in part spec: {args.icon}")
-    if args.icon_size_mm <= 0:
-        raise SystemExit("Icon size must be positive")
-    if args.source_size_svg <= 0:
-        raise SystemExit("Source SVG size must be positive")
-    if args.backplate_margin_mm < 0:
-        raise SystemExit("Backplate margin must be zero or positive")
-    if args.backplate_thickness_mm <= 0:
-        raise SystemExit("Backplate thickness must be positive")
-    if args.socket_depth_mm <= 0:
-        raise SystemExit("Socket depth must be positive")
-    if args.socket_depth_mm >= args.backplate_thickness_mm:
-        raise SystemExit("Socket depth must be less than backplate thickness")
-    if args.socket_clearance_mm < 0:
-        raise SystemExit("Socket clearance must be zero or positive")
-    if args.pin_hole_diameter_mm <= 0:
-        raise SystemExit("Pin hole diameter must be positive")
-    if args.pin_hole_side_inset_mm <= args.pin_hole_diameter_mm / 2:
-        raise SystemExit("Pin hole side inset must leave room for the hole radius")
-    if args.pin_hole_top_inset_mm <= args.pin_hole_diameter_mm / 2:
-        raise SystemExit("Pin hole top inset must leave room for the hole radius")
-    if args.snap_peg_radius_mm <= 0:
-        raise SystemExit("Snap peg radius must be positive")
-    if args.snap_edge_clearance_mm < 0:
-        raise SystemExit("Snap edge clearance must be zero or positive")
-    if args.snap_max_pegs <= 0:
-        raise SystemExit("Snap max pegs must be positive")
-
-    scale = args.icon_size_mm / args.source_size_svg
-    sockets = []
-    skipped = []
-    for instance_index, inst in enumerate(spec["icons"][args.icon]["instances"]):
-        part_id = inst["part"]
-        part_def = spec["parts"][part_id]
-        rotate = inst.get("rotate", None)
-        anchor = "centroid" if rotate is not None else "min_corner"
-        local_geometry = ip.part_to_geometry(part_def, anchor=anchor)
-        local_pegs, reason = local_snap_peg_positions_svg(
-            local_geometry,
-            scale=scale,
-            radius_mm=args.snap_peg_radius_mm,
-            edge_clearance_mm=args.snap_edge_clearance_mm,
-            max_pegs=args.snap_max_pegs,
-        )
-        if not local_pegs:
-            skipped.append({
-                "instance_index": instance_index,
-                "part": part_id,
-                "reason": reason,
-            })
-            continue
-
-        at_x, at_y = inst["at"]
-        rotation = rotate or 0.0
-        for peg_index, peg in enumerate(local_pegs, start=1):
-            icon_x, icon_y = place_svg_point(
-                peg["x_svg"],
-                peg["y_svg"],
-                at_x,
-                at_y,
-                rotate=rotation,
-            )
-            plate_x, plate_y = svg_point_to_plate_mm(
-                icon_x,
-                icon_y,
-                source_size_svg=args.source_size_svg,
-                icon_size_mm=args.icon_size_mm,
-                margin_mm=args.backplate_margin_mm,
-            )
-            sockets.append({
-                "socket_id": f"socket_{instance_index + 1:02d}_{peg_index:02d}",
-                "instance_index": instance_index,
-                "source_index": inst.get("source_index"),
-                "part": part_id,
-                "peg_index": peg_index,
-                "rotate": rotate,
-                "icon_svg": [round(icon_x, 9), round(icon_y, 9)],
-                "x_mm": round(plate_x, 6),
-                "y_mm": round(plate_y, 6),
-                "peg_radius_mm": round(args.snap_peg_radius_mm, 6),
-                "socket_radius_mm": round(args.snap_peg_radius_mm + args.socket_clearance_mm, 6),
-            })
-
-    width = args.icon_size_mm + args.backplate_margin_mm * 2
-    height = args.icon_size_mm + args.backplate_margin_mm * 2
-    if args.pin_hole_side_inset_mm >= width / 2:
-        raise SystemExit("Pin hole side inset is too large for the backplate width")
-    if args.pin_hole_top_inset_mm >= height:
-        raise SystemExit("Pin hole top inset is too large for the backplate height")
-
-    pin_holes = [
-        {
-            "hole_id": "pin_left",
-            "x_mm": round(args.pin_hole_side_inset_mm, 6),
-            "y_mm": round(height - args.pin_hole_top_inset_mm, 6),
-            "diameter_mm": round(args.pin_hole_diameter_mm, 6),
-        },
-        {
-            "hole_id": "pin_right",
-            "x_mm": round(width - args.pin_hole_side_inset_mm, 6),
-            "y_mm": round(height - args.pin_hole_top_inset_mm, 6),
-            "diameter_mm": round(args.pin_hole_diameter_mm, 6),
-        },
-    ]
-
-    socket_radius = args.snap_peg_radius_mm + args.socket_clearance_mm
-    collisions = []
-    for i, a in enumerate(sockets):
-        for b_socket in sockets[i + 1:]:
-            distance = ((a["x_mm"] - b_socket["x_mm"]) ** 2 + (a["y_mm"] - b_socket["y_mm"]) ** 2) ** 0.5
-            if distance < socket_radius * 2:
-                collisions.append({
-                    "a": a["socket_id"],
-                    "b": b_socket["socket_id"],
-                    "distance_mm": round(distance, 6),
-                })
-    if collisions:
-        raise SystemExit(f"Socket collisions detected: {collisions}")
-    hole_collisions = []
-    for socket in sockets:
-        for hole in pin_holes:
-            distance = ((socket["x_mm"] - hole["x_mm"]) ** 2 + (socket["y_mm"] - hole["y_mm"]) ** 2) ** 0.5
-            if distance < socket["socket_radius_mm"] + hole["diameter_mm"] / 2:
-                hole_collisions.append({
-                    "socket": socket["socket_id"],
-                    "pin_hole": hole["hole_id"],
-                    "distance_mm": round(distance, 6),
-                })
-    if hole_collisions:
-        raise SystemExit(f"Pin holes overlap snap sockets: {hole_collisions}")
-
-    manifest = {
-        "schema": SOCKET_BACKPLATE_SCHEMA,
-        "generator": "tools/export_step.py socket-backplate",
-        "source_spec": spec_path.as_posix(),
-        "source_spec_hash": file_sha256(spec_path),
-        "icon": args.icon,
-        "icon_size_mm": args.icon_size_mm,
-        "source_size_svg": args.source_size_svg,
-        "scale_svg_to_mm": scale,
-        "backplate": {
-            "width_mm": round(width, 6),
-            "height_mm": round(height, 6),
-            "thickness_mm": args.backplate_thickness_mm,
-            "margin_mm": args.backplate_margin_mm,
-            "pin_holes": pin_holes,
-        },
-        "snap_fit": {
-            "style": "friction_peg_socket",
-            "provisional": args.provisional,
-            "peg_radius_mm": args.snap_peg_radius_mm,
-            "socket_clearance_mm": args.socket_clearance_mm,
-            "socket_radius_mm": round(socket_radius, 6),
-            "socket_depth_mm": args.socket_depth_mm,
-            "snap_edge_clearance_mm": args.snap_edge_clearance_mm,
-            "max_pegs_per_piece": args.snap_max_pegs,
-        },
-        "sockets": sockets,
-        "skipped_instances": skipped,
-    }
-    return manifest, sockets
-
-
-def socket_backplate_shape(b, manifest: dict, args: argparse.Namespace):
-    backplate = manifest["backplate"]
-    socket_z = args.backplate_thickness_mm - args.socket_depth_mm
-    with b.BuildPart() as backplate_builder:
-        b.Box(
-            backplate["width_mm"],
-            backplate["height_mm"],
-            args.backplate_thickness_mm,
-            align=(b.Align.MIN, b.Align.MIN, b.Align.MIN),
-        )
-        for socket in manifest["sockets"]:
-            with b.Locations((socket["x_mm"], socket["y_mm"], socket_z)):
-                b.Cylinder(
-                    socket["socket_radius_mm"],
-                    args.socket_depth_mm,
-                    align=(b.Align.CENTER, b.Align.CENTER, b.Align.MIN),
-                    mode=b.Mode.SUBTRACT,
-                )
-        pin_cut_height = args.backplate_thickness_mm + 0.2
-        for hole in backplate["pin_holes"]:
-            with b.Locations((hole["x_mm"], hole["y_mm"], -0.1)):
-                b.Cylinder(
-                    hole["diameter_mm"] / 2,
-                    pin_cut_height,
-                    align=(b.Align.CENTER, b.Align.CENTER, b.Align.MIN),
-                    mode=b.Mode.SUBTRACT,
-                )
-    part = backplate_builder.part
-    part.label = f"{args.icon}_socket_backplate"
-    return part
-
-
-def socket_backplate_command(args: argparse.Namespace) -> int:
-    b = require_build123d()
-    manifest, _sockets = socket_backplate_plan(args)
-    shape = socket_backplate_shape(b, manifest, args)
-    output_path = Path(args.out)
-    manifest["output"] = export_shape_step(
-        b,
-        shape,
-        output_path,
-        verify_import=args.verify_import,
-        volume_tolerance=args.volume_tolerance,
-    )
-    manifest_path = Path(args.manifest) if args.manifest else output_path.with_suffix(".manifest.json")
-    write_manifest(manifest_path, manifest)
-    print(
-        f"socket backplate: {args.icon}, {len(manifest['sockets'])} sockets -> {output_path.as_posix()}"
-    )
-    print(f"socket backplate manifest: {manifest_path.as_posix()}")
-    return 0
-
-
-def snap_coupon_command(args: argparse.Namespace) -> int:
-    b = require_build123d()
-    clearances = parse_clearances(args.clearances)
-    shape, manifest = snap_coupon_shape(b, args, clearances)
-    output_path = Path(args.out)
-    manifest["output"] = export_shape_step(
-        b,
-        shape,
-        output_path,
-        verify_import=args.verify_import,
-        volume_tolerance=args.volume_tolerance,
-    )
-    manifest_path = Path(args.manifest) if args.manifest else output_path.with_suffix(".manifest.json")
-    write_manifest(manifest_path, manifest)
-    print(
-        f"snap coupon: {len(clearances)} clearances -> {output_path.as_posix()}"
-    )
-    print(f"snap coupon manifest: {manifest_path.as_posix()}")
-    return 0
-
-
 def kit_manifest_command(args: argparse.Namespace) -> int:
     manifest, _placements, _spec = build_kit_plan(args)
     out_path = Path(args.out)
@@ -1018,8 +886,6 @@ def export_kit_command(args: argparse.Namespace) -> int:
         front_depth_mm=args.front_depth_mm,
         bed_depth_mm=args.bed_depth_mm,
         plate_gap_mm=args.plate_gap_mm,
-        snap_peg_height_mm=args.snap_peg_height_mm if snap_enabled(args) else 0.0,
-        snap_peg_tip_radius_mm=args.snap_peg_tip_radius_mm if snap_enabled(args) else 0.0,
     )
     outputs = {
         "combined_step": export_shape_step(
@@ -1044,8 +910,6 @@ def export_kit_command(args: argparse.Namespace) -> int:
                 front_depth_mm=args.front_depth_mm,
                 bed_depth_mm=args.bed_depth_mm,
                 plate_gap_mm=args.plate_gap_mm,
-                snap_peg_height_mm=args.snap_peg_height_mm if snap_enabled(args) else 0.0,
-                snap_peg_tip_radius_mm=args.snap_peg_tip_radius_mm if snap_enabled(args) else 0.0,
                 plate=plate,
             )
             plate_outputs.append(
@@ -1072,6 +936,68 @@ def export_kit_command(args: argparse.Namespace) -> int:
     return 0
 
 
+def part_fixture_kit_manifest_command(args: argparse.Namespace) -> int:
+    manifest, _placements, _spec = build_part_fixture_kit_plan(args)
+    out_path = Path(args.out)
+    write_manifest(out_path, manifest)
+    print(
+        f"part fixture manifest: {manifest['total_unique_part_designs']} designs, "
+        f"{manifest['total_front_caps']} hollow front caps, "
+        f"{manifest['total_part_backplates']} backplates, "
+        f"{manifest['layout']['plate_count']} plates -> {out_path.as_posix()}"
+    )
+    return 0
+
+
+def export_part_fixture_kit_command(args: argparse.Namespace) -> int:
+    b = require_build123d()
+    manifest, placements, _spec = build_part_fixture_kit_plan(args)
+    output_path = Path(args.out)
+
+    compound = part_fixture_kit_compound(b, placements, args)
+    outputs = {
+        "combined_step": export_shape_step(
+            b,
+            compound,
+            output_path,
+            verify_import=args.verify_import,
+            volume_tolerance=args.volume_tolerance,
+        )
+    }
+
+    if args.split_plates:
+        plate_outputs = []
+        plate_count = manifest["layout"]["plate_count"]
+        for plate in range(1, plate_count + 1):
+            plate_path = output_path.with_name(
+                f"{output_path.stem}.plate_{plate:02d}{output_path.suffix}"
+            )
+            plate_shape = part_fixture_kit_compound(b, placements, args, plate=plate)
+            plate_outputs.append(
+                export_shape_step(
+                    b,
+                    plate_shape,
+                    plate_path,
+                    verify_import=args.verify_import,
+                    volume_tolerance=args.volume_tolerance,
+                )
+            )
+        outputs["plate_steps"] = plate_outputs
+
+    manifest["generator"] = "tools/export_step.py part-fixture-kit"
+    manifest["outputs"] = outputs
+    manifest_path = Path(args.manifest) if args.manifest else output_path.with_suffix(".manifest.json")
+    write_manifest(manifest_path, manifest)
+    print(
+        f"part fixture STEP: {manifest['total_unique_part_designs']} designs, "
+        f"{manifest['total_front_caps']} hollow front caps, "
+        f"{manifest['total_part_backplates']} backplates, "
+        f"{manifest['layout']['plate_count']} plates -> {output_path.as_posix()}"
+    )
+    print(f"part fixture manifest: {manifest_path.as_posix()}")
+    return 0
+
+
 def add_kit_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--spec", default=DEFAULT_KIT_SPEC, help="Input part spec JSON")
     parser.add_argument(
@@ -1087,62 +1013,31 @@ def add_kit_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--bed-width-mm", type=float, default=180.0)
     parser.add_argument("--bed-depth-mm", type=float, default=180.0)
     parser.add_argument("--spacing-mm", type=float, default=4.0)
-    parser.add_argument(
-        "--snap-style",
-        choices=["none", "friction-peg"],
-        default="none",
-        help="Optional back-side snap feature for front pieces",
-    )
-    parser.add_argument("--snap-peg-radius-mm", type=float, default=1.8)
-    parser.add_argument("--snap-peg-tip-radius-mm", type=float, default=1.55)
-    parser.add_argument("--snap-peg-height-mm", type=float, default=3.0)
-    parser.add_argument("--snap-edge-clearance-mm", type=float, default=1.0)
-    parser.add_argument("--snap-max-pegs", type=int, default=2)
 
 
-def add_snap_coupon_arguments(parser: argparse.ArgumentParser) -> None:
-    parser.add_argument("--out", required=True, help="Output snap-fit coupon STEP file")
-    parser.add_argument("--manifest", help="Optional output manifest JSON path")
-    parser.add_argument("--clearances", default="0.1,0.2,0.3,0.4")
-    parser.add_argument("--snap-peg-radius-mm", type=float, default=1.8)
-    parser.add_argument("--snap-peg-tip-radius-mm", type=float, default=1.55)
-    parser.add_argument("--snap-peg-height-mm", type=float, default=3.0)
-    parser.add_argument("--coupon-socket-depth-mm", type=float, default=3.2)
-    parser.add_argument("--coupon-socket-block-thickness-mm", type=float, default=4.0)
-    parser.add_argument("--coupon-base-thickness-mm", type=float, default=2.0)
-    parser.add_argument("--coupon-width-mm", type=float, default=16.0)
-    parser.add_argument("--coupon-pitch-mm", type=float, default=14.0)
-    parser.add_argument("--coupon-edge-margin-mm", type=float, default=8.0)
-    parser.add_argument("--coupon-gap-mm", type=float, default=8.0)
-    parser.add_argument("--verify-import", action="store_true", help="Re-import exported STEP and compare volume")
-    parser.add_argument("--volume-tolerance", type=float, default=1e-6)
-
-
-def add_socket_backplate_arguments(parser: argparse.ArgumentParser) -> None:
+def add_part_fixture_kit_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--spec", default=DEFAULT_KIT_SPEC, help="Input part spec JSON")
-    parser.add_argument("--icon", required=True, help="Icon id to generate a socket backplate for")
-    parser.add_argument("--out", required=True, help="Output socket backplate STEP file")
-    parser.add_argument("--manifest", help="Optional output manifest JSON path")
+    parser.add_argument(
+        "--scope",
+        choices=["universal", "icon", "all-icons"],
+        default="universal",
+        help="Kit quantity scope: universal single-icon max, one icon, or all icons",
+    )
+    parser.add_argument("--icon", help="Icon id when --scope icon is used")
     parser.add_argument("--icon-size-mm", type=float, default=120.0)
     parser.add_argument("--source-size-svg", type=float, default=48.0)
-    parser.add_argument("--backplate-margin-mm", type=float, default=6.0)
-    parser.add_argument("--backplate-thickness-mm", type=float, default=4.0)
-    parser.add_argument("--pin-hole-diameter-mm", type=float, default=2.0)
-    parser.add_argument("--pin-hole-side-inset-mm", type=float, default=12.0)
-    parser.add_argument("--pin-hole-top-inset-mm", type=float, default=6.0)
-    parser.add_argument("--socket-clearance-mm", type=float, default=0.3)
-    parser.add_argument("--socket-depth-mm", type=float, default=3.2)
-    parser.add_argument("--snap-peg-radius-mm", type=float, default=1.8)
-    parser.add_argument("--snap-edge-clearance-mm", type=float, default=1.0)
-    parser.add_argument("--snap-max-pegs", type=int, default=2)
-    parser.add_argument(
-        "--provisional",
-        action=argparse.BooleanOptionalAction,
-        default=True,
-        help="Mark socket clearance as provisional until coupon print validation",
-    )
-    parser.add_argument("--verify-import", action="store_true", help="Re-import exported STEP and compare volume")
-    parser.add_argument("--volume-tolerance", type=float, default=1e-6)
+    parser.add_argument("--front-depth-mm", type=float, default=8.0)
+    parser.add_argument("--front-wall-thickness-mm", type=float, default=1.0)
+    parser.add_argument("--front-face-thickness-mm", type=float, default=1.2)
+    parser.add_argument("--fit-clearance-mm", type=float, default=0.25)
+    parser.add_argument("--backplate-thickness-mm", type=float, default=3.0)
+    parser.add_argument("--z-clearance-mm", type=float, default=0.3)
+    parser.add_argument("--pin-hole-diameter-mm", type=float, default=1.6)
+    parser.add_argument("--pin-hole-edge-clearance-mm", type=float, default=1.0)
+    parser.add_argument("--pin-hole-min-spacing-mm", type=float, default=4.0)
+    parser.add_argument("--bed-width-mm", type=float, default=180.0)
+    parser.add_argument("--bed-depth-mm", type=float, default=180.0)
+    parser.add_argument("--spacing-mm", type=float, default=4.0)
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -1173,16 +1068,26 @@ def build_parser() -> argparse.ArgumentParser:
     kit.add_argument("--volume-tolerance", type=float, default=1e-6)
     kit.set_defaults(func=export_kit_command)
 
-    coupon = subparsers.add_parser("snap-coupon", help="Export a friction-peg snap-fit clearance coupon")
-    add_snap_coupon_arguments(coupon)
-    coupon.set_defaults(func=snap_coupon_command)
-
-    backplate = subparsers.add_parser(
-        "socket-backplate",
-        help="Export a socket backplate matching snap-enabled icon front pieces",
+    fixture_manifest = subparsers.add_parser(
+        "part-fixture-kit-manifest",
+        help="Write a hollow-front plus per-part-backplate fixture kit manifest",
     )
-    add_socket_backplate_arguments(backplate)
-    backplate.set_defaults(func=socket_backplate_command)
+    add_part_fixture_kit_arguments(fixture_manifest)
+    fixture_manifest.add_argument("--out", required=True, help="Output fixture kit manifest JSON")
+    fixture_manifest.set_defaults(func=part_fixture_kit_manifest_command)
+
+    fixture_kit = subparsers.add_parser(
+        "part-fixture-kit",
+        help="Export hollow front caps and one small two-hole backplate per icon part",
+    )
+    add_part_fixture_kit_arguments(fixture_kit)
+    fixture_kit.add_argument("--out", required=True, help="Output combined STEP file")
+    fixture_kit.add_argument("--manifest", help="Optional output manifest JSON path")
+    fixture_kit.add_argument("--split-plates", action="store_true", help="Also write one STEP file per plate")
+    fixture_kit.add_argument("--plate-gap-mm", type=float, default=20.0)
+    fixture_kit.add_argument("--verify-import", action="store_true", help="Re-import exported STEP files and compare volume")
+    fixture_kit.add_argument("--volume-tolerance", type=float, default=1e-6)
+    fixture_kit.set_defaults(func=export_part_fixture_kit_command)
 
     return parser
 
