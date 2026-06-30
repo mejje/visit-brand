@@ -1,6 +1,6 @@
 # Snap-Fit Design Plan
 
-Last updated: 2026-06-29
+Last updated: 2026-06-30
 
 ## Corrected Direction
 
@@ -52,17 +52,32 @@ python tools/export_step.py part-fixture-kit-manifest \
   --out analysis/runs/snapfit/part-backplate-v1/Visit_Icon_Platform.fixture-kit.manifest.json
 ```
 
+Generate the universal all-icons assembly legend:
+
+```text
+python tools/generate_fixture_legend.py \
+  --manifest analysis/runs/snapfit/part-backplate-v1/universal-single-icon-fixture-kit.manifest.json \
+  --out analysis/runs/snapfit/part-backplate-v1/universal-single-icon-fixture-legend.svg
+```
+
 ## Current Results
 
-- Platform fixture kit: 2 unique part designs.
+- Platform fixture kit: 1 unique part design.
 - Printed front caps: 8 hollow translucent pieces.
 - Printed backplates: 8 small hidden two-hole backplates.
 - Total printed pieces: 16.
 - Plate count: 1 on a `180 x 180 mm` bed.
 - STEP re-import delta: `0.000000002 mm^3`.
 - Output: `analysis/runs/snapfit/part-backplate-v1/Visit_Icon_Platform.fixture-kit.step`.
-- Universal single-icon fixture STEP: 41 unique part designs, 65 hollow front caps, 65 two-hole backplates, 130 total printed pieces, 9 plates on a `180 x 180 mm` bed.
-- Universal STEP re-import delta: `0.000000398 mm^3`.
+- Universal single-icon fixture STEP: 41 unique part designs, 66 hollow front caps, 66 two-hole backplates, 132 total printed pieces, 8 plates on a `180 x 180 mm` bed.
+- Universal STEP re-import delta: `0.000000449 mm^3`.
+- First-pass marking scheme: stable global part numbers only. Duplicate copies of the same part design share the same number.
+- All-icons assembly legend: `analysis/runs/snapfit/part-backplate-v1/universal-single-icon-fixture-legend.svg`.
+- Machine-readable legend map: `analysis/runs/snapfit/part-backplate-v1/universal-single-icon-fixture-legend.json`.
+- Current Amusement park legend labels: `1, 2, 3, 3, 3, 3, 3, 3, 3`.
+- Current DestinationBuilding legend labels: `4, 5, 6, 7, 8`; the roof/top and left wall are now split.
+- Current VacationRental legend labels: `39, 40, 8, 7, 41, 20`; the two roof pieces and right wall are now split.
+- Current Platform legend labels: `23, 23, 23, 23, 23, 23, 23, 23`; the source Platform rays now reuse one global part through 45-degree-increment rotations.
 
 ## Next Validation
 
@@ -70,6 +85,9 @@ python tools/export_step.py part-fixture-kit-manifest \
 2. Print one or two representative part/backplate pairs before printing the full Platform kit.
 3. Test pin-hole usability on a representative wall/cubicle material.
 4. Test cap insertion/removal and record whether `0.25 mm` XY clearance is too tight, loose, or acceptable.
-5. Tune front wall thickness, fit clearance, and backplate thickness before applying the fixture kit to all icons.
+5. Review the printed assembly legend with a sample kit and confirm global part numbers are clear.
+6. Visually review the updated split-source reconstructed SVGs for DestinationBuilding and VacationRental.
+7. Decide whether to emboss/engrave physical text marks after checking the smallest printable backplates.
+8. Tune front wall thickness, fit clearance, and backplate thickness before applying the fixture kit to all icons.
 
 Do not lock the cap clearance or backplate hole parameters until a physical print has been handled.

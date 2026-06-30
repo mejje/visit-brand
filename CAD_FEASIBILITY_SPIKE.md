@@ -1,6 +1,6 @@
 # CAD Feasibility Spike
 
-Last updated: 2026-06-28
+Last updated: 2026-06-30
 
 ## Goal
 
@@ -114,8 +114,8 @@ python tools/export_step.py kit \
 Observed result:
 
 ```text
-41 unique part designs, 65 printed pieces, 5 plates
-combined STEP reimport_delta=0.000000003mm^3
+41 unique part designs, 66 printed pieces, 4 plates
+combined STEP reimport_delta=0.000000002mm^3
 ```
 
 This proves the selected 41-part spec can be turned into separate laid-out STEP solids.
@@ -139,8 +139,15 @@ python tools/export_step.py part-fixture-kit \
 Observed result:
 
 ```text
-2 unique part designs, 8 hollow front caps, 8 backplates, 1 plate
-combined STEP reimport_delta=0.000000002mm^3
+1 unique part design, 8 hollow front caps, 8 backplates, 1 plate
+combined STEP reimport_delta=0.000000001mm^3
+```
+
+Current universal fixture result:
+
+```text
+41 unique part designs, 66 hollow front caps, 66 backplates, 8 plates
+combined STEP reimport_delta=0.000000449mm^3
 ```
 
 ## Follow-Up Questions

@@ -124,46 +124,10 @@
       "instances": [
         {
           "at": [
-            3.55,
-            10.66
+            8.86,
+            5.33
           ],
           "part": "decomp_0006",
-          "source_index": 0,
-          "source_part": "part_0003"
-        },
-        {
-          "at": [
-            3.55,
-            10.66
-          ],
-          "part": "decomp_0007",
-          "source_index": 0,
-          "source_part": "part_0003"
-        },
-        {
-          "at": [
-            8.86,
-            5.33
-          ],
-          "part": "decomp_0008",
-          "source_index": 0,
-          "source_part": "part_0003"
-        },
-        {
-          "at": [
-            8.86,
-            10.66
-          ],
-          "part": "decomp_0009",
-          "source_index": 0,
-          "source_part": "part_0003"
-        },
-        {
-          "at": [
-            8.88,
-            5.33
-          ],
-          "part": "decomp_0010",
           "source_index": 0,
           "source_part": "part_0003"
         },
@@ -172,63 +136,72 @@
             10.64,
             5.33
           ],
-          "part": "decomp_0011",
+          "part": "decomp_0007",
           "source_index": 0,
           "source_part": "part_0003"
+        },
+        {
+          "at": [
+            3.55,
+            10.66
+          ],
+          "part": "decomp_0008",
+          "source_index": 1,
+          "source_part": "part_0004"
         },
         {
           "at": [
             12.43,
             30.22
           ],
-          "part": "decomp_0012",
-          "source_index": 1,
-          "source_part": "part_0004"
+          "part": "decomp_0009",
+          "source_index": 2,
+          "source_part": "part_0005"
         },
         {
           "at": [
             14.21,
             30.22
           ],
-          "part": "decomp_0013",
-          "source_index": 1,
-          "source_part": "part_0004"
+          "part": "decomp_0010",
+          "source_index": 2,
+          "source_part": "part_0005"
         },
         {
           "at": [
             33.77,
             5.34
           ],
-          "part": "decomp_0014",
-          "source_index": 2,
-          "source_part": "part_0005"
+          "part": "decomp_0011",
+          "source_index": 3,
+          "source_part": "part_0006"
         },
         {
           "at": [
             39.51,
             5.34
           ],
-          "part": "decomp_0015",
-          "source_index": 2,
-          "source_part": "part_0005"
+          "part": "decomp_0012",
+          "source_index": 3,
+          "source_part": "part_0006"
         },
         {
           "at": [
             28.03,
             20.44
           ],
-          "part": "decomp_0016",
-          "source_index": 3,
-          "source_part": "part_0006"
+          "part": "decomp_0013",
+          "source_index": 4,
+          "source_part": "part_0007"
         },
         {
           "at": [
             33.77,
             20.44
           ],
-          "part": "decomp_0017",
-          "source_index": 3,
-          "source_part": "part_0006"
+          "part": "decomp_0014",
+          "source_index": 4,
+          "source_part": "part_0007"
         }
       ]
     },
@@ -239,180 +212,180 @@
             14.22,
             35.56
           ],
-          "part": "decomp_0018",
+          "part": "decomp_0015",
           "source_index": 0,
-          "source_part": "part_0007"
+          "source_part": "part_0008"
         },
         {
           "at": [
             14.22,
             40.89
           ],
-          "part": "decomp_0019",
+          "part": "decomp_0016",
           "source_index": 0,
-          "source_part": "part_0007"
+          "source_part": "part_0008"
         },
         {
           "at": [
             23.99,
             35.56
           ],
-          "part": "decomp_0020",
+          "part": "decomp_0017",
           "source_index": 0,
-          "source_part": "part_0007"
+          "source_part": "part_0008"
         },
         {
           "at": [
             23.99,
             40.89
           ],
-          "part": "decomp_0021",
+          "part": "decomp_0018",
           "source_index": 0,
-          "source_part": "part_0007"
+          "source_part": "part_0008"
         },
         {
           "at": [
             14.22,
             1.79
           ],
-          "part": "decomp_0022",
+          "part": "decomp_0019",
           "source_index": 1,
-          "source_part": "part_0008"
+          "source_part": "part_0009"
         },
         {
           "at": [
             14.22,
             7.11
           ],
-          "part": "decomp_0023",
+          "part": "decomp_0020",
           "source_index": 1,
-          "source_part": "part_0008"
+          "source_part": "part_0009"
         },
         {
           "at": [
             23.99,
             1.79
           ],
-          "part": "decomp_0024",
+          "part": "decomp_0021",
           "source_index": 1,
-          "source_part": "part_0008"
+          "source_part": "part_0009"
         },
         {
           "at": [
             23.99,
             7.12
           ],
-          "part": "decomp_0025",
+          "part": "decomp_0022",
           "source_index": 1,
-          "source_part": "part_0008"
+          "source_part": "part_0009"
         },
         {
           "at": [
             35.54,
             14.23
+          ],
+          "part": "decomp_0023",
+          "source_index": 2,
+          "source_part": "part_0010"
+        },
+        {
+          "at": [
+            35.54,
+            24.0
+          ],
+          "part": "decomp_0024",
+          "source_index": 2,
+          "source_part": "part_0010"
+        },
+        {
+          "at": [
+            40.87,
+            14.23
+          ],
+          "part": "decomp_0025",
+          "source_index": 2,
+          "source_part": "part_0010"
+        },
+        {
+          "at": [
+            40.87,
+            24.0
           ],
           "part": "decomp_0026",
           "source_index": 2,
-          "source_part": "part_0009"
-        },
-        {
-          "at": [
-            35.54,
-            24.0
-          ],
-          "part": "decomp_0027",
-          "source_index": 2,
-          "source_part": "part_0009"
-        },
-        {
-          "at": [
-            40.87,
-            14.23
-          ],
-          "part": "decomp_0028",
-          "source_index": 2,
-          "source_part": "part_0009"
-        },
-        {
-          "at": [
-            40.87,
-            24.0
-          ],
-          "part": "decomp_0029",
-          "source_index": 2,
-          "source_part": "part_0009"
+          "source_part": "part_0010"
         },
         {
           "at": [
             19.54,
             14.23
+          ],
+          "part": "decomp_0027",
+          "source_index": 3,
+          "source_part": "part_0011"
+        },
+        {
+          "at": [
+            19.54,
+            24.0
+          ],
+          "part": "decomp_0028",
+          "source_index": 3,
+          "source_part": "part_0011"
+        },
+        {
+          "at": [
+            24.88,
+            14.23
+          ],
+          "part": "decomp_0029",
+          "source_index": 3,
+          "source_part": "part_0011"
+        },
+        {
+          "at": [
+            24.88,
+            24.0
           ],
           "part": "decomp_0030",
           "source_index": 3,
-          "source_part": "part_0010"
+          "source_part": "part_0011"
         },
         {
           "at": [
-            19.54,
-            24.0
+            1.77,
+            14.23
           ],
           "part": "decomp_0031",
-          "source_index": 3,
-          "source_part": "part_0010"
+          "source_index": 4,
+          "source_part": "part_0012"
         },
         {
           "at": [
-            24.88,
-            14.23
+            1.77,
+            24.0
           ],
           "part": "decomp_0032",
-          "source_index": 3,
-          "source_part": "part_0010"
-        },
-        {
-          "at": [
-            24.88,
-            24.0
-          ],
-          "part": "decomp_0033",
-          "source_index": 3,
-          "source_part": "part_0010"
-        },
-        {
-          "at": [
-            1.77,
-            14.23
-          ],
-          "part": "decomp_0034",
           "source_index": 4,
-          "source_part": "part_0011"
-        },
-        {
-          "at": [
-            1.77,
-            24.0
-          ],
-          "part": "decomp_0035",
-          "source_index": 4,
-          "source_part": "part_0011"
+          "source_part": "part_0012"
         },
         {
           "at": [
             7.08,
             24.0
           ],
-          "part": "decomp_0036",
+          "part": "decomp_0033",
           "source_index": 4,
-          "source_part": "part_0011"
+          "source_part": "part_0012"
         },
         {
           "at": [
             7.1,
             14.23
           ],
-          "part": "decomp_0037",
+          "part": "decomp_0034",
           "source_index": 4,
-          "source_part": "part_0011"
+          "source_part": "part_0012"
         }
       ]
     },
@@ -423,36 +396,36 @@
             5.0,
             23.0
           ],
-          "part": "decomp_0038",
+          "part": "decomp_0035",
           "source_index": 0,
-          "source_part": "part_0012"
+          "source_part": "part_0013"
         },
         {
           "at": [
             5.0,
             39.0
           ],
-          "part": "decomp_0039",
+          "part": "decomp_0036",
           "source_index": 1,
-          "source_part": "part_0013"
+          "source_part": "part_0014"
         },
         {
           "at": [
             23.17,
             23.17
           ],
-          "part": "decomp_0040",
+          "part": "decomp_0037",
           "source_index": 2,
-          "source_part": "part_0014"
+          "source_part": "part_0015"
         },
         {
           "at": [
             28.83,
             23.17
           ],
-          "part": "decomp_0041",
+          "part": "decomp_0038",
           "source_index": 2,
-          "source_part": "part_0014"
+          "source_part": "part_0015"
         },
         {
           "at": [
@@ -477,99 +450,99 @@
             5.0,
             12.0
           ],
-          "part": "decomp_0042",
+          "part": "decomp_0039",
           "source_index": 5,
-          "source_part": "part_0015"
+          "source_part": "part_0016"
         },
         {
           "at": [
             5.0,
             12.0
           ],
-          "part": "decomp_0043",
+          "part": "decomp_0040",
           "source_index": 5,
-          "source_part": "part_0015"
+          "source_part": "part_0016"
         },
         {
           "at": [
             15.0,
             12.0
           ],
-          "part": "decomp_0044",
+          "part": "decomp_0041",
           "source_index": 5,
-          "source_part": "part_0015"
+          "source_part": "part_0016"
         },
         {
           "at": [
             15.0,
             16.0
           ],
-          "part": "decomp_0045",
+          "part": "decomp_0042",
           "source_index": 5,
-          "source_part": "part_0015"
+          "source_part": "part_0016"
         },
         {
           "at": [
             15.0,
             16.0
           ],
-          "part": "decomp_0046",
+          "part": "decomp_0043",
           "source_index": 5,
-          "source_part": "part_0015"
+          "source_part": "part_0016"
         },
         {
           "at": [
             25.0,
             10.0
           ],
-          "part": "decomp_0047",
+          "part": "decomp_0044",
           "source_index": 6,
-          "source_part": "part_0016"
+          "source_part": "part_0017"
         },
         {
           "at": [
             25.0,
             14.0
           ],
-          "part": "decomp_0048",
+          "part": "decomp_0045",
           "source_index": 6,
-          "source_part": "part_0016"
+          "source_part": "part_0017"
         },
         {
           "at": [
             17.0,
             5.0
           ],
-          "part": "decomp_0049",
+          "part": "decomp_0046",
           "source_index": 7,
-          "source_part": "part_0017"
+          "source_part": "part_0018"
         },
         {
           "at": [
             20.0,
             5.0
           ],
-          "part": "decomp_0050",
+          "part": "decomp_0047",
           "source_index": 7,
-          "source_part": "part_0017"
+          "source_part": "part_0018"
         },
         {
           "at": [
             27.0,
             5.0
           ],
-          "part": "decomp_0049",
+          "part": "decomp_0046",
           "source_index": 8,
-          "source_part": "part_0017"
+          "source_part": "part_0018"
         },
         {
           "at": [
             30.0,
             5.0
           ],
-          "part": "decomp_0050",
+          "part": "decomp_0047",
           "source_index": 8,
-          "source_part": "part_0017"
+          "source_part": "part_0018"
         }
       ]
     },
@@ -580,72 +553,72 @@
             9.0,
             21.0
           ],
-          "part": "decomp_0051",
+          "part": "decomp_0048",
           "source_index": 0,
-          "source_part": "part_0018"
+          "source_part": "part_0019"
         },
         {
           "at": [
             35.0,
             21.0
           ],
-          "part": "decomp_0051",
+          "part": "decomp_0048",
           "source_index": 1,
-          "source_part": "part_0018"
+          "source_part": "part_0019"
         },
         {
           "at": [
             5.0,
+            5.0
+          ],
+          "part": "decomp_0049",
+          "source_index": 2,
+          "source_part": "part_0020"
+        },
+        {
+          "at": [
+            5.0,
+            5.0
+          ],
+          "part": "decomp_0050",
+          "source_index": 2,
+          "source_part": "part_0020"
+        },
+        {
+          "at": [
+            24.0,
+            5.0
+          ],
+          "part": "decomp_0051",
+          "source_index": 3,
+          "source_part": "part_0021"
+        },
+        {
+          "at": [
+            24.0,
             5.0
           ],
           "part": "decomp_0052",
-          "source_index": 2,
-          "source_part": "part_0019"
-        },
-        {
-          "at": [
-            5.0,
-            5.0
-          ],
-          "part": "decomp_0053",
-          "source_index": 2,
-          "source_part": "part_0019"
-        },
-        {
-          "at": [
-            24.0,
-            5.0
-          ],
-          "part": "decomp_0054",
           "source_index": 3,
-          "source_part": "part_0020"
-        },
-        {
-          "at": [
-            24.0,
-            5.0
-          ],
-          "part": "decomp_0055",
-          "source_index": 3,
-          "source_part": "part_0020"
+          "source_part": "part_0021"
         },
         {
           "at": [
             22.0,
             29.0
           ],
-          "part": "decomp_0056",
+          "part": "decomp_0053",
           "source_index": 4,
-          "source_part": "part_0021"
+          "source_part": "part_0022"
         },
         {
           "at": [
             5.0,
             39.0
           ],
-          "part": "decomp_0057",
+          "part": "decomp_0054",
           "source_index": 5,
-          "source_part": "part_0022"
+          "source_part": "part_0023"
         }
       ]
     },
@@ -656,153 +629,153 @@
             21.33,
             21.33
           ],
-          "part": "decomp_0058",
+          "part": "decomp_0055",
           "source_index": 0,
-          "source_part": "part_0023"
+          "source_part": "part_0024"
         },
         {
           "at": [
             3.55,
             14.21
+          ],
+          "part": "decomp_0056",
+          "source_index": 1,
+          "source_part": "part_0025"
+        },
+        {
+          "at": [
+            3.55,
+            23.99
+          ],
+          "part": "decomp_0057",
+          "source_index": 1,
+          "source_part": "part_0025"
+        },
+        {
+          "at": [
+            8.89,
+            14.21
+          ],
+          "part": "decomp_0058",
+          "source_index": 1,
+          "source_part": "part_0025"
+        },
+        {
+          "at": [
+            8.89,
+            23.99
           ],
           "part": "decomp_0059",
           "source_index": 1,
-          "source_part": "part_0024"
+          "source_part": "part_0025"
         },
         {
           "at": [
-            3.55,
-            23.99
+            33.78,
+            14.21
           ],
           "part": "decomp_0060",
-          "source_index": 1,
-          "source_part": "part_0024"
+          "source_index": 2,
+          "source_part": "part_0026"
         },
         {
           "at": [
-            8.89,
-            14.21
+            33.78,
+            23.99
           ],
           "part": "decomp_0061",
-          "source_index": 1,
-          "source_part": "part_0024"
-        },
-        {
-          "at": [
-            8.89,
-            23.99
-          ],
-          "part": "decomp_0062",
-          "source_index": 1,
-          "source_part": "part_0024"
-        },
-        {
-          "at": [
-            33.78,
-            14.21
-          ],
-          "part": "decomp_0063",
           "source_index": 2,
-          "source_part": "part_0025"
-        },
-        {
-          "at": [
-            33.78,
-            23.99
-          ],
-          "part": "decomp_0064",
-          "source_index": 2,
-          "source_part": "part_0025"
+          "source_part": "part_0026"
         },
         {
           "at": [
             39.1,
             14.21
           ],
-          "part": "decomp_0065",
+          "part": "decomp_0062",
           "source_index": 2,
-          "source_part": "part_0025"
+          "source_part": "part_0026"
         },
         {
           "at": [
             39.12,
             23.99
           ],
-          "part": "decomp_0066",
+          "part": "decomp_0063",
           "source_index": 2,
-          "source_part": "part_0025"
+          "source_part": "part_0026"
         },
         {
           "at": [
             14.23,
             3.54
           ],
-          "part": "decomp_0067",
+          "part": "decomp_0064",
           "source_index": 3,
-          "source_part": "part_0026"
+          "source_part": "part_0027"
         },
         {
           "at": [
             14.23,
             8.88
           ],
-          "part": "decomp_0068",
+          "part": "decomp_0065",
           "source_index": 3,
-          "source_part": "part_0026"
+          "source_part": "part_0027"
         },
         {
           "at": [
             24.0,
             8.88
           ],
-          "part": "decomp_0069",
+          "part": "decomp_0066",
           "source_index": 3,
-          "source_part": "part_0026"
+          "source_part": "part_0027"
         },
         {
           "at": [
             24.01,
             3.54
           ],
-          "part": "decomp_0070",
+          "part": "decomp_0067",
           "source_index": 3,
-          "source_part": "part_0026"
+          "source_part": "part_0027"
         },
         {
           "at": [
             14.23,
             33.78
           ],
-          "part": "decomp_0071",
+          "part": "decomp_0068",
           "source_index": 4,
-          "source_part": "part_0027"
+          "source_part": "part_0028"
         },
         {
           "at": [
             14.23,
             39.11
           ],
-          "part": "decomp_0072",
+          "part": "decomp_0069",
           "source_index": 4,
-          "source_part": "part_0027"
+          "source_part": "part_0028"
         },
         {
           "at": [
             24.0,
             33.78
           ],
-          "part": "decomp_0073",
+          "part": "decomp_0070",
           "source_index": 4,
-          "source_part": "part_0027"
+          "source_part": "part_0028"
         },
         {
           "at": [
             24.01,
             39.1
           ],
-          "part": "decomp_0074",
+          "part": "decomp_0071",
           "source_index": 4,
-          "source_part": "part_0027"
+          "source_part": "part_0028"
         }
       ]
     },
@@ -813,108 +786,108 @@
             17.0,
             13.0
           ],
-          "part": "decomp_0056",
+          "part": "decomp_0053",
           "source_index": 0,
-          "source_part": "part_0021"
+          "source_part": "part_0022"
         },
         {
           "at": [
             27.0,
             13.0
           ],
-          "part": "decomp_0056",
+          "part": "decomp_0053",
           "source_index": 1,
-          "source_part": "part_0021"
+          "source_part": "part_0022"
         },
         {
           "at": [
             17.0,
             23.0
           ],
-          "part": "decomp_0056",
+          "part": "decomp_0053",
           "source_index": 2,
-          "source_part": "part_0021"
+          "source_part": "part_0022"
         },
         {
           "at": [
             22.0,
             37.0
           ],
-          "part": "decomp_0056",
+          "part": "decomp_0053",
           "source_index": 3,
-          "source_part": "part_0021"
+          "source_part": "part_0022"
         },
         {
           "at": [
             27.0,
             23.0
           ],
-          "part": "decomp_0056",
+          "part": "decomp_0053",
           "source_index": 4,
-          "source_part": "part_0021"
+          "source_part": "part_0022"
         },
         {
           "at": [
             9.0,
             5.0
+          ],
+          "part": "decomp_0072",
+          "source_index": 5,
+          "source_part": "part_0029"
+        },
+        {
+          "at": [
+            9.0,
+            5.0
+          ],
+          "part": "decomp_0073",
+          "source_index": 5,
+          "source_part": "part_0029"
+        },
+        {
+          "at": [
+            35.0,
+            5.0
+          ],
+          "part": "decomp_0041",
+          "source_index": 5,
+          "source_part": "part_0029"
+        },
+        {
+          "at": [
+            35.0,
+            9.0
+          ],
+          "part": "decomp_0074",
+          "source_index": 5,
+          "source_part": "part_0029"
+        },
+        {
+          "at": [
+            35.0,
+            9.0
           ],
           "part": "decomp_0075",
           "source_index": 5,
-          "source_part": "part_0028"
-        },
-        {
-          "at": [
-            9.0,
-            5.0
-          ],
-          "part": "decomp_0076",
-          "source_index": 5,
-          "source_part": "part_0028"
-        },
-        {
-          "at": [
-            35.0,
-            5.0
-          ],
-          "part": "decomp_0044",
-          "source_index": 5,
-          "source_part": "part_0028"
-        },
-        {
-          "at": [
-            35.0,
-            9.0
-          ],
-          "part": "decomp_0077",
-          "source_index": 5,
-          "source_part": "part_0028"
-        },
-        {
-          "at": [
-            35.0,
-            9.0
-          ],
-          "part": "decomp_0078",
-          "source_index": 5,
-          "source_part": "part_0028"
+          "source_part": "part_0029"
         },
         {
           "at": [
             9.0,
             10.0
           ],
-          "part": "decomp_0079",
+          "part": "decomp_0076",
           "source_index": 6,
-          "source_part": "part_0029"
+          "source_part": "part_0030"
         },
         {
           "at": [
             9.0,
             14.0
           ],
-          "part": "decomp_0080",
+          "part": "decomp_0077",
           "source_index": 6,
-          "source_part": "part_0029"
+          "source_part": "part_0030"
         }
       ]
     },
@@ -925,144 +898,144 @@
             21.33,
             1.7
           ],
-          "part": "decomp_0081",
+          "part": "decomp_0078",
           "source_index": 0,
-          "source_part": "part_0030"
+          "source_part": "part_0031"
         },
         {
           "at": [
             21.33,
             3.47
           ],
-          "part": "decomp_0082",
+          "part": "decomp_0079",
           "source_index": 0,
-          "source_part": "part_0030"
+          "source_part": "part_0031"
         },
         {
           "at": [
             21.33,
             33.77
           ],
-          "part": "decomp_0083",
+          "part": "decomp_0080",
           "source_index": 1,
-          "source_part": "part_0031"
+          "source_part": "part_0032"
         },
         {
           "at": [
             21.33,
             35.54
           ],
-          "part": "decomp_0084",
+          "part": "decomp_0081",
           "source_index": 1,
-          "source_part": "part_0031"
+          "source_part": "part_0032"
         },
         {
           "at": [
             6.37,
             7.59
           ],
-          "part": "decomp_0085",
+          "part": "decomp_0082",
           "source_index": 2,
-          "source_part": "part_0032"
+          "source_part": "part_0033"
         },
         {
           "at": [
             11.39,
             7.59
           ],
-          "part": "decomp_0086",
+          "part": "decomp_0083",
           "source_index": 2,
-          "source_part": "part_0032"
+          "source_part": "part_0033"
         },
         {
           "at": [
             29.04,
             30.26
           ],
-          "part": "decomp_0087",
+          "part": "decomp_0084",
           "source_index": 3,
-          "source_part": "part_0033"
+          "source_part": "part_0034"
         },
         {
           "at": [
             34.07,
             30.26
           ],
-          "part": "decomp_0088",
+          "part": "decomp_0085",
           "source_index": 3,
-          "source_part": "part_0033"
+          "source_part": "part_0034"
         },
         {
           "at": [
             30.07,
             6.57
           ],
-          "part": "decomp_0089",
+          "part": "decomp_0086",
           "source_index": 4,
-          "source_part": "part_0034"
+          "source_part": "part_0035"
         },
         {
           "at": [
             30.07,
             11.59
           ],
-          "part": "decomp_0090",
+          "part": "decomp_0087",
           "source_index": 4,
-          "source_part": "part_0034"
+          "source_part": "part_0035"
         },
         {
           "at": [
             7.62,
             29.07
           ],
-          "part": "decomp_0091",
+          "part": "decomp_0088",
           "source_index": 5,
-          "source_part": "part_0035"
+          "source_part": "part_0036"
         },
         {
           "at": [
             7.62,
             34.1
           ],
-          "part": "decomp_0092",
+          "part": "decomp_0089",
           "source_index": 5,
-          "source_part": "part_0035"
+          "source_part": "part_0036"
         },
         {
           "at": [
             33.79,
             21.32
           ],
-          "part": "decomp_0093",
+          "part": "decomp_0090",
           "source_index": 6,
-          "source_part": "part_0036"
+          "source_part": "part_0037"
         },
         {
           "at": [
             35.56,
             21.32
           ],
-          "part": "decomp_0094",
+          "part": "decomp_0091",
           "source_index": 6,
-          "source_part": "part_0036"
+          "source_part": "part_0037"
         },
         {
           "at": [
             1.79,
             21.32
           ],
-          "part": "decomp_0095",
+          "part": "decomp_0092",
           "source_index": 7,
-          "source_part": "part_0037"
+          "source_part": "part_0038"
         },
         {
           "at": [
             3.56,
             21.32
           ],
-          "part": "decomp_0096",
+          "part": "decomp_0093",
           "source_index": 7,
-          "source_part": "part_0037"
+          "source_part": "part_0038"
         }
       ]
     },
@@ -1073,180 +1046,180 @@
             13.0,
             5.0
           ],
-          "part": "decomp_0075",
+          "part": "decomp_0072",
           "source_index": 0,
-          "source_part": "part_0028"
+          "source_part": "part_0029"
         },
         {
           "at": [
             13.0,
             5.0
           ],
-          "part": "decomp_0076",
+          "part": "decomp_0073",
           "source_index": 0,
-          "source_part": "part_0028"
+          "source_part": "part_0029"
         },
         {
           "at": [
             39.0,
             5.0
           ],
-          "part": "decomp_0044",
+          "part": "decomp_0041",
           "source_index": 0,
-          "source_part": "part_0028"
+          "source_part": "part_0029"
         },
         {
           "at": [
             39.0,
             9.0
           ],
-          "part": "decomp_0077",
+          "part": "decomp_0074",
           "source_index": 0,
-          "source_part": "part_0028"
+          "source_part": "part_0029"
         },
         {
           "at": [
             39.0,
             9.0
           ],
-          "part": "decomp_0078",
+          "part": "decomp_0075",
           "source_index": 0,
-          "source_part": "part_0028"
+          "source_part": "part_0029"
         },
         {
           "at": [
             5.0,
             28.0
           ],
-          "part": "decomp_0097",
+          "part": "decomp_0094",
           "source_index": 1,
-          "source_part": "part_0038"
+          "source_part": "part_0039"
         },
         {
           "at": [
             5.0,
             32.0
           ],
-          "part": "decomp_0098",
+          "part": "decomp_0095",
           "source_index": 1,
-          "source_part": "part_0038"
+          "source_part": "part_0039"
         },
         {
           "at": [
             18.0,
             37.0
           ],
-          "part": "decomp_0056",
+          "part": "decomp_0053",
           "source_index": 2,
-          "source_part": "part_0021"
+          "source_part": "part_0022"
         },
         {
           "at": [
             26.0,
             13.0
           ],
-          "part": "decomp_0056",
+          "part": "decomp_0053",
           "source_index": 3,
-          "source_part": "part_0021"
+          "source_part": "part_0022"
         },
         {
           "at": [
             5.0,
             23.0
           ],
-          "part": "decomp_0099",
+          "part": "decomp_0096",
           "source_index": 4,
-          "source_part": "part_0039"
+          "source_part": "part_0040"
         },
         {
           "at": [
             5.0,
             23.0
           ],
-          "part": "decomp_0100",
+          "part": "decomp_0097",
           "source_index": 4,
-          "source_part": "part_0039"
+          "source_part": "part_0040"
         },
         {
           "at": [
             13.0,
             10.0
           ],
-          "part": "decomp_0101",
+          "part": "decomp_0098",
           "source_index": 4,
-          "source_part": "part_0039"
+          "source_part": "part_0040"
         },
         {
           "at": [
             13.0,
             14.0
           ],
-          "part": "decomp_0102",
+          "part": "decomp_0099",
           "source_index": 4,
-          "source_part": "part_0039"
+          "source_part": "part_0040"
         },
         {
           "at": [
             13.0,
+            23.0
+          ],
+          "part": "decomp_0100",
+          "source_index": 4,
+          "source_part": "part_0040"
+        },
+        {
+          "at": [
+            13.0,
+            23.0
+          ],
+          "part": "decomp_0101",
+          "source_index": 4,
+          "source_part": "part_0040"
+        },
+        {
+          "at": [
+            17.0,
+            23.0
+          ],
+          "part": "decomp_0102",
+          "source_index": 4,
+          "source_part": "part_0040"
+        },
+        {
+          "at": [
+            17.0,
             23.0
           ],
           "part": "decomp_0103",
           "source_index": 4,
-          "source_part": "part_0039"
+          "source_part": "part_0040"
         },
         {
           "at": [
-            13.0,
+            31.0,
             23.0
           ],
           "part": "decomp_0104",
           "source_index": 4,
-          "source_part": "part_0039"
+          "source_part": "part_0040"
         },
         {
           "at": [
-            17.0,
-            23.0
+            31.0,
+            27.0
           ],
           "part": "decomp_0105",
           "source_index": 4,
-          "source_part": "part_0039"
+          "source_part": "part_0040"
         },
         {
           "at": [
-            17.0,
-            23.0
+            31.0,
+            27.0
           ],
           "part": "decomp_0106",
           "source_index": 4,
-          "source_part": "part_0039"
-        },
-        {
-          "at": [
-            31.0,
-            23.0
-          ],
-          "part": "decomp_0107",
-          "source_index": 4,
-          "source_part": "part_0039"
-        },
-        {
-          "at": [
-            31.0,
-            27.0
-          ],
-          "part": "decomp_0108",
-          "source_index": 4,
-          "source_part": "part_0039"
-        },
-        {
-          "at": [
-            31.0,
-            27.0
-          ],
-          "part": "decomp_0109",
-          "source_index": 4,
-          "source_part": "part_0039"
+          "source_part": "part_0040"
         }
       ]
     },
@@ -1257,26 +1230,17 @@
             5.0,
             5.0
           ],
-          "part": "decomp_0052",
+          "part": "decomp_0049",
           "source_index": 0,
-          "source_part": "part_0040"
+          "source_part": "part_0041"
         },
         {
           "at": [
             5.0,
             5.0
           ],
-          "part": "decomp_0053",
+          "part": "decomp_0050",
           "source_index": 0,
-          "source_part": "part_0040"
-        },
-        {
-          "at": [
-            24.0,
-            5.0
-          ],
-          "part": "decomp_0054",
-          "source_index": 1,
           "source_part": "part_0041"
         },
         {
@@ -1284,108 +1248,117 @@
             24.0,
             5.0
           ],
-          "part": "decomp_0055",
+          "part": "decomp_0051",
           "source_index": 1,
-          "source_part": "part_0041"
+          "source_part": "part_0042"
+        },
+        {
+          "at": [
+            24.0,
+            5.0
+          ],
+          "part": "decomp_0052",
+          "source_index": 1,
+          "source_part": "part_0042"
         },
         {
           "at": [
             21.0,
             37.0
           ],
-          "part": "decomp_0056",
+          "part": "decomp_0053",
           "source_index": 2,
-          "source_part": "part_0021"
+          "source_part": "part_0022"
         },
         {
           "at": [
             5.17,
             25.17
+          ],
+          "part": "decomp_0107",
+          "source_index": 3,
+          "source_part": "part_0043"
+        },
+        {
+          "at": [
+            5.17,
+            30.83
+          ],
+          "part": "decomp_0108",
+          "source_index": 3,
+          "source_part": "part_0043"
+        },
+        {
+          "at": [
+            23.0,
+            25.17
+          ],
+          "part": "decomp_0109",
+          "source_index": 3,
+          "source_part": "part_0043"
+        },
+        {
+          "at": [
+            23.0,
+            30.83
           ],
           "part": "decomp_0110",
           "source_index": 3,
-          "source_part": "part_0042"
-        },
-        {
-          "at": [
-            5.17,
-            30.83
-          ],
-          "part": "decomp_0111",
-          "source_index": 3,
-          "source_part": "part_0042"
-        },
-        {
-          "at": [
-            23.0,
-            25.17
-          ],
-          "part": "decomp_0112",
-          "source_index": 3,
-          "source_part": "part_0042"
-        },
-        {
-          "at": [
-            23.0,
-            30.83
-          ],
-          "part": "decomp_0113",
-          "source_index": 3,
-          "source_part": "part_0042"
+          "source_part": "part_0043"
         },
         {
           "at": [
             25.59,
             17.57
           ],
-          "part": "decomp_0114",
+          "part": "decomp_0111",
           "source_index": 4,
-          "source_part": "part_0043"
+          "source_part": "part_0044"
         },
         {
           "at": [
             25.59,
             22.55
           ],
-          "part": "decomp_0115",
+          "part": "decomp_0112",
           "source_index": 4,
-          "source_part": "part_0043"
+          "source_part": "part_0044"
         },
         {
           "at": [
             30.57,
             17.57
           ],
-          "part": "decomp_0116",
+          "part": "decomp_0113",
           "source_index": 4,
-          "source_part": "part_0043"
+          "source_part": "part_0044"
         },
         {
           "at": [
             30.57,
             17.57
           ],
-          "part": "decomp_0117",
+          "part": "decomp_0114",
           "source_index": 4,
-          "source_part": "part_0043"
+          "source_part": "part_0044"
         },
         {
           "at": [
             3.99,
             13.88
           ],
-          "part": "decomp_0118",
+          "part": "decomp_0115",
           "source_index": 5,
-          "source_part": "part_0044"
+          "source_part": "part_0045"
         },
         {
           "at": [
             9.65,
             13.88
           ],
-          "part": "decomp_0119",
+          "part": "decomp_0116",
           "source_index": 5,
-          "source_part": "part_0044"
+          "source_part": "part_0045"
         }
       ]
     },
@@ -1396,108 +1369,108 @@
             5.0,
             39.0
           ],
-          "part": "decomp_0057",
+          "part": "decomp_0054",
           "source_index": 0,
-          "source_part": "part_0022"
+          "source_part": "part_0023"
         },
         {
           "at": [
             22.0,
             30.0
           ],
-          "part": "decomp_0056",
+          "part": "decomp_0053",
           "source_index": 1,
-          "source_part": "part_0021"
+          "source_part": "part_0022"
         },
         {
           "at": [
             5.0,
             13.17
           ],
-          "part": "decomp_0120",
+          "part": "decomp_0117",
           "source_index": 2,
-          "source_part": "part_0045"
+          "source_part": "part_0046"
         },
         {
           "at": [
             5.0,
             16.0
           ],
-          "part": "decomp_0121",
+          "part": "decomp_0118",
           "source_index": 2,
-          "source_part": "part_0045"
+          "source_part": "part_0046"
         },
         {
           "at": [
             15.59,
             4.76
           ],
-          "part": "decomp_0122",
+          "part": "decomp_0119",
           "source_index": 2,
-          "source_part": "part_0045"
+          "source_part": "part_0046"
         },
         {
           "at": [
             15.59,
             7.59
           ],
-          "part": "decomp_0123",
+          "part": "decomp_0120",
           "source_index": 2,
-          "source_part": "part_0045"
+          "source_part": "part_0046"
         },
         {
           "at": [
             21.17,
             10.34
           ],
-          "part": "decomp_0124",
+          "part": "decomp_0121",
           "source_index": 2,
-          "source_part": "part_0045"
+          "source_part": "part_0046"
         },
         {
           "at": [
             21.17,
             13.17
           ],
-          "part": "decomp_0125",
+          "part": "decomp_0122",
           "source_index": 2,
-          "source_part": "part_0045"
+          "source_part": "part_0046"
         },
         {
           "at": [
             24.0,
             4.76
           ],
-          "part": "decomp_0126",
+          "part": "decomp_0123",
           "source_index": 2,
-          "source_part": "part_0045"
+          "source_part": "part_0046"
         },
         {
           "at": [
             24.0,
             7.59
           ],
-          "part": "decomp_0127",
+          "part": "decomp_0124",
           "source_index": 2,
-          "source_part": "part_0045"
+          "source_part": "part_0046"
         },
         {
           "at": [
             24.0,
             13.17
           ],
-          "part": "decomp_0128",
+          "part": "decomp_0125",
           "source_index": 2,
-          "source_part": "part_0045"
+          "source_part": "part_0046"
         },
         {
           "at": [
             24.0,
             16.0
           ],
-          "part": "decomp_0129",
+          "part": "decomp_0126",
           "source_index": 2,
-          "source_part": "part_0045"
+          "source_part": "part_0046"
         }
       ]
     },
@@ -1508,44 +1481,35 @@
             18.0,
             10.0
           ],
-          "part": "decomp_0047",
+          "part": "decomp_0044",
           "source_index": 0,
-          "source_part": "part_0046"
+          "source_part": "part_0047"
         },
         {
           "at": [
             18.0,
             14.0
           ],
-          "part": "decomp_0130",
+          "part": "decomp_0127",
           "source_index": 0,
-          "source_part": "part_0046"
+          "source_part": "part_0047"
         },
         {
           "at": [
             9.0,
             5.0
           ],
-          "part": "decomp_0049",
+          "part": "decomp_0046",
           "source_index": 1,
-          "source_part": "part_0047"
+          "source_part": "part_0048"
         },
         {
           "at": [
             12.0,
             5.0
           ],
-          "part": "decomp_0050",
+          "part": "decomp_0047",
           "source_index": 1,
-          "source_part": "part_0047"
-        },
-        {
-          "at": [
-            5.0,
-            10.0
-          ],
-          "part": "decomp_0131",
-          "source_index": 2,
           "source_part": "part_0048"
         },
         {
@@ -1553,71 +1517,71 @@
             5.0,
             10.0
           ],
-          "part": "decomp_0132",
+          "part": "decomp_0128",
           "source_index": 2,
-          "source_part": "part_0048"
+          "source_part": "part_0049"
+        },
+        {
+          "at": [
+            5.0,
+            10.0
+          ],
+          "part": "decomp_0129",
+          "source_index": 2,
+          "source_part": "part_0049"
         },
         {
           "at": [
             5.0,
             17.63
           ],
-          "part": "decomp_0133",
+          "part": "decomp_0130",
           "source_index": 2,
-          "source_part": "part_0048"
+          "source_part": "part_0049"
         },
         {
           "at": [
             9.0,
             17.63
           ],
-          "part": "decomp_0134",
+          "part": "decomp_0131",
           "source_index": 2,
-          "source_part": "part_0048"
+          "source_part": "part_0049"
         },
         {
           "at": [
             39.0,
             22.0
           ],
-          "part": "decomp_0135",
+          "part": "decomp_0132",
           "source_index": 3,
-          "source_part": "part_0049"
+          "source_part": "part_0050"
         },
         {
           "at": [
             39.0,
             26.0
           ],
-          "part": "decomp_0136",
+          "part": "decomp_0133",
           "source_index": 3,
-          "source_part": "part_0049"
+          "source_part": "part_0050"
         },
         {
           "at": [
             27.0,
             17.0
           ],
-          "part": "decomp_0137",
+          "part": "decomp_0134",
           "source_index": 4,
-          "source_part": "part_0050"
+          "source_part": "part_0051"
         },
         {
           "at": [
             30.0,
             17.0
           ],
-          "part": "decomp_0138",
+          "part": "decomp_0135",
           "source_index": 4,
-          "source_part": "part_0050"
-        },
-        {
-          "at": [
-            23.0,
-            22.0
-          ],
-          "part": "decomp_0139",
-          "source_index": 5,
           "source_part": "part_0051"
         },
         {
@@ -1625,36 +1589,45 @@
             23.0,
             22.0
           ],
-          "part": "decomp_0140",
+          "part": "decomp_0136",
           "source_index": 5,
-          "source_part": "part_0051"
+          "source_part": "part_0052"
+        },
+        {
+          "at": [
+            23.0,
+            22.0
+          ],
+          "part": "decomp_0137",
+          "source_index": 5,
+          "source_part": "part_0052"
         },
         {
           "at": [
             23.0,
             34.17
           ],
-          "part": "decomp_0141",
+          "part": "decomp_0138",
           "source_index": 5,
-          "source_part": "part_0051"
+          "source_part": "part_0052"
         },
         {
           "at": [
             27.0,
             34.17
           ],
-          "part": "decomp_0142",
+          "part": "decomp_0139",
           "source_index": 5,
-          "source_part": "part_0051"
+          "source_part": "part_0052"
         },
         {
           "at": [
             31.0,
             25.0
           ],
-          "part": "decomp_0056",
+          "part": "decomp_0053",
           "source_index": 6,
-          "source_part": "part_0021"
+          "source_part": "part_0022"
         }
       ]
     },
@@ -1665,53 +1638,44 @@
             14.27,
             7.0
           ],
-          "part": "decomp_0143",
+          "part": "decomp_0140",
           "source_index": 0,
-          "source_part": "part_0052"
+          "source_part": "part_0053"
         },
         {
           "at": [
             14.27,
             11.0
           ],
-          "part": "decomp_0144",
+          "part": "decomp_0141",
           "source_index": 0,
-          "source_part": "part_0052"
+          "source_part": "part_0053"
         },
         {
           "at": [
             35.51,
             7.0
           ],
-          "part": "decomp_0145",
+          "part": "decomp_0142",
           "source_index": 0,
-          "source_part": "part_0052"
+          "source_part": "part_0053"
         },
         {
           "at": [
             37.17,
             7.0
           ],
-          "part": "decomp_0146",
+          "part": "decomp_0143",
           "source_index": 0,
-          "source_part": "part_0052"
+          "source_part": "part_0053"
         },
         {
           "at": [
             19.929626587,
             13.248554134
           ],
-          "part": "decomp_0147",
+          "part": "decomp_0144",
           "source_index": 1,
-          "source_part": "part_0053"
-        },
-        {
-          "at": [
-            6.0,
-            14.0
-          ],
-          "part": "decomp_0148",
-          "source_index": 2,
           "source_part": "part_0054"
         },
         {
@@ -1719,35 +1683,35 @@
             6.0,
             14.0
           ],
-          "part": "decomp_0149",
+          "part": "decomp_0145",
           "source_index": 2,
-          "source_part": "part_0054"
+          "source_part": "part_0055"
+        },
+        {
+          "at": [
+            6.0,
+            14.0
+          ],
+          "part": "decomp_0146",
+          "source_index": 2,
+          "source_part": "part_0055"
         },
         {
           "at": [
             33.0,
             28.0
           ],
-          "part": "decomp_0150",
+          "part": "decomp_0147",
           "source_index": 3,
-          "source_part": "part_0055"
+          "source_part": "part_0056"
         },
         {
           "at": [
             33.0,
             32.0
           ],
-          "part": "decomp_0151",
+          "part": "decomp_0148",
           "source_index": 3,
-          "source_part": "part_0055"
-        },
-        {
-          "at": [
-            6.12,
-            29.99
-          ],
-          "part": "decomp_0152",
-          "source_index": 4,
           "source_part": "part_0056"
         },
         {
@@ -1755,9 +1719,18 @@
             6.12,
             29.99
           ],
-          "part": "decomp_0153",
+          "part": "decomp_0149",
           "source_index": 4,
-          "source_part": "part_0056"
+          "source_part": "part_0057"
+        },
+        {
+          "at": [
+            6.12,
+            29.99
+          ],
+          "part": "decomp_0150",
+          "source_index": 4,
+          "source_part": "part_0057"
         }
       ]
     },
@@ -1768,135 +1741,81 @@
             24.0,
             32.03
           ],
-          "part": "decomp_0154",
+          "part": "decomp_0151",
           "source_index": 0,
-          "source_part": "part_0057"
+          "source_part": "part_0058"
         },
         {
           "at": [
             24.0,
             33.77
           ],
-          "part": "decomp_0155",
+          "part": "decomp_0152",
           "source_index": 0,
-          "source_part": "part_0057"
+          "source_part": "part_0058"
         },
         {
           "at": [
             3.56,
             14.23
           ],
-          "part": "decomp_0156",
+          "part": "decomp_0153",
           "source_index": 1,
-          "source_part": "part_0058"
+          "source_part": "part_0059"
         },
         {
           "at": [
             8.89,
             1.37
           ],
-          "part": "decomp_0157",
+          "part": "decomp_0154",
           "source_index": 2,
-          "source_part": "part_0059"
+          "source_part": "part_0060"
         },
         {
           "at": [
             8.89,
             7.12
           ],
+          "part": "decomp_0155",
+          "source_index": 2,
+          "source_part": "part_0060"
+        },
+        {
+          "at": [
+            24.0,
+            7.11
+          ],
+          "part": "decomp_0156",
+          "source_index": 3,
+          "source_part": "part_0061"
+        },
+        {
+          "at": [
+            24.0,
+            12.84
+          ],
+          "part": "decomp_0157",
+          "source_index": 3,
+          "source_part": "part_0061"
+        },
+        {
+          "at": [
+            39.11,
+            19.93
+          ],
           "part": "decomp_0158",
-          "source_index": 2,
-          "source_part": "part_0059"
-        },
-        {
-          "at": [
-            8.89,
-            8.49
-          ],
-          "part": "decomp_0159",
-          "source_index": 2,
-          "source_part": "part_0059"
-        },
-        {
-          "at": [
-            24.0,
-            1.37
-          ],
-          "part": "decomp_0160",
-          "source_index": 2,
-          "source_part": "part_0059"
-        },
-        {
-          "at": [
-            24.0,
-            7.11
-          ],
-          "part": "decomp_0161",
-          "source_index": 2,
-          "source_part": "part_0059"
-        },
-        {
-          "at": [
-            24.0,
-            7.11
-          ],
-          "part": "decomp_0162",
-          "source_index": 2,
-          "source_part": "part_0059"
-        },
-        {
-          "at": [
-            24.0,
-            12.84
-          ],
-          "part": "decomp_0163",
-          "source_index": 2,
-          "source_part": "part_0059"
-        },
-        {
-          "at": [
-            24.0,
-            12.84
-          ],
-          "part": "decomp_0164",
-          "source_index": 2,
-          "source_part": "part_0059"
-        },
-        {
-          "at": [
-            39.11,
-            19.93
-          ],
-          "part": "decomp_0165",
-          "source_index": 2,
-          "source_part": "part_0059"
-        },
-        {
-          "at": [
-            39.11,
-            19.93
-          ],
-          "part": "decomp_0166",
-          "source_index": 2,
-          "source_part": "part_0059"
-        },
-        {
-          "at": [
-            39.11,
-            19.96
-          ],
-          "part": "decomp_0167",
-          "source_index": 2,
-          "source_part": "part_0059"
+          "source_index": 4,
+          "source_part": "part_0062"
         },
         {
           "at": [
             16.0,
             21.33
           ],
-          "part": "decomp_0168",
-          "source_index": 3,
-          "source_part": "part_0060"
+          "part": "decomp_0159",
+          "source_index": 5,
+          "source_part": "part_0063"
         }
       ]
     }
@@ -2036,16 +1955,16 @@
       "bounds": [
         0.0,
         0.0,
-        5.31,
-        32.01
+        24.93,
+        5.33
       ],
       "geometry": {
         "format": "wkb_hex",
-        "value": "010300000001000000040000000000000000000000E27A14AE470140403D0AD7A3703D15400000000000000000000000000000000000000000000000000000000000000000E27A14AE47014040"
+        "value": "01030000000100000004000000000000000000000052B81E85EB511540AE47E17A14EE384052B81E85EB5115408014AE47E17AFC3F0000000000000000000000000000000052B81E85EB511540"
       },
       "kind": "triangle",
       "print": {
-        "min_feature": 5.31
+        "min_feature": 5.62
       },
       "source_parts": [
         {
@@ -2058,100 +1977,12 @@
       "bounds": [
         0.0,
         0.0,
-        5.33,
-        32.01
-      ],
-      "geometry": {
-        "format": "wkb_hex",
-        "value": "010300000001000000040000000000000000000000E27A14AE4701404053B81E85EB511540E27A14AE470140403D0AD7A3703D154000000000000000000000000000000000E27A14AE47014040"
-      },
-      "kind": "triangle",
-      "print": {
-        "min_feature": 5.33
-      },
-      "source_parts": [
-        {
-          "part": "part_0003",
-          "strategy": "triangulate"
-        }
-      ]
-    },
-    "decomp_0008": {
-      "bounds": [
-        0.0,
-        0.0,
-        1.78,
-        5.33
-      ],
-      "geometry": {
-        "format": "wkb_hex",
-        "value": "010300000001000000040000008014AE47E17AFC3F0000000000000000000000000000000052B81E85EB5115400016AE47E17A943F52B81E85EB5115408014AE47E17AFC3F0000000000000000"
-      },
-      "kind": "triangle",
-      "print": {
-        "min_feature": 0.02
-      },
-      "source_parts": [
-        {
-          "part": "part_0003",
-          "strategy": "triangulate"
-        }
-      ]
-    },
-    "decomp_0009": {
-      "bounds": [
-        0.0,
-        0.0,
-        0.02,
-        32.01
-      ],
-      "geometry": {
-        "format": "wkb_hex",
-        "value": "010300000001000000040000000016AE47E17A943FE27A14AE470140400016AE47E17A943F0000000000000000000000000000000000000000000000000016AE47E17A943FE27A14AE47014040"
-      },
-      "kind": "triangle",
-      "print": {
-        "min_feature": 0.02
-      },
-      "source_parts": [
-        {
-          "part": "part_0003",
-          "strategy": "triangulate"
-        }
-      ]
-    },
-    "decomp_0010": {
-      "bounds": [
-        0.0,
-        0.0,
-        24.91,
-        5.33
-      ],
-      "geometry": {
-        "format": "wkb_hex",
-        "value": "01030000000100000004000000285C8FC2F5E8384052B81E85EB511540285C8FC2F528FC3F0000000000000000000000000000000052B81E85EB511540285C8FC2F5E8384052B81E85EB511540"
-      },
-      "kind": "triangle",
-      "print": {
-        "min_feature": 5.61
-      },
-      "source_parts": [
-        {
-          "part": "part_0003",
-          "strategy": "triangulate"
-        }
-      ]
-    },
-    "decomp_0011": {
-      "bounds": [
-        0.0,
-        0.0,
         25.67,
         5.33
       ],
       "geometry": {
         "format": "wkb_hex",
-        "value": "01030000000100000004000000666666666626374052B81E85EB511540ED51B81E85AB3940000000000000000000000000000000000000000000000000666666666626374052B81E85EB511540"
+        "value": "01030000000100000004000000666666666626374052B81E85EB511540EC51B81E85AB3940000000000000000000000000000000000000000000000000666666666626374052B81E85EB511540"
       },
       "kind": "triangle",
       "print": {
@@ -2164,7 +1995,27 @@
         }
       ]
     },
-    "decomp_0012": {
+    "decomp_0008": {
+      "bounds": [
+        0.0,
+        0.0,
+        5.33,
+        32.01
+      ],
+      "height": 32.01,
+      "kind": "rect",
+      "print": {
+        "min_feature": 5.33
+      },
+      "source_parts": [
+        {
+          "part": "part_0004",
+          "strategy": "triangulate"
+        }
+      ],
+      "width": 5.33
+    },
+    "decomp_0009": {
       "bounds": [
         0.0,
         0.0,
@@ -2181,12 +2032,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0004",
+          "part": "part_0005",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0013": {
+    "decomp_0010": {
       "bounds": [
         0.0,
         0.0,
@@ -2203,12 +2054,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0004",
+          "part": "part_0005",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0014": {
+    "decomp_0011": {
       "bounds": [
         0.0,
         0.0,
@@ -2225,12 +2076,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0005",
+          "part": "part_0006",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0015": {
+    "decomp_0012": {
       "bounds": [
         0.0,
         0.0,
@@ -2247,12 +2098,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0005",
+          "part": "part_0006",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0016": {
+    "decomp_0013": {
       "bounds": [
         0.0,
         0.0,
@@ -2269,12 +2120,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0006",
+          "part": "part_0007",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0017": {
+    "decomp_0014": {
       "bounds": [
         0.0,
         0.0,
@@ -2291,12 +2142,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0006",
+          "part": "part_0007",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0018": {
+    "decomp_0015": {
       "bounds": [
         0.0,
         0.0,
@@ -2313,12 +2164,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0007",
+          "part": "part_0008",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0019": {
+    "decomp_0016": {
       "bounds": [
         0.0,
         0.0,
@@ -2335,12 +2186,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0007",
+          "part": "part_0008",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0020": {
+    "decomp_0017": {
       "bounds": [
         0.0,
         0.0,
@@ -2357,12 +2208,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0007",
+          "part": "part_0008",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0021": {
+    "decomp_0018": {
       "bounds": [
         0.0,
         0.0,
@@ -2379,12 +2230,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0007",
+          "part": "part_0008",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0022": {
+    "decomp_0019": {
       "bounds": [
         0.0,
         0.0,
@@ -2401,12 +2252,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0008",
+          "part": "part_0009",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0023": {
+    "decomp_0020": {
       "bounds": [
         0.0,
         0.0,
@@ -2423,12 +2274,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0008",
+          "part": "part_0009",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0024": {
+    "decomp_0021": {
       "bounds": [
         0.0,
         0.0,
@@ -2445,12 +2296,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0008",
+          "part": "part_0009",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0025": {
+    "decomp_0022": {
       "bounds": [
         0.0,
         0.0,
@@ -2467,12 +2318,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0008",
+          "part": "part_0009",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0026": {
+    "decomp_0023": {
       "bounds": [
         0.0,
         0.0,
@@ -2489,12 +2340,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0009",
+          "part": "part_0010",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0027": {
+    "decomp_0024": {
       "bounds": [
         0.0,
         0.0,
@@ -2511,12 +2362,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0009",
+          "part": "part_0010",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0028": {
+    "decomp_0025": {
       "bounds": [
         0.0,
         0.0,
@@ -2533,12 +2384,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0009",
+          "part": "part_0010",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0029": {
+    "decomp_0026": {
       "bounds": [
         0.0,
         0.0,
@@ -2555,12 +2406,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0009",
+          "part": "part_0010",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0030": {
+    "decomp_0027": {
       "bounds": [
         0.0,
         0.0,
@@ -2577,12 +2428,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0010",
+          "part": "part_0011",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0031": {
+    "decomp_0028": {
       "bounds": [
         0.0,
         0.0,
@@ -2599,12 +2450,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0010",
+          "part": "part_0011",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0032": {
+    "decomp_0029": {
       "bounds": [
         0.0,
         0.0,
@@ -2621,12 +2472,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0010",
+          "part": "part_0011",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0033": {
+    "decomp_0030": {
       "bounds": [
         0.0,
         0.0,
@@ -2643,12 +2494,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0010",
+          "part": "part_0011",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0034": {
+    "decomp_0031": {
       "bounds": [
         0.0,
         0.0,
@@ -2665,12 +2516,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0011",
+          "part": "part_0012",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0035": {
+    "decomp_0032": {
       "bounds": [
         0.0,
         0.0,
@@ -2687,12 +2538,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0011",
+          "part": "part_0012",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0036": {
+    "decomp_0033": {
       "bounds": [
         0.0,
         0.0,
@@ -2709,12 +2560,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0011",
+          "part": "part_0012",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0037": {
+    "decomp_0034": {
       "bounds": [
         0.0,
         0.0,
@@ -2731,12 +2582,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0011",
+          "part": "part_0012",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0038": {
+    "decomp_0035": {
       "bounds": [
         0.0,
         0.0,
@@ -2750,13 +2601,13 @@
       },
       "source_parts": [
         {
-          "part": "part_0012",
+          "part": "part_0013",
           "strategy": "triangulate"
         }
       ],
       "width": 33.0
     },
-    "decomp_0039": {
+    "decomp_0036": {
       "bounds": [
         0.0,
         0.0,
@@ -2770,13 +2621,13 @@
       },
       "source_parts": [
         {
-          "part": "part_0013",
+          "part": "part_0014",
           "strategy": "triangulate"
         }
       ],
       "width": 17.0
     },
-    "decomp_0040": {
+    "decomp_0037": {
       "bounds": [
         0.0,
         0.0,
@@ -2793,12 +2644,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0014",
+          "part": "part_0015",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0041": {
+    "decomp_0038": {
       "bounds": [
         0.0,
         0.0,
@@ -2815,12 +2666,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0014",
+          "part": "part_0015",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0042": {
+    "decomp_0039": {
       "bounds": [
         0.0,
         0.0,
@@ -2837,12 +2688,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0015",
+          "part": "part_0016",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0043": {
+    "decomp_0040": {
       "bounds": [
         0.0,
         0.0,
@@ -2859,12 +2710,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0015",
+          "part": "part_0016",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0044": {
+    "decomp_0041": {
       "bounds": [
         0.0,
         0.0,
@@ -2881,16 +2732,16 @@
       },
       "source_parts": [
         {
-          "part": "part_0015",
+          "part": "part_0016",
           "strategy": "triangulate"
         },
         {
-          "part": "part_0028",
+          "part": "part_0029",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0045": {
+    "decomp_0042": {
       "bounds": [
         0.0,
         0.0,
@@ -2907,12 +2758,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0015",
+          "part": "part_0016",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0046": {
+    "decomp_0043": {
       "bounds": [
         0.0,
         0.0,
@@ -2929,12 +2780,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0015",
+          "part": "part_0016",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0047": {
+    "decomp_0044": {
       "bounds": [
         0.0,
         0.0,
@@ -2951,16 +2802,16 @@
       },
       "source_parts": [
         {
-          "part": "part_0016",
+          "part": "part_0017",
           "strategy": "triangulate"
         },
         {
-          "part": "part_0046",
+          "part": "part_0047",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0048": {
+    "decomp_0045": {
       "bounds": [
         0.0,
         0.0,
@@ -2977,12 +2828,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0016",
+          "part": "part_0017",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0049": {
+    "decomp_0046": {
       "bounds": [
         0.0,
         0.0,
@@ -2999,16 +2850,16 @@
       },
       "source_parts": [
         {
-          "part": "part_0017",
+          "part": "part_0018",
           "strategy": "triangulate"
         },
         {
-          "part": "part_0047",
+          "part": "part_0048",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0050": {
+    "decomp_0047": {
       "bounds": [
         0.0,
         0.0,
@@ -3025,16 +2876,16 @@
       },
       "source_parts": [
         {
-          "part": "part_0017",
+          "part": "part_0018",
           "strategy": "triangulate"
         },
         {
-          "part": "part_0047",
+          "part": "part_0048",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0051": {
+    "decomp_0048": {
       "bounds": [
         0.0,
         0.0,
@@ -3048,13 +2899,13 @@
       },
       "source_parts": [
         {
-          "part": "part_0018",
+          "part": "part_0019",
           "strategy": "triangulate"
         }
       ],
       "width": 4.0
     },
-    "decomp_0052": {
+    "decomp_0049": {
       "bounds": [
         0.0,
         0.0,
@@ -3071,16 +2922,16 @@
       },
       "source_parts": [
         {
-          "part": "part_0019",
+          "part": "part_0020",
           "strategy": "triangulate"
         },
         {
-          "part": "part_0040",
+          "part": "part_0041",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0053": {
+    "decomp_0050": {
       "bounds": [
         0.0,
         0.0,
@@ -3097,16 +2948,16 @@
       },
       "source_parts": [
         {
-          "part": "part_0019",
+          "part": "part_0020",
           "strategy": "triangulate"
         },
         {
-          "part": "part_0040",
+          "part": "part_0041",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0054": {
+    "decomp_0051": {
       "bounds": [
         0.0,
         0.0,
@@ -3123,16 +2974,16 @@
       },
       "source_parts": [
         {
-          "part": "part_0020",
+          "part": "part_0021",
           "strategy": "triangulate"
         },
         {
-          "part": "part_0041",
+          "part": "part_0042",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0055": {
+    "decomp_0052": {
       "bounds": [
         0.0,
         0.0,
@@ -3149,16 +3000,16 @@
       },
       "source_parts": [
         {
-          "part": "part_0020",
+          "part": "part_0021",
           "strategy": "triangulate"
         },
         {
-          "part": "part_0041",
+          "part": "part_0042",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0056": {
+    "decomp_0053": {
       "bounds": [
         0.0,
         0.0,
@@ -3172,13 +3023,13 @@
       },
       "source_parts": [
         {
-          "part": "part_0021",
+          "part": "part_0022",
           "strategy": "triangulate"
         }
       ],
       "width": 4.0
     },
-    "decomp_0057": {
+    "decomp_0054": {
       "bounds": [
         0.0,
         0.0,
@@ -3192,13 +3043,13 @@
       },
       "source_parts": [
         {
-          "part": "part_0022",
+          "part": "part_0023",
           "strategy": "triangulate"
         }
       ],
       "width": 38.0
     },
-    "decomp_0058": {
+    "decomp_0055": {
       "bounds": [
         0.0,
         0.0,
@@ -3212,13 +3063,13 @@
       },
       "source_parts": [
         {
-          "part": "part_0023",
+          "part": "part_0024",
           "strategy": "triangulate"
         }
       ],
       "width": 5.33
     },
-    "decomp_0059": {
+    "decomp_0056": {
       "bounds": [
         0.0,
         0.0,
@@ -3235,12 +3086,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0024",
+          "part": "part_0025",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0060": {
+    "decomp_0057": {
       "bounds": [
         0.0,
         0.0,
@@ -3257,12 +3108,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0024",
+          "part": "part_0025",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0061": {
+    "decomp_0058": {
       "bounds": [
         0.0,
         0.0,
@@ -3279,12 +3130,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0024",
+          "part": "part_0025",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0062": {
+    "decomp_0059": {
       "bounds": [
         0.0,
         0.0,
@@ -3301,12 +3152,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0024",
+          "part": "part_0025",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0063": {
+    "decomp_0060": {
       "bounds": [
         0.0,
         0.0,
@@ -3323,12 +3174,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0025",
+          "part": "part_0026",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0064": {
+    "decomp_0061": {
       "bounds": [
         0.0,
         0.0,
@@ -3345,12 +3196,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0025",
+          "part": "part_0026",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0065": {
+    "decomp_0062": {
       "bounds": [
         0.0,
         0.0,
@@ -3367,12 +3218,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0025",
+          "part": "part_0026",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0066": {
+    "decomp_0063": {
       "bounds": [
         0.0,
         0.0,
@@ -3389,12 +3240,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0025",
+          "part": "part_0026",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0067": {
+    "decomp_0064": {
       "bounds": [
         0.0,
         0.0,
@@ -3411,12 +3262,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0026",
+          "part": "part_0027",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0068": {
+    "decomp_0065": {
       "bounds": [
         0.0,
         0.0,
@@ -3433,12 +3284,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0026",
+          "part": "part_0027",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0069": {
+    "decomp_0066": {
       "bounds": [
         0.0,
         0.0,
@@ -3455,12 +3306,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0026",
+          "part": "part_0027",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0070": {
+    "decomp_0067": {
       "bounds": [
         0.0,
         0.0,
@@ -3477,12 +3328,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0026",
+          "part": "part_0027",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0071": {
+    "decomp_0068": {
       "bounds": [
         0.0,
         0.0,
@@ -3499,12 +3350,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0027",
+          "part": "part_0028",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0072": {
+    "decomp_0069": {
       "bounds": [
         0.0,
         0.0,
@@ -3521,12 +3372,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0027",
+          "part": "part_0028",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0073": {
+    "decomp_0070": {
       "bounds": [
         0.0,
         0.0,
@@ -3543,12 +3394,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0027",
+          "part": "part_0028",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0074": {
+    "decomp_0071": {
       "bounds": [
         0.0,
         0.0,
@@ -3565,12 +3416,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0027",
+          "part": "part_0028",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0075": {
+    "decomp_0072": {
       "bounds": [
         0.0,
         0.0,
@@ -3587,12 +3438,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0028",
+          "part": "part_0029",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0076": {
+    "decomp_0073": {
       "bounds": [
         0.0,
         0.0,
@@ -3609,12 +3460,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0028",
+          "part": "part_0029",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0077": {
+    "decomp_0074": {
       "bounds": [
         0.0,
         0.0,
@@ -3631,12 +3482,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0028",
+          "part": "part_0029",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0078": {
+    "decomp_0075": {
       "bounds": [
         0.0,
         0.0,
@@ -3653,12 +3504,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0028",
+          "part": "part_0029",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0079": {
+    "decomp_0076": {
       "bounds": [
         0.0,
         0.0,
@@ -3675,12 +3526,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0029",
+          "part": "part_0030",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0080": {
+    "decomp_0077": {
       "bounds": [
         0.0,
         0.0,
@@ -3697,12 +3548,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0029",
+          "part": "part_0030",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0081": {
+    "decomp_0078": {
       "bounds": [
         0.0,
         0.0,
@@ -3719,12 +3570,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0030",
+          "part": "part_0031",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0082": {
+    "decomp_0079": {
       "bounds": [
         0.0,
         0.0,
@@ -3741,12 +3592,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0030",
+          "part": "part_0031",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0083": {
+    "decomp_0080": {
       "bounds": [
         0.0,
         0.0,
@@ -3763,12 +3614,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0031",
+          "part": "part_0032",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0084": {
+    "decomp_0081": {
       "bounds": [
         0.0,
         0.0,
@@ -3785,12 +3636,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0031",
+          "part": "part_0032",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0085": {
+    "decomp_0082": {
       "bounds": [
         0.0,
         0.0,
@@ -3807,12 +3658,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0032",
+          "part": "part_0033",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0086": {
+    "decomp_0083": {
       "bounds": [
         0.0,
         0.0,
@@ -3829,12 +3680,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0032",
+          "part": "part_0033",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0087": {
+    "decomp_0084": {
       "bounds": [
         0.0,
         0.0,
@@ -3851,12 +3702,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0033",
+          "part": "part_0034",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0088": {
+    "decomp_0085": {
       "bounds": [
         0.0,
         0.0,
@@ -3873,12 +3724,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0033",
+          "part": "part_0034",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0089": {
+    "decomp_0086": {
       "bounds": [
         0.0,
         0.0,
@@ -3895,12 +3746,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0034",
+          "part": "part_0035",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0090": {
+    "decomp_0087": {
       "bounds": [
         0.0,
         0.0,
@@ -3917,12 +3768,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0034",
+          "part": "part_0035",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0091": {
+    "decomp_0088": {
       "bounds": [
         0.0,
         0.0,
@@ -3939,12 +3790,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0035",
+          "part": "part_0036",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0092": {
+    "decomp_0089": {
       "bounds": [
         0.0,
         0.0,
@@ -3961,12 +3812,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0035",
+          "part": "part_0036",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0093": {
+    "decomp_0090": {
       "bounds": [
         0.0,
         0.0,
@@ -3983,12 +3834,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0036",
+          "part": "part_0037",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0094": {
+    "decomp_0091": {
       "bounds": [
         0.0,
         0.0,
@@ -4005,12 +3856,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0036",
+          "part": "part_0037",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0095": {
+    "decomp_0092": {
       "bounds": [
         0.0,
         0.0,
@@ -4027,12 +3878,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0037",
+          "part": "part_0038",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0096": {
+    "decomp_0093": {
       "bounds": [
         0.0,
         0.0,
@@ -4049,12 +3900,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0037",
+          "part": "part_0038",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0097": {
+    "decomp_0094": {
       "bounds": [
         0.0,
         0.0,
@@ -4071,12 +3922,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0038",
+          "part": "part_0039",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0098": {
+    "decomp_0095": {
       "bounds": [
         0.0,
         0.0,
@@ -4093,12 +3944,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0038",
+          "part": "part_0039",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0099": {
+    "decomp_0096": {
       "bounds": [
         0.0,
         0.0,
@@ -4115,12 +3966,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0039",
+          "part": "part_0040",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0100": {
+    "decomp_0097": {
       "bounds": [
         0.0,
         0.0,
@@ -4137,12 +3988,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0039",
+          "part": "part_0040",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0101": {
+    "decomp_0098": {
       "bounds": [
         0.0,
         0.0,
@@ -4159,12 +4010,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0039",
+          "part": "part_0040",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0102": {
+    "decomp_0099": {
       "bounds": [
         0.0,
         0.0,
@@ -4181,12 +4032,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0039",
+          "part": "part_0040",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0103": {
+    "decomp_0100": {
       "bounds": [
         0.0,
         0.0,
@@ -4203,12 +4054,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0039",
+          "part": "part_0040",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0104": {
+    "decomp_0101": {
       "bounds": [
         0.0,
         0.0,
@@ -4225,12 +4076,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0039",
+          "part": "part_0040",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0105": {
+    "decomp_0102": {
       "bounds": [
         0.0,
         0.0,
@@ -4247,12 +4098,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0039",
+          "part": "part_0040",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0106": {
+    "decomp_0103": {
       "bounds": [
         0.0,
         0.0,
@@ -4269,12 +4120,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0039",
+          "part": "part_0040",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0107": {
+    "decomp_0104": {
       "bounds": [
         0.0,
         0.0,
@@ -4291,12 +4142,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0039",
+          "part": "part_0040",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0108": {
+    "decomp_0105": {
       "bounds": [
         0.0,
         0.0,
@@ -4313,12 +4164,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0039",
+          "part": "part_0040",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0109": {
+    "decomp_0106": {
       "bounds": [
         0.0,
         0.0,
@@ -4335,12 +4186,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0039",
+          "part": "part_0040",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0110": {
+    "decomp_0107": {
       "bounds": [
         0.0,
         0.0,
@@ -4357,12 +4208,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0042",
+          "part": "part_0043",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0111": {
+    "decomp_0108": {
       "bounds": [
         0.0,
         0.0,
@@ -4379,12 +4230,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0042",
+          "part": "part_0043",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0112": {
+    "decomp_0109": {
       "bounds": [
         0.0,
         0.0,
@@ -4401,12 +4252,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0042",
+          "part": "part_0043",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0113": {
+    "decomp_0110": {
       "bounds": [
         0.0,
         0.0,
@@ -4423,12 +4274,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0042",
+          "part": "part_0043",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0114": {
+    "decomp_0111": {
       "bounds": [
         0.0,
         0.0,
@@ -4445,12 +4296,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0043",
+          "part": "part_0044",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0115": {
+    "decomp_0112": {
       "bounds": [
         0.0,
         0.0,
@@ -4467,12 +4318,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0043",
+          "part": "part_0044",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0116": {
+    "decomp_0113": {
       "bounds": [
         0.0,
         0.0,
@@ -4489,12 +4340,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0043",
+          "part": "part_0044",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0117": {
+    "decomp_0114": {
       "bounds": [
         0.0,
         0.0,
@@ -4511,12 +4362,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0043",
+          "part": "part_0044",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0118": {
+    "decomp_0115": {
       "bounds": [
         0.0,
         0.0,
@@ -4533,12 +4384,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0044",
+          "part": "part_0045",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0119": {
+    "decomp_0116": {
       "bounds": [
         0.0,
         0.0,
@@ -4555,12 +4406,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0044",
+          "part": "part_0045",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0120": {
+    "decomp_0117": {
       "bounds": [
         0.0,
         0.0,
@@ -4577,12 +4428,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0045",
+          "part": "part_0046",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0121": {
+    "decomp_0118": {
       "bounds": [
         0.0,
         0.0,
@@ -4599,12 +4450,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0045",
+          "part": "part_0046",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0122": {
+    "decomp_0119": {
       "bounds": [
         0.0,
         0.0,
@@ -4621,12 +4472,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0045",
+          "part": "part_0046",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0123": {
+    "decomp_0120": {
       "bounds": [
         0.0,
         0.0,
@@ -4643,12 +4494,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0045",
+          "part": "part_0046",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0124": {
+    "decomp_0121": {
       "bounds": [
         0.0,
         0.0,
@@ -4665,12 +4516,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0045",
+          "part": "part_0046",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0125": {
+    "decomp_0122": {
       "bounds": [
         0.0,
         0.0,
@@ -4687,12 +4538,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0045",
+          "part": "part_0046",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0126": {
+    "decomp_0123": {
       "bounds": [
         0.0,
         0.0,
@@ -4709,12 +4560,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0045",
+          "part": "part_0046",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0127": {
+    "decomp_0124": {
       "bounds": [
         0.0,
         0.0,
@@ -4731,12 +4582,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0045",
+          "part": "part_0046",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0128": {
+    "decomp_0125": {
       "bounds": [
         0.0,
         0.0,
@@ -4753,12 +4604,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0045",
+          "part": "part_0046",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0129": {
+    "decomp_0126": {
       "bounds": [
         0.0,
         0.0,
@@ -4775,12 +4626,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0045",
+          "part": "part_0046",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0130": {
+    "decomp_0127": {
       "bounds": [
         0.0,
         0.0,
@@ -4797,12 +4648,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0046",
+          "part": "part_0047",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0131": {
+    "decomp_0128": {
       "bounds": [
         0.0,
         0.0,
@@ -4819,12 +4670,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0048",
+          "part": "part_0049",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0132": {
+    "decomp_0129": {
       "bounds": [
         0.0,
         0.0,
@@ -4841,12 +4692,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0048",
+          "part": "part_0049",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0133": {
+    "decomp_0130": {
       "bounds": [
         0.0,
         0.0,
@@ -4863,12 +4714,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0048",
+          "part": "part_0049",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0134": {
+    "decomp_0131": {
       "bounds": [
         0.0,
         0.0,
@@ -4885,12 +4736,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0048",
+          "part": "part_0049",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0135": {
+    "decomp_0132": {
       "bounds": [
         0.0,
         0.0,
@@ -4907,12 +4758,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0049",
+          "part": "part_0050",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0136": {
+    "decomp_0133": {
       "bounds": [
         0.0,
         0.0,
@@ -4929,12 +4780,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0049",
+          "part": "part_0050",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0137": {
+    "decomp_0134": {
       "bounds": [
         0.0,
         0.0,
@@ -4951,12 +4802,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0050",
+          "part": "part_0051",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0138": {
+    "decomp_0135": {
       "bounds": [
         0.0,
         0.0,
@@ -4973,12 +4824,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0050",
+          "part": "part_0051",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0139": {
+    "decomp_0136": {
       "bounds": [
         0.0,
         0.0,
@@ -4995,12 +4846,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0051",
+          "part": "part_0052",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0140": {
+    "decomp_0137": {
       "bounds": [
         0.0,
         0.0,
@@ -5017,12 +4868,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0051",
+          "part": "part_0052",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0141": {
+    "decomp_0138": {
       "bounds": [
         0.0,
         0.0,
@@ -5039,12 +4890,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0051",
+          "part": "part_0052",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0142": {
+    "decomp_0139": {
       "bounds": [
         0.0,
         0.0,
@@ -5061,12 +4912,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0051",
+          "part": "part_0052",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0143": {
+    "decomp_0140": {
       "bounds": [
         0.0,
         0.0,
@@ -5083,12 +4934,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0052",
+          "part": "part_0053",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0144": {
+    "decomp_0141": {
       "bounds": [
         0.0,
         0.0,
@@ -5105,12 +4956,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0052",
+          "part": "part_0053",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0145": {
+    "decomp_0142": {
       "bounds": [
         0.0,
         0.0,
@@ -5127,12 +4978,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0052",
+          "part": "part_0053",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0146": {
+    "decomp_0143": {
       "bounds": [
         0.0,
         0.0,
@@ -5149,12 +5000,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0052",
+          "part": "part_0053",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0147": {
+    "decomp_0144": {
       "bounds": [
         0.0,
         0.0,
@@ -5171,12 +5022,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0053",
+          "part": "part_0054",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0148": {
+    "decomp_0145": {
       "bounds": [
         0.0,
         0.0,
@@ -5193,12 +5044,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0054",
+          "part": "part_0055",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0149": {
+    "decomp_0146": {
       "bounds": [
         0.0,
         0.0,
@@ -5215,12 +5066,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0054",
+          "part": "part_0055",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0150": {
+    "decomp_0147": {
       "bounds": [
         0.0,
         0.0,
@@ -5237,12 +5088,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0055",
+          "part": "part_0056",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0151": {
+    "decomp_0148": {
       "bounds": [
         0.0,
         0.0,
@@ -5259,12 +5110,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0055",
+          "part": "part_0056",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0152": {
+    "decomp_0149": {
       "bounds": [
         0.0,
         0.0,
@@ -5281,12 +5132,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0056",
+          "part": "part_0057",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0153": {
+    "decomp_0150": {
       "bounds": [
         0.0,
         0.0,
@@ -5303,12 +5154,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0056",
+          "part": "part_0057",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0154": {
+    "decomp_0151": {
       "bounds": [
         0.0,
         0.0,
@@ -5325,12 +5176,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0057",
+          "part": "part_0058",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0155": {
+    "decomp_0152": {
       "bounds": [
         0.0,
         0.0,
@@ -5347,12 +5198,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0057",
+          "part": "part_0058",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0156": {
+    "decomp_0153": {
       "bounds": [
         0.0,
         0.0,
@@ -5366,13 +5217,13 @@
       },
       "source_parts": [
         {
-          "part": "part_0058",
+          "part": "part_0059",
           "strategy": "triangulate"
         }
       ],
       "width": 5.33
     },
-    "decomp_0157": {
+    "decomp_0154": {
       "bounds": [
         0.0,
         0.0,
@@ -5381,7 +5232,7 @@
       ],
       "geometry": {
         "format": "wkb_hex",
-        "value": "010300000001000000040000003E0AD7A3703D2E40000000000000000000000000000000007B14AE47E17A1C40B81E85EB51382E4000000000000017403E0AD7A3703D2E400000000000000000"
+        "value": "01030000000100000004000000B81E85EB51382E4000000000000017403E0AD7A3703D2E40000000000000000000000000000000007B14AE47E17A1C40B81E85EB51382E400000000000001740"
       },
       "kind": "triangle",
       "print": {
@@ -5389,100 +5240,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0059",
+          "part": "part_0060",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0158": {
-      "bounds": [
-        0.0,
-        0.0,
-        15.11,
-        3.548795812
-      ],
-      "geometry": {
-        "format": "wkb_hex",
-        "value": "010300000001000000040000000000000000000000EC51B81E85EBF53F42664E49D2451E405039F50EEF630C40B81E85EB51382E4000000000000000000000000000000000EC51B81E85EBF53F"
-      },
-      "kind": "triangle",
-      "print": {
-        "min_feature": 7.88
-      },
-      "source_parts": [
-        {
-          "part": "part_0059",
-          "strategy": "triangulate"
-        }
-      ]
-    },
-    "decomp_0159": {
-      "bounds": [
-        0.0,
-        0.0,
-        7.568184991,
-        5.74
-      ],
-      "geometry": {
-        "format": "wkb_hex",
-        "value": "010300000001000000040000000000000000000000F5285C8FC2F5164042664E49D2451E405A10997F2C6E0140000000000000000000000000000000000000000000000000F5285C8FC2F51640"
-      },
-      "kind": "triangle",
-      "print": {
-        "min_feature": 5.74
-      },
-      "source_parts": [
-        {
-          "part": "part_0059",
-          "strategy": "triangulate"
-        }
-      ]
-    },
-    "decomp_0160": {
-      "bounds": [
-        0.0,
-        0.0,
-        0.01,
-        5.75
-      ],
-      "geometry": {
-        "format": "wkb_hex",
-        "value": "010300000001000000040000000018AE47E17A843F0000000000000000000000000000000000000000000017400018AE47E17A843FF6285C8FC2F516400018AE47E17A843F0000000000000000"
-      },
-      "kind": "triangle",
-      "print": {
-        "min_feature": 0.01
-      },
-      "source_parts": [
-        {
-          "part": "part_0059",
-          "strategy": "triangulate"
-        }
-      ]
-    },
-    "decomp_0161": {
-      "bounds": [
-        0.0,
-        0.0,
-        0.01,
-        5.73
-      ],
-      "geometry": {
-        "format": "wkb_hex",
-        "value": "010300000001000000040000000000000000000000EA51B81E85EB16400018AE47E17A843F000000000000000000000000000000000014AE47E17A843F0000000000000000EA51B81E85EB1640"
-      },
-      "kind": "triangle",
-      "print": {
-        "min_feature": 0.01
-      },
-      "source_parts": [
-        {
-          "part": "part_0059",
-          "strategy": "triangulate"
-        }
-      ]
-    },
-    "decomp_0162": {
+    "decomp_0155": {
       "bounds": [
         0.0,
         0.0,
@@ -5491,7 +5254,29 @@
       ],
       "geometry": {
         "format": "wkb_hex",
-        "value": "01030000000100000004000000B81E85EB51382E40723D0AD7A3701C400018AE47E17A843F00000000000000000000000000000000EA51B81E85EB1640B81E85EB51382E40723D0AD7A3701C40"
+        "value": "010300000001000000040000000000000000000000703D0AD7A3701C40B81E85EB51382E4000000000000000000000000000000000EC51B81E85EBF53F0000000000000000703D0AD7A3701C40"
+      },
+      "kind": "triangle",
+      "print": {
+        "min_feature": 5.74
+      },
+      "source_parts": [
+        {
+          "part": "part_0060",
+          "strategy": "triangulate"
+        }
+      ]
+    },
+    "decomp_0156": {
+      "bounds": [
+        0.0,
+        0.0,
+        15.11,
+        7.11
+      ],
+      "geometry": {
+        "format": "wkb_hex",
+        "value": "010300000001000000040000000000000000000000EB51B81E85EB1640B81E85EB51382E40713D0AD7A3701C400018AE47E17A843F00000000000000000000000000000000EB51B81E85EB1640"
       },
       "kind": "triangle",
       "print": {
@@ -5499,34 +5284,12 @@
       },
       "source_parts": [
         {
-          "part": "part_0059",
+          "part": "part_0061",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0163": {
-      "bounds": [
-        0.0,
-        0.0,
-        15.11,
-        7.09
-      ],
-      "geometry": {
-        "format": "wkb_hex",
-        "value": "01030000000100000004000000B81E85EB51382E4020AE47E17A14F63F00000000000000000000000000000000B81E85EB51382E405C8FC2F5285C1C40B81E85EB51382E4020AE47E17A14F63F"
-      },
-      "kind": "triangle",
-      "print": {
-        "min_feature": 5.71
-      },
-      "source_parts": [
-        {
-          "part": "part_0059",
-          "strategy": "triangulate"
-        }
-      ]
-    },
-    "decomp_0164": {
+    "decomp_0157": {
       "bounds": [
         0.0,
         0.0,
@@ -5535,86 +5298,40 @@
       ],
       "geometry": {
         "format": "wkb_hex",
-        "value": "0103000000010000000400000000000000000000000000000000000000B81E85EB51382E407C14AE47E17A1C40B81E85EB51382E405C8FC2F5285C1C4000000000000000000000000000000000"
+        "value": "0103000000010000000400000000000000000000000000000000000000B81E85EB51382E407D14AE47E17A1C40B81E85EB51382E4018AE47E17A14F63F00000000000000000000000000000000"
       },
       "kind": "triangle",
       "print": {
-        "min_feature": 0.03
+        "min_feature": 5.74
       },
       "source_parts": [
         {
-          "part": "part_0059",
+          "part": "part_0061",
           "strategy": "triangulate"
         }
       ]
     },
-    "decomp_0165": {
-      "bounds": [
-        0.0,
-        0.0,
-        5.33,
-        0.03
-      ],
-      "geometry": {
-        "format": "wkb_hex",
-        "value": "010300000001000000040000000000000000000000002085EB51B89E3F50B81E85EB5115400000000000000000000000000000000000000000000000000000000000000000002085EB51B89E3F"
-      },
-      "kind": "triangle",
-      "print": {
-        "min_feature": 0.03
-      },
-      "source_parts": [
-        {
-          "part": "part_0059",
-          "strategy": "triangulate"
-        }
-      ]
-    },
-    "decomp_0166": {
+    "decomp_0158": {
       "bounds": [
         0.0,
         0.0,
         5.33,
         22.74
       ],
-      "geometry": {
-        "format": "wkb_hex",
-        "value": "0103000000010000000400000050B81E85EB5115403F0AD7A370BD364050B81E85EB51154000000000000000000000000000000000002085EB51B89E3F50B81E85EB5115403F0AD7A370BD3640"
-      },
-      "kind": "triangle",
+      "height": 22.74,
+      "kind": "rect",
       "print": {
         "min_feature": 5.33
       },
       "source_parts": [
         {
-          "part": "part_0059",
+          "part": "part_0062",
           "strategy": "triangulate"
         }
-      ]
-    },
-    "decomp_0167": {
-      "bounds": [
-        0.0,
-        0.0,
-        5.33,
-        22.71
       ],
-      "geometry": {
-        "format": "wkb_hex",
-        "value": "010300000001000000040000000000000000000000F7285C8FC2B5364050B81E85EB511540F7285C8FC2B53640000000000000000000000000000000000000000000000000F7285C8FC2B53640"
-      },
-      "kind": "triangle",
-      "print": {
-        "min_feature": 5.33
-      },
-      "source_parts": [
-        {
-          "part": "part_0059",
-          "strategy": "triangulate"
-        }
-      ]
+      "width": 5.33
     },
-    "decomp_0168": {
+    "decomp_0159": {
       "bounds": [
         0.0,
         0.0,
@@ -5628,7 +5345,7 @@
       },
       "source_parts": [
         {
-          "part": "part_0060",
+          "part": "part_0063",
           "strategy": "triangulate"
         }
       ],
@@ -5642,7 +5359,7 @@
     "decomposition_strategy": "triangulate",
     "fallback_source_parts": 0,
     "min_piece_area": 1e-08,
-    "split_source_parts": 50,
+    "split_source_parts": 51,
     "triangulation_max_area_error_ratio": 1e-08,
     "triangulation_max_hausdorff": 1e-06
   },

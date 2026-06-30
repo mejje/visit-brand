@@ -37,7 +37,7 @@
         "validity": "Valid Geometry"
       },
       "reference_json": "analysis/references/Visit_Icon_DestinationBuilding.reference.json",
-      "sha256": "d11f9bafd65e1238b63cfb7792164e98e964a8f27c85952d31402448f21af769",
+      "sha256": "4b9b5a459a2b6d1a5dcd97e1c745720ca724b3261685a67248efeb7e704dc444",
       "source": "SVG/Visit_Icon_DestinationBuilding.svg",
       "unsupported_elements": []
     },
@@ -264,20 +264,20 @@
     "Visit_Icon_VacationRental": {
       "canonical_svg": "analysis/references/Visit_Icon_VacationRental.canonical.svg",
       "metrics": {
-        "area": 526.94355,
+        "area": 526.88625,
         "bounds": [
           3.56,
           1.37,
           44.44,
           42.67
         ],
-        "component_count": 4,
+        "component_count": 5,
         "hole_count": 0,
         "is_valid": true,
         "validity": "Valid Geometry"
       },
       "reference_json": "analysis/references/Visit_Icon_VacationRental.reference.json",
-      "sha256": "e61d8f3bc16d81b6eee4db8496817688566ee2fa8fbf43411c42e20c2e666c0c",
+      "sha256": "a977e558596018c44567d6f043e458e59fd14e6d1ae98ac84e5698fe0afa66e0",
       "source": "SVG/Visit_Icon_VacationRental.svg",
       "unsupported_elements": []
     }

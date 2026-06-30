@@ -28,7 +28,7 @@ All inspected SVGs use a `48 x 48` viewBox and filled vector primitives. Most ge
 | SVG | Rects | Polygons | Paths | Notes |
 | --- | ---: | ---: | ---: | --- |
 | `Visit_Icon_Amusement park.svg` | 7 | 1 | 1 | Contains a curved path |
-| `Visit_Icon_DestinationBuilding.svg` | 0 | 4 | 0 | Polygon-only |
+| `Visit_Icon_DestinationBuilding.svg` | 0 | 5 | 0 | Polygon-only; roof/top and left wall are split primitives |
 | `Visit_Icon_Experiences.svg` | 0 | 5 | 0 | Polygon-only |
 | `Visit_Icon_Ferry operator.svg` | 4 | 5 | 0 | Mixed rect/polygon |
 | `Visit_Icon_Homeowner.svg` | 4 | 2 | 0 | Mixed rect/polygon |
@@ -40,7 +40,7 @@ All inspected SVGs use a `48 x 48` viewBox and filled vector primitives. Most ge
 | `Visit_Icon_Solceller.svg` | 2 | 1 | 0 | Mixed rect/polygon |
 | `Visit_Icon_Tour operator.svg` | 1 | 6 | 0 | Mixed rect/polygon |
 | `Visit_Icon_Travel agent.svg` | 1 | 4 | 0 | Mixed rect/polygon |
-| `Visit_Icon_VacationRental.svg` | 2 | 2 | 0 | Mixed rect/polygon |
+| `Visit_Icon_VacationRental.svg` | 3 | 3 | 0 | Mixed rect/polygon; two roof pieces and right wall are split primitives |
 
 ## Success Criteria
 
@@ -58,12 +58,12 @@ All inspected SVGs use a `48 x 48` viewBox and filled vector primitives. Most ge
 | Source SVG inventory | Done | 14 source SVGs inspected; all use a `48 x 48` viewBox. |
 | Reference geometry pipeline | Done | `tools/icon_reference.py` generated references, canonical SVGs, overlays, source hashes, and stale checks. |
 | Exact part-spec baseline | Done | `tools/icon_parts.py` generated exact reconstruction and near-zero-error scoring for all icons. |
-| Simplified reusable part library | In Progress | Current recommended candidate is 41 unique parts at ~0.0754% overall area error; stakeholder review still pending. |
+| Simplified reusable part library | In Progress | Current recommended candidate is 41 unique parts at ~0.0799% overall area error after source roof/wall splits and 45-degree rotation reuse; stakeholder review still pending. |
 | CAD stack | In Progress | `build123d` is the selected prototype stack with successful STEP export/re-import; slicer and physical validation still pending. |
-| Plain universal front-piece STEP kit | Done | `analysis/runs/kits/recommended/universal-single-icon-kit.step`: 41 designs, 65 printed pieces, 5 plates. |
-| Corrected per-part fixture STEP kit | Done | `analysis/runs/snapfit/part-backplate-v1/universal-single-icon-fixture-kit.step`: 41 designs, 65 hollow caps, 65 two-hole backplates, 9 plates. |
+| Plain universal front-piece STEP kit | Done | `analysis/runs/kits/recommended/universal-single-icon-kit.step`: 41 designs, 66 printed pieces, 4 plates. |
+| Corrected per-part fixture STEP kit | Done | `analysis/runs/snapfit/part-backplate-v1/universal-single-icon-fixture-kit.step`: 41 designs, 66 hollow caps, 66 two-hole backplates, 8 plates. |
 | Old peg/socket approach | Removed | The old generated artifacts and CLI paths were removed; current mechanical direction is hollow cap over per-part backplate. |
-| Marking and SVG legend system | Not Started | Needed before broad testing so employees know which piece goes where and how to orient it. |
+| Marking and SVG legend system | In Progress | First-pass global part numbers, manifest assembly maps, and an all-icons SVG/JSON legend now exist; physical embossed/engraved number geometry still needs printability validation. |
 | PrusaSlicer validation | Not Started | Must confirm STEP body handling and usability before promising the workflow. |
 | Physical print validation | Not Started | No cap/backplate pair has been printed or handled yet. |
 | Facilities/wall mounting validation | Blocked / External | Needs representative cubicle/wall material and approval of pins/nails/alternatives. |
@@ -74,7 +74,7 @@ All inspected SVGs use a `48 x 48` viewBox and filled vector primitives. Most ge
 The project has working analysis, optimization, and STEP generation prototypes. What remains is mostly validation and productization:
 
 - Validate STEP import and separate body handling in PrusaSlicer.
-- Design and implement the piece marking plus per-icon SVG legend workflow.
+- Validate the generated global part-number legend workflow, then decide whether to add embossed/engraved number geometry to the printed parts.
 - Print and test representative hollow-cap/backplate pairs, then tune clearances and hole sizes.
 - Confirm wall/cubicle mounting rules and approved fastener options.
 - Run brand/design review on the 41-part simplified library and visual deviation.
@@ -86,6 +86,7 @@ The project has working analysis, optimization, and STEP generation prototypes. 
 - **DECISION:** Do not use a full-icon backplate. Generate one small backplate per physical icon part.
 - **DECISION:** Each small backplate has two holes for wall attachment and orientation. The hollow front part snaps over this backplate.
 - **DECISION:** The current universal fixture kit is a single-icon universal set: it includes every unique part design and the maximum quantities needed to build any one icon, not all icons simultaneously.
+- **DECISION:** Employee-facing markings should use global part numbers only. Duplicate copies of the same part design share the same number.
 - **BLOCKED / EXTERNAL:** Validate cubicle-wall fastener assumptions. Nails may not be allowed or may not hold well in some office panel systems. Include alternatives such as push pins, removable adhesive strips, magnetic plates, or over-wall hooks if needed.
 - **IN PROGRESS:** Determine target icon sizes for the basic kit and larger kit. Current prototype size is `120 mm` on a `180 x 180 mm` bed; final size presets are not locked.
 - **BLOCKED / EXTERNAL:** Determine acceptable brand deviation thresholds with design/brand stakeholders before locking the part library.
@@ -207,7 +208,7 @@ Goal: create a canonical physical part library that can reconstruct all source i
 - Mirroring needs stakeholder approval, because mirrored asymmetry can feel off-brand.
 - Scaling individual parts independently should be avoided unless approved, because it can erode brand consistency.
 
-**DONE / WORKING DECISION:** Reusable parts may use translation plus 0/90/180/270 degree rotation with centroid anchoring. Mirroring and independent scaling remain disallowed until brand stakeholders approve them.
+**DONE / WORKING DECISION:** Reusable parts may use translation plus 45-degree-increment rotation with centroid anchoring. Mirroring and independent scaling remain disallowed until brand stakeholders approve them.
 
 ### Detailed Plans
 
@@ -315,19 +316,22 @@ Tool: `tools/icon_reference.py` (build, check, verify, render subcommands)
 - [x] Validate STEP re-import with zero volume delta.
 - [x] Add editable extrusion-depth and wall-thickness parameters.
 - [x] Generate an initial laid-out STEP kit from the selected part spec (`tools/export_step.py kit`).
-  - Current universal single-icon kit: 41 unique part designs, 65 printed pieces, 5 plates at 120 mm icon size on a 180 x 180 mm bed.
+  - Current universal single-icon kit: 41 unique part designs, 66 printed pieces, 4 plates at 120 mm icon size on a 180 x 180 mm bed.
   - Output: `analysis/runs/kits/recommended/universal-single-icon-kit.step` plus per-plate STEP files and manifest.
 - [x] Generate first corrected per-part fixture STEP artifact.
   - `tools/export_step.py part-fixture-kit` creates hollow front caps plus one small two-hole backplate per physical icon part.
-  - Current Platform fixture: 2 unique part designs, 8 hollow front caps, 8 backplates, 16 total printed pieces, 1 plate, STEP re-import delta `0.000000002 mm^3`.
+  - Current Platform fixture: 1 unique part design, 8 hollow front caps, 8 backplates, 16 total printed pieces, 1 plate, STEP re-import delta `0.000000002 mm^3`.
   - Current test output: `analysis/runs/snapfit/part-backplate-v1/Visit_Icon_Platform.fixture-kit.step`.
-  - Universal single-icon fixture STEP: 41 unique part designs, 65 hollow front caps, 65 backplates, 130 total printed pieces, 9 plates, STEP re-import delta `0.000000398 mm^3`.
+  - Universal single-icon fixture STEP: 41 unique part designs, 66 hollow front caps, 66 backplates, 132 total printed pieces, 8 plates, STEP re-import delta `0.000000449 mm^3`.
 - [ ] **Not Started:** Validate PrusaSlicer STEP import before any physical print.
-- [ ] **Not Started:** Design part marking and assembly legend system before broad physical testing.
-  - Each front cap/backplate pair needs a human-readable piece index.
-  - Markings should be printable or embossed/engraved on non-visible faces where possible.
-  - Generate an SVG legend per icon showing the icon outline, piece index, orientation, and matching front/backplate IDs.
-  - The generated manifest should map each physical piece ID to its icon placement, rotation, plate number, and legend label.
+- [x] Implement first-pass part marking and assembly legend system before broad physical testing.
+  - Each unique part design now gets a stable global part number.
+  - Duplicate copies of the same part design share the same number; for example Amusement park uses `1, 2, 3, 3, 3, 3, 3, 3, 3`.
+  - Fixture manifests carry the part numbers and still retain internal front/backplate copy IDs for traceability.
+  - Generated all-icons legend: `analysis/runs/snapfit/part-backplate-v1/universal-single-icon-fixture-legend.svg`.
+  - Generated machine-readable legend map: `analysis/runs/snapfit/part-backplate-v1/universal-single-icon-fixture-legend.json`.
+- [ ] **Not Started:** Decide whether to add physical embossed/engraved text geometry after slicer and print validation.
+  - Several backplates are only `7.5 mm` across, so text geometry may need compact marks, dots, or a non-text marking scheme.
 - [ ] **Not Started:** Print one or two representative hollow-cap/backplate pairs.
 - [ ] **Not Started:** Print one complete small icon from the corrected per-part fixture kit.
 - [ ] **Not Started:** Record printer, filament, nozzle, layer height, clearances, and fit outcome.
@@ -336,7 +340,7 @@ Tool: `tools/icon_reference.py` (build, check, verify, render subcommands)
 
 Tool: `tools/icon_parts.py` (bootstrap, render, score subcommands)
 
-- [x] Generate exact primitive-based reconstruction for all icons as a parametric 2D part spec (61 unique parts, 83 instances).
+- [x] Generate exact primitive-based reconstruction for all icons as a parametric 2D part spec (64 unique parts, 86 instances).
 - [x] Deduplicate identical shapes via canonical part signatures (rects by size, polygons by WKB hash).
 - [x] Convert part specs into Shapely geometry for scoring (reconstruction from placed instances).
 - [x] Export reconstructed SVGs and overlay reports (`analysis/runs/exact/svgs/`, `overlays/`).
@@ -347,32 +351,35 @@ Tool: `tools/icon_parts.py` (bootstrap, render, score subcommands)
 
 - [x] Implement objective scoring (area error, Hausdorff, bounds delta, component delta).
 - [x] Run greedy/local simplification via `tools/icon_parts.py simplify`:
-  - Rect size merging: saves 1 part (61→60), near-zero error.
-  - Polygon Hausdorff merging: saves 12 parts (61→49), 0.05% error, worst icon 0.44%.
-  - Polygon Hausdorff + rotation: saves 19 parts (61→42), 0.075% error, worst icon 0.78%.
-  - Combined rect+polygon_rot: 41 parts at 0.076% error.
-  - 6 rotation-aware cross-icon clusters found.
+  - Rect size merging: saves 1 part (64→63), near-zero error.
+  - Polygon Hausdorff merging: saves 12 parts (64→52), 0.05% error, worst icon 0.44%.
+  - Polygon Hausdorff + rotation: saves 21 parts (64→43), 0.0785% error, worst icon 0.78%.
+  - Combined rect+polygon_rot: 41 parts at 0.0799% error.
+  - 8 rotation-aware cross-icon clusters found.
 - [x] Log Pareto rows per candidate (`analysis/runs/simplify/pareto.jsonl`).
-- [x] Allow rotation in part placements (centroid anchoring, 0/90/180/270 degree rotations).
+- [x] Allow rotation in part placements (centroid anchoring, 45-degree increments).
 - [x] Pre-generate conservative polygon decomposition candidates with `tools/icon_decompose.py`.
   - Axis-aligned grid-split and largest-inscribed-rect strategies were attempted and abandoned because they distorted irregular icon polygons.
-  - Current triangulated candidate preserves geometry nearly exactly: 169 unique parts, 204 instances, area error ~3.5e-12, Hausdorff ~0.
-  - It is a candidate-pool feeder, not a recommended kit: the existing 42-part greedy Hausdorff result is still the best practical result.
+  - Current triangulated candidate preserves geometry nearly exactly: 160 unique parts, 195 instances, area error ~3.5e-12, Hausdorff ~0.
+  - It is a candidate-pool feeder, not a recommended kit: the existing 41-part greedy Hausdorff result is still the best practical result.
 - [x] Add cached/bounded optimizer search for decomposition candidate pools.
   - `tools/optimize_parts.py` now supports decision-score caching, persistent cache files, bounded cluster selection, exhaustive subset search, and reproducible run metadata.
   - `analysis/runs/decompose/nsga2_top8/` is the current bounded exhaustive test loop for the triangulated pool.
 - [ ] **In Progress:** Generate broader Pareto frontier reports from improved candidate-selection/search loops.
 - [ ] **Blocked / External:** Review trade-offs with brand/design stakeholders.
 - [x] Select a provisional recommended part library for physical testing.
-  - Current candidate: `analysis/runs/simplify/part-spec.combined_rtol1.0_phd0.5_rot.v1.json` (41 unique parts, 83 placed instances, ~0.0754% overall area error).
+  - Current candidate: `analysis/runs/simplify/part-spec.combined_rtol1.0_phd0.5_rot.v1.json` (41 unique parts, 86 placed instances, ~0.0799% overall area error).
   - This can change after design review, but it is good enough to drive the first STEP kit export and slicer validation.
 
 ### Milestone 5: Maker Toolkit
 
 - [ ] **In Progress:** Create small single-session print layouts. Prototype universal layouts exist; final employee-ready packaging is not done.
 - [ ] **Not Started:** Create larger multi-session layouts.
-- [ ] **Not Started:** Generate per-icon SVG assembly legends with piece indexes and orientation markers.
-- [ ] **Not Started:** Add physical piece marking scheme for front caps and matching backplates.
+- [x] Generate all-icons SVG assembly legend with global part-number callouts.
+- [ ] **In Progress:** Add physical piece marking scheme for front caps and matching backplates.
+  - First-pass global part numbers exist in manifests and legend JSON/SVG.
+  - Embossed/engraved CAD text remains open pending printability validation.
+  - STEP body labels should be refreshed with the global-number source changes in `tools/export_step.py` once the CAD venv can run.
 - [ ] **Not Started:** Write maker quick-start guide.
 - [ ] **Not Started:** Write print setup guide.
 - [ ] **Not Started:** Write assembly and wall-mounting guide.
@@ -416,11 +423,13 @@ Completed:
 2. ~~Build `tools/icon_reference.py build`~~ → Done: 14 icons, WKB references, canonical SVGs, manifest, check/verify commands.
 3. ~~Prototype STEP generation in CadQuery and build123d~~ → Done: build123d selected, `tools/export_step.py` working with zero re-import delta.
 4. ~~Build comparison tool~~ → Done: `tools/icon_parts.py score` with area error, Hausdorff, bounds delta, component delta.
-5. ~~Greedy simplification~~ → Done: 61→42 parts (31% reduction) at 0.075% area error via rect merge + polygon Hausdorff + rotation clustering.
+5. ~~Greedy simplification~~ → Done: 64→41 parts (36% reduction) at 0.080% area error via rect merge + polygon Hausdorff + 45-degree rotation clustering.
 
 Current priorities:
 - **Corrected fixture validation**: print one or two Platform hollow-cap/backplate pairs from `analysis/runs/snapfit/part-backplate-v1/`, test wall pin holes, and evaluate the `0.25 mm` cap fit clearance.
-- **Marking and legend design**: add per-piece IDs to manifests, decide where IDs can be physically marked, and generate a per-icon SVG legend showing piece indexes and orientation.
+- **Marking and legend validation**: review the generated all-icons SVG legend, confirm global part numbers are understandable, and decide whether small parts can accept embossed/engraved numbers.
+- **Source primitive split validation**: DestinationBuilding roof/top vs left wall, plus VacationRental two roof pieces and right wall, are now split at the source SVG primitive level. Review the updated legend and reconstructed SVGs visually before locking the physical part library.
+- **Rotation policy validation**: Done for the current baseline. Platform now uses one global part number because `tools/icon_parts.py simplify` defaults to 45-degree rotation increments; `--rotation-angles` remains available for future experiments.
 - **Fixture kit expansion**: run `tools/export_step.py part-fixture-kit` for additional representative icons after the Platform pair validates.
 - **Slicer validation**: open generated STEP files in PrusaSlicer, checking native import and separate body handling.
 - **Design review** with facilities/brand/design before locking mounting and visual tolerance decisions.

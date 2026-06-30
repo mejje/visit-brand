@@ -26,6 +26,7 @@ import icon_reference as iref  # noqa: E402
 PART_SCHEMA = "visit.icon-parts.v1"
 GENERATOR = "tools/icon_parts.py"
 GEOMETRY_PART_KINDS = {"polygon", "bar", "custom_polygon", "triangle"}
+DEFAULT_ROTATION_ANGLES = (0, 45, 90, 135, 180, 225, 270, 315)
 
 
 def load_references(
@@ -781,18 +782,21 @@ def _try_rotated_hausdorff(geom_a, geom_b, angles=(0, 90, 180, 270)) -> tuple[fl
 
 
 def cluster_polygons_by_hausdorff(
-    parts: dict, tolerance: float, allow_rotation: bool = False
+    parts: dict,
+    tolerance: float,
+    allow_rotation: bool = False,
+    rotation_angles: Sequence[float] | None = None,
 ) -> tuple[list[list[str]], dict[str, float] | None]:
     """Group polygon/bar/custom parts by Hausdorff distance.
 
-    If allow_rotation, tries rotating each candidate at 0/90/180/270 degrees
+    If allow_rotation, tries rotating each candidate through rotation_angles
     and records the best angle per member. Returns (clusters, rotations) where
     rotations maps part_id -> best_rotation_angle. Returns None for rotations if
     not using rotation.
 
     Uses leader-based non-chaining clustering.
     """
-    angles = (0, 90, 180, 270) if allow_rotation else (0,)
+    angles = tuple(rotation_angles or DEFAULT_ROTATION_ANGLES) if allow_rotation else (0,)
 
     poly_ids = sorted(
         [
@@ -883,7 +887,10 @@ def _convert_to_centroid_anchor(spec: dict, part_ids: set[str] | None = None) ->
 
 
 def merge_polygon_clusters(
-    spec: dict, clusters: list[list[str]], rotations: dict[str, float] | None = None
+    spec: dict,
+    clusters: list[list[str]],
+    rotations: dict[str, float] | None = None,
+    rotation_angles: Sequence[float] | None = None,
 ) -> dict:
     """Create a spec where polygon clusters are merged to the most-used part.
 
@@ -892,6 +899,7 @@ def merge_polygon_clusters(
     Rotation angles are recomputed relative to the keeper part.
     """
     use_rotation = rotations is not None
+    angles = tuple(rotation_angles or DEFAULT_ROTATION_ANGLES)
 
     if use_rotation:
         all_clustered = {pid for cluster in clusters for pid in cluster}
@@ -917,7 +925,7 @@ def merge_polygon_clusters(
                 member_geom = part_geometry(parts[pid], anchor="centroid")
                 # Find rotation of keeper that best matches member
                 _hd, angle = _try_rotated_hausdorff(
-                    member_geom, keeper_geom, angles=(0, 90, 180, 270)
+                    member_geom, keeper_geom, angles=angles
                 )
                 keeper_rots[pid] = angle
 
@@ -1017,24 +1025,38 @@ def simplify_command(args: argparse.Namespace) -> int:
 
     # ---- polygon Hausdorff merges (with rotation) ----
     if not args.no_rotation:
+        rotation_angles = args.rotation_angles or list(DEFAULT_ROTATION_ANGLES)
         for tol in poly_tolerances:
             clusters, rotations = cluster_polygons_by_hausdorff(
-                spec["parts"], tol, allow_rotation=True
+                spec["parts"],
+                tol,
+                allow_rotation=True,
+                rotation_angles=rotation_angles,
             )
             if not clusters:
                 print(f"  poly_rot_hd={tol}: no mergeable clusters")
                 continue
-            merged = merge_polygon_clusters(spec, clusters, rotations=rotations)
+            merged = merge_polygon_clusters(
+                spec,
+                clusters,
+                rotations=rotations,
+                rotation_angles=rotation_angles,
+            )
             _log_candidate(
                 merged, f"poly_rot_hausdorff_{tol}", {"clusters_merged": len(clusters)}
             )
+    else:
+        rotation_angles = [0]
 
     # ---- combined: rect merging + polygon Hausdorff (with rotation) ----
     for rtol in rect_tolerances:
         for ptol in poly_tolerances:
             rect_clusters = cluster_rects_by_size(spec["parts"], rtol)
             poly_clusters, poly_rot = cluster_polygons_by_hausdorff(
-                spec["parts"], ptol, allow_rotation=not args.no_rotation
+                spec["parts"],
+                ptol,
+                allow_rotation=not args.no_rotation,
+                rotation_angles=rotation_angles,
             )
             if not rect_clusters and not poly_clusters:
                 continue
@@ -1043,7 +1065,10 @@ def simplify_command(args: argparse.Namespace) -> int:
                 merged = merge_rect_clusters(merged, rect_clusters)
             if poly_clusters:
                 merged = merge_polygon_clusters(
-                    merged, poly_clusters, rotations=poly_rot if not args.no_rotation else None
+                    merged,
+                    poly_clusters,
+                    rotations=poly_rot if not args.no_rotation else None,
+                    rotation_angles=rotation_angles,
                 )
             rot_tag = "_rot" if not args.no_rotation else ""
             _log_candidate(
@@ -1115,6 +1140,12 @@ def build_parser() -> argparse.ArgumentParser:
     simp.add_argument("--polygon-tolerances", nargs="*", type=float, help="Hausdorff tolerance steps for polygon merging")
     simp.add_argument("--no-bbox-decompose", action="store_true", help="Skip bounding-box decomposition")
     simp.add_argument("--no-rotation", action="store_true", help="Skip rotated polygon comparison")
+    simp.add_argument(
+        "--rotation-angles",
+        nargs="*",
+        type=float,
+        help="Allowed polygon reuse rotations in degrees, default: 0 45 90 135 180 225 270 315",
+    )
     simp.set_defaults(func=simplify_command)
 
     return parser

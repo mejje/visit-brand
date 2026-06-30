@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <path fill="none" stroke="#000000" stroke-width="0.4" fill-rule="evenodd" d="M 3.99 31 L 9.65 31 L 23.94 16.71 L 21.11 13.88 Z M 18.34 5 L 5 18.34 L 5 24 L 24 5 Z M 5.17 43 L 10.83 43 L 23 30.83 L 35.17 43 L 40.83 43 L 23 25.17 Z M 25 43 L 25 37 L 21 37 L 21 43 Z M 24 5 L 43 24 L 43 18.34 L 29.66 5 Z M 44 31 L 30.57 17.57 L 25.59 22.55 L 28.42 25.38 L 30.57 23.23 L 38.34 31 Z"/>
+  <path fill="none" stroke="#E53E3E" stroke-width="0.4" stroke-dasharray="4 2" fill-rule="evenodd" d="M 5 18.34 L 5 24 L 24 5 L 18.34 5 Z"/>
+  <path fill="none" stroke="#3182CE" stroke-width="0.4" stroke-dasharray="4 2" fill-rule="evenodd" d="M 29.66 5 L 24 5 L 43 24 L 43 18.34 Z"/>
+  <path fill="none" stroke="#38A169" stroke-width="0.4" stroke-dasharray="4 2" fill-rule="evenodd" d="M 21 37 L 25 37 L 25 43 L 21 43 Z"/>
+  <path fill="none" stroke="#DD6B20" stroke-width="0.4" stroke-dasharray="4 2" fill-rule="evenodd" d="M 5.17 43 L 10.83 43 L 23 30.83 L 35.17 43 L 40.83 43 L 23 25.17 Z"/>
+  <path fill="none" stroke="#805AD5" stroke-width="0.4" stroke-dasharray="4 2" fill-rule="evenodd" d="M 25.59 22.55 L 28.42 25.38 L 30.57 23.23 L 38.34 31 L 44 31 L 30.57 17.57 Z"/>
+  <path fill="none" stroke="#D69E2E" stroke-width="0.4" stroke-dasharray="4 2" fill-rule="evenodd" d="M 23.94 16.71 L 21.11 13.88 L 3.99 31 L 9.65 31 Z"/>
+</svg>

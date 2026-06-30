@@ -290,7 +290,7 @@ Do not start by hand-writing a full genetic algorithm. First make candidate scor
 
 ### What pymoo searches over
 
-The greedy pass (Phase 1) explored merging existing parts — merging similar rects, clustering similar polygons, and sharing parts across icons via rotation. Phase 1 found a strong baseline: **42 parts at 0.075% error**.
+The greedy pass (Phase 1) explored merging existing parts — merging similar rects, clustering similar polygons, and sharing parts across icons via rotation. Phase 1 found a strong baseline: **41 parts at ~0.080% error** after the DestinationBuilding and VacationRental source primitive splits and 45-degree rotation reuse.
 
 pymoo adds value by searching over a **larger candidate pool** that includes decomposed sub-parts. Instead of deciding *which existing polygons to merge*, pymoo decides *which decomposition of each polygon into smaller primitives* produces the smallest shared part library.
 
@@ -334,7 +334,7 @@ pymoo is an evolutionary algorithm — it mutates and crosses over chromosomes. 
 
 Instead, pre-generate a finite set of decomposition candidates (maybe 2-5 per complex polygon), pre-score each at the individual-part level, and let pymoo's chromosome simply select which pre-computed candidates to include. This keeps the black-box evaluation fast and the search space bounded.
 
-**Status note (2026-06-28):** Grid-split and largest-inscribed-rect decomposition strategies were attempted and abandoned. Both produced worse results than the greedy Hausdorff clustering approach: more parts, higher area error, and visible shape distortion. `tools/icon_decompose.py` now provides a conservative triangulated candidate layer: 169 unique parts, 204 instances, area error ~3.5e-12, Hausdorff ~0. This is useful as a finite candidate pool, but it is not yet a better kit than the greedy Hausdorff result (61->42 parts, 0.075% error). A direct NSGA-II run over the full triangulated pool is still heavy, so the current optimizer loop supports caching, cluster limits, and exhaustive search for bounded subsets.
+**Status note (2026-06-30):** Grid-split and largest-inscribed-rect decomposition strategies were attempted and abandoned. Both produced worse results than the greedy Hausdorff clustering approach: more parts, higher area error, and visible shape distortion. `tools/icon_decompose.py` now provides a conservative triangulated candidate layer: 160 unique parts, 195 instances, area error ~3.5e-12, Hausdorff ~0. This is useful as a finite candidate pool, but it is not yet a better kit than the greedy Hausdorff result (64->41 parts, ~0.080% error). A direct NSGA-II run over the full triangulated pool is still heavy, so the current optimizer loop supports caching, cluster limits, and exhaustive search for bounded subsets.
 
 Do not start by hand-writing a full genetic algorithm. First make candidate scoring, caching, visualization, and reproducibility solid; then plug in the optimizer.
 
@@ -361,7 +361,7 @@ Implemented controls:
 
 Current bounded run:
 - `analysis/runs/decompose/nsga2_top8/` evaluates the top 8 triangulated clusters exhaustively.
-- The run is reproducible and fast enough for the test loop, but it still does not beat the existing 42-part greedy Hausdorff result.
+- The run is reproducible and fast enough for the test loop, but it still does not beat the existing 41-part greedy Hausdorff result.
 - The next optimizer improvement should reduce scoring cost per decision or change the chromosome from whole-cluster merge flags to a finite set-cover style selection problem.
 
 ### Optimizer Research Notes
@@ -436,8 +436,8 @@ Current strategy:
 - Write `analysis/runs/decompose/pareto.jsonl` and visual `.parts.svg` overlays.
 
 Current result:
-- Exact baseline: 61 unique parts, 83 instances, effectively zero error.
-- Triangulated candidate: 169 unique parts, 204 instances, effectively zero error.
+- Exact baseline: 64 unique parts, 86 instances, effectively zero error.
+- Triangulated candidate: 160 unique parts, 195 instances, effectively zero error.
 - Existing greedy simplification remains the best kit candidate until the optimizer has caching or a narrower decomposition chromosome.
 
 ### Acceptance Criteria for the Slice

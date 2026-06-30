@@ -201,11 +201,154 @@ def part_usage_by_icon(counts_by_icon: dict[str, Counter], part_id: str) -> dict
     }
 
 
+def part_number_map(part_ids: Iterable[str]) -> dict[str, int]:
+    return {
+        part_id: index
+        for index, part_id in enumerate(sorted(part_ids), start=1)
+    }
+
+
+def part_number_mark(part_numbers: dict[str, int], part_id: str) -> str:
+    return str(part_numbers[part_id])
+
+
+def step_part_label(part_numbers: dict[str, int], part_id: str) -> str:
+    return f"part_{part_numbers[part_id]:03d}"
+
+
+def fixture_piece_ids(part_id: str, copy_index: int) -> tuple[str, str]:
+    return (
+        f"{part_id}__{copy_index:02d}__front_cap",
+        f"{part_id}__{copy_index:02d}__backplate",
+    )
+
+
+def icon_ids_for_scope(spec: dict, scope: str, icon_id: str | None) -> list[str]:
+    if scope == "icon":
+        if not icon_id:
+            raise SystemExit("--icon is required when --scope icon is used")
+        if icon_id not in spec["icons"]:
+            raise SystemExit(f"Icon not found in part spec: {icon_id}")
+        return [icon_id]
+    return sorted(spec["icons"])
+
+
+def round_float_list(values: Iterable[float], digits: int = 6) -> list[float]:
+    return [round(float(value), digits) for value in values]
+
+
+def icon_assembly_map(
+    spec: dict,
+    quantities: Counter,
+    scope: str,
+    icon_id: str | None = None,
+    part_numbers: dict[str, int] | None = None,
+) -> dict:
+    """Map global part numbers to icon placements and printed fixture IDs."""
+    if part_numbers is None:
+        part_numbers = part_number_map(quantities)
+    assembly_icons = {}
+    global_copy_counts: Counter = Counter()
+
+    for current_icon_id in icon_ids_for_scope(spec, scope, icon_id):
+        icon_spec = spec["icons"][current_icon_id]
+        local_copy_counts: Counter = Counter()
+        placements = []
+
+        for placement_index, inst in enumerate(icon_spec["instances"], start=1):
+            part_id = inst["part"]
+            if scope == "all-icons":
+                global_copy_counts[part_id] += 1
+                copy_index = global_copy_counts[part_id]
+            else:
+                local_copy_counts[part_id] += 1
+                copy_index = local_copy_counts[part_id]
+
+            if copy_index > quantities.get(part_id, 0):
+                raise SystemExit(
+                    f"{current_icon_id} needs {part_id} copy {copy_index}, "
+                    f"but the fixture kit only contains {quantities.get(part_id, 0)}"
+                )
+
+            rotate = inst.get("rotate")
+            anchor = "centroid" if rotate is not None else "min_corner"
+            base_geometry = ip.part_to_geometry(spec["parts"][part_id], anchor=anchor)
+            at_x, at_y = inst["at"]
+            placed_geometry = ip.place_part(
+                base_geometry,
+                float(at_x),
+                float(at_y),
+                rotate=float(rotate or 0.0),
+            )
+            label_point = placed_geometry.representative_point()
+            front_piece_id, backplate_piece_id = fixture_piece_ids(part_id, copy_index)
+            part_number = part_numbers[part_id]
+            part_mark = part_number_mark(part_numbers, part_id)
+            placements.append({
+                "legend_label": part_mark,
+                "part_number": part_number,
+                "placement_index": placement_index,
+                "part": part_id,
+                "copy_index": copy_index,
+                "front_piece_id": front_piece_id,
+                "front_piece_mark": part_mark,
+                "backplate_piece_id": backplate_piece_id,
+                "backplate_piece_mark": part_mark,
+                "anchor": anchor,
+                "at_svg": round_float_list([at_x, at_y]),
+                "rotate_deg": round(float(rotate or 0.0), 6),
+                "source_index": inst.get("source_index", placement_index - 1),
+                "bounds_svg": round_float_list(placed_geometry.bounds),
+                "label_point_svg": round_float_list([label_point.x, label_point.y]),
+            })
+
+        assembly_icons[current_icon_id] = {
+            "total_placements": len(placements),
+            "placements": placements,
+        }
+
+    return {
+        "scheme": "visit.fixture-assembly-map.v1",
+        "quantity_scope": format_scope(scope),
+        "icon_order": icon_ids_for_scope(spec, scope, icon_id),
+        "part_numbers": {
+            str(number): part_id
+            for part_id, number in sorted(part_numbers.items(), key=lambda item: item[1])
+        },
+        "legend_label_format": "global part number",
+        "physical_piece_mark_format": "global part number",
+        "icons": assembly_icons,
+    }
+
+
+def attach_layout_to_assembly(assembly: dict, layout_records: list[dict]) -> None:
+    records_by_id = {record["piece_id"]: record for record in layout_records}
+    for icon in assembly["icons"].values():
+        for placement in icon["placements"]:
+            for role, piece_id_key in (
+                ("front_cap", "front_piece_id"),
+                ("backplate", "backplate_piece_id"),
+            ):
+                layout = records_by_id.get(placement[piece_id_key])
+                if not layout:
+                    continue
+                placement[f"{role}_layout"] = {
+                    "plate": layout["plate"],
+                    "x_mm": layout["x_mm"],
+                    "y_mm": layout["y_mm"],
+                    "width_mm": layout["width_mm"],
+                    "height_mm": layout["height_mm"],
+                }
+
+
 def build_kit_pieces(
     spec: dict,
     quantities: Counter,
     scale: float,
+    part_numbers: dict[str, int] | None = None,
 ) -> tuple[list[dict], dict[str, dict]]:
+    if part_numbers is None:
+        part_numbers = part_number_map(quantities)
     pieces = []
     part_details = {}
     for part_id in sorted(quantities):
@@ -213,7 +356,10 @@ def build_kit_pieces(
         geometry = svg_to_mm_geometry(ip.part_to_geometry(part_def), scale)
         width, height = geometry_size(geometry)
         min_x, min_y, max_x, max_y = geometry.bounds
+        part_number = part_numbers[part_id]
+        part_mark = part_number_mark(part_numbers, part_id)
         part_details[part_id] = {
+            "part_number": part_number,
             "kind": part_def["kind"],
             "quantity": int(quantities[part_id]),
             "source_count": part_source_count(part_def),
@@ -233,6 +379,9 @@ def build_kit_pieces(
         for copy_index in range(1, int(quantities[part_id]) + 1):
             pieces.append({
                 "piece_id": f"{part_id}__{copy_index:02d}",
+                "part_number": part_number,
+                "piece_mark": part_mark,
+                "step_body_label": step_part_label(part_numbers, part_id),
                 "part": part_id,
                 "copy_index": copy_index,
                 "geometry": geometry,
@@ -303,6 +452,9 @@ def layout_pieces(
         }
         if "role" in piece:
             record["role"] = piece["role"]
+        for key in ("part_number", "piece_mark", "step_body_label"):
+            if key in piece:
+                record[key] = piece[key]
         if "mount_holes" in piece:
             record["mount_holes_mm"] = [
                 {
@@ -332,9 +484,10 @@ def build_kit_plan(args: argparse.Namespace) -> tuple[dict, list[dict], dict[str
 
     counts_by_icon = icon_part_counts(spec)
     quantities = kit_quantities(counts_by_icon, args.scope, args.icon)
+    part_numbers = part_number_map(spec["parts"])
     scale = args.icon_size_mm / args.source_size_svg
 
-    pieces, part_details = build_kit_pieces(spec, quantities, scale)
+    pieces, part_details = build_kit_pieces(spec, quantities, scale, part_numbers)
     placements = layout_pieces(
         pieces,
         bed_width_mm=args.bed_width_mm,
@@ -397,7 +550,10 @@ def build_part_fixture_pieces(
     quantities: Counter,
     scale: float,
     args: argparse.Namespace,
+    part_numbers: dict[str, int] | None = None,
 ) -> tuple[list[dict], dict[str, dict]]:
+    if part_numbers is None:
+        part_numbers = part_number_map(quantities)
     pieces = []
     part_details = {}
     backplate_inset_mm = args.front_wall_thickness_mm + args.fit_clearance_mm
@@ -426,7 +582,10 @@ def build_part_fixture_pieces(
         outer_width, outer_height = geometry_size(outer_geometry)
         cavity_width, cavity_height = geometry_size(cavity_geometry)
         backplate_width, backplate_height = geometry_size(backplate_geometry)
+        part_number = part_numbers[part_id]
+        part_mark = part_number_mark(part_numbers, part_id)
         part_details[part_id] = {
+            "part_number": part_number,
             "kind": part_def["kind"],
             "quantity": int(quantities[part_id]),
             "source_count": part_source_count(part_def),
@@ -452,11 +611,15 @@ def build_part_fixture_pieces(
         }
 
         for copy_index in range(1, int(quantities[part_id]) + 1):
+            front_piece_id, backplate_piece_id = fixture_piece_ids(part_id, copy_index)
             pieces.append({
-                "piece_id": f"{part_id}__{copy_index:02d}__front_cap",
+                "piece_id": front_piece_id,
                 "role": "front_cap",
                 "part": part_id,
                 "copy_index": copy_index,
+                "part_number": part_number,
+                "piece_mark": part_mark,
+                "step_body_label": step_part_label(part_numbers, part_id),
                 "geometry": outer_geometry,
                 "cavity_geometry": cavity_geometry,
                 "width": outer_width,
@@ -464,10 +627,13 @@ def build_part_fixture_pieces(
                 "bounds": outer_geometry.bounds,
             })
             pieces.append({
-                "piece_id": f"{part_id}__{copy_index:02d}__backplate",
+                "piece_id": backplate_piece_id,
                 "role": "part_backplate",
                 "part": part_id,
                 "copy_index": copy_index,
+                "part_number": part_number,
+                "piece_mark": part_mark,
+                "step_body_label": step_part_label(part_numbers, part_id),
                 "geometry": backplate_geometry,
                 "mount_holes": holes,
                 "width": backplate_width,
@@ -510,8 +676,9 @@ def build_part_fixture_kit_plan(args: argparse.Namespace) -> tuple[dict, list[di
 
     counts_by_icon = icon_part_counts(spec)
     quantities = kit_quantities(counts_by_icon, args.scope, args.icon)
+    part_numbers = part_number_map(spec["parts"])
     scale = args.icon_size_mm / args.source_size_svg
-    pieces, part_details = build_part_fixture_pieces(spec, quantities, scale, args)
+    pieces, part_details = build_part_fixture_pieces(spec, quantities, scale, args, part_numbers)
     placements = layout_pieces(
         pieces,
         bed_width_mm=args.bed_width_mm,
@@ -538,6 +705,8 @@ def build_part_fixture_kit_plan(args: argparse.Namespace) -> tuple[dict, list[di
         }
         for placement in placements
     ]
+    assembly = icon_assembly_map(spec, quantities, args.scope, args.icon, part_numbers)
+    attach_layout_to_assembly(assembly, layout_records)
     manifest = {
         "schema": PART_FIXTURE_KIT_SCHEMA,
         "generator": "tools/export_step.py part-fixture-kit-manifest",
@@ -574,6 +743,16 @@ def build_part_fixture_kit_plan(args: argparse.Namespace) -> tuple[dict, list[di
             "plate_count": plate_count,
             "pieces": layout_records,
         },
+        "marking": {
+            "scheme": "global-part-number-v1",
+            "physical_piece_mark_format": "global part number",
+            "legend_label_format": "global part number",
+            "notes": [
+                "Use the same global part number for matching hollow front caps, backplates, and legend callouts.",
+                "Repeated numbers indicate duplicate copies of the same part design; any matching copy can be used.",
+            ],
+        },
+        "assembly": assembly,
         "icons": usage_by_icon,
         "parts": part_details,
     }
@@ -768,7 +947,11 @@ def kit_compound(
             geometry,
             front_depth_mm,
         )
-        part.label = placement["piece_id"]
+        part.label = (
+            placement.get("step_body_label")
+            or placement.get("piece_mark")
+            or placement["piece_id"]
+        )
         children.append(part)
     if not children:
         raise SystemExit("No kit pieces to export")
@@ -819,7 +1002,11 @@ def part_fixture_kit_compound(
             )
         else:
             raise SystemExit(f"Unknown fixture role: {placement['role']}")
-        part.label = placement["piece_id"]
+        part.label = (
+            placement.get("step_body_label")
+            or placement.get("piece_mark")
+            or placement["piece_id"]
+        )
         children.append(part)
     if not children:
         raise SystemExit("No fixture kit pieces to export")
