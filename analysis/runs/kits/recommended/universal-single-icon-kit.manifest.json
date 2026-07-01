@@ -997,37 +997,50 @@
     "spacing_mm": 4.0,
     "strategy": "shelf_height_desc"
   },
+  "marking": {
+    "legend_label_format": "global part number",
+    "physical_marks": {
+      "cad_text_geometry": true,
+      "depth_mm": 0.25,
+      "font": "Arial",
+      "front_piece_location": "engraved on top face",
+      "max_font_size_mm": 4.0,
+      "style": "engraved"
+    },
+    "physical_piece_mark_format": "global part number",
+    "scheme": "global-part-number-v1"
+  },
   "outputs": {
     "combined_step": {
       "path": "analysis/runs/kits/recommended/universal-single-icon-kit.step",
       "reimport_delta_mm3": 2e-09,
-      "reimport_volume_mm3": 266178.400955,
-      "volume_mm3": 266178.400955
+      "reimport_volume_mm3": 266101.638541,
+      "volume_mm3": 266101.638541
     },
     "plate_steps": [
       {
         "path": "analysis/runs/kits/recommended/universal-single-icon-kit.plate_01.step",
         "reimport_delta_mm3": 1e-09,
-        "reimport_volume_mm3": 60020.83,
-        "volume_mm3": 60020.83
+        "reimport_volume_mm3": 60012.71223,
+        "volume_mm3": 60012.71223
       },
       {
         "path": "analysis/runs/kits/recommended/universal-single-icon-kit.plate_02.step",
         "reimport_delta_mm3": 0.0,
-        "reimport_volume_mm3": 47120.030955,
-        "volume_mm3": 47120.030955
+        "reimport_volume_mm3": 47110.637756,
+        "volume_mm3": 47110.637756
       },
       {
         "path": "analysis/runs/kits/recommended/universal-single-icon-kit.plate_03.step",
         "reimport_delta_mm3": 0.0,
-        "reimport_volume_mm3": 80902.335,
-        "volume_mm3": 80902.335
+        "reimport_volume_mm3": 80872.592323,
+        "volume_mm3": 80872.592323
       },
       {
         "path": "analysis/runs/kits/recommended/universal-single-icon-kit.plate_04.step",
-        "reimport_delta_mm3": 1e-09,
-        "reimport_volume_mm3": 78135.205,
-        "volume_mm3": 78135.205
+        "reimport_delta_mm3": 2e-09,
+        "reimport_volume_mm3": 78105.69071,
+        "volume_mm3": 78105.69071
       }
     ]
   },

@@ -18,6 +18,9 @@ FIXED_STEP_TIMESTAMP = "2026-06-27T00:00:00"
 KIT_SCHEMA = "visit.icon-kit.v1"
 PART_FIXTURE_KIT_SCHEMA = "visit.part-fixture-kit.v1"
 DEFAULT_KIT_SPEC = "analysis/runs/simplify/part-spec.combined_rtol1.0_phd0.5_rot.v1.json"
+DEFAULT_PHYSICAL_MARK_FONT = "Arial"
+DEFAULT_PHYSICAL_MARK_FONT_SIZE_MM = 4.0
+DEFAULT_PHYSICAL_MARK_DEPTH_MM = 0.25
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import icon_parts as ip  # noqa: E402
@@ -106,6 +109,53 @@ def svg_to_mm_geometry(geometry, scale: float):
 def geometry_size(geometry) -> tuple[float, float]:
     min_x, min_y, max_x, max_y = geometry.bounds
     return max_x - min_x, max_y - min_y
+
+
+def mark_font_size_mm(mark: str, geometry, requested_size_mm: float) -> float:
+    """Pick a conservative font size that fits inside narrow icon parts."""
+    width, height = geometry_size(geometry)
+    char_count = max(len(mark), 1)
+    by_height = max(min(width, height) * 0.55, 1.2)
+    by_width = max((width * 0.75) / (char_count * 0.58), 1.2)
+    return max(min(requested_size_mm, by_height, by_width), 1.2)
+
+
+def mark_point(geometry) -> tuple[float, float]:
+    point = geometry.representative_point()
+    return float(point.x), float(point.y)
+
+
+def physical_marks_enabled(args: argparse.Namespace) -> bool:
+    return not getattr(args, "no_physical_marks", False)
+
+
+def validate_physical_mark_args(
+    args: argparse.Namespace,
+    max_depths_mm: dict[str, float],
+) -> None:
+    if not physical_marks_enabled(args):
+        return
+    if args.physical_mark_font_size_mm <= 0:
+        raise SystemExit("Physical mark font size must be positive")
+    if args.physical_mark_depth_mm <= 0:
+        raise SystemExit("Physical mark depth must be positive")
+    for label, max_depth in max_depths_mm.items():
+        if args.physical_mark_depth_mm >= max_depth:
+            raise SystemExit(
+                f"Physical mark depth must be less than {label} thickness ({max_depth:.3f}mm)"
+            )
+
+
+def physical_marking_manifest(args: argparse.Namespace, **locations: str) -> dict:
+    enabled = physical_marks_enabled(args)
+    return {
+        "cad_text_geometry": enabled,
+        "style": "engraved" if enabled else "none",
+        "font": args.physical_mark_font,
+        "max_font_size_mm": args.physical_mark_font_size_mm,
+        "depth_mm": args.physical_mark_depth_mm if enabled else 0.0,
+        **locations,
+    }
 
 
 def inset_geometry(geometry, inset_mm: float, label: str):
@@ -481,6 +531,7 @@ def build_kit_plan(args: argparse.Namespace) -> tuple[dict, list[dict], dict[str
         raise SystemExit("Source SVG size must be positive")
     if args.front_depth_mm <= 0:
         raise SystemExit("Front depth must be positive")
+    validate_physical_mark_args(args, {"front part": args.front_depth_mm})
 
     counts_by_icon = icon_part_counts(spec)
     quantities = kit_quantities(counts_by_icon, args.scope, args.icon)
@@ -534,6 +585,15 @@ def build_kit_plan(args: argparse.Namespace) -> tuple[dict, list[dict], dict[str
             "spacing_mm": args.spacing_mm,
             "plate_count": plate_count,
             "pieces": layout_records,
+        },
+        "marking": {
+            "scheme": "global-part-number-v1",
+            "physical_piece_mark_format": "global part number",
+            "legend_label_format": "global part number",
+            "physical_marks": physical_marking_manifest(
+                args,
+                front_piece_location="engraved on top face",
+            ),
         },
         "icons": usage_by_icon,
         "parts": part_details,
@@ -673,6 +733,13 @@ def build_part_fixture_kit_plan(args: argparse.Namespace) -> tuple[dict, list[di
         raise SystemExit("Pin hole edge clearance must be zero or positive")
     if args.pin_hole_min_spacing_mm < args.pin_hole_diameter_mm:
         raise SystemExit("Pin hole minimum spacing should be at least the hole diameter")
+    validate_physical_mark_args(
+        args,
+        {
+            "front face": args.front_face_thickness_mm,
+            "backplate": args.backplate_thickness_mm,
+        },
+    )
 
     counts_by_icon = icon_part_counts(spec)
     quantities = kit_quantities(counts_by_icon, args.scope, args.icon)
@@ -747,6 +814,11 @@ def build_part_fixture_kit_plan(args: argparse.Namespace) -> tuple[dict, list[di
             "scheme": "global-part-number-v1",
             "physical_piece_mark_format": "global part number",
             "legend_label_format": "global part number",
+            "physical_marks": physical_marking_manifest(
+                args,
+                front_cap_location="engraved on inside face",
+                backplate_location="engraved on cap-facing face",
+            ),
             "notes": [
                 "Use the same global part number for matching hollow front caps, backplates, and legend callouts.",
                 "Repeated numbers indicate duplicate copies of the same part design; any matching copy can be used.",
@@ -852,6 +924,10 @@ def cad_geometry_to_part(
     b,
     geometry,
     front_depth_mm: float,
+    mark_text: str | None = None,
+    mark_depth_mm: float = 0.0,
+    mark_font_size_mm: float = DEFAULT_PHYSICAL_MARK_FONT_SIZE_MM,
+    mark_font: str = DEFAULT_PHYSICAL_MARK_FONT,
 ):
     with b.BuildPart() as part_builder:
         with b.BuildSketch(b.Plane.XY):
@@ -866,6 +942,15 @@ def cad_geometry_to_part(
                         mode=b.Mode.SUBTRACT,
                     )
         b.extrude(amount=front_depth_mm)
+        engrave_part_number(
+            b,
+            geometry,
+            mark_text,
+            z_start_mm=front_depth_mm - mark_depth_mm,
+            depth_mm=mark_depth_mm,
+            max_font_size_mm=mark_font_size_mm,
+            font=mark_font,
+        )
     return part_builder.part
 
 
@@ -882,12 +967,43 @@ def sketch_geometry(b, geometry) -> None:
             )
 
 
+def engrave_part_number(
+    b,
+    geometry,
+    mark_text: str | None,
+    z_start_mm: float,
+    depth_mm: float,
+    max_font_size_mm: float,
+    font: str,
+) -> None:
+    if not mark_text or depth_mm <= 0:
+        return
+    x_mm, y_mm = mark_point(geometry)
+    font_size_mm = mark_font_size_mm(mark_text, geometry, max_font_size_mm)
+    with b.BuildPart(mode=b.Mode.PRIVATE) as text_cutter:
+        with b.BuildSketch(b.Plane.XY.offset(z_start_mm)):
+            with b.Locations((x_mm, y_mm)):
+                b.Text(
+                    mark_text,
+                    font_size_mm,
+                    font=font,
+                    font_style=b.FontStyle.BOLD,
+                    single_line_width=max(font_size_mm * 0.04, 0.08),
+                )
+        b.extrude(amount=depth_mm)
+    b.add(text_cutter.part, mode=b.Mode.SUBTRACT)
+
+
 def cad_geometry_to_hollow_front_cap(
     b,
     outer_geometry,
     cavity_geometry,
     front_depth_mm: float,
     front_face_thickness_mm: float,
+    mark_text: str | None = None,
+    mark_depth_mm: float = 0.0,
+    mark_font_size_mm: float = DEFAULT_PHYSICAL_MARK_FONT_SIZE_MM,
+    mark_font: str = DEFAULT_PHYSICAL_MARK_FONT,
 ):
     cavity_depth = front_depth_mm - front_face_thickness_mm
     with b.BuildPart() as part_builder:
@@ -897,6 +1013,15 @@ def cad_geometry_to_hollow_front_cap(
         with b.BuildSketch(b.Plane.XY.offset(front_face_thickness_mm)):
             sketch_geometry(b, cavity_geometry)
         b.extrude(amount=cavity_depth + 0.1, mode=b.Mode.SUBTRACT)
+        engrave_part_number(
+            b,
+            cavity_geometry,
+            mark_text,
+            z_start_mm=front_face_thickness_mm - mark_depth_mm,
+            depth_mm=mark_depth_mm,
+            max_font_size_mm=mark_font_size_mm,
+            font=mark_font,
+        )
     return part_builder.part
 
 
@@ -905,6 +1030,10 @@ def cad_geometry_to_part_backplate(
     geometry,
     backplate_thickness_mm: float,
     mount_holes: list[dict],
+    mark_text: str | None = None,
+    mark_depth_mm: float = 0.0,
+    mark_font_size_mm: float = DEFAULT_PHYSICAL_MARK_FONT_SIZE_MM,
+    mark_font: str = DEFAULT_PHYSICAL_MARK_FONT,
 ):
     with b.BuildPart() as backplate_builder:
         with b.BuildSketch(b.Plane.XY):
@@ -919,15 +1048,22 @@ def cad_geometry_to_part_backplate(
                     align=(b.Align.CENTER, b.Align.CENTER, b.Align.MIN),
                     mode=b.Mode.SUBTRACT,
                 )
+        engrave_part_number(
+            b,
+            geometry,
+            mark_text,
+            z_start_mm=backplate_thickness_mm - mark_depth_mm,
+            depth_mm=mark_depth_mm,
+            max_font_size_mm=mark_font_size_mm,
+            font=mark_font,
+        )
     return backplate_builder.part
 
 
 def kit_compound(
     b,
     placements: list[dict],
-    front_depth_mm: float,
-    bed_depth_mm: float,
-    plate_gap_mm: float,
+    args: argparse.Namespace,
     plate: int | None = None,
 ):
     children = []
@@ -936,16 +1072,21 @@ def kit_compound(
             continue
         plate_offset_y = 0.0
         if plate is None:
-            plate_offset_y = (placement["plate"] - 1) * (bed_depth_mm + plate_gap_mm)
+            plate_offset_y = (placement["plate"] - 1) * (args.bed_depth_mm + args.plate_gap_mm)
         geometry = affinity.translate(
             placement["geometry"],
             xoff=placement["geometry_xoff"],
             yoff=placement["geometry_yoff"] + plate_offset_y,
         )
+        mark_text = None if args.no_physical_marks else placement.get("piece_mark")
         part = cad_geometry_to_part(
             b,
             geometry,
-            front_depth_mm,
+            args.front_depth_mm,
+            mark_text=mark_text,
+            mark_depth_mm=args.physical_mark_depth_mm if mark_text else 0.0,
+            mark_font_size_mm=args.physical_mark_font_size_mm,
+            mark_font=args.physical_mark_font,
         )
         part.label = (
             placement.get("step_body_label")
@@ -982,23 +1123,33 @@ def part_fixture_kit_compound(
                 xoff=placement["geometry_xoff"],
                 yoff=placement["geometry_yoff"] + plate_offset_y,
             )
+            mark_text = None if args.no_physical_marks else placement.get("piece_mark")
             part = cad_geometry_to_hollow_front_cap(
                 b,
                 geometry,
                 cavity_geometry,
                 front_depth_mm=args.front_depth_mm,
                 front_face_thickness_mm=args.front_face_thickness_mm,
+                mark_text=mark_text,
+                mark_depth_mm=args.physical_mark_depth_mm if mark_text else 0.0,
+                mark_font_size_mm=args.physical_mark_font_size_mm,
+                mark_font=args.physical_mark_font,
             )
         elif placement["role"] == "part_backplate":
             mount_holes = [
                 {**hole, "y_mm": hole["y_mm"] + plate_offset_y}
                 for hole in placement.get("mount_holes_mm", [])
             ]
+            mark_text = None if args.no_physical_marks else placement.get("piece_mark")
             part = cad_geometry_to_part_backplate(
                 b,
                 geometry,
                 backplate_thickness_mm=args.backplate_thickness_mm,
                 mount_holes=mount_holes,
+                mark_text=mark_text,
+                mark_depth_mm=args.physical_mark_depth_mm if mark_text else 0.0,
+                mark_font_size_mm=args.physical_mark_font_size_mm,
+                mark_font=args.physical_mark_font,
             )
         else:
             raise SystemExit(f"Unknown fixture role: {placement['role']}")
@@ -1070,9 +1221,7 @@ def export_kit_command(args: argparse.Namespace) -> int:
     compound = kit_compound(
         b,
         placements,
-        front_depth_mm=args.front_depth_mm,
-        bed_depth_mm=args.bed_depth_mm,
-        plate_gap_mm=args.plate_gap_mm,
+        args,
     )
     outputs = {
         "combined_step": export_shape_step(
@@ -1094,9 +1243,7 @@ def export_kit_command(args: argparse.Namespace) -> int:
             plate_shape = kit_compound(
                 b,
                 placements,
-                front_depth_mm=args.front_depth_mm,
-                bed_depth_mm=args.bed_depth_mm,
-                plate_gap_mm=args.plate_gap_mm,
+                args,
                 plate=plate,
             )
             plate_outputs.append(
@@ -1200,6 +1347,10 @@ def add_kit_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--bed-width-mm", type=float, default=180.0)
     parser.add_argument("--bed-depth-mm", type=float, default=180.0)
     parser.add_argument("--spacing-mm", type=float, default=4.0)
+    parser.add_argument("--no-physical-marks", action="store_true", help="Do not engrave part numbers into STEP geometry")
+    parser.add_argument("--physical-mark-font", default=DEFAULT_PHYSICAL_MARK_FONT)
+    parser.add_argument("--physical-mark-font-size-mm", type=float, default=DEFAULT_PHYSICAL_MARK_FONT_SIZE_MM)
+    parser.add_argument("--physical-mark-depth-mm", type=float, default=DEFAULT_PHYSICAL_MARK_DEPTH_MM)
 
 
 def add_part_fixture_kit_arguments(parser: argparse.ArgumentParser) -> None:
@@ -1225,6 +1376,10 @@ def add_part_fixture_kit_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--bed-width-mm", type=float, default=180.0)
     parser.add_argument("--bed-depth-mm", type=float, default=180.0)
     parser.add_argument("--spacing-mm", type=float, default=4.0)
+    parser.add_argument("--no-physical-marks", action="store_true", help="Do not engrave part numbers into STEP geometry")
+    parser.add_argument("--physical-mark-font", default=DEFAULT_PHYSICAL_MARK_FONT)
+    parser.add_argument("--physical-mark-font-size-mm", type=float, default=DEFAULT_PHYSICAL_MARK_FONT_SIZE_MM)
+    parser.add_argument("--physical-mark-depth-mm", type=float, default=DEFAULT_PHYSICAL_MARK_DEPTH_MM)
 
 
 def build_parser() -> argparse.ArgumentParser:

@@ -889,6 +889,15 @@
       "Use the same global part number for matching hollow front caps, backplates, and legend callouts.",
       "Repeated numbers indicate duplicate copies of the same part design; any matching copy can be used."
     ],
+    "physical_marks": {
+      "backplate_location": "engraved on cap-facing face",
+      "cad_text_geometry": true,
+      "depth_mm": 0.25,
+      "font": "Arial",
+      "front_cap_location": "engraved on inside face",
+      "max_font_size_mm": 4.0,
+      "style": "engraved"
+    },
     "physical_piece_mark_format": "global part number",
     "scheme": "global-part-number-v1"
   },
@@ -896,8 +905,8 @@
     "combined_step": {
       "path": "analysis/runs/snapfit/part-backplate-v1/Visit_Icon_Platform.fixture-kit.step",
       "reimport_delta_mm3": 1e-09,
-      "reimport_volume_mm3": 13873.82577,
-      "volume_mm3": 13873.82577
+      "reimport_volume_mm3": 13850.70193,
+      "volume_mm3": 13850.70193
     }
   },
   "parts": {

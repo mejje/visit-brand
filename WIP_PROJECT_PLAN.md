@@ -63,7 +63,7 @@ All inspected SVGs use a `48 x 48` viewBox and filled vector primitives. Most ge
 | Plain universal front-piece STEP kit | Done | `analysis/runs/kits/recommended/universal-single-icon-kit.step`: 41 designs, 66 printed pieces, 4 plates. |
 | Corrected per-part fixture STEP kit | Done | `analysis/runs/snapfit/part-backplate-v1/universal-single-icon-fixture-kit.step`: 41 designs, 66 hollow caps, 66 two-hole backplates, 8 plates. |
 | Old peg/socket approach | Removed | The old generated artifacts and CLI paths were removed; current mechanical direction is hollow cap over per-part backplate. |
-| Marking and SVG legend system | In Progress | First-pass global part numbers, manifest assembly maps, and an all-icons SVG/JSON legend now exist; physical embossed/engraved number geometry still needs printability validation. |
+| Marking and SVG legend system | In Progress | Global part numbers now appear in manifests, the SVG/JSON legend, and the STEP geometry as shallow engraved CAD text; slicer visibility and print readability still need validation. |
 | PrusaSlicer validation | Not Started | Must confirm STEP body handling and usability before promising the workflow. |
 | Physical print validation | Not Started | No cap/backplate pair has been printed or handled yet. |
 | Facilities/wall mounting validation | Blocked / External | Needs representative cubicle/wall material and approval of pins/nails/alternatives. |
@@ -74,7 +74,7 @@ All inspected SVGs use a `48 x 48` viewBox and filled vector primitives. Most ge
 The project has working analysis, optimization, and STEP generation prototypes. What remains is mostly validation and productization:
 
 - Validate STEP import and separate body handling in PrusaSlicer.
-- Validate the generated global part-number legend workflow, then decide whether to add embossed/engraved number geometry to the printed parts.
+- Validate the generated global part-number legend workflow and the shallow engraved STEP marks in slicer and physical prints.
 - Print and test representative hollow-cap/backplate pairs, then tune clearances and hole sizes.
 - Confirm wall/cubicle mounting rules and approved fastener options.
 - Run brand/design review on the 41-part simplified library and visual deviation.
@@ -320,9 +320,9 @@ Tool: `tools/icon_reference.py` (build, check, verify, render subcommands)
   - Output: `analysis/runs/kits/recommended/universal-single-icon-kit.step` plus per-plate STEP files and manifest.
 - [x] Generate first corrected per-part fixture STEP artifact.
   - `tools/export_step.py part-fixture-kit` creates hollow front caps plus one small two-hole backplate per physical icon part.
-  - Current Platform fixture: 1 unique part design, 8 hollow front caps, 8 backplates, 16 total printed pieces, 1 plate, STEP re-import delta `0.000000002 mm^3`.
+  - Current Platform fixture: 1 unique part design, 8 hollow front caps, 8 backplates, 16 total printed pieces, 1 plate, STEP re-import delta `0.000000001 mm^3`.
   - Current test output: `analysis/runs/snapfit/part-backplate-v1/Visit_Icon_Platform.fixture-kit.step`.
-  - Universal single-icon fixture STEP: 41 unique part designs, 66 hollow front caps, 66 backplates, 132 total printed pieces, 8 plates, STEP re-import delta `0.000000449 mm^3`.
+  - Universal single-icon fixture STEP: 41 unique part designs, 66 hollow front caps, 66 backplates, 132 total printed pieces, 8 plates, STEP re-import delta `0.000000500 mm^3`.
 - [ ] **Not Started:** Validate PrusaSlicer STEP import before any physical print.
 - [x] Implement first-pass part marking and assembly legend system before broad physical testing.
   - Each unique part design now gets a stable global part number.
@@ -330,8 +330,10 @@ Tool: `tools/icon_reference.py` (build, check, verify, render subcommands)
   - Fixture manifests carry the part numbers and still retain internal front/backplate copy IDs for traceability.
   - Generated all-icons legend: `analysis/runs/snapfit/part-backplate-v1/universal-single-icon-fixture-legend.svg`.
   - Generated machine-readable legend map: `analysis/runs/snapfit/part-backplate-v1/universal-single-icon-fixture-legend.json`.
-- [ ] **Not Started:** Decide whether to add physical embossed/engraved text geometry after slicer and print validation.
-  - Several backplates are only `7.5 mm` across, so text geometry may need compact marks, dots, or a non-text marking scheme.
+- [x] Add physical engraved number geometry to STEP pieces.
+  - `tools/export_step.py` now engraves shallow `0.25 mm` global part numbers into plain front pieces, hollow cap inside faces, and backplate cap-facing faces by default.
+  - Use `--no-physical-marks` for clean STEP exports if the physical print review rejects visible/engraved numbers.
+  - Several backplates are only `7.5 mm` across, so print readability still needs physical validation.
 - [ ] **Not Started:** Print one or two representative hollow-cap/backplate pairs.
 - [ ] **Not Started:** Print one complete small icon from the corrected per-part fixture kit.
 - [ ] **Not Started:** Record printer, filament, nozzle, layer height, clearances, and fit outcome.
@@ -376,10 +378,10 @@ Tool: `tools/icon_parts.py` (bootstrap, render, score subcommands)
 - [ ] **In Progress:** Create small single-session print layouts. Prototype universal layouts exist; final employee-ready packaging is not done.
 - [ ] **Not Started:** Create larger multi-session layouts.
 - [x] Generate all-icons SVG assembly legend with global part-number callouts.
-- [ ] **In Progress:** Add physical piece marking scheme for front caps and matching backplates.
-  - First-pass global part numbers exist in manifests and legend JSON/SVG.
-  - Embossed/engraved CAD text remains open pending printability validation.
-  - STEP body labels should be refreshed with the global-number source changes in `tools/export_step.py` once the CAD venv can run.
+- [x] Add physical piece marking scheme for front caps and matching backplates.
+  - Global part numbers exist in manifests and legend JSON/SVG.
+  - STEP files now contain shallow engraved CAD text, not only STEP body labels.
+  - Printability and readability remain open validation items.
 - [ ] **Not Started:** Write maker quick-start guide.
 - [ ] **Not Started:** Write print setup guide.
 - [ ] **Not Started:** Write assembly and wall-mounting guide.
@@ -427,7 +429,7 @@ Completed:
 
 Current priorities:
 - **Corrected fixture validation**: print one or two Platform hollow-cap/backplate pairs from `analysis/runs/snapfit/part-backplate-v1/`, test wall pin holes, and evaluate the `0.25 mm` cap fit clearance.
-- **Marking and legend validation**: review the generated all-icons SVG legend, confirm global part numbers are understandable, and decide whether small parts can accept embossed/engraved numbers.
+- **Marking and legend validation**: review the generated all-icons SVG legend, confirm global part numbers are understandable, and validate whether the shallow engraved STEP numbers remain readable on small printed parts.
 - **Source primitive split validation**: DestinationBuilding roof/top vs left wall, plus VacationRental two roof pieces and right wall, are now split at the source SVG primitive level. Review the updated legend and reconstructed SVGs visually before locking the physical part library.
 - **Rotation policy validation**: Done for the current baseline. Platform now uses one global part number because `tools/icon_parts.py simplify` defaults to 45-degree rotation increments; `--rotation-angles` remains available for future experiments.
 - **Fixture kit expansion**: run `tools/export_step.py part-fixture-kit` for additional representative icons after the Platform pair validates.
