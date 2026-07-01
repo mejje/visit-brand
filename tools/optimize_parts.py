@@ -33,10 +33,17 @@ def stable_hash(data: object) -> str:
     return hashlib.sha256(payload).hexdigest()
 
 
-def _get_clusters(spec: dict) -> tuple[list[list[str]], dict[str, float]]:
+def _get_clusters(
+    spec: dict,
+    polygon_tolerance: float,
+    rotation_angles: Sequence[float] | None,
+) -> tuple[list[list[str]], dict[str, float]]:
     """Run rotation-enabled polygon Hausdorff clustering on the spec."""
     clusters, rotations = ip.cluster_polygons_by_hausdorff(
-        spec["parts"], tolerance=0.5, allow_rotation=True
+        spec["parts"],
+        tolerance=polygon_tolerance,
+        allow_rotation=True,
+        rotation_angles=rotation_angles,
     )
     return clusters, rotations
 
@@ -216,7 +223,8 @@ def optimize_command(args: argparse.Namespace) -> int:
     ref_dir = Path(args.references)
     refs = {r[0]: r for r in ip.load_references(ref_dir)}
 
-    clusters, rotations = _get_clusters(spec)
+    rotation_angles = args.rotation_angles or list(ip.DEFAULT_ROTATION_ANGLES)
+    clusters, rotations = _get_clusters(spec, args.polygon_tolerance, rotation_angles)
     original_cluster_count = len(clusters)
     clusters = select_clusters(clusters, args.cluster_limit)
     spec_hash = stable_hash(spec)
@@ -282,12 +290,28 @@ def optimize_command(args: argparse.Namespace) -> int:
         parts = int(pareto_F[i][0])
         score = float(pareto_F[i][1])
         merged_count = int(sum(pareto_X[i] > 0.5))
-        print(f"  parts={parts:3d}  score={score:.6g}  merged_clusters={merged_count}")
+        merged_spec = _spec_for_decision(spec, clusters, rotations, pareto_X[i])
+        result = ip.score_spec(merged_spec, refs)
+        spec_path_out = out_dir / f"part-spec.pareto_{i:02d}_parts_{parts}.v1.json"
+        spec_path_out.write_text(
+            json.dumps(merged_spec, indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+        )
+        print(
+            f"  parts={parts:3d}  score={score:.6g}  "
+            f"area_err={result['overall_area_error_ratio']:.6g}  "
+            f"hausdorff={result['worst_hausdorff']:.4f}  "
+            f"merged_clusters={merged_count}"
+        )
         pareto_rows.append({
             "unique_parts": parts,
             "score": score,
+            "area_error_ratio": result["overall_area_error_ratio"],
+            "total_area_error": round(result["total_area_error"], 6),
+            "worst_hausdorff": result["worst_hausdorff"],
             "merged_clusters": merged_count,
             "decision": pareto_X[i].tolist(),
+            "spec": spec_path_out.as_posix(),
         })
 
     pareto_path = out_dir / "pareto_nsga2.json"
@@ -307,6 +331,8 @@ def optimize_command(args: argparse.Namespace) -> int:
         "spec": spec_path.as_posix(),
         "references": ref_dir.as_posix(),
         "mode": "exhaustive" if args.exhaustive else "nsga2",
+        "polygon_tolerance": args.polygon_tolerance,
+        "rotation_angles": rotation_angles,
         "original_cluster_count": original_cluster_count,
         "used_cluster_count": len(clusters),
         "cluster_limit": args.cluster_limit,
@@ -344,6 +370,13 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--population", type=int, default=100, help="NSGA-II population size")
     parser.add_argument("--generations", type=int, default=30, help="Number of generations")
     parser.add_argument("--seed", type=int, default=42, help="Random seed")
+    parser.add_argument("--polygon-tolerance", type=float, default=0.5, help="Hausdorff tolerance for polygon merge clusters")
+    parser.add_argument(
+        "--rotation-angles",
+        nargs="*",
+        type=float,
+        help="Allowed polygon reuse rotations in degrees, default: 0 45 90 135 180 225 270 315",
+    )
     parser.add_argument("--no-cache", action="store_true", help="Disable decision-level score cache")
     parser.add_argument("--cache-path", help="Optional persistent score cache JSON")
     parser.add_argument("--cluster-limit", type=int, help="Use only the highest-saving N clusters")

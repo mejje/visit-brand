@@ -1,0 +1,401 @@
+[
+  {
+    "unique_parts": 40,
+    "score": 0.010675946084615952,
+    "area_error_ratio": 0.002402295640097436,
+    "total_area_error": 16.156342,
+    "worst_hausdorff": 0.8273650444518517,
+    "merged_clusters": 8,
+    "decision": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "spec": "analysis/runs/nsga2-centroid-tol0.85/part-spec.pareto_00_parts_40.v1.json"
+  },
+  {
+    "unique_parts": 41,
+    "score": 0.010252567616056646,
+    "area_error_ratio": 0.0019789171715381294,
+    "total_area_error": 13.308962,
+    "worst_hausdorff": 0.8273650444518517,
+    "merged_clusters": 7,
+    "decision": [
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "spec": "analysis/runs/nsga2-centroid-tol0.85/part-spec.pareto_01_parts_41.v1.json"
+  },
+  {
+    "unique_parts": 42,
+    "score": 0.010228142584936496,
+    "area_error_ratio": 0.0019544921404179793,
+    "total_area_error": 13.144695,
+    "worst_hausdorff": 0.8273650444518517,
+    "merged_clusters": 6,
+    "decision": [
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1
+    ],
+    "spec": "analysis/runs/nsga2-centroid-tol0.85/part-spec.pareto_02_parts_42.v1.json"
+  },
+  {
+    "unique_parts": 43,
+    "score": 0.010213386697946936,
+    "area_error_ratio": 0.0019397362534284202,
+    "total_area_error": 13.045456,
+    "worst_hausdorff": 0.8273650444518517,
+    "merged_clusters": 5,
+    "decision": [
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ],
+    "spec": "analysis/runs/nsga2-centroid-tol0.85/part-spec.pareto_03_parts_43.v1.json"
+  },
+  {
+    "unique_parts": 44,
+    "score": 0.010213386696162643,
+    "area_error_ratio": 0.0019397362516441275,
+    "total_area_error": 13.045456,
+    "worst_hausdorff": 0.8273650444518517,
+    "merged_clusters": 4,
+    "decision": [
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1
+    ],
+    "spec": "analysis/runs/nsga2-centroid-tol0.85/part-spec.pareto_04_parts_44.v1.json"
+  },
+  {
+    "unique_parts": 45,
+    "score": 0.006458714911041841,
+    "area_error_ratio": 0.0012139950210607207,
+    "total_area_error": 8.164573,
+    "worst_hausdorff": 0.524471988998112,
+    "merged_clusters": 7,
+    "decision": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "spec": "analysis/runs/nsga2-centroid-tol0.85/part-spec.pareto_05_parts_45.v1.json"
+  },
+  {
+    "unique_parts": 46,
+    "score": 0.0015766188059332296,
+    "area_error_ratio": 0.0007906165525014146,
+    "total_area_error": 5.317194,
+    "worst_hausdorff": 0.07860022534318149,
+    "merged_clusters": 6,
+    "decision": [
+      1,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "spec": "analysis/runs/nsga2-centroid-tol0.85/part-spec.pareto_06_parts_46.v1.json"
+  },
+  {
+    "unique_parts": 47,
+    "score": 0.0015521937748130795,
+    "area_error_ratio": 0.0007661915213812645,
+    "total_area_error": 5.152926,
+    "worst_hausdorff": 0.07860022534318149,
+    "merged_clusters": 5,
+    "decision": [
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1
+    ],
+    "spec": "analysis/runs/nsga2-centroid-tol0.85/part-spec.pareto_07_parts_47.v1.json"
+  },
+  {
+    "unique_parts": 48,
+    "score": 0.0015374378878235204,
+    "area_error_ratio": 0.0007514356343917054,
+    "total_area_error": 5.053687,
+    "worst_hausdorff": 0.07860022534318149,
+    "merged_clusters": 4,
+    "decision": [
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "spec": "analysis/runs/nsga2-centroid-tol0.85/part-spec.pareto_08_parts_48.v1.json"
+  },
+  {
+    "unique_parts": 49,
+    "score": 0.0015374378860392277,
+    "area_error_ratio": 0.0007514356326074126,
+    "total_area_error": 5.053687,
+    "worst_hausdorff": 0.07860022534318149,
+    "merged_clusters": 3,
+    "decision": [
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "spec": "analysis/runs/nsga2-centroid-tol0.85/part-spec.pareto_09_parts_49.v1.json"
+  },
+  {
+    "unique_parts": 50,
+    "score": 0.00153743788474297,
+    "area_error_ratio": 0.0007514356313111551,
+    "total_area_error": 5.053687,
+    "worst_hausdorff": 0.07860022534318149,
+    "merged_clusters": 2,
+    "decision": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "spec": "analysis/runs/nsga2-centroid-tol0.85/part-spec.pareto_10_parts_50.v1.json"
+  },
+  {
+    "unique_parts": 53,
+    "score": 0.0003762336652108955,
+    "area_error_ratio": 0.0002585312497431295,
+    "total_area_error": 1.73872,
+    "worst_hausdorff": 0.0117702415467766,
+    "merged_clusters": 5,
+    "decision": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1
+    ],
+    "spec": "analysis/runs/nsga2-centroid-tol0.85/part-spec.pareto_11_parts_53.v1.json"
+  },
+  {
+    "unique_parts": 54,
+    "score": 0.0003518086340907454,
+    "area_error_ratio": 0.00023410621862297938,
+    "total_area_error": 1.574452,
+    "worst_hausdorff": 0.0117702415467766,
+    "merged_clusters": 4,
+    "decision": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    "spec": "analysis/runs/nsga2-centroid-tol0.85/part-spec.pareto_12_parts_54.v1.json"
+  },
+  {
+    "unique_parts": 55,
+    "score": 0.00033705274710118627,
+    "area_error_ratio": 0.00021935033163342023,
+    "total_area_error": 1.475213,
+    "worst_hausdorff": 0.0117702415467766,
+    "merged_clusters": 3,
+    "decision": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "spec": "analysis/runs/nsga2-centroid-tol0.85/part-spec.pareto_13_parts_55.v1.json"
+  },
+  {
+    "unique_parts": 56,
+    "score": 0.00033705274531689345,
+    "area_error_ratio": 0.00021935032984912744,
+    "total_area_error": 1.475213,
+    "worst_hausdorff": 0.0117702415467766,
+    "merged_clusters": 2,
+    "decision": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "spec": "analysis/runs/nsga2-centroid-tol0.85/part-spec.pareto_14_parts_56.v1.json"
+  },
+  {
+    "unique_parts": 57,
+    "score": 0.0003370527440206359,
+    "area_error_ratio": 0.0002193503285528699,
+    "total_area_error": 1.475213,
+    "worst_hausdorff": 0.0117702415467766,
+    "merged_clusters": 1,
+    "decision": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "spec": "analysis/runs/nsga2-centroid-tol0.85/part-spec.pareto_15_parts_57.v1.json"
+  },
+  {
+    "unique_parts": 61,
+    "score": 0.00012731662625758305,
+    "area_error_ratio": 3.918092119029206e-05,
+    "total_area_error": 0.263506,
+    "worst_hausdorff": 0.008813570506729098,
+    "merged_clusters": 4,
+    "decision": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0
+    ],
+    "spec": "analysis/runs/nsga2-centroid-tol0.85/part-spec.pareto_16_parts_61.v1.json"
+  },
+  {
+    "unique_parts": 62,
+    "score": 8.02236033568985e-05,
+    "area_error_ratio": 1.4755890070141922e-05,
+    "total_area_error": 0.099239,
+    "worst_hausdorff": 0.006546771328675658,
+    "merged_clusters": 3,
+    "decision": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "spec": "analysis/runs/nsga2-centroid-tol0.85/part-spec.pareto_17_parts_62.v1.json"
+  },
+  {
+    "unique_parts": 63,
+    "score": 6.52069987401713e-12,
+    "area_error_ratio": 3.080582786906092e-12,
+    "total_area_error": 0.0,
+    "worst_hausdorff": 3.440117087111037e-10,
+    "merged_clusters": 2,
+    "decision": [
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "spec": "analysis/runs/nsga2-centroid-tol0.85/part-spec.pareto_18_parts_63.v1.json"
+  },
+  {
+    "unique_parts": 64,
+    "score": 2.5783222620078925e-12,
+    "area_error_ratio": 1.296290003875944e-12,
+    "total_area_error": 0.0,
+    "worst_hausdorff": 1.2820322581319488e-10,
+    "merged_clusters": 1,
+    "decision": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "spec": "analysis/runs/nsga2-centroid-tol0.85/part-spec.pareto_19_parts_64.v1.json"
+  },
+  {
+    "unique_parts": 65,
+    "score": 6.801308702116987e-17,
+    "area_error_ratio": 3.248595023316485e-17,
+    "total_area_error": 0.0,
+    "worst_hausdorff": 3.552713678800501e-15,
+    "merged_clusters": 0,
+    "decision": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "spec": "analysis/runs/nsga2-centroid-tol0.85/part-spec.pareto_20_parts_65.v1.json"
+  }
+]

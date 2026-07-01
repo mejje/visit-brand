@@ -367,23 +367,23 @@
       "24": "part_0039",
       "25": "part_0040",
       "26": "part_0043",
-      "27": "part_0044",
-      "28": "part_0045",
-      "29": "part_0046",
+      "27": "part_0045",
+      "28": "part_0046",
+      "29": "part_0047",
       "3": "part_0002",
-      "30": "part_0047",
-      "31": "part_0049",
-      "32": "part_0050",
-      "33": "part_0051",
-      "34": "part_0052",
-      "35": "part_0053",
-      "36": "part_0054",
-      "37": "part_0055",
-      "38": "part_0057",
-      "39": "part_0058",
+      "30": "part_0048",
+      "31": "part_0050",
+      "32": "part_0051",
+      "33": "part_0052",
+      "34": "part_0053",
+      "35": "part_0054",
+      "36": "part_0055",
+      "37": "part_0056",
+      "38": "part_0058",
+      "39": "part_0059",
       "4": "part_0003",
-      "40": "part_0059",
-      "41": "part_0062",
+      "40": "part_0060",
+      "41": "part_0063",
       "5": "part_0004",
       "6": "part_0005",
       "7": "part_0006",
@@ -491,17 +491,17 @@
       "parts": {
         "part_0020": 2,
         "part_0022": 1,
-        "part_0043": 1,
-        "part_0044": 1,
-        "part_0045": 1
+        "part_0043": 2,
+        "part_0045": 1,
+        "part_0046": 1
       },
-      "total_pieces": 6
+      "total_pieces": 7
     },
     "Visit_Icon_Solceller": {
       "parts": {
         "part_0022": 1,
         "part_0023": 1,
-        "part_0046": 1
+        "part_0047": 1
       },
       "total_pieces": 3
     },
@@ -509,20 +509,20 @@
       "parts": {
         "part_0018": 1,
         "part_0022": 1,
-        "part_0047": 1,
-        "part_0049": 1,
+        "part_0048": 1,
         "part_0050": 1,
         "part_0051": 1,
-        "part_0052": 1
+        "part_0052": 1,
+        "part_0053": 1
       },
       "total_pieces": 7
     },
     "Visit_Icon_Travel agent": {
       "parts": {
-        "part_0053": 1,
         "part_0054": 1,
-        "part_0055": 2,
-        "part_0057": 1
+        "part_0055": 1,
+        "part_0056": 2,
+        "part_0058": 1
       },
       "total_pieces": 5
     },
@@ -531,9 +531,9 @@
         "part_0006": 1,
         "part_0007": 1,
         "part_0024": 1,
-        "part_0058": 1,
         "part_0059": 1,
-        "part_0062": 1
+        "part_0060": 1,
+        "part_0063": 1
       },
       "total_pieces": 6
     }
@@ -962,7 +962,7 @@
   "scope": "single_icon",
   "source_size_svg": 48.0,
   "source_spec": "analysis/runs/simplify/part-spec.combined_rtol1.0_phd0.5_rot.v1.json",
-  "source_spec_hash": "bf51e11a2abd9082fa754baf2bf3612ab01b7b4fac93334aaa77321724ae43cd",
+  "source_spec_hash": "9cd06a5ad33c42602c9501b1d36b3cc423bb75da1d7c3f6174ef733ad9cf9bb3",
   "total_front_caps": 8,
   "total_part_backplates": 8,
   "total_printed_pieces": 16,

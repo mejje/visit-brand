@@ -83,17 +83,17 @@
       "parts": {
         "part_0020": 2,
         "part_0022": 1,
-        "part_0043": 1,
-        "part_0044": 1,
-        "part_0045": 1
+        "part_0043": 2,
+        "part_0045": 1,
+        "part_0046": 1
       },
-      "total_pieces": 6
+      "total_pieces": 7
     },
     "Visit_Icon_Solceller": {
       "parts": {
         "part_0022": 1,
         "part_0023": 1,
-        "part_0046": 1
+        "part_0047": 1
       },
       "total_pieces": 3
     },
@@ -101,20 +101,20 @@
       "parts": {
         "part_0018": 1,
         "part_0022": 1,
-        "part_0047": 1,
-        "part_0049": 1,
+        "part_0048": 1,
         "part_0050": 1,
         "part_0051": 1,
-        "part_0052": 1
+        "part_0052": 1,
+        "part_0053": 1
       },
       "total_pieces": 7
     },
     "Visit_Icon_Travel agent": {
       "parts": {
-        "part_0053": 1,
         "part_0054": 1,
-        "part_0055": 2,
-        "part_0057": 1
+        "part_0055": 1,
+        "part_0056": 2,
+        "part_0058": 1
       },
       "total_pieces": 5
     },
@@ -123,9 +123,9 @@
         "part_0006": 1,
         "part_0007": 1,
         "part_0024": 1,
-        "part_0058": 1,
         "part_0059": 1,
-        "part_0062": 1
+        "part_0060": 1,
+        "part_0063": 1
       },
       "total_pieces": 6
     }
@@ -189,9 +189,9 @@
       {
         "copy_index": 1,
         "height_mm": 75.6,
-        "part": "part_0046",
+        "part": "part_0047",
         "part_number": 29,
-        "piece_id": "part_0046__01",
+        "piece_id": "part_0047__01",
         "piece_mark": "29",
         "plate": 1,
         "step_body_label": "part_029",
@@ -202,9 +202,9 @@
       {
         "copy_index": 1,
         "height_mm": 71.1,
-        "part": "part_0059",
+        "part": "part_0060",
         "part_number": 40,
-        "piece_id": "part_0059__01",
+        "piece_id": "part_0060__01",
         "piece_mark": "40",
         "plate": 1,
         "step_body_label": "part_040",
@@ -215,9 +215,9 @@
       {
         "copy_index": 1,
         "height_mm": 60.175,
-        "part": "part_0053",
+        "part": "part_0054",
         "part_number": 35,
-        "piece_id": "part_0053__01",
+        "piece_id": "part_0054__01",
         "piece_mark": "35",
         "plate": 2,
         "step_body_label": "part_035",
@@ -228,9 +228,9 @@
       {
         "copy_index": 1,
         "height_mm": 58.707541,
-        "part": "part_0054",
+        "part": "part_0055",
         "part_number": 36,
-        "piece_id": "part_0054__01",
+        "piece_id": "part_0055__01",
         "piece_mark": "36",
         "plate": 2,
         "step_body_label": "part_036",
@@ -241,9 +241,9 @@
       {
         "copy_index": 1,
         "height_mm": 56.85,
-        "part": "part_0062",
+        "part": "part_0063",
         "part_number": 41,
-        "piece_id": "part_0062__01",
+        "piece_id": "part_0063__01",
         "piece_mark": "41",
         "plate": 2,
         "step_body_label": "part_041",
@@ -254,9 +254,9 @@
       {
         "copy_index": 1,
         "height_mm": 56.025,
-        "part": "part_0052",
+        "part": "part_0053",
         "part_number": 34,
-        "piece_id": "part_0052__01",
+        "piece_id": "part_0053__01",
         "piece_mark": "34",
         "plate": 2,
         "step_body_label": "part_034",
@@ -323,36 +323,49 @@
         "part_number": 26,
         "piece_id": "part_0043__01",
         "piece_mark": "26",
+        "plate": 2,
+        "step_body_label": "part_026",
+        "width_mm": 44.575,
+        "x_mm": 103.0,
+        "y_mm": 124.2
+      },
+      {
+        "copy_index": 2,
+        "height_mm": 44.575,
+        "part": "part_0043",
+        "part_number": 26,
+        "piece_id": "part_0043__02",
+        "piece_mark": "26",
         "plate": 3,
         "step_body_label": "part_026",
-        "width_mm": 89.15,
+        "width_mm": 44.575,
         "x_mm": 0.0,
         "y_mm": 0.0
       },
       {
         "copy_index": 1,
         "height_mm": 43.65,
-        "part": "part_0049",
+        "part": "part_0050",
         "part_number": 31,
-        "piece_id": "part_0049__01",
+        "piece_id": "part_0050__01",
         "piece_mark": "31",
         "plate": 3,
         "step_body_label": "part_031",
         "width_mm": 28.425,
-        "x_mm": 93.15,
+        "x_mm": 48.575,
         "y_mm": 0.0
       },
       {
         "copy_index": 1,
         "height_mm": 42.8,
-        "part": "part_0045",
+        "part": "part_0046",
         "part_number": 28,
-        "piece_id": "part_0045__01",
+        "piece_id": "part_0046__01",
         "piece_mark": "28",
         "plate": 3,
         "step_body_label": "part_028",
         "width_mm": 49.875,
-        "x_mm": 125.575,
+        "x_mm": 81.0,
         "y_mm": 0.0
       },
       {
@@ -365,8 +378,8 @@
         "plate": 3,
         "step_body_label": "part_008",
         "width_mm": 32.15,
-        "x_mm": 0.0,
-        "y_mm": 48.575
+        "x_mm": 134.875,
+        "y_mm": 0.0
       },
       {
         "copy_index": 1,
@@ -378,7 +391,7 @@
         "plate": 3,
         "step_body_label": "part_007",
         "width_mm": 32.175,
-        "x_mm": 36.15,
+        "x_mm": 0.0,
         "y_mm": 48.575
       },
       {
@@ -391,33 +404,33 @@
         "plate": 3,
         "step_body_label": "part_024",
         "width_mm": 10.0,
-        "x_mm": 72.325,
+        "x_mm": 36.175,
         "y_mm": 48.575
       },
       {
         "copy_index": 1,
         "height_mm": 37.5,
-        "part": "part_0050",
+        "part": "part_0051",
         "part_number": 32,
-        "piece_id": "part_0050__01",
+        "piece_id": "part_0051__01",
         "piece_mark": "32",
         "plate": 3,
         "step_body_label": "part_032",
         "width_mm": 10.0,
-        "x_mm": 86.325,
+        "x_mm": 50.175,
         "y_mm": 48.575
       },
       {
         "copy_index": 1,
         "height_mm": 37.15,
-        "part": "part_0057",
+        "part": "part_0058",
         "part_number": 38,
-        "piece_id": "part_0057__01",
+        "piece_id": "part_0058__01",
         "piece_mark": "38",
         "plate": 3,
         "step_body_label": "part_038",
         "width_mm": 37.15,
-        "x_mm": 100.325,
+        "x_mm": 64.175,
         "y_mm": 48.575
       },
       {
@@ -430,7 +443,7 @@
         "plate": 3,
         "step_body_label": "part_016",
         "width_mm": 10.0,
-        "x_mm": 141.475,
+        "x_mm": 105.325,
         "y_mm": 48.575
       },
       {
@@ -443,7 +456,7 @@
         "plate": 3,
         "step_body_label": "part_016",
         "width_mm": 10.0,
-        "x_mm": 155.475,
+        "x_mm": 119.325,
         "y_mm": 48.575
       },
       {
@@ -457,20 +470,20 @@
         "step_body_label": "part_002",
         "width_mm": 69.15,
         "x_mm": 0.0,
-        "y_mm": 90.35
+        "y_mm": 90.325
       },
       {
         "copy_index": 1,
         "height_mm": 33.575,
-        "part": "part_0044",
+        "part": "part_0045",
         "part_number": 27,
-        "piece_id": "part_0044__01",
+        "piece_id": "part_0045__01",
         "piece_mark": "27",
         "plate": 3,
         "step_body_label": "part_027",
         "width_mm": 46.025,
         "x_mm": 73.15,
-        "y_mm": 90.35
+        "y_mm": 90.325
       },
       {
         "copy_index": 1,
@@ -483,7 +496,7 @@
         "step_body_label": "part_023",
         "width_mm": 13.325,
         "x_mm": 123.175,
-        "y_mm": 90.35
+        "y_mm": 90.325
       },
       {
         "copy_index": 2,
@@ -496,7 +509,7 @@
         "step_body_label": "part_023",
         "width_mm": 13.325,
         "x_mm": 140.5,
-        "y_mm": 90.35
+        "y_mm": 90.325
       },
       {
         "copy_index": 3,
@@ -509,7 +522,7 @@
         "step_body_label": "part_023",
         "width_mm": 13.325,
         "x_mm": 157.825,
-        "y_mm": 90.35
+        "y_mm": 90.325
       },
       {
         "copy_index": 4,
@@ -522,7 +535,7 @@
         "step_body_label": "part_023",
         "width_mm": 13.325,
         "x_mm": 0.0,
-        "y_mm": 128.925
+        "y_mm": 128.9
       },
       {
         "copy_index": 5,
@@ -535,7 +548,7 @@
         "step_body_label": "part_023",
         "width_mm": 13.325,
         "x_mm": 17.325,
-        "y_mm": 128.925
+        "y_mm": 128.9
       },
       {
         "copy_index": 6,
@@ -548,7 +561,7 @@
         "step_body_label": "part_023",
         "width_mm": 13.325,
         "x_mm": 34.65,
-        "y_mm": 128.925
+        "y_mm": 128.9
       },
       {
         "copy_index": 7,
@@ -561,7 +574,7 @@
         "step_body_label": "part_023",
         "width_mm": 13.325,
         "x_mm": 51.975,
-        "y_mm": 128.925
+        "y_mm": 128.9
       },
       {
         "copy_index": 8,
@@ -574,7 +587,7 @@
         "step_body_label": "part_023",
         "width_mm": 13.325,
         "x_mm": 69.3,
-        "y_mm": 128.925
+        "y_mm": 128.9
       },
       {
         "copy_index": 1,
@@ -587,20 +600,20 @@
         "step_body_label": "part_014",
         "width_mm": 10.0,
         "x_mm": 86.625,
-        "y_mm": 128.925
+        "y_mm": 128.9
       },
       {
         "copy_index": 1,
         "height_mm": 27.5,
-        "part": "part_0047",
+        "part": "part_0048",
         "part_number": 30,
-        "piece_id": "part_0047__01",
+        "piece_id": "part_0048__01",
         "piece_mark": "30",
         "plate": 3,
         "step_body_label": "part_030",
         "width_mm": 10.0,
         "x_mm": 100.625,
-        "y_mm": 128.925
+        "y_mm": 128.9
       },
       {
         "copy_index": 1,
@@ -613,7 +626,7 @@
         "step_body_label": "part_009",
         "width_mm": 48.875,
         "x_mm": 114.625,
-        "y_mm": 128.925
+        "y_mm": 128.9
       },
       {
         "copy_index": 2,
@@ -670,9 +683,9 @@
       {
         "copy_index": 1,
         "height_mm": 26.6,
-        "part": "part_0058",
+        "part": "part_0059",
         "part_number": 39,
-        "piece_id": "part_0058__01",
+        "piece_id": "part_0059__01",
         "piece_mark": "39",
         "plate": 4,
         "step_body_label": "part_039",
@@ -839,9 +852,9 @@
       {
         "copy_index": 1,
         "height_mm": 10.0,
-        "part": "part_0055",
+        "part": "part_0056",
         "part_number": 37,
-        "piece_id": "part_0055__01",
+        "piece_id": "part_0056__01",
         "piece_mark": "37",
         "plate": 4,
         "step_body_label": "part_037",
@@ -852,9 +865,9 @@
       {
         "copy_index": 2,
         "height_mm": 10.0,
-        "part": "part_0055",
+        "part": "part_0056",
         "part_number": 37,
-        "piece_id": "part_0055__02",
+        "piece_id": "part_0056__02",
         "piece_mark": "37",
         "plate": 4,
         "step_body_label": "part_037",
@@ -865,9 +878,9 @@
       {
         "copy_index": 1,
         "height_mm": 10.0,
-        "part": "part_0051",
+        "part": "part_0052",
         "part_number": 33,
-        "piece_id": "part_0051__01",
+        "piece_id": "part_0052__01",
         "piece_mark": "33",
         "plate": 4,
         "step_body_label": "part_033",
@@ -1014,8 +1027,8 @@
     "combined_step": {
       "path": "analysis/runs/kits/recommended/universal-single-icon-kit.step",
       "reimport_delta_mm3": 2e-09,
-      "reimport_volume_mm3": 266101.638541,
-      "volume_mm3": 266101.638541
+      "reimport_volume_mm3": 266100.028715,
+      "volume_mm3": 266100.028715
     },
     "plate_steps": [
       {
@@ -1027,14 +1040,14 @@
       {
         "path": "analysis/runs/kits/recommended/universal-single-icon-kit.plate_02.step",
         "reimport_delta_mm3": 0.0,
-        "reimport_volume_mm3": 47110.637756,
-        "volume_mm3": 47110.637756
+        "reimport_volume_mm3": 51354.041837,
+        "volume_mm3": 51354.041837
       },
       {
         "path": "analysis/runs/kits/recommended/universal-single-icon-kit.plate_03.step",
         "reimport_delta_mm3": 0.0,
-        "reimport_volume_mm3": 80872.592323,
-        "volume_mm3": 80872.592323
+        "reimport_volume_mm3": 76627.583938,
+        "volume_mm3": 76627.583938
       },
       {
         "path": "analysis/runs/kits/recommended/universal-single-icon-kit.plate_04.step",
@@ -1711,31 +1724,31 @@
     },
     "part_0043": {
       "cad_bounds_mm": [
-        0.0,
-        -44.575,
-        89.15,
-        0.0
+        -25.602531,
+        -18.972469,
+        18.972469,
+        25.602531
       ],
       "footprint_mm": {
         "height": 44.575,
-        "width": 89.15
+        "width": 44.575
       },
       "kind": "polygon",
       "min_feature_mm": 14.15,
       "part_number": 26,
-      "quantity": 1,
+      "quantity": 2,
       "source_bounds_svg": [
         5.17,
         25.17,
-        40.83,
+        23.0,
         43.0
       ],
-      "source_count": 1,
+      "source_count": 2,
       "used_by_icons": {
-        "Visit_Icon_Ski resort": 1
+        "Visit_Icon_Ski resort": 2
       }
     },
-    "part_0044": {
+    "part_0045": {
       "cad_bounds_mm": [
         0.0,
         -33.575,
@@ -1761,7 +1774,7 @@
         "Visit_Icon_Ski resort": 1
       }
     },
-    "part_0045": {
+    "part_0046": {
       "cad_bounds_mm": [
         0.0,
         -42.8,
@@ -1787,7 +1800,7 @@
         "Visit_Icon_Ski resort": 1
       }
     },
-    "part_0046": {
+    "part_0047": {
       "cad_bounds_mm": [
         0.0,
         -75.6,
@@ -1813,7 +1826,7 @@
         "Visit_Icon_Solceller": 1
       }
     },
-    "part_0047": {
+    "part_0048": {
       "cad_bounds_mm": [
         0.0,
         -27.5,
@@ -1839,7 +1852,7 @@
         "Visit_Icon_Tour operator": 1
       }
     },
-    "part_0049": {
+    "part_0050": {
       "cad_bounds_mm": [
         0.0,
         -43.65,
@@ -1865,7 +1878,7 @@
         "Visit_Icon_Tour operator": 1
       }
     },
-    "part_0050": {
+    "part_0051": {
       "cad_bounds_mm": [
         0.0,
         -37.5,
@@ -1891,7 +1904,7 @@
         "Visit_Icon_Tour operator": 1
       }
     },
-    "part_0051": {
+    "part_0052": {
       "cad_bounds_mm": [
         0.0,
         -10.0,
@@ -1917,7 +1930,7 @@
         "Visit_Icon_Tour operator": 1
       }
     },
-    "part_0052": {
+    "part_0053": {
       "cad_bounds_mm": [
         0.0,
         -56.025,
@@ -1943,7 +1956,7 @@
         "Visit_Icon_Tour operator": 1
       }
     },
-    "part_0053": {
+    "part_0054": {
       "cad_bounds_mm": [
         0.0,
         -60.175,
@@ -1969,7 +1982,7 @@
         "Visit_Icon_Travel agent": 1
       }
     },
-    "part_0054": {
+    "part_0055": {
       "cad_bounds_mm": [
         -0.0,
         -58.707541,
@@ -1995,7 +2008,7 @@
         "Visit_Icon_Travel agent": 1
       }
     },
-    "part_0055": {
+    "part_0056": {
       "cad_bounds_mm": [
         -21.25,
         -4.487179,
@@ -2021,7 +2034,7 @@
         "Visit_Icon_Travel agent": 2
       }
     },
-    "part_0057": {
+    "part_0058": {
       "cad_bounds_mm": [
         0.0,
         -37.15,
@@ -2047,7 +2060,7 @@
         "Visit_Icon_Travel agent": 1
       }
     },
-    "part_0058": {
+    "part_0059": {
       "cad_bounds_mm": [
         0.0,
         -26.6,
@@ -2073,7 +2086,7 @@
         "Visit_Icon_VacationRental": 1
       }
     },
-    "part_0059": {
+    "part_0060": {
       "cad_bounds_mm": [
         0.0,
         -71.1,
@@ -2099,7 +2112,7 @@
         "Visit_Icon_VacationRental": 1
       }
     },
-    "part_0062": {
+    "part_0063": {
       "cad_bounds_mm": [
         0.0,
         -56.85,
@@ -2131,7 +2144,7 @@
   "scope": "universal_single_icon",
   "source_size_svg": 48.0,
   "source_spec": "analysis/runs/simplify/part-spec.combined_rtol1.0_phd0.5_rot.v1.json",
-  "source_spec_hash": "bf51e11a2abd9082fa754baf2bf3612ab01b7b4fac93334aaa77321724ae43cd",
-  "total_printed_pieces": 66,
+  "source_spec_hash": "9cd06a5ad33c42602c9501b1d36b3cc423bb75da1d7c3f6174ef733ad9cf9bb3",
+  "total_printed_pieces": 67,
   "total_unique_part_designs": 41
 }

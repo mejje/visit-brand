@@ -787,7 +787,7 @@ def cluster_polygons_by_hausdorff(
     allow_rotation: bool = False,
     rotation_angles: Sequence[float] | None = None,
 ) -> tuple[list[list[str]], dict[str, float] | None]:
-    """Group polygon/bar/custom parts by Hausdorff distance.
+    """Group polygon/bar/custom parts by centroid-normalized Hausdorff distance.
 
     If allow_rotation, tries rotating each candidate through rotation_angles
     and records the best angle per member. Returns (clusters, rotations) where
@@ -809,11 +809,10 @@ def cluster_polygons_by_hausdorff(
     if len(poly_ids) < 2:
         return [], {} if allow_rotation else None
 
-    anchor = "centroid" if allow_rotation else "min_corner"
     polys: dict[str, object] = {}
     for pid in poly_ids:
         try:
-            polys[pid] = part_geometry(parts[pid], anchor=anchor)
+            polys[pid] = part_geometry(parts[pid], anchor="centroid")
         except Exception:
             continue
 
@@ -891,17 +890,21 @@ def merge_polygon_clusters(
     clusters: list[list[str]],
     rotations: dict[str, float] | None = None,
     rotation_angles: Sequence[float] | None = None,
+    centroid_anchor: bool = False,
 ) -> dict:
     """Create a spec where polygon clusters are merged to the most-used part.
 
     If rotations is provided, parts are centroid-anchored and instances record
     rotation offsets. The spec is converted to centroid anchor before merging.
     Rotation angles are recomputed relative to the keeper part.
+    If centroid_anchor is true, the same centroid anchoring is used without
+    adding instance rotation fields.
     """
     use_rotation = rotations is not None
+    use_centroid_anchor = centroid_anchor or use_rotation
     angles = tuple(rotation_angles or DEFAULT_ROTATION_ANGLES)
 
-    if use_rotation:
+    if use_centroid_anchor:
         all_clustered = {pid for cluster in clusters for pid in cluster}
         spec = _convert_to_centroid_anchor(spec, part_ids=all_clustered)
 
@@ -1020,7 +1023,7 @@ def simplify_command(args: argparse.Namespace) -> int:
         if not clusters:
             print(f"  poly_hd={tol}: no mergeable clusters")
             continue
-        merged = merge_polygon_clusters(spec, clusters)
+        merged = merge_polygon_clusters(spec, clusters, centroid_anchor=True)
         _log_candidate(merged, f"poly_hausdorff_{tol}", {"clusters_merged": len(clusters)})
 
     # ---- polygon Hausdorff merges (with rotation) ----
@@ -1069,6 +1072,7 @@ def simplify_command(args: argparse.Namespace) -> int:
                     poly_clusters,
                     rotations=poly_rot if not args.no_rotation else None,
                     rotation_angles=rotation_angles,
+                    centroid_anchor=args.no_rotation,
                 )
             rot_tag = "_rot" if not args.no_rotation else ""
             _log_candidate(

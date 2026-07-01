@@ -69,10 +69,11 @@ python tools/generate_fixture_legend.py \
 - Plate count: 1 on a `180 x 180 mm` bed.
 - STEP re-import delta: `0.000000001 mm^3`.
 - Output: `analysis/runs/snapfit/part-backplate-v1/Visit_Icon_Platform.fixture-kit.step`.
-- Universal single-icon fixture STEP: 41 unique part designs, 66 hollow front caps, 66 two-hole backplates, 132 total printed pieces, 8 plates on a `180 x 180 mm` bed.
-- Universal STEP re-import delta: `0.000000500 mm^3`.
+- Universal single-icon fixture STEP: 41 unique part designs, 67 hollow front caps, 67 two-hole backplates, 134 total printed pieces, 8 plates on a `180 x 180 mm` bed.
+- Universal STEP re-import delta: `0.000000425 mm^3`.
 - First-pass marking scheme: stable global part numbers only. Duplicate copies of the same part design share the same number.
 - Physical STEP marks: shallow `0.25 mm` engraved global part numbers. Plain front pieces are marked on the top face; hollow front caps are marked on the inside face; backplates are marked on the cap-facing face.
+- Ski resort source split: the bottom chevron is now two centered halves. In the conservative `0.5` Hausdorff candidate the halves share one matched part; at `0.85+` they can reuse the same part family as the top Ski resort roof pieces.
 - All-icons assembly legend: `analysis/runs/snapfit/part-backplate-v1/universal-single-icon-fixture-legend.svg`.
 - Machine-readable legend map: `analysis/runs/snapfit/part-backplate-v1/universal-single-icon-fixture-legend.json`.
 - Current Amusement park legend labels: `1, 2, 3, 3, 3, 3, 3, 3, 3`.

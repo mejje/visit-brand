@@ -58,10 +58,10 @@ All inspected SVGs use a `48 x 48` viewBox and filled vector primitives. Most ge
 | Source SVG inventory | Done | 14 source SVGs inspected; all use a `48 x 48` viewBox. |
 | Reference geometry pipeline | Done | `tools/icon_reference.py` generated references, canonical SVGs, overlays, source hashes, and stale checks. |
 | Exact part-spec baseline | Done | `tools/icon_parts.py` generated exact reconstruction and near-zero-error scoring for all icons. |
-| Simplified reusable part library | In Progress | Current recommended candidate is 41 unique parts at ~0.0799% overall area error after source roof/wall splits and 45-degree rotation reuse; stakeholder review still pending. |
+| Simplified reusable part library | In Progress | Current recommended candidate is 41 unique parts at ~0.0799% overall area error after source roof/wall/chevron splits and 45-degree rotation reuse; stakeholder review still pending. |
 | CAD stack | In Progress | `build123d` is the selected prototype stack with successful STEP export/re-import; slicer and physical validation still pending. |
-| Plain universal front-piece STEP kit | Done | `analysis/runs/kits/recommended/universal-single-icon-kit.step`: 41 designs, 66 printed pieces, 4 plates. |
-| Corrected per-part fixture STEP kit | Done | `analysis/runs/snapfit/part-backplate-v1/universal-single-icon-fixture-kit.step`: 41 designs, 66 hollow caps, 66 two-hole backplates, 8 plates. |
+| Plain universal front-piece STEP kit | Done | `analysis/runs/kits/recommended/universal-single-icon-kit.step`: 41 designs, 67 printed pieces, 4 plates. |
+| Corrected per-part fixture STEP kit | Done | `analysis/runs/snapfit/part-backplate-v1/universal-single-icon-fixture-kit.step`: 41 designs, 67 hollow caps, 67 two-hole backplates, 8 plates. |
 | Old peg/socket approach | Removed | The old generated artifacts and CLI paths were removed; current mechanical direction is hollow cap over per-part backplate. |
 | Marking and SVG legend system | In Progress | Global part numbers now appear in manifests, the SVG/JSON legend, and the STEP geometry as shallow engraved CAD text; slicer visibility and print readability still need validation. |
 | PrusaSlicer validation | Not Started | Must confirm STEP body handling and usability before promising the workflow. |
@@ -316,13 +316,13 @@ Tool: `tools/icon_reference.py` (build, check, verify, render subcommands)
 - [x] Validate STEP re-import with zero volume delta.
 - [x] Add editable extrusion-depth and wall-thickness parameters.
 - [x] Generate an initial laid-out STEP kit from the selected part spec (`tools/export_step.py kit`).
-  - Current universal single-icon kit: 41 unique part designs, 66 printed pieces, 4 plates at 120 mm icon size on a 180 x 180 mm bed.
+  - Current universal single-icon kit: 41 unique part designs, 67 printed pieces, 4 plates at 120 mm icon size on a 180 x 180 mm bed.
   - Output: `analysis/runs/kits/recommended/universal-single-icon-kit.step` plus per-plate STEP files and manifest.
 - [x] Generate first corrected per-part fixture STEP artifact.
   - `tools/export_step.py part-fixture-kit` creates hollow front caps plus one small two-hole backplate per physical icon part.
   - Current Platform fixture: 1 unique part design, 8 hollow front caps, 8 backplates, 16 total printed pieces, 1 plate, STEP re-import delta `0.000000001 mm^3`.
   - Current test output: `analysis/runs/snapfit/part-backplate-v1/Visit_Icon_Platform.fixture-kit.step`.
-  - Universal single-icon fixture STEP: 41 unique part designs, 66 hollow front caps, 66 backplates, 132 total printed pieces, 8 plates, STEP re-import delta `0.000000500 mm^3`.
+  - Universal single-icon fixture STEP: 41 unique part designs, 67 hollow front caps, 67 backplates, 134 total printed pieces, 8 plates, STEP re-import delta `0.000000425 mm^3`.
 - [ ] **Not Started:** Validate PrusaSlicer STEP import before any physical print.
 - [x] Implement first-pass part marking and assembly legend system before broad physical testing.
   - Each unique part design now gets a stable global part number.
@@ -370,7 +370,7 @@ Tool: `tools/icon_parts.py` (bootstrap, render, score subcommands)
 - [ ] **In Progress:** Generate broader Pareto frontier reports from improved candidate-selection/search loops.
 - [ ] **Blocked / External:** Review trade-offs with brand/design stakeholders.
 - [x] Select a provisional recommended part library for physical testing.
-  - Current candidate: `analysis/runs/simplify/part-spec.combined_rtol1.0_phd0.5_rot.v1.json` (41 unique parts, 86 placed instances, ~0.0799% overall area error).
+  - Current candidate: `analysis/runs/simplify/part-spec.combined_rtol1.0_phd0.5_rot.v1.json` (41 unique parts, 87 placed instances, ~0.0799% overall area error).
   - This can change after design review, but it is good enough to drive the first STEP kit export and slicer validation.
 
 ### Milestone 5: Maker Toolkit

@@ -114,7 +114,7 @@ python tools/export_step.py kit \
 Observed result:
 
 ```text
-41 unique part designs, 66 printed pieces, 4 plates
+41 unique part designs, 67 printed pieces, 4 plates
 combined STEP reimport_delta=0.000000002mm^3
 ```
 
@@ -146,8 +146,8 @@ combined STEP reimport_delta=0.000000001mm^3
 Current universal fixture result:
 
 ```text
-41 unique part designs, 66 hollow front caps, 66 backplates, 8 plates
-combined STEP reimport_delta=0.000000500mm^3
+41 unique part designs, 67 hollow front caps, 67 backplates, 8 plates
+combined STEP reimport_delta=0.000000425mm^3
 ```
 
 The current STEP exporters also include shallow engraved global part-number geometry by default. Plain front pieces are engraved on the top face; hollow fixture caps are engraved on the inside face; matching backplates are engraved on the cap-facing face. Use `--no-physical-marks` for clean geometry exports if print testing shows the text is too small or visually intrusive.

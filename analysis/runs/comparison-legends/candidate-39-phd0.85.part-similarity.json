@@ -1,0 +1,899 @@
+{
+  "fixture_manifest": null,
+  "generator": "tools/generate_part_similarity_legend.py",
+  "legend_svg": "analysis/runs/comparison-legends/candidate-39-phd0.85.part-similarity.svg",
+  "metric": {
+    "name": "centroid-normalized Hausdorff distance",
+    "report_units": "mm",
+    "rotation_angles_deg": [
+      0,
+      45,
+      90,
+      135,
+      180,
+      225,
+      270,
+      315
+    ],
+    "rotation_aware": true,
+    "scale_svg_to_mm": 2.5,
+    "source_units": "svg_user_units"
+  },
+  "order": [
+    {
+      "height_mm": 10.0,
+      "height_svg": 4.0,
+      "kind": "rect",
+      "next": {
+        "best_rotation_deg": 0.0,
+        "hausdorff_mm": 2.359985,
+        "hausdorff_svg": 0.943994,
+        "part_id": "part_0024",
+        "part_number": 20
+      },
+      "part_id": "part_0002",
+      "part_number": 3,
+      "quantity": 7,
+      "rank": 1,
+      "source_count": 9,
+      "used_by_icons": {
+        "Visit_Icon_Amusement park": 7,
+        "Visit_Icon_Ferry operator": 2
+      },
+      "width_mm": 10.0,
+      "width_svg": 4.0
+    },
+    {
+      "height_mm": 13.35,
+      "height_svg": 5.34,
+      "kind": "rect",
+      "next": {
+        "best_rotation_deg": 0.0,
+        "hausdorff_mm": 1.6625,
+        "hausdorff_svg": 0.665,
+        "part_id": "part_0022",
+        "part_number": 18
+      },
+      "part_id": "part_0024",
+      "part_number": 20,
+      "quantity": 1,
+      "rank": 2,
+      "source_count": 2,
+      "used_by_icons": {
+        "Visit_Icon_Hospitality": 1,
+        "Visit_Icon_VacationRental": 1
+      },
+      "width_mm": 13.325,
+      "width_svg": 5.33
+    },
+    {
+      "height_mm": 15.0,
+      "height_svg": 6.0,
+      "kind": "rect",
+      "next": {
+        "best_rotation_deg": 45.0,
+        "hausdorff_mm": 4.22345,
+        "hausdorff_svg": 1.68938,
+        "part_id": "part_0018",
+        "part_number": 15
+      },
+      "part_id": "part_0022",
+      "part_number": 18,
+      "quantity": 5,
+      "rank": 3,
+      "source_count": 11,
+      "used_by_icons": {
+        "Visit_Icon_Homeowner": 1,
+        "Visit_Icon_Hotel": 5,
+        "Visit_Icon_Resort": 2,
+        "Visit_Icon_Ski resort": 1,
+        "Visit_Icon_Solceller": 1,
+        "Visit_Icon_Tour operator": 1
+      },
+      "width_mm": 10.0,
+      "width_svg": 4.0
+    },
+    {
+      "height_mm": 10.0,
+      "height_svg": 4.0,
+      "kind": "polygon",
+      "next": {
+        "best_rotation_deg": 90.0,
+        "hausdorff_mm": 4.334069,
+        "hausdorff_svg": 1.733628,
+        "part_id": "part_0017",
+        "part_number": 14
+      },
+      "part_id": "part_0018",
+      "part_number": 15,
+      "quantity": 2,
+      "rank": 4,
+      "source_count": 3,
+      "used_by_icons": {
+        "Visit_Icon_Ferry operator": 2,
+        "Visit_Icon_Tour operator": 1
+      },
+      "width_mm": 20.0,
+      "width_svg": 8.0
+    },
+    {
+      "height_mm": 27.5,
+      "height_svg": 11.0,
+      "kind": "polygon",
+      "next": {
+        "best_rotation_deg": 0.0,
+        "hausdorff_mm": 3.8489,
+        "hausdorff_svg": 1.53956,
+        "part_id": "part_0059",
+        "part_number": 37
+      },
+      "part_id": "part_0017",
+      "part_number": 14,
+      "quantity": 1,
+      "rank": 5,
+      "source_count": 2,
+      "used_by_icons": {
+        "Visit_Icon_Ferry operator": 1,
+        "Visit_Icon_Tour operator": 1
+      },
+      "width_mm": 10.0,
+      "width_svg": 4.0
+    },
+    {
+      "height_mm": 26.6,
+      "height_svg": 10.64,
+      "kind": "polygon",
+      "next": {
+        "best_rotation_deg": 0.0,
+        "hausdorff_mm": 3.41772,
+        "hausdorff_svg": 1.367088,
+        "part_id": "part_0031",
+        "part_number": 23
+      },
+      "part_id": "part_0059",
+      "part_number": 37,
+      "quantity": 1,
+      "rank": 6,
+      "source_count": 1,
+      "used_by_icons": {
+        "Visit_Icon_VacationRental": 1
+      },
+      "width_mm": 13.35,
+      "width_svg": 5.34
+    },
+    {
+      "height_mm": 31.325,
+      "height_svg": 12.53,
+      "kind": "polygon",
+      "next": {
+        "best_rotation_deg": 0.0,
+        "hausdorff_mm": 5.419403,
+        "hausdorff_svg": 2.167761,
+        "part_id": "part_0019",
+        "part_number": 16
+      },
+      "part_id": "part_0031",
+      "part_number": 23,
+      "quantity": 8,
+      "rank": 7,
+      "source_count": 8,
+      "used_by_icons": {
+        "Visit_Icon_Platform": 8
+      },
+      "width_mm": 13.325,
+      "width_svg": 5.33
+    },
+    {
+      "height_mm": 35.0,
+      "height_svg": 14.0,
+      "kind": "rect",
+      "next": {
+        "best_rotation_deg": 90.0,
+        "hausdorff_mm": 3.75,
+        "hausdorff_svg": 1.5,
+        "part_id": "part_0014",
+        "part_number": 11
+      },
+      "part_id": "part_0019",
+      "part_number": 16,
+      "quantity": 2,
+      "rank": 8,
+      "source_count": 2,
+      "used_by_icons": {
+        "Visit_Icon_Homeowner": 2
+      },
+      "width_mm": 10.0,
+      "width_svg": 4.0
+    },
+    {
+      "height_mm": 10.0,
+      "height_svg": 4.0,
+      "kind": "rect",
+      "next": {
+        "best_rotation_deg": 0.0,
+        "hausdorff_mm": 3.690647,
+        "hausdorff_svg": 1.476259,
+        "part_id": "part_0005",
+        "part_number": 6
+      },
+      "part_id": "part_0014",
+      "part_number": 11,
+      "quantity": 1,
+      "rank": 9,
+      "source_count": 1,
+      "used_by_icons": {
+        "Visit_Icon_Ferry operator": 1
+      },
+      "width_mm": 42.5,
+      "width_svg": 17.0
+    },
+    {
+      "height_mm": 13.35,
+      "height_svg": 5.34,
+      "kind": "polygon",
+      "next": {
+        "best_rotation_deg": 225.0,
+        "hausdorff_mm": 5.592982,
+        "hausdorff_svg": 2.237193,
+        "part_id": "part_0006",
+        "part_number": 7
+      },
+      "part_id": "part_0005",
+      "part_number": 6,
+      "quantity": 1,
+      "rank": 10,
+      "source_count": 1,
+      "used_by_icons": {
+        "Visit_Icon_DestinationBuilding": 1
+      },
+      "width_mm": 44.45,
+      "width_svg": 17.78
+    },
+    {
+      "height_mm": 37.75,
+      "height_svg": 15.1,
+      "kind": "polygon",
+      "next": {
+        "best_rotation_deg": 45.0,
+        "hausdorff_mm": 5.847221,
+        "hausdorff_svg": 2.338888,
+        "part_id": "part_0007",
+        "part_number": 8
+      },
+      "part_id": "part_0006",
+      "part_number": 7,
+      "quantity": 1,
+      "rank": 11,
+      "source_count": 2,
+      "used_by_icons": {
+        "Visit_Icon_DestinationBuilding": 1,
+        "Visit_Icon_VacationRental": 1
+      },
+      "width_mm": 32.175,
+      "width_svg": 12.87
+    },
+    {
+      "height_mm": 37.775,
+      "height_svg": 15.11,
+      "kind": "polygon",
+      "next": {
+        "best_rotation_deg": 0.0,
+        "hausdorff_mm": 5.713906,
+        "hausdorff_svg": 2.285562,
+        "part_id": "part_0050",
+        "part_number": 30
+      },
+      "part_id": "part_0007",
+      "part_number": 8,
+      "quantity": 1,
+      "rank": 12,
+      "source_count": 2,
+      "used_by_icons": {
+        "Visit_Icon_DestinationBuilding": 1,
+        "Visit_Icon_VacationRental": 1
+      },
+      "width_mm": 32.15,
+      "width_svg": 12.86
+    },
+    {
+      "height_mm": 43.65,
+      "height_svg": 17.46,
+      "kind": "polygon",
+      "next": {
+        "best_rotation_deg": 0.0,
+        "hausdorff_mm": 6.610587,
+        "hausdorff_svg": 2.644235,
+        "part_id": "part_0053",
+        "part_number": 32
+      },
+      "part_id": "part_0050",
+      "part_number": 30,
+      "quantity": 1,
+      "rank": 13,
+      "source_count": 1,
+      "used_by_icons": {
+        "Visit_Icon_Tour operator": 1
+      },
+      "width_mm": 28.425,
+      "width_svg": 11.37
+    },
+    {
+      "height_mm": 56.025,
+      "height_svg": 22.41,
+      "kind": "polygon",
+      "next": {
+        "best_rotation_deg": 135.0,
+        "hausdorff_mm": 8.683233,
+        "hausdorff_svg": 3.473293,
+        "part_id": "part_0045",
+        "part_number": 26
+      },
+      "part_id": "part_0053",
+      "part_number": 32,
+      "quantity": 1,
+      "rank": 14,
+      "source_count": 1,
+      "used_by_icons": {
+        "Visit_Icon_Tour operator": 1
+      },
+      "width_mm": 28.525,
+      "width_svg": 11.41
+    },
+    {
+      "height_mm": 33.575,
+      "height_svg": 13.43,
+      "kind": "polygon",
+      "next": {
+        "best_rotation_deg": 180.0,
+        "hausdorff_mm": 7.41049,
+        "hausdorff_svg": 2.964196,
+        "part_id": "part_0058",
+        "part_number": 36
+      },
+      "part_id": "part_0045",
+      "part_number": 26,
+      "quantity": 1,
+      "rank": 15,
+      "source_count": 1,
+      "used_by_icons": {
+        "Visit_Icon_Ski resort": 1
+      },
+      "width_mm": 46.025,
+      "width_svg": 18.41
+    },
+    {
+      "height_mm": 37.15,
+      "height_svg": 14.86,
+      "kind": "polygon",
+      "next": {
+        "best_rotation_deg": 315.0,
+        "hausdorff_mm": 5.020531,
+        "hausdorff_svg": 2.008213,
+        "part_id": "part_0056",
+        "part_number": 35
+      },
+      "part_id": "part_0058",
+      "part_number": 36,
+      "quantity": 1,
+      "rank": 16,
+      "source_count": 1,
+      "used_by_icons": {
+        "Visit_Icon_Travel agent": 1
+      },
+      "width_mm": 37.15,
+      "width_svg": 14.86
+    },
+    {
+      "height_mm": 10.0,
+      "height_svg": 4.0,
+      "kind": "polygon",
+      "next": {
+        "best_rotation_deg": 90.0,
+        "hausdorff_mm": 2.501738,
+        "hausdorff_svg": 1.000695,
+        "part_id": "part_0051",
+        "part_number": 31
+      },
+      "part_id": "part_0056",
+      "part_number": 35,
+      "quantity": 2,
+      "rank": 17,
+      "source_count": 2,
+      "used_by_icons": {
+        "Visit_Icon_Travel agent": 2
+      },
+      "width_mm": 42.5,
+      "width_svg": 17.0
+    },
+    {
+      "height_mm": 37.5,
+      "height_svg": 15.0,
+      "kind": "polygon",
+      "next": {
+        "best_rotation_deg": 0.0,
+        "hausdorff_mm": 5.011979,
+        "hausdorff_svg": 2.004792,
+        "part_id": "part_0048",
+        "part_number": 29
+      },
+      "part_id": "part_0051",
+      "part_number": 31,
+      "quantity": 1,
+      "rank": 18,
+      "source_count": 1,
+      "used_by_icons": {
+        "Visit_Icon_Tour operator": 1
+      },
+      "width_mm": 10.0,
+      "width_svg": 4.0
+    },
+    {
+      "height_mm": 27.5,
+      "height_svg": 11.0,
+      "kind": "polygon",
+      "next": {
+        "best_rotation_deg": 180.0,
+        "hausdorff_mm": 8.437364,
+        "hausdorff_svg": 3.374946,
+        "part_id": "part_0039",
+        "part_number": 24
+      },
+      "part_id": "part_0048",
+      "part_number": 29,
+      "quantity": 1,
+      "rank": 19,
+      "source_count": 1,
+      "used_by_icons": {
+        "Visit_Icon_Tour operator": 1
+      },
+      "width_mm": 10.0,
+      "width_svg": 4.0
+    },
+    {
+      "height_mm": 37.5,
+      "height_svg": 15.0,
+      "kind": "polygon",
+      "next": {
+        "best_rotation_deg": 270.0,
+        "hausdorff_mm": 8.738688,
+        "hausdorff_svg": 3.495475,
+        "part_id": "part_0016",
+        "part_number": 13
+      },
+      "part_id": "part_0039",
+      "part_number": 24,
+      "quantity": 1,
+      "rank": 20,
+      "source_count": 1,
+      "used_by_icons": {
+        "Visit_Icon_Resort": 1
+      },
+      "width_mm": 10.0,
+      "width_svg": 4.0
+    },
+    {
+      "height_mm": 22.5,
+      "height_svg": 9.0,
+      "kind": "polygon",
+      "next": {
+        "best_rotation_deg": 135.0,
+        "hausdorff_mm": 12.714885,
+        "hausdorff_svg": 5.085954,
+        "part_id": "part_0008",
+        "part_number": 9
+      },
+      "part_id": "part_0016",
+      "part_number": 13,
+      "quantity": 1,
+      "rank": 21,
+      "source_count": 1,
+      "used_by_icons": {
+        "Visit_Icon_Ferry operator": 1
+      },
+      "width_mm": 35.0,
+      "width_svg": 14.0
+    },
+    {
+      "height_mm": 26.675,
+      "height_svg": 10.67,
+      "kind": "polygon",
+      "next": {
+        "best_rotation_deg": 90.0,
+        "hausdorff_mm": 7.753889,
+        "hausdorff_svg": 3.101556,
+        "part_id": "part_0063",
+        "part_number": 39
+      },
+      "part_id": "part_0008",
+      "part_number": 9,
+      "quantity": 5,
+      "rank": 22,
+      "source_count": 9,
+      "used_by_icons": {
+        "Visit_Icon_Experiences": 5,
+        "Visit_Icon_Hospitality": 4
+      },
+      "width_mm": 48.875,
+      "width_svg": 19.55
+    },
+    {
+      "height_mm": 56.85,
+      "height_svg": 22.74,
+      "kind": "rect",
+      "next": {
+        "best_rotation_deg": 45.0,
+        "hausdorff_mm": 5.126238,
+        "hausdorff_svg": 2.050495,
+        "part_id": "part_0046",
+        "part_number": 27
+      },
+      "part_id": "part_0063",
+      "part_number": 39,
+      "quantity": 1,
+      "rank": 23,
+      "source_count": 1,
+      "used_by_icons": {
+        "Visit_Icon_VacationRental": 1
+      },
+      "width_mm": 13.325,
+      "width_svg": 5.33
+    },
+    {
+      "height_mm": 42.8,
+      "height_svg": 17.12,
+      "kind": "polygon",
+      "next": {
+        "best_rotation_deg": 180.0,
+        "hausdorff_mm": 5.749668,
+        "hausdorff_svg": 2.299867,
+        "part_id": "part_0020",
+        "part_number": 17
+      },
+      "part_id": "part_0046",
+      "part_number": 27,
+      "quantity": 1,
+      "rank": 24,
+      "source_count": 1,
+      "used_by_icons": {
+        "Visit_Icon_Ski resort": 1
+      },
+      "width_mm": 49.875,
+      "width_svg": 19.95
+    },
+    {
+      "height_mm": 47.5,
+      "height_svg": 19.0,
+      "kind": "polygon",
+      "next": {
+        "best_rotation_deg": 180.0,
+        "hausdorff_mm": 1.467316,
+        "hausdorff_svg": 0.586926,
+        "part_id": "part_0015",
+        "part_number": 12
+      },
+      "part_id": "part_0020",
+      "part_number": 17,
+      "quantity": 4,
+      "rank": 25,
+      "source_count": 6,
+      "used_by_icons": {
+        "Visit_Icon_Homeowner": 2,
+        "Visit_Icon_Ski resort": 4
+      },
+      "width_mm": 47.5,
+      "width_svg": 19.0
+    },
+    {
+      "height_mm": 49.575,
+      "height_svg": 19.83,
+      "kind": "polygon",
+      "next": {
+        "best_rotation_deg": 45.0,
+        "hausdorff_mm": 7.232597,
+        "hausdorff_svg": 2.893039,
+        "part_id": "part_0003",
+        "part_number": 4
+      },
+      "part_id": "part_0015",
+      "part_number": 12,
+      "quantity": 1,
+      "rank": 26,
+      "source_count": 1,
+      "used_by_icons": {
+        "Visit_Icon_Ferry operator": 1
+      },
+      "width_mm": 49.575,
+      "width_svg": 19.83
+    },
+    {
+      "height_mm": 13.325,
+      "height_svg": 5.33,
+      "kind": "polygon",
+      "next": {
+        "best_rotation_deg": 90.0,
+        "hausdorff_mm": 6.394104,
+        "hausdorff_svg": 2.557642,
+        "part_id": "part_0060",
+        "part_number": 38
+      },
+      "part_id": "part_0003",
+      "part_number": 4,
+      "quantity": 1,
+      "rank": 27,
+      "source_count": 1,
+      "used_by_icons": {
+        "Visit_Icon_DestinationBuilding": 1
+      },
+      "width_mm": 68.625,
+      "width_svg": 27.45
+    },
+    {
+      "height_mm": 71.1,
+      "height_svg": 28.44,
+      "kind": "rect",
+      "next": {
+        "best_rotation_deg": 45.0,
+        "hausdorff_mm": 1.6625,
+        "hausdorff_svg": 0.665,
+        "part_id": "part_0055",
+        "part_number": 34
+      },
+      "part_id": "part_0060",
+      "part_number": 38,
+      "quantity": 1,
+      "rank": 28,
+      "source_count": 1,
+      "used_by_icons": {
+        "Visit_Icon_VacationRental": 1
+      },
+      "width_mm": 13.325,
+      "width_svg": 5.33
+    },
+    {
+      "height_mm": 58.707541,
+      "height_svg": 23.483016,
+      "kind": "bar",
+      "next": {
+        "best_rotation_deg": 135.0,
+        "hausdorff_mm": 3.874778,
+        "hausdorff_svg": 1.549911,
+        "part_id": "part_0004",
+        "part_number": 5
+      },
+      "part_id": "part_0055",
+      "part_number": 34,
+      "quantity": 1,
+      "rank": 29,
+      "source_count": 1,
+      "used_by_icons": {
+        "Visit_Icon_Travel agent": 1
+      },
+      "width_mm": 58.707541,
+      "width_svg": 23.483016
+    },
+    {
+      "height_mm": 80.025,
+      "height_svg": 32.01,
+      "kind": "rect",
+      "next": {
+        "best_rotation_deg": 90.0,
+        "hausdorff_mm": 1.6625,
+        "hausdorff_svg": 0.665,
+        "part_id": "part_0013",
+        "part_number": 10
+      },
+      "part_id": "part_0004",
+      "part_number": 5,
+      "quantity": 1,
+      "rank": 30,
+      "source_count": 1,
+      "used_by_icons": {
+        "Visit_Icon_DestinationBuilding": 1
+      },
+      "width_mm": 13.325,
+      "width_svg": 5.33
+    },
+    {
+      "height_mm": 10.0,
+      "height_svg": 4.0,
+      "kind": "rect",
+      "next": {
+        "best_rotation_deg": 90.0,
+        "hausdorff_mm": 5.265284,
+        "hausdorff_svg": 2.106114,
+        "part_id": "part_0030",
+        "part_number": 22
+      },
+      "part_id": "part_0013",
+      "part_number": 10,
+      "quantity": 1,
+      "rank": 31,
+      "source_count": 1,
+      "used_by_icons": {
+        "Visit_Icon_Ferry operator": 1
+      },
+      "width_mm": 82.5,
+      "width_svg": 33.0
+    },
+    {
+      "height_mm": 82.5,
+      "height_svg": 33.0,
+      "kind": "polygon",
+      "next": {
+        "best_rotation_deg": 135.0,
+        "hausdorff_mm": 7.695346,
+        "hausdorff_svg": 3.078139,
+        "part_id": "part_0054",
+        "part_number": 33
+      },
+      "part_id": "part_0030",
+      "part_number": 22,
+      "quantity": 1,
+      "rank": 32,
+      "source_count": 1,
+      "used_by_icons": {
+        "Visit_Icon_Hotel": 1
+      },
+      "width_mm": 10.0,
+      "width_svg": 4.0
+    },
+    {
+      "height_mm": 60.175,
+      "height_svg": 24.07,
+      "kind": "polygon",
+      "next": {
+        "best_rotation_deg": 225.0,
+        "hausdorff_mm": 10.566576,
+        "hausdorff_svg": 4.22663,
+        "part_id": "part_0023",
+        "part_number": 19
+      },
+      "part_id": "part_0054",
+      "part_number": 33,
+      "quantity": 1,
+      "rank": 33,
+      "source_count": 1,
+      "used_by_icons": {
+        "Visit_Icon_Travel agent": 1
+      },
+      "width_mm": 69.325,
+      "width_svg": 27.73
+    },
+    {
+      "height_mm": 10.0,
+      "height_svg": 4.0,
+      "kind": "rect",
+      "next": {
+        "best_rotation_deg": 0.0,
+        "hausdorff_mm": 22.61212,
+        "hausdorff_svg": 9.044848,
+        "part_id": "part_0001",
+        "part_number": 2
+      },
+      "part_id": "part_0023",
+      "part_number": 19,
+      "quantity": 1,
+      "rank": 34,
+      "source_count": 2,
+      "used_by_icons": {
+        "Visit_Icon_Homeowner": 1,
+        "Visit_Icon_Solceller": 1
+      },
+      "width_mm": 95.0,
+      "width_svg": 38.0
+    },
+    {
+      "height_mm": 34.575,
+      "height_svg": 13.83,
+      "kind": "polygon",
+      "next": {
+        "best_rotation_deg": 0.0,
+        "hausdorff_mm": 14.754183,
+        "hausdorff_svg": 5.901673,
+        "part_id": "part_0000",
+        "part_number": 1
+      },
+      "part_id": "part_0001",
+      "part_number": 2,
+      "quantity": 1,
+      "rank": 35,
+      "source_count": 1,
+      "used_by_icons": {
+        "Visit_Icon_Amusement park": 1
+      },
+      "width_mm": 69.15,
+      "width_svg": 27.66
+    },
+    {
+      "height_mm": 51.2,
+      "height_svg": 20.48,
+      "kind": "custom_polygon",
+      "next": {
+        "best_rotation_deg": 135.0,
+        "hausdorff_mm": 23.409903,
+        "hausdorff_svg": 9.363961,
+        "part_id": "part_0040",
+        "part_number": 25
+      },
+      "part_id": "part_0000",
+      "part_number": 1,
+      "quantity": 1,
+      "rank": 36,
+      "source_count": 1,
+      "used_by_icons": {
+        "Visit_Icon_Amusement park": 1
+      },
+      "width_mm": 59.975,
+      "width_svg": 23.99
+    },
+    {
+      "height_mm": 82.5,
+      "height_svg": 33.0,
+      "kind": "polygon",
+      "next": {
+        "best_rotation_deg": 0.0,
+        "hausdorff_mm": 24.815052,
+        "hausdorff_svg": 9.926021,
+        "part_id": "part_0029",
+        "part_number": 21
+      },
+      "part_id": "part_0040",
+      "part_number": 25,
+      "quantity": 1,
+      "rank": 37,
+      "source_count": 1,
+      "used_by_icons": {
+        "Visit_Icon_Resort": 1
+      },
+      "width_mm": 75.0,
+      "width_svg": 30.0
+    },
+    {
+      "height_mm": 95.0,
+      "height_svg": 38.0,
+      "kind": "polygon",
+      "next": {
+        "best_rotation_deg": 45.0,
+        "hausdorff_mm": 16.238275,
+        "hausdorff_svg": 6.49531,
+        "part_id": "part_0047",
+        "part_number": 28
+      },
+      "part_id": "part_0029",
+      "part_number": 21,
+      "quantity": 1,
+      "rank": 38,
+      "source_count": 2,
+      "used_by_icons": {
+        "Visit_Icon_Hotel": 1,
+        "Visit_Icon_Resort": 1
+      },
+      "width_mm": 75.0,
+      "width_svg": 30.0
+    },
+    {
+      "height_mm": 75.6,
+      "height_svg": 30.24,
+      "kind": "polygon",
+      "part_id": "part_0047",
+      "part_number": 28,
+      "quantity": 1,
+      "rank": 39,
+      "source_count": 1,
+      "used_by_icons": {
+        "Visit_Icon_Solceller": 1
+      },
+      "width_mm": 95.0,
+      "width_svg": 38.0
+    }
+  ],
+  "ordering": {
+    "max_adjacent_hausdorff_mm": 24.815052,
+    "method": "greedy nearest-neighbor chain, best total adjacent distance across all starts",
+    "total_adjacent_hausdorff_mm": 281.270611
+  },
+  "part_count": 39,
+  "report_json": "analysis/runs/comparison-legends/candidate-39-phd0.85.part-similarity.json",
+  "schema": "visit.part-similarity-legend.v1",
+  "source_spec": "analysis/runs/simplify-centroid-fine/part-spec.combined_rtol1.0_phd0.85_rot.v1.json"
+}

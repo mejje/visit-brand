@@ -1,0 +1,886 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="830" height="2190" viewBox="0 0 830 2190">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 8 4 L 0 8 z" fill="#B45309"/>
+    </marker>
+  </defs>
+  <style>
+    .background { fill: #FFFFFF; }
+    .doc-title { font: 700 22px Arial, sans-serif; fill: #111827; }
+    .doc-note { font: 12px Arial, sans-serif; fill: #475569; }
+    .part-card { fill: #F8FAFC; stroke: #CBD5E1; stroke-width: 1; }
+    .rank { font: 700 12px Arial, sans-serif; fill: #475569; }
+    .part-title { font: 700 14px Arial, sans-serif; fill: #111827; }
+    .part-id { font: 10px Arial, sans-serif; fill: #475569; }
+    .preview-box { fill: #FFFFFF; stroke: #E2E8F0; stroke-width: 1; }
+    .part-shape { fill-opacity: 0.78; stroke: #111827; stroke-width: 0.18; vector-effect: non-scaling-stroke; fill-rule: evenodd; }
+    .part-meta { font: 10px Arial, sans-serif; fill: #334155; }
+    .connector { stroke: #B45309; stroke-width: 1.6; fill: none; }
+    .connector-label-bg { fill: #FFFFFF; stroke: #FDBA74; stroke-width: 0.8; }
+    .connector-label { font: 700 9px Arial, sans-serif; fill: #7C2D12; text-anchor: middle; }
+  </style>
+  <rect class="background" x="0" y="0" width="830" height="2190"/>
+  <text class="doc-title" x="28.0" y="32">Fixture parts ordered by adjacent Hausdorff similarity</text>
+  <text class="doc-note" x="28.0" y="54">Greedy nearest-neighbor chain chosen from every possible start. Distances are centroid-normalized 2D Hausdorff values in millimeters.</text>
+  <text class="doc-note" x="28.0" y="72">source spec: analysis/runs/simplify/part-spec.combined_rtol1.0_phd0.5_rot.v1.json</text>
+  <text class="doc-note" x="28.0" y="90"></text>
+  <g id="rank-01-part_0047">
+    <title>Part 29 (part_0047)
+kind: polygon
+size: 95.000 x 75.600 mm
+quantity: 1
+source count: 1
+used by: Solceller: 1</title>
+    <rect class="part-card" x="28.0" y="98.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="38.0" y="116.0">01</text>
+    <text class="part-title" x="70.0" y="116.0">Part 29</text>
+    <text class="part-id" x="38.0" y="131.0">part_0047</text>
+    <rect class="preview-box" x="45.0" y="136.0" width="98.0" height="78.0"/>
+    <g transform="translate(45.000 136.006) scale(2.578947)">
+      <path class="part-shape" fill="#059669" d="M 21.83 8.41 L 27.41 2.83 L 24.59 0 L 19 5.58 L 13.41 0 L 10.59 2.83 L 16.17 8.41 L 0 24.58 L 0 30.24 L 19 11.24 L 38 30.24 L 38 24.58 Z"/>
+    </g>
+    <text class="part-meta" x="38.0" y="221.0">95.0 x 75.6 mm</text>
+    <text class="part-meta" x="38.0" y="234.0">qty 1 | src 1</text>
+  </g>
+  <g id="rank-02-part_0029">
+    <title>Part 21 (part_0029)
+kind: polygon
+size: 75.000 x 95.000 mm
+quantity: 1
+source count: 2
+used by: Hotel: 1, Resort: 1</title>
+    <rect class="part-card" x="242.0" y="98.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="252.0" y="116.0">02</text>
+    <text class="part-title" x="284.0" y="116.0">Part 21</text>
+    <text class="part-id" x="252.0" y="131.0">part_0029</text>
+    <rect class="preview-box" x="259.0" y="136.0" width="98.0" height="78.0"/>
+    <g transform="translate(277.211 136.000) scale(2.052632)">
+      <path class="part-shape" fill="#059669" d="M 26 0 L 0 0 L 0 4 L 26 4 L 26 38 L 30 38 L 30 4 Z"/>
+    </g>
+    <text class="part-meta" x="252.0" y="221.0">75.0 x 95.0 mm</text>
+    <text class="part-meta" x="252.0" y="234.0">qty 1 | src 2</text>
+  </g>
+  <g id="rank-03-part_0040">
+    <title>Part 25 (part_0040)
+kind: polygon
+size: 75.000 x 82.500 mm
+quantity: 1
+source count: 1
+used by: Resort: 1</title>
+    <rect class="part-card" x="456.0" y="98.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="466.0" y="116.0">03</text>
+    <text class="part-title" x="498.0" y="116.0">Part 25</text>
+    <text class="part-id" x="466.0" y="131.0">part_0040</text>
+    <rect class="preview-box" x="473.0" y="136.0" width="98.0" height="78.0"/>
+    <g transform="translate(486.545 136.000) scale(2.363636)">
+      <path class="part-shape" fill="#059669" d="M 12 0 L 8 4 L 8 13 L 0 13 L 0 17 L 8 17 L 12 17 L 26 17 L 26 33 L 30 33 L 30 17 L 30 13 L 12 13 Z"/>
+    </g>
+    <text class="part-meta" x="466.0" y="221.0">75.0 x 82.5 mm</text>
+    <text class="part-meta" x="466.0" y="234.0">qty 1 | src 1</text>
+  </g>
+  <g id="rank-04-part_0000">
+    <title>Part 1 (part_0000)
+kind: custom_polygon
+size: 59.975 x 51.200 mm
+quantity: 1
+source count: 1
+used by: Amusement park: 1</title>
+    <rect class="part-card" x="670.0" y="98.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="680.0" y="116.0">04</text>
+    <text class="part-title" x="712.0" y="116.0">Part 1</text>
+    <text class="part-id" x="680.0" y="131.0">part_0000</text>
+    <rect class="preview-box" x="687.0" y="136.0" width="98.0" height="78.0"/>
+    <g transform="translate(690.316 136.000) scale(3.808594)">
+      <path class="part-shape" fill="#7C3AED" d="M 3.51 20.48 L 6.34 17.65 L 5.792 17.043 L 5.316 16.396 L 4.914 15.715 L 4.585 15.005 L 4.329 14.273 L 4.146 13.523 L 4.037 12.762 L 4 11.995 L 4.037 11.228 L 4.146 10.467 L 4.329 9.717 L 4.585 8.985 L 4.914 8.275 L 5.316 7.594 L 5.792 6.947 L 6.34 6.34 L 6.947 5.792 L 7.594 5.316 L 8.275 4.914 L 8.985 4.585 L 9.717 4.329 L 10.467 4.146 L 11.228 4.037 L 11.995 4 L 12.762 4.037 L 13.523 4.146 L 14.273 4.329 L 15.005 4.585 L 15.715 4.914 L 16.396 5.316 L 17.043 5.792 L 17.65 6.34 L 18.198 6.947 L 18.674 7.594 L 19.076 8.275 L 19.405 8.985 L 19.661 9.717 L 19.844 10.467 L 19.953 11.228 L 19.99 11.995 L 19.953 12.762 L 19.844 13.523 L 19.661 14.273 L 19.405 15.005 L 19.076 15.715 L 18.674 16.396 L 18.198 17.043 L 17.65 17.65 L 20.48 20.48 L 20.905 20.033 L 21.303 19.57 L 21.673 19.091 L 22.016 18.599 L 22.619 17.577 L 23.112 16.512 L 23.496 15.413 L 23.771 14.288 L 23.935 13.146 L 23.99 11.995 L 23.935 10.844 L 23.771 9.702 L 23.496 8.577 L 23.112 7.478 L 22.619 6.413 L 22.016 5.391 L 21.673 4.899 L 21.303 4.42 L 20.905 3.957 L 20.48 3.51 L 20.033 3.085 L 19.57 2.687 L 19.091 2.317 L 18.599 1.974 L 17.577 1.371 L 16.512 0.877 L 15.413 0.494 L 14.288 0.219 L 13.146 0.055 L 11.995 0 L 10.844 0.055 L 9.702 0.219 L 8.577 0.494 L 7.478 0.877 L 6.413 1.371 L 5.391 1.974 L 4.899 2.317 L 4.42 2.687 L 3.957 3.085 L 3.51 3.51 L 3.085 3.957 L 2.687 4.42 L 2.317 4.899 L 1.974 5.391 L 1.371 6.413 L 0.877 7.478 L 0.494 8.577 L 0.219 9.702 L 0.055 10.844 L 0 11.995 L 0.055 13.146 L 0.219 14.288 L 0.494 15.413 L 0.877 16.512 L 1.371 17.577 L 1.974 18.599 L 2.317 19.091 L 2.687 19.57 L 3.085 20.033 L 3.51 20.48 Z"/>
+    </g>
+    <text class="part-meta" x="680.0" y="221.0">60.0 x 51.2 mm</text>
+    <text class="part-meta" x="680.0" y="234.0">qty 1 | src 1</text>
+  </g>
+  <g id="rank-05-part_0001">
+    <title>Part 2 (part_0001)
+kind: polygon
+size: 69.150 x 34.575 mm
+quantity: 1
+source count: 1
+used by: Amusement park: 1</title>
+    <rect class="part-card" x="670.0" y="290.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="680.0" y="308.0">05</text>
+    <text class="part-title" x="712.0" y="308.0">Part 2</text>
+    <text class="part-id" x="680.0" y="323.0">part_0001</text>
+    <rect class="preview-box" x="687.0" y="328.0" width="98.0" height="78.0"/>
+    <g transform="translate(687.000 342.500) scale(3.543022)">
+      <path class="part-shape" fill="#059669" d="M 0 13.83 L 5.66 13.83 L 13.83 5.66 L 22 13.83 L 27.66 13.83 L 13.83 0 Z"/>
+    </g>
+    <text class="part-meta" x="680.0" y="413.0">69.1 x 34.6 mm</text>
+    <text class="part-meta" x="680.0" y="426.0">qty 1 | src 1</text>
+  </g>
+  <g id="rank-06-part_0008">
+    <title>Part 9 (part_0008)
+kind: polygon
+size: 48.875 x 26.675 mm
+quantity: 5
+source count: 9
+used by: Experiences: 5, Hospitality: 4</title>
+    <rect class="part-card" x="456.0" y="290.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="466.0" y="308.0">06</text>
+    <text class="part-title" x="498.0" y="308.0">Part 9</text>
+    <text class="part-id" x="466.0" y="323.0">part_0008</text>
+    <rect class="preview-box" x="473.0" y="328.0" width="98.0" height="78.0"/>
+    <g transform="translate(473.000 340.257) scale(5.012788)">
+      <path class="part-shape" fill="#059669" d="M 0 0 L 0 5.35 L 9.78 10.67 L 19.55 5.34 L 19.55 0 L 9.77 5.33 Z"/>
+    </g>
+    <text class="part-meta" x="466.0" y="413.0">48.9 x 26.7 mm</text>
+    <text class="part-meta" x="466.0" y="426.0">qty 5 | src 9</text>
+  </g>
+  <g id="rank-07-part_0063">
+    <title>Part 41 (part_0063)
+kind: rect
+size: 13.325 x 56.850 mm
+quantity: 1
+source count: 1
+used by: VacationRental: 1</title>
+    <rect class="part-card" x="242.0" y="290.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="252.0" y="308.0">07</text>
+    <text class="part-title" x="284.0" y="308.0">Part 41</text>
+    <text class="part-id" x="252.0" y="323.0">part_0063</text>
+    <rect class="preview-box" x="259.0" y="328.0" width="98.0" height="78.0"/>
+    <g transform="translate(298.859 328.000) scale(3.430079)">
+      <path class="part-shape" fill="#2563EB" d="M 0 0 L 5.33 0 L 5.33 22.74 L 0 22.74 Z"/>
+    </g>
+    <text class="part-meta" x="252.0" y="413.0">13.3 x 56.8 mm</text>
+    <text class="part-meta" x="252.0" y="426.0">qty 1 | src 1</text>
+  </g>
+  <g id="rank-08-part_0046">
+    <title>Part 28 (part_0046)
+kind: polygon
+size: 49.875 x 42.800 mm
+quantity: 1
+source count: 1
+used by: Ski resort: 1</title>
+    <rect class="part-card" x="28.0" y="290.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="38.0" y="308.0">08</text>
+    <text class="part-title" x="70.0" y="308.0">Part 28</text>
+    <text class="part-id" x="38.0" y="323.0">part_0046</text>
+    <rect class="preview-box" x="45.0" y="328.0" width="98.0" height="78.0"/>
+    <g transform="translate(48.553 328.000) scale(4.556075)">
+      <path class="part-shape" fill="#059669" d="M 19.95 2.83 L 17.12 0 L 0 17.12 L 5.66 17.12 Z"/>
+    </g>
+    <text class="part-meta" x="38.0" y="413.0">49.9 x 42.8 mm</text>
+    <text class="part-meta" x="38.0" y="426.0">qty 1 | src 1</text>
+  </g>
+  <g id="rank-09-part_0043">
+    <title>Part 26 (part_0043)
+kind: polygon
+size: 44.575 x 44.575 mm
+quantity: 2
+source count: 2
+used by: Ski resort: 2</title>
+    <rect class="part-card" x="28.0" y="482.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="38.0" y="500.0">09</text>
+    <text class="part-title" x="70.0" y="500.0">Part 26</text>
+    <text class="part-id" x="38.0" y="515.0">part_0043</text>
+    <rect class="preview-box" x="45.0" y="520.0" width="98.0" height="78.0"/>
+    <g transform="translate(55.000 520.000) scale(4.374649)">
+      <path class="part-shape" fill="#059669" d="M 0 17.83 L 5.66 17.83 L 17.83 5.66 L 17.83 0 Z"/>
+    </g>
+    <text class="part-meta" x="38.0" y="605.0">44.6 x 44.6 mm</text>
+    <text class="part-meta" x="38.0" y="618.0">qty 2 | src 2</text>
+  </g>
+  <g id="rank-10-part_0020">
+    <title>Part 17 (part_0020)
+kind: polygon
+size: 47.500 x 47.500 mm
+quantity: 2
+source count: 4
+used by: Homeowner: 2, Ski resort: 2</title>
+    <rect class="part-card" x="242.0" y="482.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="252.0" y="500.0">10</text>
+    <text class="part-title" x="284.0" y="500.0">Part 17</text>
+    <text class="part-id" x="252.0" y="515.0">part_0020</text>
+    <rect class="preview-box" x="259.0" y="520.0" width="98.0" height="78.0"/>
+    <g transform="translate(269.000 520.000) scale(4.105263)">
+      <path class="part-shape" fill="#059669" d="M 0 13.34 L 0 19 L 19 0 L 13.34 0 Z"/>
+    </g>
+    <text class="part-meta" x="252.0" y="605.0">47.5 x 47.5 mm</text>
+    <text class="part-meta" x="252.0" y="618.0">qty 2 | src 4</text>
+  </g>
+  <g id="rank-11-part_0015">
+    <title>Part 12 (part_0015)
+kind: polygon
+size: 49.575 x 49.575 mm
+quantity: 1
+source count: 1
+used by: Ferry operator: 1</title>
+    <rect class="part-card" x="456.0" y="482.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="466.0" y="500.0">11</text>
+    <text class="part-title" x="498.0" y="500.0">Part 12</text>
+    <text class="part-id" x="466.0" y="515.0">part_0015</text>
+    <rect class="preview-box" x="473.0" y="520.0" width="98.0" height="78.0"/>
+    <g transform="translate(483.000 520.000) scale(3.933434)">
+      <path class="part-shape" fill="#059669" d="M 0 19.83 L 5.66 19.83 L 19.83 5.66 L 19.83 0 Z"/>
+    </g>
+    <text class="part-meta" x="466.0" y="605.0">49.6 x 49.6 mm</text>
+    <text class="part-meta" x="466.0" y="618.0">qty 1 | src 1</text>
+  </g>
+  <g id="rank-12-part_0003">
+    <title>Part 4 (part_0003)
+kind: polygon
+size: 68.625 x 13.325 mm
+quantity: 1
+source count: 1
+used by: DestinationBuilding: 1</title>
+    <rect class="part-card" x="670.0" y="482.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="680.0" y="500.0">12</text>
+    <text class="part-title" x="712.0" y="500.0">Part 4</text>
+    <text class="part-id" x="680.0" y="515.0">part_0003</text>
+    <rect class="preview-box" x="687.0" y="520.0" width="98.0" height="78.0"/>
+    <g transform="translate(687.000 549.486) scale(3.570128)">
+      <path class="part-shape" fill="#059669" d="M 24.93 5.33 L 27.45 0 L 1.78 0 L 0 5.33 Z"/>
+    </g>
+    <text class="part-meta" x="680.0" y="605.0">68.6 x 13.3 mm</text>
+    <text class="part-meta" x="680.0" y="618.0">qty 1 | src 1</text>
+  </g>
+  <g id="rank-13-part_0060">
+    <title>Part 40 (part_0060)
+kind: rect
+size: 13.325 x 71.100 mm
+quantity: 1
+source count: 1
+used by: VacationRental: 1</title>
+    <rect class="part-card" x="670.0" y="674.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="680.0" y="692.0">13</text>
+    <text class="part-title" x="712.0" y="692.0">Part 40</text>
+    <text class="part-id" x="680.0" y="707.0">part_0060</text>
+    <rect class="preview-box" x="687.0" y="712.0" width="98.0" height="78.0"/>
+    <g transform="translate(728.691 712.000) scale(2.742616)">
+      <path class="part-shape" fill="#2563EB" d="M 0 0 L 5.33 0 L 5.33 28.44 L 0 28.44 Z"/>
+    </g>
+    <text class="part-meta" x="680.0" y="797.0">13.3 x 71.1 mm</text>
+    <text class="part-meta" x="680.0" y="810.0">qty 1 | src 1</text>
+  </g>
+  <g id="rank-14-part_0055">
+    <title>Part 36 (part_0055)
+kind: bar
+size: 58.708 x 58.708 mm
+quantity: 1
+source count: 1
+used by: Travel agent: 1</title>
+    <rect class="part-card" x="456.0" y="674.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="466.0" y="692.0">14</text>
+    <text class="part-title" x="498.0" y="692.0">Part 36</text>
+    <text class="part-id" x="466.0" y="707.0">part_0055</text>
+    <rect class="preview-box" x="473.0" y="712.0" width="98.0" height="78.0"/>
+    <g transform="translate(483.000 712.000) scale(3.321549)">
+      <path class="part-shape" fill="#D97706" d="M 0 20.655 L 20.655 0 L 23.483 2.828 L 2.828 23.483 Z"/>
+    </g>
+    <text class="part-meta" x="466.0" y="797.0">58.7 x 58.7 mm</text>
+    <text class="part-meta" x="466.0" y="810.0">qty 1 | src 1</text>
+  </g>
+  <g id="rank-15-part_0004">
+    <title>Part 5 (part_0004)
+kind: rect
+size: 13.325 x 80.025 mm
+quantity: 1
+source count: 1
+used by: DestinationBuilding: 1</title>
+    <rect class="part-card" x="242.0" y="674.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="252.0" y="692.0">15</text>
+    <text class="part-title" x="284.0" y="692.0">Part 5</text>
+    <text class="part-id" x="252.0" y="707.0">part_0004</text>
+    <rect class="preview-box" x="259.0" y="712.0" width="98.0" height="78.0"/>
+    <g transform="translate(301.506 712.000) scale(2.436739)">
+      <path class="part-shape" fill="#2563EB" d="M 0 0 L 5.33 0 L 5.33 32.01 L 0 32.01 Z"/>
+    </g>
+    <text class="part-meta" x="252.0" y="797.0">13.3 x 80.0 mm</text>
+    <text class="part-meta" x="252.0" y="810.0">qty 1 | src 1</text>
+  </g>
+  <g id="rank-16-part_0013">
+    <title>Part 10 (part_0013)
+kind: rect
+size: 82.500 x 10.000 mm
+quantity: 1
+source count: 1
+used by: Ferry operator: 1</title>
+    <rect class="part-card" x="28.0" y="674.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="38.0" y="692.0">16</text>
+    <text class="part-title" x="70.0" y="692.0">Part 10</text>
+    <text class="part-id" x="38.0" y="707.0">part_0013</text>
+    <rect class="preview-box" x="45.0" y="712.0" width="98.0" height="78.0"/>
+    <g transform="translate(45.000 745.061) scale(2.969697)">
+      <path class="part-shape" fill="#2563EB" d="M 0 0 L 33 0 L 33 4 L 0 4 Z"/>
+    </g>
+    <text class="part-meta" x="38.0" y="797.0">82.5 x 10.0 mm</text>
+    <text class="part-meta" x="38.0" y="810.0">qty 1 | src 1</text>
+  </g>
+  <g id="rank-17-part_0030">
+    <title>Part 22 (part_0030)
+kind: polygon
+size: 10.000 x 82.500 mm
+quantity: 1
+source count: 1
+used by: Hotel: 1</title>
+    <rect class="part-card" x="28.0" y="866.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="38.0" y="884.0">17</text>
+    <text class="part-title" x="70.0" y="884.0">Part 22</text>
+    <text class="part-id" x="38.0" y="899.0">part_0030</text>
+    <rect class="preview-box" x="45.0" y="904.0" width="98.0" height="78.0"/>
+    <g transform="translate(89.273 904.000) scale(2.363636)">
+      <path class="part-shape" fill="#059669" d="M 0 33 L 4 33 L 4 0 L 0 4 Z"/>
+    </g>
+    <text class="part-meta" x="38.0" y="989.0">10.0 x 82.5 mm</text>
+    <text class="part-meta" x="38.0" y="1002.0">qty 1 | src 1</text>
+  </g>
+  <g id="rank-18-part_0054">
+    <title>Part 35 (part_0054)
+kind: polygon
+size: 69.325 x 60.175 mm
+quantity: 1
+source count: 1
+used by: Travel agent: 1</title>
+    <rect class="part-card" x="242.0" y="866.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="252.0" y="884.0">18</text>
+    <text class="part-title" x="284.0" y="884.0">Part 35</text>
+    <text class="part-id" x="252.0" y="899.0">part_0054</text>
+    <rect class="preview-box" x="259.0" y="904.0" width="98.0" height="78.0"/>
+    <g transform="translate(263.070 904.000) scale(3.240548)">
+      <path class="part-shape" fill="#059669" d="M 2.83 24.07 L 22.9 4 L 27.73 4 L 27.73 0 L 21.24 0 L 0 21.24 Z"/>
+    </g>
+    <text class="part-meta" x="252.0" y="989.0">69.3 x 60.2 mm</text>
+    <text class="part-meta" x="252.0" y="1002.0">qty 1 | src 1</text>
+  </g>
+  <g id="rank-19-part_0023">
+    <title>Part 19 (part_0023)
+kind: rect
+size: 95.000 x 10.000 mm
+quantity: 1
+source count: 2
+used by: Homeowner: 1, Solceller: 1</title>
+    <rect class="part-card" x="456.0" y="866.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="466.0" y="884.0">19</text>
+    <text class="part-title" x="498.0" y="884.0">Part 19</text>
+    <text class="part-id" x="466.0" y="899.0">part_0023</text>
+    <rect class="preview-box" x="473.0" y="904.0" width="98.0" height="78.0"/>
+    <g transform="translate(473.000 937.842) scale(2.578947)">
+      <path class="part-shape" fill="#2563EB" d="M 0 0 L 38 0 L 38 4 L 0 4 Z"/>
+    </g>
+    <text class="part-meta" x="466.0" y="989.0">95.0 x 10.0 mm</text>
+    <text class="part-meta" x="466.0" y="1002.0">qty 1 | src 2</text>
+  </g>
+  <g id="rank-20-part_0058">
+    <title>Part 38 (part_0058)
+kind: polygon
+size: 37.150 x 37.150 mm
+quantity: 1
+source count: 1
+used by: Travel agent: 1</title>
+    <rect class="part-card" x="670.0" y="866.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="680.0" y="884.0">20</text>
+    <text class="part-title" x="712.0" y="884.0">Part 38</text>
+    <text class="part-id" x="680.0" y="899.0">part_0058</text>
+    <rect class="preview-box" x="687.0" y="904.0" width="98.0" height="78.0"/>
+    <g transform="translate(697.000 904.000) scale(5.248991)">
+      <path class="part-shape" fill="#059669" d="M 0 0 L 14.86 14.86 L 14.86 9.2 L 5.66 0 Z"/>
+    </g>
+    <text class="part-meta" x="680.0" y="989.0">37.1 x 37.2 mm</text>
+    <text class="part-meta" x="680.0" y="1002.0">qty 1 | src 1</text>
+  </g>
+  <g id="rank-21-part_0014">
+    <title>Part 11 (part_0014)
+kind: rect
+size: 42.500 x 10.000 mm
+quantity: 1
+source count: 1
+used by: Ferry operator: 1</title>
+    <rect class="part-card" x="670.0" y="1058.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="680.0" y="1076.0">21</text>
+    <text class="part-title" x="712.0" y="1076.0">Part 11</text>
+    <text class="part-id" x="680.0" y="1091.0">part_0014</text>
+    <rect class="preview-box" x="687.0" y="1096.0" width="98.0" height="78.0"/>
+    <g transform="translate(687.000 1123.471) scale(5.764706)">
+      <path class="part-shape" fill="#2563EB" d="M 0 0 L 17 0 L 17 4 L 0 4 Z"/>
+    </g>
+    <text class="part-meta" x="680.0" y="1181.0">42.5 x 10.0 mm</text>
+    <text class="part-meta" x="680.0" y="1194.0">qty 1 | src 1</text>
+  </g>
+  <g id="rank-22-part_0005">
+    <title>Part 6 (part_0005)
+kind: polygon
+size: 44.450 x 13.350 mm
+quantity: 1
+source count: 1
+used by: DestinationBuilding: 1</title>
+    <rect class="part-card" x="456.0" y="1058.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="466.0" y="1076.0">22</text>
+    <text class="part-title" x="498.0" y="1076.0">Part 6</text>
+    <text class="part-id" x="466.0" y="1091.0">part_0005</text>
+    <rect class="preview-box" x="473.0" y="1096.0" width="98.0" height="78.0"/>
+    <g transform="translate(473.000 1120.283) scale(5.511811)">
+      <path class="part-shape" fill="#059669" d="M 0 5.34 L 15.25 5.34 L 17.78 0 L 1.78 0 Z"/>
+    </g>
+    <text class="part-meta" x="466.0" y="1181.0">44.5 x 13.4 mm</text>
+    <text class="part-meta" x="466.0" y="1194.0">qty 1 | src 1</text>
+  </g>
+  <g id="rank-23-part_0019">
+    <title>Part 16 (part_0019)
+kind: rect
+size: 10.000 x 35.000 mm
+quantity: 2
+source count: 2
+used by: Homeowner: 2</title>
+    <rect class="part-card" x="242.0" y="1058.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="252.0" y="1076.0">23</text>
+    <text class="part-title" x="284.0" y="1076.0">Part 16</text>
+    <text class="part-id" x="252.0" y="1091.0">part_0019</text>
+    <rect class="preview-box" x="259.0" y="1096.0" width="98.0" height="78.0"/>
+    <g transform="translate(296.857 1096.000) scale(5.571429)">
+      <path class="part-shape" fill="#2563EB" d="M 0 0 L 4 0 L 4 14 L 0 14 Z"/>
+    </g>
+    <text class="part-meta" x="252.0" y="1181.0">10.0 x 35.0 mm</text>
+    <text class="part-meta" x="252.0" y="1194.0">qty 2 | src 2</text>
+  </g>
+  <g id="rank-24-part_0056">
+    <title>Part 37 (part_0056)
+kind: polygon
+size: 42.500 x 10.000 mm
+quantity: 2
+source count: 2
+used by: Travel agent: 2</title>
+    <rect class="part-card" x="28.0" y="1058.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="38.0" y="1076.0">24</text>
+    <text class="part-title" x="70.0" y="1076.0">Part 37</text>
+    <text class="part-id" x="38.0" y="1091.0">part_0056</text>
+    <rect class="preview-box" x="45.0" y="1096.0" width="98.0" height="78.0"/>
+    <g transform="translate(45.000 1123.471) scale(5.764706)">
+      <path class="part-shape" fill="#059669" d="M 13 0 L 4 0 L 0 4 L 17 4 Z"/>
+    </g>
+    <text class="part-meta" x="38.0" y="1181.0">42.5 x 10.0 mm</text>
+    <text class="part-meta" x="38.0" y="1194.0">qty 2 | src 2</text>
+  </g>
+  <g id="rank-25-part_0051">
+    <title>Part 32 (part_0051)
+kind: polygon
+size: 10.000 x 37.500 mm
+quantity: 1
+source count: 1
+used by: Tour operator: 1</title>
+    <rect class="part-card" x="28.0" y="1250.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="38.0" y="1268.0">25</text>
+    <text class="part-title" x="70.0" y="1268.0">Part 32</text>
+    <text class="part-id" x="38.0" y="1283.0">part_0051</text>
+    <rect class="preview-box" x="45.0" y="1288.0" width="98.0" height="78.0"/>
+    <g transform="translate(83.600 1288.000) scale(5.200000)">
+      <path class="part-shape" fill="#059669" d="M 0 0 L 0 15 L 4 11 L 4 4 Z"/>
+    </g>
+    <text class="part-meta" x="38.0" y="1373.0">10.0 x 37.5 mm</text>
+    <text class="part-meta" x="38.0" y="1386.0">qty 1 | src 1</text>
+  </g>
+  <g id="rank-26-part_0048">
+    <title>Part 30 (part_0048)
+kind: polygon
+size: 10.000 x 27.500 mm
+quantity: 1
+source count: 1
+used by: Tour operator: 1</title>
+    <rect class="part-card" x="242.0" y="1250.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="252.0" y="1268.0">26</text>
+    <text class="part-title" x="284.0" y="1268.0">Part 30</text>
+    <text class="part-id" x="252.0" y="1283.0">part_0048</text>
+    <rect class="preview-box" x="259.0" y="1288.0" width="98.0" height="78.0"/>
+    <g transform="translate(293.818 1288.000) scale(7.090909)">
+      <path class="part-shape" fill="#059669" d="M 0 11 L 4 7 L 4 4 L 0 0 Z"/>
+    </g>
+    <text class="part-meta" x="252.0" y="1373.0">10.0 x 27.5 mm</text>
+    <text class="part-meta" x="252.0" y="1386.0">qty 1 | src 1</text>
+  </g>
+  <g id="rank-27-part_0017">
+    <title>Part 14 (part_0017)
+kind: polygon
+size: 10.000 x 27.500 mm
+quantity: 1
+source count: 1
+used by: Ferry operator: 1</title>
+    <rect class="part-card" x="456.0" y="1250.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="466.0" y="1268.0">27</text>
+    <text class="part-title" x="498.0" y="1268.0">Part 14</text>
+    <text class="part-id" x="466.0" y="1283.0">part_0017</text>
+    <rect class="preview-box" x="473.0" y="1288.0" width="98.0" height="78.0"/>
+    <g transform="translate(507.818 1288.000) scale(7.090909)">
+      <path class="part-shape" fill="#059669" d="M 0 0 L 0 11 L 4 11 L 4 4 Z"/>
+    </g>
+    <text class="part-meta" x="466.0" y="1373.0">10.0 x 27.5 mm</text>
+    <text class="part-meta" x="466.0" y="1386.0">qty 1 | src 1</text>
+  </g>
+  <g id="rank-28-part_0052">
+    <title>Part 33 (part_0052)
+kind: polygon
+size: 27.500 x 10.000 mm
+quantity: 1
+source count: 1
+used by: Tour operator: 1</title>
+    <rect class="part-card" x="670.0" y="1250.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="680.0" y="1268.0">28</text>
+    <text class="part-title" x="712.0" y="1268.0">Part 33</text>
+    <text class="part-id" x="680.0" y="1283.0">part_0052</text>
+    <rect class="preview-box" x="687.0" y="1288.0" width="98.0" height="78.0"/>
+    <g transform="translate(692.000 1311.000) scale(8.000000)">
+      <path class="part-shape" fill="#059669" d="M 0 4 L 11 4 L 11 0 L 3 0 Z"/>
+    </g>
+    <text class="part-meta" x="680.0" y="1373.0">27.5 x 10.0 mm</text>
+    <text class="part-meta" x="680.0" y="1386.0">qty 1 | src 1</text>
+  </g>
+  <g id="rank-29-part_0059">
+    <title>Part 39 (part_0059)
+kind: polygon
+size: 13.350 x 26.600 mm
+quantity: 1
+source count: 1
+used by: VacationRental: 1</title>
+    <rect class="part-card" x="670.0" y="1442.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="680.0" y="1460.0">29</text>
+    <text class="part-title" x="712.0" y="1460.0">Part 39</text>
+    <text class="part-id" x="680.0" y="1475.0">part_0059</text>
+    <rect class="preview-box" x="687.0" y="1480.0" width="98.0" height="78.0"/>
+    <g transform="translate(716.427 1480.000) scale(7.330827)">
+      <path class="part-shape" fill="#059669" d="M 0 10.64 L 5.34 10.64 L 5.34 1.74 L 0 0 Z"/>
+    </g>
+    <text class="part-meta" x="680.0" y="1565.0">13.3 x 26.6 mm</text>
+    <text class="part-meta" x="680.0" y="1578.0">qty 1 | src 1</text>
+  </g>
+  <g id="rank-30-part_0031">
+    <title>Part 23 (part_0031)
+kind: polygon
+size: 13.325 x 31.325 mm
+quantity: 8
+source count: 8
+used by: Platform: 8</title>
+    <rect class="part-card" x="456.0" y="1442.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="466.0" y="1460.0">30</text>
+    <text class="part-title" x="498.0" y="1460.0">Part 23</text>
+    <text class="part-id" x="466.0" y="1475.0">part_0031</text>
+    <rect class="preview-box" x="473.0" y="1480.0" width="98.0" height="78.0"/>
+    <g transform="translate(505.410 1480.000) scale(6.225060)">
+      <path class="part-shape" fill="#059669" d="M 0 10.76 L 5.33 12.53 L 5.33 1.77 L 0 0 Z"/>
+    </g>
+    <text class="part-meta" x="466.0" y="1565.0">13.3 x 31.3 mm</text>
+    <text class="part-meta" x="466.0" y="1578.0">qty 8 | src 8</text>
+  </g>
+  <g id="rank-31-part_0018">
+    <title>Part 15 (part_0018)
+kind: polygon
+size: 20.000 x 10.000 mm
+quantity: 2
+source count: 3
+used by: Ferry operator: 2, Tour operator: 1</title>
+    <rect class="part-card" x="242.0" y="1442.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="252.0" y="1460.0">31</text>
+    <text class="part-title" x="284.0" y="1460.0">Part 15</text>
+    <text class="part-id" x="252.0" y="1475.0">part_0018</text>
+    <rect class="preview-box" x="259.0" y="1480.0" width="98.0" height="78.0"/>
+    <g transform="translate(276.000 1503.000) scale(8.000000)">
+      <path class="part-shape" fill="#059669" d="M 8 0 L 3 0 L 0 4 L 8 4 Z"/>
+    </g>
+    <text class="part-meta" x="252.0" y="1565.0">20.0 x 10.0 mm</text>
+    <text class="part-meta" x="252.0" y="1578.0">qty 2 | src 3</text>
+  </g>
+  <g id="rank-32-part_0022">
+    <title>Part 18 (part_0022)
+kind: rect
+size: 10.000 x 15.000 mm
+quantity: 5
+source count: 11
+used by: Homeowner: 1, Hotel: 5, Resort: 2, Ski resort: 1, Solceller: 1, Tour operator: 1</title>
+    <rect class="part-card" x="28.0" y="1442.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="38.0" y="1460.0">32</text>
+    <text class="part-title" x="70.0" y="1460.0">Part 18</text>
+    <text class="part-id" x="38.0" y="1475.0">part_0022</text>
+    <rect class="preview-box" x="45.0" y="1480.0" width="98.0" height="78.0"/>
+    <g transform="translate(78.000 1495.000) scale(8.000000)">
+      <path class="part-shape" fill="#2563EB" d="M 0 0 L 4 0 L 4 6 L 0 6 Z"/>
+    </g>
+    <text class="part-meta" x="38.0" y="1565.0">10.0 x 15.0 mm</text>
+    <text class="part-meta" x="38.0" y="1578.0">qty 5 | src 11</text>
+  </g>
+  <g id="rank-33-part_0024">
+    <title>Part 20 (part_0024)
+kind: rect
+size: 13.325 x 13.350 mm
+quantity: 1
+source count: 2
+used by: Hospitality: 1, VacationRental: 1</title>
+    <rect class="part-card" x="28.0" y="1634.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="38.0" y="1652.0">33</text>
+    <text class="part-title" x="70.0" y="1652.0">Part 20</text>
+    <text class="part-id" x="38.0" y="1667.0">part_0024</text>
+    <rect class="preview-box" x="45.0" y="1672.0" width="98.0" height="78.0"/>
+    <g transform="translate(72.680 1689.640) scale(8.000000)">
+      <path class="part-shape" fill="#2563EB" d="M 0 0 L 5.33 0 L 5.33 5.34 L 0 5.34 Z"/>
+    </g>
+    <text class="part-meta" x="38.0" y="1757.0">13.3 x 13.3 mm</text>
+    <text class="part-meta" x="38.0" y="1770.0">qty 1 | src 2</text>
+  </g>
+  <g id="rank-34-part_0002">
+    <title>Part 3 (part_0002)
+kind: rect
+size: 10.000 x 10.000 mm
+quantity: 7
+source count: 9
+used by: Amusement park: 7, Ferry operator: 2</title>
+    <rect class="part-card" x="242.0" y="1634.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="252.0" y="1652.0">34</text>
+    <text class="part-title" x="284.0" y="1652.0">Part 3</text>
+    <text class="part-id" x="252.0" y="1667.0">part_0002</text>
+    <rect class="preview-box" x="259.0" y="1672.0" width="98.0" height="78.0"/>
+    <g transform="translate(292.000 1695.000) scale(8.000000)">
+      <path class="part-shape" fill="#2563EB" d="M 0 0 L 4 0 L 4 4 L 0 4 Z"/>
+    </g>
+    <text class="part-meta" x="252.0" y="1757.0">10.0 x 10.0 mm</text>
+    <text class="part-meta" x="252.0" y="1770.0">qty 7 | src 9</text>
+  </g>
+  <g id="rank-35-part_0039">
+    <title>Part 24 (part_0039)
+kind: polygon
+size: 10.000 x 37.500 mm
+quantity: 1
+source count: 1
+used by: Resort: 1</title>
+    <rect class="part-card" x="456.0" y="1634.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="466.0" y="1652.0">35</text>
+    <text class="part-title" x="498.0" y="1652.0">Part 24</text>
+    <text class="part-id" x="466.0" y="1667.0">part_0039</text>
+    <rect class="preview-box" x="473.0" y="1672.0" width="98.0" height="78.0"/>
+    <g transform="translate(511.600 1672.000) scale(5.200000)">
+      <path class="part-shape" fill="#059669" d="M 0 15 L 4 15 L 4 0 L 0 4 Z"/>
+    </g>
+    <text class="part-meta" x="466.0" y="1757.0">10.0 x 37.5 mm</text>
+    <text class="part-meta" x="466.0" y="1770.0">qty 1 | src 1</text>
+  </g>
+  <g id="rank-36-part_0006">
+    <title>Part 7 (part_0006)
+kind: polygon
+size: 32.175 x 37.750 mm
+quantity: 1
+source count: 2
+used by: DestinationBuilding: 1, VacationRental: 1</title>
+    <rect class="part-card" x="670.0" y="1634.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="680.0" y="1652.0">36</text>
+    <text class="part-title" x="712.0" y="1652.0">Part 7</text>
+    <text class="part-id" x="680.0" y="1667.0">part_0006</text>
+    <rect class="preview-box" x="687.0" y="1672.0" width="98.0" height="78.0"/>
+    <g transform="translate(702.760 1672.000) scale(5.165563)">
+      <path class="part-shape" fill="#059669" d="M 5.74 15.1 L 12.87 0 L 7.13 0 L 0 15.1 Z"/>
+    </g>
+    <text class="part-meta" x="680.0" y="1757.0">32.2 x 37.8 mm</text>
+    <text class="part-meta" x="680.0" y="1770.0">qty 1 | src 2</text>
+  </g>
+  <g id="rank-37-part_0007">
+    <title>Part 8 (part_0007)
+kind: polygon
+size: 32.150 x 37.775 mm
+quantity: 1
+source count: 2
+used by: DestinationBuilding: 1, VacationRental: 1</title>
+    <rect class="part-card" x="670.0" y="1826.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="680.0" y="1844.0">37</text>
+    <text class="part-title" x="712.0" y="1844.0">Part 8</text>
+    <text class="part-id" x="680.0" y="1859.0">part_0007</text>
+    <rect class="preview-box" x="687.0" y="1864.0" width="98.0" height="78.0"/>
+    <g transform="translate(702.807 1864.000) scale(5.162144)">
+      <path class="part-shape" fill="#059669" d="M 0 0 L 7.12 15.11 L 12.86 15.11 L 5.74 0 Z"/>
+    </g>
+    <text class="part-meta" x="680.0" y="1949.0">32.1 x 37.8 mm</text>
+    <text class="part-meta" x="680.0" y="1962.0">qty 1 | src 2</text>
+  </g>
+  <g id="rank-38-part_0050">
+    <title>Part 31 (part_0050)
+kind: polygon
+size: 28.425 x 43.650 mm
+quantity: 1
+source count: 1
+used by: Tour operator: 1</title>
+    <rect class="part-card" x="456.0" y="1826.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="466.0" y="1844.0">38</text>
+    <text class="part-title" x="498.0" y="1844.0">Part 31</text>
+    <text class="part-id" x="466.0" y="1859.0">part_0050</text>
+    <rect class="preview-box" x="473.0" y="1864.0" width="98.0" height="78.0"/>
+    <g transform="translate(496.603 1864.000) scale(4.467354)">
+      <path class="part-shape" fill="#059669" d="M 4 0 L 0 0 L 0 9.37 L 8.63 17.46 L 11.37 14.54 L 4 7.63 Z"/>
+    </g>
+    <text class="part-meta" x="466.0" y="1949.0">28.4 x 43.7 mm</text>
+    <text class="part-meta" x="466.0" y="1962.0">qty 1 | src 1</text>
+  </g>
+  <g id="rank-39-part_0053">
+    <title>Part 34 (part_0053)
+kind: polygon
+size: 28.525 x 56.025 mm
+quantity: 1
+source count: 1
+used by: Tour operator: 1</title>
+    <rect class="part-card" x="242.0" y="1826.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="252.0" y="1844.0">39</text>
+    <text class="part-title" x="284.0" y="1844.0">Part 34</text>
+    <text class="part-id" x="252.0" y="1859.0">part_0053</text>
+    <rect class="preview-box" x="259.0" y="1864.0" width="98.0" height="78.0"/>
+    <g transform="translate(288.143 1864.000) scale(3.480589)">
+      <path class="part-shape" fill="#059669" d="M 4 0 L 0 0 L 0 13.83 L 8.59 22.41 L 11.41 19.59 L 4 12.17 Z"/>
+    </g>
+    <text class="part-meta" x="252.0" y="1949.0">28.5 x 56.0 mm</text>
+    <text class="part-meta" x="252.0" y="1962.0">qty 1 | src 1</text>
+  </g>
+  <g id="rank-40-part_0045">
+    <title>Part 27 (part_0045)
+kind: polygon
+size: 46.025 x 33.575 mm
+quantity: 1
+source count: 1
+used by: Ski resort: 1</title>
+    <rect class="part-card" x="28.0" y="1826.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="38.0" y="1844.0">40</text>
+    <text class="part-title" x="70.0" y="1844.0">Part 27</text>
+    <text class="part-id" x="38.0" y="1859.0">part_0045</text>
+    <rect class="preview-box" x="45.0" y="1864.0" width="98.0" height="78.0"/>
+    <g transform="translate(45.000 1867.255) scale(5.323194)">
+      <path class="part-shape" fill="#059669" d="M 0 4.98 L 2.83 7.81 L 4.98 5.66 L 12.75 13.43 L 18.41 13.43 L 4.98 0 Z"/>
+    </g>
+    <text class="part-meta" x="38.0" y="1949.0">46.0 x 33.6 mm</text>
+    <text class="part-meta" x="38.0" y="1962.0">qty 1 | src 1</text>
+  </g>
+  <g id="rank-41-part_0016">
+    <title>Part 13 (part_0016)
+kind: polygon
+size: 35.000 x 22.500 mm
+quantity: 1
+source count: 1
+used by: Ferry operator: 1</title>
+    <rect class="part-card" x="28.0" y="2018.0" width="132.0" height="144.0" rx="6"/>
+    <text class="rank" x="38.0" y="2036.0">41</text>
+    <text class="part-title" x="70.0" y="2036.0">Part 13</text>
+    <text class="part-id" x="38.0" y="2051.0">part_0016</text>
+    <rect class="preview-box" x="45.0" y="2056.0" width="98.0" height="78.0"/>
+    <g transform="translate(45.000 2063.500) scale(7.000000)">
+      <path class="part-shape" fill="#059669" d="M 10 9 L 14 9 L 14 4 L 10 0 L 0 0 L 0 4 L 10 4 Z"/>
+    </g>
+    <text class="part-meta" x="38.0" y="2141.0">35.0 x 22.5 mm</text>
+    <text class="part-meta" x="38.0" y="2154.0">qty 1 | src 1</text>
+  </g>
+  <line class="connector" x1="160.0" y1="170.0" x2="242.0" y2="170.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="144.0" y="153.0" width="114.0" height="16" rx="3"/>
+  <text class="connector-label" x="201.0" y="165.0">HD 16.24 mm | rot 45</text>
+  <line class="connector" x1="374.0" y1="170.0" x2="456.0" y2="170.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="377.0" y="153.0" width="76.0" height="16" rx="3"/>
+  <text class="connector-label" x="415.0" y="165.0">HD 24.82 mm</text>
+  <line class="connector" x1="588.0" y1="170.0" x2="670.0" y2="170.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="569.4" y="153.0" width="119.2" height="16" rx="3"/>
+  <text class="connector-label" x="629.0" y="165.0">HD 23.41 mm | rot 135</text>
+  <line class="connector" x1="736.0" y1="242.0" x2="736.0" y2="290.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="740.0" y="255.0" width="76.0" height="16" rx="3"/>
+  <text class="connector-label" x="778.0" y="267.0">HD 14.75 mm</text>
+  <line class="connector" x1="670.0" y1="362.0" x2="588.0" y2="362.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="569.4" y="345.0" width="119.2" height="16" rx="3"/>
+  <text class="connector-label" x="629.0" y="357.0">HD 10.17 mm | rot 180</text>
+  <line class="connector" x1="456.0" y1="362.0" x2="374.0" y2="362.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="360.6" y="345.0" width="108.8" height="16" rx="3"/>
+  <text class="connector-label" x="415.0" y="357.0">HD 7.75 mm | rot 90</text>
+  <line class="connector" x1="242.0" y1="362.0" x2="160.0" y2="362.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="146.6" y="345.0" width="108.8" height="16" rx="3"/>
+  <text class="connector-label" x="201.0" y="357.0">HD 5.13 mm | rot 45</text>
+  <line class="connector" x1="94.0" y1="434.0" x2="94.0" y2="482.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="98.0" y="447.0" width="76.0" height="16" rx="3"/>
+  <text class="connector-label" x="136.0" y="459.0">HD 4.36 mm</text>
+  <line class="connector" x1="160.0" y1="554.0" x2="242.0" y2="554.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="144.0" y="537.0" width="114.0" height="16" rx="3"/>
+  <text class="connector-label" x="201.0" y="549.0">HD 2.07 mm | rot 180</text>
+  <line class="connector" x1="374.0" y1="554.0" x2="456.0" y2="554.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="358.0" y="537.0" width="114.0" height="16" rx="3"/>
+  <text class="connector-label" x="415.0" y="549.0">HD 1.47 mm | rot 180</text>
+  <line class="connector" x1="588.0" y1="554.0" x2="670.0" y2="554.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="574.6" y="537.0" width="108.8" height="16" rx="3"/>
+  <text class="connector-label" x="629.0" y="549.0">HD 7.23 mm | rot 45</text>
+  <line class="connector" x1="736.0" y1="626.0" x2="736.0" y2="674.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="723.6" y="639.0" width="108.8" height="16" rx="3"/>
+  <text class="connector-label" x="778.0" y="651.0">HD 6.39 mm | rot 90</text>
+  <line class="connector" x1="670.0" y1="746.0" x2="588.0" y2="746.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="574.6" y="729.0" width="108.8" height="16" rx="3"/>
+  <text class="connector-label" x="629.0" y="741.0">HD 1.66 mm | rot 45</text>
+  <line class="connector" x1="456.0" y1="746.0" x2="374.0" y2="746.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="358.0" y="729.0" width="114.0" height="16" rx="3"/>
+  <text class="connector-label" x="415.0" y="741.0">HD 3.87 mm | rot 135</text>
+  <line class="connector" x1="242.0" y1="746.0" x2="160.0" y2="746.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="146.6" y="729.0" width="108.8" height="16" rx="3"/>
+  <text class="connector-label" x="201.0" y="741.0">HD 1.66 mm | rot 90</text>
+  <line class="connector" x1="94.0" y1="818.0" x2="94.0" y2="866.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="81.6" y="831.0" width="108.8" height="16" rx="3"/>
+  <text class="connector-label" x="136.0" y="843.0">HD 5.27 mm | rot 90</text>
+  <line class="connector" x1="160.0" y1="938.0" x2="242.0" y2="938.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="144.0" y="921.0" width="114.0" height="16" rx="3"/>
+  <text class="connector-label" x="201.0" y="933.0">HD 7.70 mm | rot 135</text>
+  <line class="connector" x1="374.0" y1="938.0" x2="456.0" y2="938.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="355.4" y="921.0" width="119.2" height="16" rx="3"/>
+  <text class="connector-label" x="415.0" y="933.0">HD 10.57 mm | rot 225</text>
+  <line class="connector" x1="588.0" y1="938.0" x2="670.0" y2="938.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="569.4" y="921.0" width="119.2" height="16" rx="3"/>
+  <text class="connector-label" x="629.0" y="933.0">HD 23.30 mm | rot 135</text>
+  <line class="connector" x1="736.0" y1="1010.0" x2="736.0" y2="1058.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="721.0" y="1023.0" width="114.0" height="16" rx="3"/>
+  <text class="connector-label" x="778.0" y="1035.0">HD 5.02 mm | rot 135</text>
+  <line class="connector" x1="670.0" y1="1130.0" x2="588.0" y2="1130.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="591.0" y="1113.0" width="76.0" height="16" rx="3"/>
+  <text class="connector-label" x="629.0" y="1125.0">HD 3.69 mm</text>
+  <line class="connector" x1="456.0" y1="1130.0" x2="374.0" y2="1130.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="360.6" y="1113.0" width="108.8" height="16" rx="3"/>
+  <text class="connector-label" x="415.0" y="1125.0">HD 5.42 mm | rot 90</text>
+  <line class="connector" x1="242.0" y1="1130.0" x2="160.0" y2="1130.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="146.6" y="1113.0" width="108.8" height="16" rx="3"/>
+  <text class="connector-label" x="201.0" y="1125.0">HD 4.06 mm | rot 90</text>
+  <line class="connector" x1="94.0" y1="1202.0" x2="94.0" y2="1250.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="81.6" y="1215.0" width="108.8" height="16" rx="3"/>
+  <text class="connector-label" x="136.0" y="1227.0">HD 2.50 mm | rot 90</text>
+  <line class="connector" x1="160.0" y1="1322.0" x2="242.0" y2="1322.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="163.0" y="1305.0" width="76.0" height="16" rx="3"/>
+  <text class="connector-label" x="201.0" y="1317.0">HD 5.01 mm</text>
+  <line class="connector" x1="374.0" y1="1322.0" x2="456.0" y2="1322.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="377.0" y="1305.0" width="76.0" height="16" rx="3"/>
+  <text class="connector-label" x="415.0" y="1317.0">HD 5.02 mm</text>
+  <line class="connector" x1="588.0" y1="1322.0" x2="670.0" y2="1322.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="574.6" y="1305.0" width="108.8" height="16" rx="3"/>
+  <text class="connector-label" x="629.0" y="1317.0">HD 1.31 mm | rot 90</text>
+  <line class="connector" x1="736.0" y1="1394.0" x2="736.0" y2="1442.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="721.0" y="1407.0" width="114.0" height="16" rx="3"/>
+  <text class="connector-label" x="778.0" y="1419.0">HD 2.55 mm | rot 270</text>
+  <line class="connector" x1="670.0" y1="1514.0" x2="588.0" y2="1514.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="591.0" y="1497.0" width="76.0" height="16" rx="3"/>
+  <text class="connector-label" x="629.0" y="1509.0">HD 3.42 mm</text>
+  <line class="connector" x1="456.0" y1="1514.0" x2="374.0" y2="1514.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="360.6" y="1497.0" width="108.8" height="16" rx="3"/>
+  <text class="connector-label" x="415.0" y="1509.0">HD 7.50 mm | rot 90</text>
+  <line class="connector" x1="242.0" y1="1514.0" x2="160.0" y2="1514.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="146.6" y="1497.0" width="108.8" height="16" rx="3"/>
+  <text class="connector-label" x="201.0" y="1509.0">HD 4.22 mm | rot 45</text>
+  <line class="connector" x1="94.0" y1="1586.0" x2="94.0" y2="1634.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="98.0" y="1599.0" width="76.0" height="16" rx="3"/>
+  <text class="connector-label" x="136.0" y="1611.0">HD 1.66 mm</text>
+  <line class="connector" x1="160.0" y1="1706.0" x2="242.0" y2="1706.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="163.0" y="1689.0" width="76.0" height="16" rx="3"/>
+  <text class="connector-label" x="201.0" y="1701.0">HD 2.36 mm</text>
+  <line class="connector" x1="374.0" y1="1706.0" x2="456.0" y2="1706.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="355.4" y="1689.0" width="119.2" height="16" rx="3"/>
+  <text class="connector-label" x="415.0" y="1701.0">HD 14.83 mm | rot 135</text>
+  <line class="connector" x1="588.0" y1="1706.0" x2="670.0" y2="1706.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="574.6" y="1689.0" width="108.8" height="16" rx="3"/>
+  <text class="connector-label" x="629.0" y="1701.0">HD 8.34 mm | rot 45</text>
+  <line class="connector" x1="736.0" y1="1778.0" x2="736.0" y2="1826.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="723.6" y="1791.0" width="108.8" height="16" rx="3"/>
+  <text class="connector-label" x="778.0" y="1803.0">HD 5.85 mm | rot 45</text>
+  <line class="connector" x1="670.0" y1="1898.0" x2="588.0" y2="1898.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="591.0" y="1881.0" width="76.0" height="16" rx="3"/>
+  <text class="connector-label" x="629.0" y="1893.0">HD 5.71 mm</text>
+  <line class="connector" x1="456.0" y1="1898.0" x2="374.0" y2="1898.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="377.0" y="1881.0" width="76.0" height="16" rx="3"/>
+  <text class="connector-label" x="415.0" y="1893.0">HD 6.61 mm</text>
+  <line class="connector" x1="242.0" y1="1898.0" x2="160.0" y2="1898.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="144.0" y="1881.0" width="114.0" height="16" rx="3"/>
+  <text class="connector-label" x="201.0" y="1893.0">HD 8.68 mm | rot 135</text>
+  <line class="connector" x1="94.0" y1="1970.0" x2="94.0" y2="2018.0" marker-end="url(#arrow)"/>
+  <rect class="connector-label-bg" x="98.0" y="1983.0" width="76.0" height="16" rx="3"/>
+  <text class="connector-label" x="136.0" y="1995.0">HD 9.31 mm</text>
+</svg>

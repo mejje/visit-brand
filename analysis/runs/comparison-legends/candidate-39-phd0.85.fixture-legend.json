@@ -1,0 +1,2557 @@
+{
+  "fixture_manifest": null,
+  "generator": "tools/generate_fixture_legend.py",
+  "icon_count": 14,
+  "icons": {
+    "Visit_Icon_Amusement park": {
+      "placements": [
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            12.0,
+            12.01
+          ],
+          "backplate_piece_id": "part_0000__01__backplate",
+          "backplate_piece_mark": "1",
+          "bounds_svg": [
+            12.0,
+            12.01,
+            35.99,
+            32.49
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0000__01__front_cap",
+          "front_piece_mark": "1",
+          "label_point_svg": [
+            14.200421,
+            22.102131
+          ],
+          "legend_label": "1",
+          "part": "part_0000",
+          "part_number": 1,
+          "placement_index": 1,
+          "rotate_deg": 0.0,
+          "source_index": 0
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            10.17,
+            29.17
+          ],
+          "backplate_piece_id": "part_0001__01__backplate",
+          "backplate_piece_mark": "2",
+          "bounds_svg": [
+            10.17,
+            29.17,
+            37.83,
+            43.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0001__01__front_cap",
+          "front_piece_mark": "2",
+          "label_point_svg": [
+            17.085,
+            38.915
+          ],
+          "legend_label": "2",
+          "part": "part_0001",
+          "part_number": 2,
+          "placement_index": 2,
+          "rotate_deg": 0.0,
+          "source_index": 1
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            5.0,
+            21.0
+          ],
+          "backplate_piece_id": "part_0002__01__backplate",
+          "backplate_piece_mark": "3",
+          "bounds_svg": [
+            5.0,
+            21.0,
+            9.0,
+            25.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0002__01__front_cap",
+          "front_piece_mark": "3",
+          "label_point_svg": [
+            7.0,
+            23.0
+          ],
+          "legend_label": "3",
+          "part": "part_0002",
+          "part_number": 3,
+          "placement_index": 3,
+          "rotate_deg": 0.0,
+          "source_index": 2
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            9.0,
+            9.0
+          ],
+          "backplate_piece_id": "part_0002__02__backplate",
+          "backplate_piece_mark": "3",
+          "bounds_svg": [
+            9.0,
+            9.0,
+            13.0,
+            13.0
+          ],
+          "copy_index": 2,
+          "front_piece_id": "part_0002__02__front_cap",
+          "front_piece_mark": "3",
+          "label_point_svg": [
+            11.0,
+            11.0
+          ],
+          "legend_label": "3",
+          "part": "part_0002",
+          "part_number": 3,
+          "placement_index": 4,
+          "rotate_deg": 0.0,
+          "source_index": 3
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            22.0,
+            5.0
+          ],
+          "backplate_piece_id": "part_0002__03__backplate",
+          "backplate_piece_mark": "3",
+          "bounds_svg": [
+            22.0,
+            5.0,
+            26.0,
+            9.0
+          ],
+          "copy_index": 3,
+          "front_piece_id": "part_0002__03__front_cap",
+          "front_piece_mark": "3",
+          "label_point_svg": [
+            24.0,
+            7.0
+          ],
+          "legend_label": "3",
+          "part": "part_0002",
+          "part_number": 3,
+          "placement_index": 5,
+          "rotate_deg": 0.0,
+          "source_index": 4
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            9.0,
+            33.0
+          ],
+          "backplate_piece_id": "part_0002__04__backplate",
+          "backplate_piece_mark": "3",
+          "bounds_svg": [
+            9.0,
+            33.0,
+            13.0,
+            37.0
+          ],
+          "copy_index": 4,
+          "front_piece_id": "part_0002__04__front_cap",
+          "front_piece_mark": "3",
+          "label_point_svg": [
+            11.0,
+            35.0
+          ],
+          "legend_label": "3",
+          "part": "part_0002",
+          "part_number": 3,
+          "placement_index": 6,
+          "rotate_deg": 0.0,
+          "source_index": 5
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            39.0,
+            21.0
+          ],
+          "backplate_piece_id": "part_0002__05__backplate",
+          "backplate_piece_mark": "3",
+          "bounds_svg": [
+            39.0,
+            21.0,
+            43.0,
+            25.0
+          ],
+          "copy_index": 5,
+          "front_piece_id": "part_0002__05__front_cap",
+          "front_piece_mark": "3",
+          "label_point_svg": [
+            41.0,
+            23.0
+          ],
+          "legend_label": "3",
+          "part": "part_0002",
+          "part_number": 3,
+          "placement_index": 7,
+          "rotate_deg": 0.0,
+          "source_index": 6
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            35.0,
+            9.0
+          ],
+          "backplate_piece_id": "part_0002__06__backplate",
+          "backplate_piece_mark": "3",
+          "bounds_svg": [
+            35.0,
+            9.0,
+            39.0,
+            13.0
+          ],
+          "copy_index": 6,
+          "front_piece_id": "part_0002__06__front_cap",
+          "front_piece_mark": "3",
+          "label_point_svg": [
+            37.0,
+            11.0
+          ],
+          "legend_label": "3",
+          "part": "part_0002",
+          "part_number": 3,
+          "placement_index": 8,
+          "rotate_deg": 0.0,
+          "source_index": 7
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            35.0,
+            33.0
+          ],
+          "backplate_piece_id": "part_0002__07__backplate",
+          "backplate_piece_mark": "3",
+          "bounds_svg": [
+            35.0,
+            33.0,
+            39.0,
+            37.0
+          ],
+          "copy_index": 7,
+          "front_piece_id": "part_0002__07__front_cap",
+          "front_piece_mark": "3",
+          "label_point_svg": [
+            37.0,
+            35.0
+          ],
+          "legend_label": "3",
+          "part": "part_0002",
+          "part_number": 3,
+          "placement_index": 9,
+          "rotate_deg": 0.0,
+          "source_index": 8
+        }
+      ],
+      "total_placements": 9
+    },
+    "Visit_Icon_DestinationBuilding": {
+      "placements": [
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            8.86,
+            5.33
+          ],
+          "backplate_piece_id": "part_0003__01__backplate",
+          "backplate_piece_mark": "4",
+          "bounds_svg": [
+            8.86,
+            5.33,
+            36.31,
+            10.66
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0003__01__front_cap",
+          "front_piece_mark": "4",
+          "label_point_svg": [
+            22.4,
+            7.995
+          ],
+          "legend_label": "4",
+          "part": "part_0003",
+          "part_number": 4,
+          "placement_index": 1,
+          "rotate_deg": 0.0,
+          "source_index": 0
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            3.55,
+            10.66
+          ],
+          "backplate_piece_id": "part_0004__01__backplate",
+          "backplate_piece_mark": "5",
+          "bounds_svg": [
+            3.55,
+            10.66,
+            8.88,
+            42.67
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0004__01__front_cap",
+          "front_piece_mark": "5",
+          "label_point_svg": [
+            6.215,
+            26.665
+          ],
+          "legend_label": "5",
+          "part": "part_0004",
+          "part_number": 5,
+          "placement_index": 2,
+          "rotate_deg": 0.0,
+          "source_index": 1
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            12.43,
+            30.22
+          ],
+          "backplate_piece_id": "part_0005__01__backplate",
+          "backplate_piece_mark": "6",
+          "bounds_svg": [
+            12.43,
+            30.22,
+            30.21,
+            35.56
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0005__01__front_cap",
+          "front_piece_mark": "6",
+          "label_point_svg": [
+            21.1325,
+            32.89
+          ],
+          "legend_label": "6",
+          "part": "part_0005",
+          "part_number": 6,
+          "placement_index": 3,
+          "rotate_deg": 0.0,
+          "source_index": 2
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            40.205,
+            12.89
+          ],
+          "backplate_piece_id": "part_0006__01__backplate",
+          "backplate_piece_mark": "7",
+          "bounds_svg": [
+            33.77,
+            5.34,
+            46.64,
+            20.44
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0006__01__front_cap",
+          "front_piece_mark": "7",
+          "label_point_svg": [
+            40.205,
+            12.89
+          ],
+          "legend_label": "7",
+          "part": "part_0006",
+          "part_number": 7,
+          "placement_index": 4,
+          "rotate_deg": 0.0,
+          "source_index": 3
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            34.46,
+            27.995
+          ],
+          "backplate_piece_id": "part_0007__01__backplate",
+          "backplate_piece_mark": "8",
+          "bounds_svg": [
+            28.03,
+            20.44,
+            40.89,
+            35.55
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0007__01__front_cap",
+          "front_piece_mark": "8",
+          "label_point_svg": [
+            34.46,
+            27.995
+          ],
+          "legend_label": "8",
+          "part": "part_0007",
+          "part_number": 8,
+          "placement_index": 5,
+          "rotate_deg": 0.0,
+          "source_index": 4
+        }
+      ],
+      "total_placements": 5
+    },
+    "Visit_Icon_Experiences": {
+      "placements": [
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            23.993613,
+            40.895836
+          ],
+          "backplate_piece_id": "part_0008__01__backplate",
+          "backplate_piece_mark": "9",
+          "bounds_svg": [
+            14.22,
+            35.56,
+            33.77,
+            46.23
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0008__01__front_cap",
+          "front_piece_mark": "9",
+          "label_point_svg": [
+            23.995,
+            40.895
+          ],
+          "legend_label": "9",
+          "part": "part_0008",
+          "part_number": 9,
+          "placement_index": 1,
+          "rotate_deg": 0.0,
+          "source_index": 0
+        },
+        {
+          "anchor": "centroid",
+          "at_svg": [
+            23.993613,
+            7.122498
+          ],
+          "backplate_piece_id": "part_0008__02__backplate",
+          "backplate_piece_mark": "9",
+          "bounds_svg": [
+            14.217225,
+            1.788333,
+            33.767225,
+            12.458333
+          ],
+          "copy_index": 2,
+          "front_piece_id": "part_0008__02__front_cap",
+          "front_piece_mark": "9",
+          "label_point_svg": [
+            23.992225,
+            7.123333
+          ],
+          "legend_label": "9",
+          "part": "part_0008",
+          "part_number": 9,
+          "placement_index": 2,
+          "rotate_deg": 180.0,
+          "source_index": 1
+        },
+        {
+          "anchor": "centroid",
+          "at_svg": [
+            40.875004,
+            24.011102
+          ],
+          "backplate_piece_id": "part_0008__03__backplate",
+          "backplate_piece_mark": "9",
+          "bounds_svg": [
+            35.539168,
+            14.234714,
+            46.209168,
+            33.784714
+          ],
+          "copy_index": 3,
+          "front_piece_id": "part_0008__03__front_cap",
+          "front_piece_mark": "9",
+          "label_point_svg": [
+            43.536446,
+            24.009714
+          ],
+          "legend_label": "9",
+          "part": "part_0008",
+          "part_number": 9,
+          "placement_index": 3,
+          "rotate_deg": 270.0,
+          "source_index": 2
+        },
+        {
+          "anchor": "centroid",
+          "at_svg": [
+            24.881672,
+            24.011098
+          ],
+          "backplate_piece_id": "part_0008__04__backplate",
+          "backplate_piece_mark": "9",
+          "bounds_svg": [
+            19.545836,
+            14.23471,
+            30.215836,
+            33.78471
+          ],
+          "copy_index": 4,
+          "front_piece_id": "part_0008__04__front_cap",
+          "front_piece_mark": "9",
+          "label_point_svg": [
+            27.543114,
+            24.00971
+          ],
+          "legend_label": "9",
+          "part": "part_0008",
+          "part_number": 9,
+          "placement_index": 4,
+          "rotate_deg": 270.0,
+          "source_index": 3
+        },
+        {
+          "anchor": "centroid",
+          "at_svg": [
+            7.10166,
+            24.011105
+          ],
+          "backplate_piece_id": "part_0008__05__backplate",
+          "backplate_piece_mark": "9",
+          "bounds_svg": [
+            1.767495,
+            14.237492,
+            12.437495,
+            33.787492
+          ],
+          "copy_index": 5,
+          "front_piece_id": "part_0008__05__front_cap",
+          "front_piece_mark": "9",
+          "label_point_svg": [
+            4.440218,
+            24.012492
+          ],
+          "legend_label": "9",
+          "part": "part_0008",
+          "part_number": 9,
+          "placement_index": 5,
+          "rotate_deg": 90.0,
+          "source_index": 4
+        }
+      ],
+      "total_placements": 5
+    },
+    "Visit_Icon_Ferry operator": {
+      "placements": [
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            5.0,
+            23.0
+          ],
+          "backplate_piece_id": "part_0013__01__backplate",
+          "backplate_piece_mark": "10",
+          "bounds_svg": [
+            5.0,
+            23.0,
+            38.0,
+            27.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0013__01__front_cap",
+          "front_piece_mark": "10",
+          "label_point_svg": [
+            21.5,
+            25.0
+          ],
+          "legend_label": "10",
+          "part": "part_0013",
+          "part_number": 10,
+          "placement_index": 1,
+          "rotate_deg": 0.0,
+          "source_index": 0
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            5.0,
+            39.0
+          ],
+          "backplate_piece_id": "part_0014__01__backplate",
+          "backplate_piece_mark": "11",
+          "bounds_svg": [
+            5.0,
+            39.0,
+            22.0,
+            43.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0014__01__front_cap",
+          "front_piece_mark": "11",
+          "label_point_svg": [
+            13.5,
+            41.0
+          ],
+          "legend_label": "11",
+          "part": "part_0014",
+          "part_number": 11,
+          "placement_index": 2,
+          "rotate_deg": 0.0,
+          "source_index": 1
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            23.17,
+            23.17
+          ],
+          "backplate_piece_id": "part_0015__01__backplate",
+          "backplate_piece_mark": "12",
+          "bounds_svg": [
+            23.17,
+            23.17,
+            43.0,
+            43.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0015__01__front_cap",
+          "front_piece_mark": "12",
+          "label_point_svg": [
+            33.085,
+            35.915
+          ],
+          "legend_label": "12",
+          "part": "part_0015",
+          "part_number": 12,
+          "placement_index": 3,
+          "rotate_deg": 0.0,
+          "source_index": 2
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            8.0,
+            31.0
+          ],
+          "backplate_piece_id": "part_0002__01__backplate",
+          "backplate_piece_mark": "3",
+          "bounds_svg": [
+            8.0,
+            31.0,
+            12.0,
+            35.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0002__01__front_cap",
+          "front_piece_mark": "3",
+          "label_point_svg": [
+            10.0,
+            33.0
+          ],
+          "legend_label": "3",
+          "part": "part_0002",
+          "part_number": 3,
+          "placement_index": 4,
+          "rotate_deg": 0.0,
+          "source_index": 3
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            16.0,
+            31.0
+          ],
+          "backplate_piece_id": "part_0002__02__backplate",
+          "backplate_piece_mark": "3",
+          "bounds_svg": [
+            16.0,
+            31.0,
+            20.0,
+            35.0
+          ],
+          "copy_index": 2,
+          "front_piece_id": "part_0002__02__front_cap",
+          "front_piece_mark": "3",
+          "label_point_svg": [
+            18.0,
+            33.0
+          ],
+          "legend_label": "3",
+          "part": "part_0002",
+          "part_number": 3,
+          "placement_index": 5,
+          "rotate_deg": 0.0,
+          "source_index": 4
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            5.0,
+            12.0
+          ],
+          "backplate_piece_id": "part_0016__01__backplate",
+          "backplate_piece_mark": "13",
+          "bounds_svg": [
+            5.0,
+            12.0,
+            19.0,
+            21.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0016__01__front_cap",
+          "front_piece_mark": "13",
+          "label_point_svg": [
+            17.0,
+            18.5
+          ],
+          "legend_label": "13",
+          "part": "part_0016",
+          "part_number": 13,
+          "placement_index": 6,
+          "rotate_deg": 0.0,
+          "source_index": 5
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            26.851852,
+            16.425926
+          ],
+          "backplate_piece_id": "part_0017__01__backplate",
+          "backplate_piece_mark": "14",
+          "bounds_svg": [
+            25.0,
+            10.0,
+            29.0,
+            21.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0017__01__front_cap",
+          "front_piece_mark": "14",
+          "label_point_svg": [
+            27.0,
+            17.5
+          ],
+          "legend_label": "14",
+          "part": "part_0017",
+          "part_number": 14,
+          "placement_index": 7,
+          "rotate_deg": 0.0,
+          "source_index": 6
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            21.692308,
+            7.153846
+          ],
+          "backplate_piece_id": "part_0018__01__backplate",
+          "backplate_piece_mark": "15",
+          "bounds_svg": [
+            17.0,
+            5.0,
+            25.0,
+            9.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0018__01__front_cap",
+          "front_piece_mark": "15",
+          "label_point_svg": [
+            21.75,
+            7.0
+          ],
+          "legend_label": "15",
+          "part": "part_0018",
+          "part_number": 15,
+          "placement_index": 8,
+          "rotate_deg": 0.0,
+          "source_index": 7
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            31.692308,
+            7.153846
+          ],
+          "backplate_piece_id": "part_0018__02__backplate",
+          "backplate_piece_mark": "15",
+          "bounds_svg": [
+            27.0,
+            5.0,
+            35.0,
+            9.0
+          ],
+          "copy_index": 2,
+          "front_piece_id": "part_0018__02__front_cap",
+          "front_piece_mark": "15",
+          "label_point_svg": [
+            31.75,
+            7.0
+          ],
+          "legend_label": "15",
+          "part": "part_0018",
+          "part_number": 15,
+          "placement_index": 9,
+          "rotate_deg": 0.0,
+          "source_index": 8
+        }
+      ],
+      "total_placements": 9
+    },
+    "Visit_Icon_Homeowner": {
+      "placements": [
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            9.0,
+            21.0
+          ],
+          "backplate_piece_id": "part_0019__01__backplate",
+          "backplate_piece_mark": "16",
+          "bounds_svg": [
+            9.0,
+            21.0,
+            13.0,
+            35.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0019__01__front_cap",
+          "front_piece_mark": "16",
+          "label_point_svg": [
+            11.0,
+            28.0
+          ],
+          "legend_label": "16",
+          "part": "part_0019",
+          "part_number": 16,
+          "placement_index": 1,
+          "rotate_deg": 0.0,
+          "source_index": 0
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            35.0,
+            21.0
+          ],
+          "backplate_piece_id": "part_0019__02__backplate",
+          "backplate_piece_mark": "16",
+          "bounds_svg": [
+            35.0,
+            21.0,
+            39.0,
+            35.0
+          ],
+          "copy_index": 2,
+          "front_piece_id": "part_0019__02__front_cap",
+          "front_piece_mark": "16",
+          "label_point_svg": [
+            37.0,
+            28.0
+          ],
+          "legend_label": "16",
+          "part": "part_0019",
+          "part_number": 16,
+          "placement_index": 2,
+          "rotate_deg": 0.0,
+          "source_index": 1
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            13.167549,
+            13.167549
+          ],
+          "backplate_piece_id": "part_0020__01__backplate",
+          "backplate_piece_mark": "17",
+          "bounds_svg": [
+            5.0,
+            5.0,
+            24.0,
+            24.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0020__01__front_cap",
+          "front_piece_mark": "17",
+          "label_point_svg": [
+            14.5,
+            11.67
+          ],
+          "legend_label": "17",
+          "part": "part_0020",
+          "part_number": 17,
+          "placement_index": 3,
+          "rotate_deg": 0.0,
+          "source_index": 2
+        },
+        {
+          "anchor": "centroid",
+          "at_svg": [
+            34.832451,
+            13.167549
+          ],
+          "backplate_piece_id": "part_0020__02__backplate",
+          "backplate_piece_mark": "17",
+          "bounds_svg": [
+            24.0,
+            5.0,
+            43.0,
+            24.0
+          ],
+          "copy_index": 2,
+          "front_piece_id": "part_0020__02__front_cap",
+          "front_piece_mark": "17",
+          "label_point_svg": [
+            33.5,
+            11.67
+          ],
+          "legend_label": "17",
+          "part": "part_0020",
+          "part_number": 17,
+          "placement_index": 4,
+          "rotate_deg": 90.0,
+          "source_index": 3
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            22.0,
+            29.0
+          ],
+          "backplate_piece_id": "part_0022__01__backplate",
+          "backplate_piece_mark": "18",
+          "bounds_svg": [
+            22.0,
+            29.0,
+            26.0,
+            35.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0022__01__front_cap",
+          "front_piece_mark": "18",
+          "label_point_svg": [
+            24.0,
+            32.0
+          ],
+          "legend_label": "18",
+          "part": "part_0022",
+          "part_number": 18,
+          "placement_index": 5,
+          "rotate_deg": 0.0,
+          "source_index": 4
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            5.0,
+            39.0
+          ],
+          "backplate_piece_id": "part_0023__01__backplate",
+          "backplate_piece_mark": "19",
+          "bounds_svg": [
+            5.0,
+            39.0,
+            43.0,
+            43.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0023__01__front_cap",
+          "front_piece_mark": "19",
+          "label_point_svg": [
+            24.0,
+            41.0
+          ],
+          "legend_label": "19",
+          "part": "part_0023",
+          "part_number": 19,
+          "placement_index": 6,
+          "rotate_deg": 0.0,
+          "source_index": 5
+        }
+      ],
+      "total_placements": 6
+    },
+    "Visit_Icon_Hospitality": {
+      "placements": [
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            21.33,
+            21.33
+          ],
+          "backplate_piece_id": "part_0024__01__backplate",
+          "backplate_piece_mark": "20",
+          "bounds_svg": [
+            21.33,
+            21.33,
+            26.66,
+            26.67
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0024__01__front_cap",
+          "front_piece_mark": "20",
+          "label_point_svg": [
+            23.995,
+            24.0
+          ],
+          "legend_label": "20",
+          "part": "part_0024",
+          "part_number": 20,
+          "placement_index": 1,
+          "rotate_deg": 0.0,
+          "source_index": 0
+        },
+        {
+          "anchor": "centroid",
+          "at_svg": [
+            8.887502,
+            23.986946
+          ],
+          "backplate_piece_id": "part_0008__01__backplate",
+          "backplate_piece_mark": "9",
+          "bounds_svg": [
+            3.551666,
+            14.210559,
+            14.221666,
+            33.760559
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0008__01__front_cap",
+          "front_piece_mark": "9",
+          "label_point_svg": [
+            11.548944,
+            23.985559
+          ],
+          "legend_label": "9",
+          "part": "part_0008",
+          "part_number": 9,
+          "placement_index": 2,
+          "rotate_deg": 270.0,
+          "source_index": 1
+        },
+        {
+          "anchor": "centroid",
+          "at_svg": [
+            39.118329,
+            23.983901
+          ],
+          "backplate_piece_id": "part_0008__02__backplate",
+          "backplate_piece_mark": "9",
+          "bounds_svg": [
+            33.784164,
+            14.210288,
+            44.454164,
+            33.760288
+          ],
+          "copy_index": 2,
+          "front_piece_id": "part_0008__02__front_cap",
+          "front_piece_mark": "9",
+          "label_point_svg": [
+            36.456887,
+            23.985288
+          ],
+          "legend_label": "9",
+          "part": "part_0008",
+          "part_number": 9,
+          "placement_index": 3,
+          "rotate_deg": 90.0,
+          "source_index": 2
+        },
+        {
+          "anchor": "centroid",
+          "at_svg": [
+            24.009432,
+            8.881672
+          ],
+          "backplate_piece_id": "part_0008__03__backplate",
+          "backplate_piece_mark": "9",
+          "bounds_svg": [
+            14.23582,
+            3.545836,
+            33.78582,
+            14.215836
+          ],
+          "copy_index": 3,
+          "front_piece_id": "part_0008__03__front_cap",
+          "front_piece_mark": "9",
+          "label_point_svg": [
+            24.01082,
+            8.880836
+          ],
+          "legend_label": "9",
+          "part": "part_0008",
+          "part_number": 9,
+          "placement_index": 4,
+          "rotate_deg": 0.0,
+          "source_index": 3
+        },
+        {
+          "anchor": "centroid",
+          "at_svg": [
+            24.006387,
+            39.114164
+          ],
+          "backplate_piece_id": "part_0008__04__backplate",
+          "backplate_piece_mark": "9",
+          "bounds_svg": [
+            14.23,
+            33.78,
+            33.78,
+            44.45
+          ],
+          "copy_index": 4,
+          "front_piece_id": "part_0008__04__front_cap",
+          "front_piece_mark": "9",
+          "label_point_svg": [
+            24.005,
+            39.115
+          ],
+          "legend_label": "9",
+          "part": "part_0008",
+          "part_number": 9,
+          "placement_index": 5,
+          "rotate_deg": 180.0,
+          "source_index": 4
+        }
+      ],
+      "total_placements": 5
+    },
+    "Visit_Icon_Hotel": {
+      "placements": [
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            17.0,
+            13.0
+          ],
+          "backplate_piece_id": "part_0022__01__backplate",
+          "backplate_piece_mark": "18",
+          "bounds_svg": [
+            17.0,
+            13.0,
+            21.0,
+            19.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0022__01__front_cap",
+          "front_piece_mark": "18",
+          "label_point_svg": [
+            19.0,
+            16.0
+          ],
+          "legend_label": "18",
+          "part": "part_0022",
+          "part_number": 18,
+          "placement_index": 1,
+          "rotate_deg": 0.0,
+          "source_index": 0
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            27.0,
+            13.0
+          ],
+          "backplate_piece_id": "part_0022__02__backplate",
+          "backplate_piece_mark": "18",
+          "bounds_svg": [
+            27.0,
+            13.0,
+            31.0,
+            19.0
+          ],
+          "copy_index": 2,
+          "front_piece_id": "part_0022__02__front_cap",
+          "front_piece_mark": "18",
+          "label_point_svg": [
+            29.0,
+            16.0
+          ],
+          "legend_label": "18",
+          "part": "part_0022",
+          "part_number": 18,
+          "placement_index": 2,
+          "rotate_deg": 0.0,
+          "source_index": 1
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            17.0,
+            23.0
+          ],
+          "backplate_piece_id": "part_0022__03__backplate",
+          "backplate_piece_mark": "18",
+          "bounds_svg": [
+            17.0,
+            23.0,
+            21.0,
+            29.0
+          ],
+          "copy_index": 3,
+          "front_piece_id": "part_0022__03__front_cap",
+          "front_piece_mark": "18",
+          "label_point_svg": [
+            19.0,
+            26.0
+          ],
+          "legend_label": "18",
+          "part": "part_0022",
+          "part_number": 18,
+          "placement_index": 3,
+          "rotate_deg": 0.0,
+          "source_index": 2
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            22.0,
+            37.0
+          ],
+          "backplate_piece_id": "part_0022__04__backplate",
+          "backplate_piece_mark": "18",
+          "bounds_svg": [
+            22.0,
+            37.0,
+            26.0,
+            43.0
+          ],
+          "copy_index": 4,
+          "front_piece_id": "part_0022__04__front_cap",
+          "front_piece_mark": "18",
+          "label_point_svg": [
+            24.0,
+            40.0
+          ],
+          "legend_label": "18",
+          "part": "part_0022",
+          "part_number": 18,
+          "placement_index": 4,
+          "rotate_deg": 0.0,
+          "source_index": 3
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            27.0,
+            23.0
+          ],
+          "backplate_piece_id": "part_0022__05__backplate",
+          "backplate_piece_mark": "18",
+          "bounds_svg": [
+            27.0,
+            23.0,
+            31.0,
+            29.0
+          ],
+          "copy_index": 5,
+          "front_piece_id": "part_0022__05__front_cap",
+          "front_piece_mark": "18",
+          "label_point_svg": [
+            29.0,
+            26.0
+          ],
+          "legend_label": "18",
+          "part": "part_0022",
+          "part_number": 18,
+          "placement_index": 5,
+          "rotate_deg": 0.0,
+          "source_index": 4
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            9.0,
+            5.0
+          ],
+          "backplate_piece_id": "part_0029__01__backplate",
+          "backplate_piece_mark": "21",
+          "bounds_svg": [
+            9.0,
+            5.0,
+            39.0,
+            43.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0029__01__front_cap",
+          "front_piece_mark": "21",
+          "label_point_svg": [
+            37.0,
+            26.0
+          ],
+          "legend_label": "21",
+          "part": "part_0029",
+          "part_number": 21,
+          "placement_index": 6,
+          "rotate_deg": 0.0,
+          "source_index": 5
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            9.0,
+            10.0
+          ],
+          "backplate_piece_id": "part_0030__01__backplate",
+          "backplate_piece_mark": "22",
+          "bounds_svg": [
+            9.0,
+            10.0,
+            13.0,
+            43.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0030__01__front_cap",
+          "front_piece_mark": "22",
+          "label_point_svg": [
+            11.0,
+            28.5
+          ],
+          "legend_label": "22",
+          "part": "part_0030",
+          "part_number": 22,
+          "placement_index": 7,
+          "rotate_deg": 0.0,
+          "source_index": 6
+        }
+      ],
+      "total_placements": 7
+    },
+    "Visit_Icon_Platform": {
+      "placements": [
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            23.995,
+            7.965
+          ],
+          "backplate_piece_id": "part_0031__01__backplate",
+          "backplate_piece_mark": "23",
+          "bounds_svg": [
+            21.33,
+            1.7,
+            26.66,
+            14.23
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0031__01__front_cap",
+          "front_piece_mark": "23",
+          "label_point_svg": [
+            23.995,
+            7.965
+          ],
+          "legend_label": "23",
+          "part": "part_0031",
+          "part_number": 23,
+          "placement_index": 1,
+          "rotate_deg": 0.0,
+          "source_index": 0
+        },
+        {
+          "anchor": "centroid",
+          "at_svg": [
+            23.995,
+            39.995
+          ],
+          "backplate_piece_id": "part_0031__02__backplate",
+          "backplate_piece_mark": "23",
+          "bounds_svg": [
+            21.33,
+            33.73,
+            26.66,
+            46.26
+          ],
+          "copy_index": 2,
+          "front_piece_id": "part_0031__02__front_cap",
+          "front_piece_mark": "23",
+          "label_point_svg": [
+            23.995,
+            39.995
+          ],
+          "legend_label": "23",
+          "part": "part_0031",
+          "part_number": 23,
+          "placement_index": 2,
+          "rotate_deg": 0.0,
+          "source_index": 1
+        },
+        {
+          "anchor": "centroid",
+          "at_svg": [
+            12.684524,
+            12.651475
+          ],
+          "backplate_piece_id": "part_0031__03__backplate",
+          "backplate_piece_mark": "23",
+          "bounds_svg": [
+            6.370061,
+            7.58859,
+            18.998988,
+            17.71436
+          ],
+          "copy_index": 3,
+          "front_piece_id": "part_0031__03__front_cap",
+          "front_piece_mark": "23",
+          "label_point_svg": [
+            12.684524,
+            12.651475
+          ],
+          "legend_label": "23",
+          "part": "part_0031",
+          "part_number": 23,
+          "placement_index": 3,
+          "rotate_deg": 135.0,
+          "source_index": 2
+        },
+        {
+          "anchor": "centroid",
+          "at_svg": [
+            35.33148,
+            35.299258
+          ],
+          "backplate_piece_id": "part_0031__04__backplate",
+          "backplate_piece_mark": "23",
+          "bounds_svg": [
+            29.017017,
+            30.236373,
+            41.645944,
+            40.362142
+          ],
+          "copy_index": 4,
+          "front_piece_id": "part_0031__04__front_cap",
+          "front_piece_mark": "23",
+          "label_point_svg": [
+            35.33148,
+            35.299258
+          ],
+          "legend_label": "23",
+          "part": "part_0031",
+          "part_number": 23,
+          "placement_index": 4,
+          "rotate_deg": 135.0,
+          "source_index": 3
+        },
+        {
+          "anchor": "centroid",
+          "at_svg": [
+            35.115,
+            12.855
+          ],
+          "backplate_piece_id": "part_0031__05__backplate",
+          "backplate_piece_mark": "23",
+          "bounds_svg": [
+            30.052115,
+            6.540536,
+            40.177885,
+            19.169464
+          ],
+          "copy_index": 5,
+          "front_piece_id": "part_0031__05__front_cap",
+          "front_piece_mark": "23",
+          "label_point_svg": [
+            35.115,
+            12.855
+          ],
+          "legend_label": "23",
+          "part": "part_0031",
+          "part_number": 23,
+          "placement_index": 5,
+          "rotate_deg": 45.0,
+          "source_index": 4
+        },
+        {
+          "anchor": "centroid",
+          "at_svg": [
+            12.635733,
+            35.336485
+          ],
+          "backplate_piece_id": "part_0031__06__backplate",
+          "backplate_piece_mark": "23",
+          "bounds_svg": [
+            7.572848,
+            29.022022,
+            17.698618,
+            41.650949
+          ],
+          "copy_index": 6,
+          "front_piece_id": "part_0031__06__front_cap",
+          "front_piece_mark": "23",
+          "label_point_svg": [
+            12.635733,
+            35.336485
+          ],
+          "legend_label": "23",
+          "part": "part_0031",
+          "part_number": 23,
+          "placement_index": 6,
+          "rotate_deg": 45.0,
+          "source_index": 5
+        },
+        {
+          "anchor": "centroid",
+          "at_svg": [
+            40.0,
+            23.985
+          ],
+          "backplate_piece_id": "part_0031__07__backplate",
+          "backplate_piece_mark": "23",
+          "bounds_svg": [
+            33.735,
+            21.32,
+            46.265,
+            26.65
+          ],
+          "copy_index": 7,
+          "front_piece_id": "part_0031__07__front_cap",
+          "front_piece_mark": "23",
+          "label_point_svg": [
+            40.0,
+            23.985
+          ],
+          "legend_label": "23",
+          "part": "part_0031",
+          "part_number": 23,
+          "placement_index": 7,
+          "rotate_deg": 90.0,
+          "source_index": 6
+        },
+        {
+          "anchor": "centroid",
+          "at_svg": [
+            8.005,
+            23.985
+          ],
+          "backplate_piece_id": "part_0031__08__backplate",
+          "backplate_piece_mark": "23",
+          "bounds_svg": [
+            1.74,
+            21.32,
+            14.27,
+            26.65
+          ],
+          "copy_index": 8,
+          "front_piece_id": "part_0031__08__front_cap",
+          "front_piece_mark": "23",
+          "label_point_svg": [
+            8.005,
+            23.985
+          ],
+          "legend_label": "23",
+          "part": "part_0031",
+          "part_number": 23,
+          "placement_index": 8,
+          "rotate_deg": 90.0,
+          "source_index": 7
+        }
+      ],
+      "total_placements": 8
+    },
+    "Visit_Icon_Resort": {
+      "placements": [
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            13.0,
+            5.0
+          ],
+          "backplate_piece_id": "part_0029__01__backplate",
+          "backplate_piece_mark": "21",
+          "bounds_svg": [
+            13.0,
+            5.0,
+            43.0,
+            43.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0029__01__front_cap",
+          "front_piece_mark": "21",
+          "label_point_svg": [
+            41.0,
+            26.0
+          ],
+          "legend_label": "21",
+          "part": "part_0029",
+          "part_number": 21,
+          "placement_index": 1,
+          "rotate_deg": 0.0,
+          "source_index": 0
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            5.0,
+            28.0
+          ],
+          "backplate_piece_id": "part_0039__01__backplate",
+          "backplate_piece_mark": "24",
+          "bounds_svg": [
+            5.0,
+            28.0,
+            9.0,
+            43.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0039__01__front_cap",
+          "front_piece_mark": "24",
+          "label_point_svg": [
+            7.0,
+            37.5
+          ],
+          "legend_label": "24",
+          "part": "part_0039",
+          "part_number": 24,
+          "placement_index": 2,
+          "rotate_deg": 0.0,
+          "source_index": 1
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            18.0,
+            37.0
+          ],
+          "backplate_piece_id": "part_0022__01__backplate",
+          "backplate_piece_mark": "18",
+          "bounds_svg": [
+            18.0,
+            37.0,
+            22.0,
+            43.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0022__01__front_cap",
+          "front_piece_mark": "18",
+          "label_point_svg": [
+            20.0,
+            40.0
+          ],
+          "legend_label": "18",
+          "part": "part_0022",
+          "part_number": 18,
+          "placement_index": 3,
+          "rotate_deg": 0.0,
+          "source_index": 2
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            26.0,
+            13.0
+          ],
+          "backplate_piece_id": "part_0022__02__backplate",
+          "backplate_piece_mark": "18",
+          "bounds_svg": [
+            26.0,
+            13.0,
+            30.0,
+            19.0
+          ],
+          "copy_index": 2,
+          "front_piece_id": "part_0022__02__front_cap",
+          "front_piece_mark": "18",
+          "label_point_svg": [
+            28.0,
+            16.0
+          ],
+          "legend_label": "18",
+          "part": "part_0022",
+          "part_number": 18,
+          "placement_index": 4,
+          "rotate_deg": 0.0,
+          "source_index": 3
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            5.0,
+            10.0
+          ],
+          "backplate_piece_id": "part_0040__01__backplate",
+          "backplate_piece_mark": "25",
+          "bounds_svg": [
+            5.0,
+            10.0,
+            35.0,
+            43.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0040__01__front_cap",
+          "front_piece_mark": "25",
+          "label_point_svg": [
+            20.0,
+            25.0
+          ],
+          "legend_label": "25",
+          "part": "part_0040",
+          "part_number": 25,
+          "placement_index": 5,
+          "rotate_deg": 0.0,
+          "source_index": 4
+        }
+      ],
+      "total_placements": 5
+    },
+    "Visit_Icon_Ski resort": {
+      "placements": [
+        {
+          "anchor": "centroid",
+          "at_svg": [
+            13.167549,
+            13.167549
+          ],
+          "backplate_piece_id": "part_0020__01__backplate",
+          "backplate_piece_mark": "17",
+          "bounds_svg": [
+            5.0,
+            5.0,
+            24.0,
+            24.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0020__01__front_cap",
+          "front_piece_mark": "17",
+          "label_point_svg": [
+            14.5,
+            11.67
+          ],
+          "legend_label": "17",
+          "part": "part_0020",
+          "part_number": 17,
+          "placement_index": 1,
+          "rotate_deg": 0.0,
+          "source_index": 0
+        },
+        {
+          "anchor": "centroid",
+          "at_svg": [
+            34.832451,
+            13.167549
+          ],
+          "backplate_piece_id": "part_0020__02__backplate",
+          "backplate_piece_mark": "17",
+          "bounds_svg": [
+            24.0,
+            5.0,
+            43.0,
+            24.0
+          ],
+          "copy_index": 2,
+          "front_piece_id": "part_0020__02__front_cap",
+          "front_piece_mark": "17",
+          "label_point_svg": [
+            33.5,
+            11.67
+          ],
+          "legend_label": "17",
+          "part": "part_0020",
+          "part_number": 17,
+          "placement_index": 2,
+          "rotate_deg": 90.0,
+          "source_index": 1
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            21.0,
+            37.0
+          ],
+          "backplate_piece_id": "part_0022__01__backplate",
+          "backplate_piece_mark": "18",
+          "bounds_svg": [
+            21.0,
+            37.0,
+            25.0,
+            43.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0022__01__front_cap",
+          "front_piece_mark": "18",
+          "label_point_svg": [
+            23.0,
+            40.0
+          ],
+          "legend_label": "18",
+          "part": "part_0022",
+          "part_number": 18,
+          "placement_index": 3,
+          "rotate_deg": 0.0,
+          "source_index": 2
+        },
+        {
+          "anchor": "centroid",
+          "at_svg": [
+            15.411012,
+            35.411012
+          ],
+          "backplate_piece_id": "part_0020__03__backplate",
+          "backplate_piece_mark": "17",
+          "bounds_svg": [
+            4.578561,
+            24.578561,
+            23.578561,
+            43.578561
+          ],
+          "copy_index": 3,
+          "front_piece_id": "part_0020__03__front_cap",
+          "front_piece_mark": "17",
+          "label_point_svg": [
+            14.078561,
+            36.908561
+          ],
+          "legend_label": "17",
+          "part": "part_0020",
+          "part_number": 17,
+          "placement_index": 4,
+          "rotate_deg": 180.0,
+          "source_index": 3
+        },
+        {
+          "anchor": "centroid",
+          "at_svg": [
+            30.588988,
+            35.411012
+          ],
+          "backplate_piece_id": "part_0020__04__backplate",
+          "backplate_piece_mark": "17",
+          "bounds_svg": [
+            22.421439,
+            24.578561,
+            41.421439,
+            43.578561
+          ],
+          "copy_index": 4,
+          "front_piece_id": "part_0020__04__front_cap",
+          "front_piece_mark": "17",
+          "label_point_svg": [
+            31.921439,
+            36.908561
+          ],
+          "legend_label": "17",
+          "part": "part_0020",
+          "part_number": 17,
+          "placement_index": 5,
+          "rotate_deg": 270.0,
+          "source_index": 4
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            25.59,
+            17.57
+          ],
+          "backplate_piece_id": "part_0045__01__backplate",
+          "backplate_piece_mark": "26",
+          "bounds_svg": [
+            25.59,
+            17.57,
+            44.0,
+            31.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0045__01__front_cap",
+          "front_piece_mark": "26",
+          "label_point_svg": [
+            34.475,
+            24.305
+          ],
+          "legend_label": "26",
+          "part": "part_0045",
+          "part_number": 26,
+          "placement_index": 6,
+          "rotate_deg": 0.0,
+          "source_index": 5
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            3.99,
+            13.88
+          ],
+          "backplate_piece_id": "part_0046__01__backplate",
+          "backplate_piece_mark": "27",
+          "bounds_svg": [
+            3.99,
+            13.88,
+            23.94,
+            31.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0046__01__front_cap",
+          "front_piece_mark": "27",
+          "label_point_svg": [
+            13.965,
+            23.855
+          ],
+          "legend_label": "27",
+          "part": "part_0046",
+          "part_number": 27,
+          "placement_index": 7,
+          "rotate_deg": 0.0,
+          "source_index": 6
+        }
+      ],
+      "total_placements": 7
+    },
+    "Visit_Icon_Solceller": {
+      "placements": [
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            5.0,
+            39.0
+          ],
+          "backplate_piece_id": "part_0023__01__backplate",
+          "backplate_piece_mark": "19",
+          "bounds_svg": [
+            5.0,
+            39.0,
+            43.0,
+            43.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0023__01__front_cap",
+          "front_piece_mark": "19",
+          "label_point_svg": [
+            24.0,
+            41.0
+          ],
+          "legend_label": "19",
+          "part": "part_0023",
+          "part_number": 19,
+          "placement_index": 1,
+          "rotate_deg": 0.0,
+          "source_index": 0
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            22.0,
+            30.0
+          ],
+          "backplate_piece_id": "part_0022__01__backplate",
+          "backplate_piece_mark": "18",
+          "bounds_svg": [
+            22.0,
+            30.0,
+            26.0,
+            36.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0022__01__front_cap",
+          "front_piece_mark": "18",
+          "label_point_svg": [
+            24.0,
+            33.0
+          ],
+          "legend_label": "18",
+          "part": "part_0022",
+          "part_number": 18,
+          "placement_index": 2,
+          "rotate_deg": 0.0,
+          "source_index": 1
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            5.0,
+            4.76
+          ],
+          "backplate_piece_id": "part_0047__01__backplate",
+          "backplate_piece_mark": "28",
+          "bounds_svg": [
+            5.0,
+            4.76,
+            43.0,
+            35.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0047__01__front_cap",
+          "front_piece_mark": "28",
+          "label_point_svg": [
+            14.5,
+            22.67
+          ],
+          "legend_label": "28",
+          "part": "part_0047",
+          "part_number": 28,
+          "placement_index": 3,
+          "rotate_deg": 0.0,
+          "source_index": 2
+        }
+      ],
+      "total_placements": 3
+    },
+    "Visit_Icon_Tour operator": {
+      "placements": [
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            18.0,
+            10.0
+          ],
+          "backplate_piece_id": "part_0048__01__backplate",
+          "backplate_piece_mark": "29",
+          "bounds_svg": [
+            18.0,
+            10.0,
+            22.0,
+            21.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0048__01__front_cap",
+          "front_piece_mark": "29",
+          "label_point_svg": [
+            20.0,
+            15.5
+          ],
+          "legend_label": "29",
+          "part": "part_0048",
+          "part_number": 29,
+          "placement_index": 1,
+          "rotate_deg": 0.0,
+          "source_index": 0
+        },
+        {
+          "anchor": "centroid",
+          "at_svg": [
+            13.692308,
+            7.153846
+          ],
+          "backplate_piece_id": "part_0018__01__backplate",
+          "backplate_piece_mark": "15",
+          "bounds_svg": [
+            9.0,
+            5.0,
+            17.0,
+            9.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0018__01__front_cap",
+          "front_piece_mark": "15",
+          "label_point_svg": [
+            13.75,
+            7.0
+          ],
+          "legend_label": "15",
+          "part": "part_0018",
+          "part_number": 15,
+          "placement_index": 2,
+          "rotate_deg": 0.0,
+          "source_index": 1
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            5.0,
+            10.0
+          ],
+          "backplate_piece_id": "part_0050__01__backplate",
+          "backplate_piece_mark": "30",
+          "bounds_svg": [
+            5.0,
+            10.0,
+            16.37,
+            27.46
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0050__01__front_cap",
+          "front_piece_mark": "30",
+          "label_point_svg": [
+            7.463958,
+            18.5
+          ],
+          "legend_label": "30",
+          "part": "part_0050",
+          "part_number": 30,
+          "placement_index": 3,
+          "rotate_deg": 0.0,
+          "source_index": 2
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            39.0,
+            22.0
+          ],
+          "backplate_piece_id": "part_0051__01__backplate",
+          "backplate_piece_mark": "31",
+          "bounds_svg": [
+            39.0,
+            22.0,
+            43.0,
+            37.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0051__01__front_cap",
+          "front_piece_mark": "31",
+          "label_point_svg": [
+            41.0,
+            29.5
+          ],
+          "legend_label": "31",
+          "part": "part_0051",
+          "part_number": 31,
+          "placement_index": 4,
+          "rotate_deg": 0.0,
+          "source_index": 3
+        },
+        {
+          "anchor": "centroid",
+          "at_svg": [
+            33.210526,
+            19.105263
+          ],
+          "backplate_piece_id": "part_0017__01__backplate",
+          "backplate_piece_mark": "14",
+          "bounds_svg": [
+            26.7846,
+            16.957115,
+            37.7846,
+            20.957115
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0017__01__front_cap",
+          "front_piece_mark": "14",
+          "label_point_svg": [
+            33.2846,
+            18.957115
+          ],
+          "legend_label": "14",
+          "part": "part_0017",
+          "part_number": 14,
+          "placement_index": 5,
+          "rotate_deg": 270.0,
+          "source_index": 4
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            23.0,
+            22.0
+          ],
+          "backplate_piece_id": "part_0053__01__backplate",
+          "backplate_piece_mark": "32",
+          "bounds_svg": [
+            23.0,
+            22.0,
+            34.41,
+            44.41
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0053__01__front_cap",
+          "front_piece_mark": "32",
+          "label_point_svg": [
+            25.0,
+            28.085
+          ],
+          "legend_label": "32",
+          "part": "part_0053",
+          "part_number": 32,
+          "placement_index": 6,
+          "rotate_deg": 0.0,
+          "source_index": 5
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            31.0,
+            25.0
+          ],
+          "backplate_piece_id": "part_0022__01__backplate",
+          "backplate_piece_mark": "18",
+          "bounds_svg": [
+            31.0,
+            25.0,
+            35.0,
+            31.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0022__01__front_cap",
+          "front_piece_mark": "18",
+          "label_point_svg": [
+            33.0,
+            28.0
+          ],
+          "legend_label": "18",
+          "part": "part_0022",
+          "part_number": 18,
+          "placement_index": 7,
+          "rotate_deg": 0.0,
+          "source_index": 6
+        }
+      ],
+      "total_placements": 7
+    },
+    "Visit_Icon_Travel agent": {
+      "placements": [
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            14.27,
+            7.0
+          ],
+          "backplate_piece_id": "part_0054__01__backplate",
+          "backplate_piece_mark": "33",
+          "bounds_svg": [
+            14.27,
+            7.0,
+            42.0,
+            31.07
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0054__01__front_cap",
+          "front_piece_mark": "33",
+          "label_point_svg": [
+            25.72,
+            19.62
+          ],
+          "legend_label": "33",
+          "part": "part_0054",
+          "part_number": 33,
+          "placement_index": 1,
+          "rotate_deg": 0.0,
+          "source_index": 0
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            19.929627,
+            13.248554
+          ],
+          "backplate_piece_id": "part_0055__01__backplate",
+          "backplate_piece_mark": "34",
+          "bounds_svg": [
+            19.929627,
+            13.248554,
+            43.412643,
+            36.73157
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0055__01__front_cap",
+          "front_piece_mark": "34",
+          "label_point_svg": [
+            31.671135,
+            24.990062
+          ],
+          "legend_label": "34",
+          "part": "part_0055",
+          "part_number": 34,
+          "placement_index": 2,
+          "rotate_deg": 0.0,
+          "source_index": 1
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            14.5,
+            16.205128
+          ],
+          "backplate_piece_id": "part_0056__01__backplate",
+          "backplate_piece_mark": "35",
+          "bounds_svg": [
+            6.0,
+            14.0,
+            23.0,
+            18.0
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0056__01__front_cap",
+          "front_piece_mark": "35",
+          "label_point_svg": [
+            14.5,
+            16.0
+          ],
+          "legend_label": "35",
+          "part": "part_0056",
+          "part_number": 35,
+          "placement_index": 3,
+          "rotate_deg": 0.0,
+          "source_index": 2
+        },
+        {
+          "anchor": "centroid",
+          "at_svg": [
+            34.794872,
+            36.5
+          ],
+          "backplate_piece_id": "part_0056__02__backplate",
+          "backplate_piece_mark": "35",
+          "bounds_svg": [
+            33.0,
+            28.0,
+            37.0,
+            45.0
+          ],
+          "copy_index": 2,
+          "front_piece_id": "part_0056__02__front_cap",
+          "front_piece_mark": "35",
+          "label_point_svg": [
+            35.0,
+            36.5
+          ],
+          "legend_label": "35",
+          "part": "part_0056",
+          "part_number": 35,
+          "placement_index": 4,
+          "rotate_deg": 90.0,
+          "source_index": 3
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            6.12,
+            29.99
+          ],
+          "backplate_piece_id": "part_0058__01__backplate",
+          "backplate_piece_mark": "36",
+          "bounds_svg": [
+            6.12,
+            29.99,
+            20.98,
+            44.85
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0058__01__front_cap",
+          "front_piece_mark": "36",
+          "label_point_svg": [
+            13.55,
+            34.59
+          ],
+          "legend_label": "36",
+          "part": "part_0058",
+          "part_number": 36,
+          "placement_index": 5,
+          "rotate_deg": 0.0,
+          "source_index": 4
+        }
+      ],
+      "total_placements": 5
+    },
+    "Visit_Icon_VacationRental": {
+      "placements": [
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            24.0,
+            32.03
+          ],
+          "backplate_piece_id": "part_0059__01__backplate",
+          "backplate_piece_mark": "37",
+          "bounds_svg": [
+            24.0,
+            32.03,
+            29.34,
+            42.67
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0059__01__front_cap",
+          "front_piece_mark": "37",
+          "label_point_svg": [
+            26.67,
+            38.22
+          ],
+          "legend_label": "37",
+          "part": "part_0059",
+          "part_number": 37,
+          "placement_index": 1,
+          "rotate_deg": 0.0,
+          "source_index": 0
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            3.56,
+            14.23
+          ],
+          "backplate_piece_id": "part_0060__01__backplate",
+          "backplate_piece_mark": "38",
+          "bounds_svg": [
+            3.56,
+            14.23,
+            8.89,
+            42.67
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0060__01__front_cap",
+          "front_piece_mark": "38",
+          "label_point_svg": [
+            6.225,
+            28.45
+          ],
+          "legend_label": "38",
+          "part": "part_0060",
+          "part_number": 38,
+          "placement_index": 2,
+          "rotate_deg": 0.0,
+          "source_index": 1
+        },
+        {
+          "anchor": "centroid",
+          "at_svg": [
+            16.448661,
+            7.801637
+          ],
+          "backplate_piece_id": "part_0007__01__backplate",
+          "backplate_piece_mark": "8",
+          "bounds_svg": [
+            8.893661,
+            1.371637,
+            24.003661,
+            14.231637
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0007__01__front_cap",
+          "front_piece_mark": "8",
+          "label_point_svg": [
+            16.448661,
+            7.801637
+          ],
+          "legend_label": "8",
+          "part": "part_0007",
+          "part_number": 8,
+          "placement_index": 3,
+          "rotate_deg": 90.0,
+          "source_index": 2
+        },
+        {
+          "anchor": "centroid",
+          "at_svg": [
+            31.55866,
+            13.533363
+          ],
+          "backplate_piece_id": "part_0006__01__backplate",
+          "backplate_piece_mark": "7",
+          "bounds_svg": [
+            24.00866,
+            7.098363,
+            39.10866,
+            19.968363
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0006__01__front_cap",
+          "front_piece_mark": "7",
+          "label_point_svg": [
+            31.55866,
+            13.533363
+          ],
+          "legend_label": "7",
+          "part": "part_0006",
+          "part_number": 7,
+          "placement_index": 4,
+          "rotate_deg": 90.0,
+          "source_index": 3
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            39.11,
+            19.93
+          ],
+          "backplate_piece_id": "part_0063__01__backplate",
+          "backplate_piece_mark": "39",
+          "bounds_svg": [
+            39.11,
+            19.93,
+            44.44,
+            42.67
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0063__01__front_cap",
+          "front_piece_mark": "39",
+          "label_point_svg": [
+            41.775,
+            31.3
+          ],
+          "legend_label": "39",
+          "part": "part_0063",
+          "part_number": 39,
+          "placement_index": 5,
+          "rotate_deg": 0.0,
+          "source_index": 4
+        },
+        {
+          "anchor": "min_corner",
+          "at_svg": [
+            16.0,
+            21.33
+          ],
+          "backplate_piece_id": "part_0024__01__backplate",
+          "backplate_piece_mark": "20",
+          "bounds_svg": [
+            16.0,
+            21.33,
+            21.33,
+            26.67
+          ],
+          "copy_index": 1,
+          "front_piece_id": "part_0024__01__front_cap",
+          "front_piece_mark": "20",
+          "label_point_svg": [
+            18.665,
+            24.0
+          ],
+          "legend_label": "20",
+          "part": "part_0024",
+          "part_number": 20,
+          "placement_index": 6,
+          "rotate_deg": 0.0,
+          "source_index": 5
+        }
+      ],
+      "total_placements": 6
+    }
+  },
+  "legend_svg": "analysis/runs/comparison-legends/candidate-39-phd0.85.fixture-legend.svg",
+  "part_numbers": {
+    "1": "part_0000",
+    "10": "part_0013",
+    "11": "part_0014",
+    "12": "part_0015",
+    "13": "part_0016",
+    "14": "part_0017",
+    "15": "part_0018",
+    "16": "part_0019",
+    "17": "part_0020",
+    "18": "part_0022",
+    "19": "part_0023",
+    "2": "part_0001",
+    "20": "part_0024",
+    "21": "part_0029",
+    "22": "part_0030",
+    "23": "part_0031",
+    "24": "part_0039",
+    "25": "part_0040",
+    "26": "part_0045",
+    "27": "part_0046",
+    "28": "part_0047",
+    "29": "part_0048",
+    "3": "part_0002",
+    "30": "part_0050",
+    "31": "part_0051",
+    "32": "part_0053",
+    "33": "part_0054",
+    "34": "part_0055",
+    "35": "part_0056",
+    "36": "part_0058",
+    "37": "part_0059",
+    "38": "part_0060",
+    "39": "part_0063",
+    "4": "part_0003",
+    "5": "part_0004",
+    "6": "part_0005",
+    "7": "part_0006",
+    "8": "part_0007",
+    "9": "part_0008"
+  },
+  "schema": "visit.fixture-legend.v1",
+  "source_spec": "analysis/runs/simplify-centroid-fine/part-spec.combined_rtol1.0_phd0.85_rot.v1.json"
+}
