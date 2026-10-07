@@ -17,10 +17,12 @@ from shapely.geometry import MultiPolygon, Point, Polygon
 FIXED_STEP_TIMESTAMP = "2026-06-27T00:00:00"
 KIT_SCHEMA = "visit.icon-kit.v1"
 PART_FIXTURE_KIT_SCHEMA = "visit.part-fixture-kit.v1"
+FIT_COUPON_KIT_SCHEMA = "visit.fit-coupon-kit.v1"
 DEFAULT_KIT_SPEC = "analysis/runs/simplify/part-spec.combined_rtol1.0_phd0.5_rot.v1.json"
 DEFAULT_PHYSICAL_MARK_FONT = "Arial"
 DEFAULT_PHYSICAL_MARK_FONT_SIZE_MM = 4.0
 DEFAULT_PHYSICAL_MARK_DEPTH_MM = 0.25
+DEFAULT_FIT_COUPON_CLEARANCES = (0.15, 0.25, 0.35)
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import icon_parts as ip  # noqa: E402
@@ -840,6 +842,188 @@ def build_part_fixture_kit_plan(args: argparse.Namespace) -> tuple[dict, list[di
     return manifest, placements, spec
 
 
+def coupon_code(clearance_mm: float) -> str:
+    return f"{int(round(clearance_mm * 100)):02d}"
+
+
+def build_fit_coupon_pieces(args: argparse.Namespace) -> tuple[list[dict], list[dict]]:
+    from shapely.geometry import box as shapely_box
+
+    pieces: list[dict] = []
+    variants: list[dict] = []
+    for index, clearance in enumerate(args.clearances, start=1):
+        inset_mm = args.front_wall_thickness_mm + clearance
+        outer_geometry = shapely_box(0.0, 0.0, args.coupon_width_mm, args.coupon_height_mm)
+        cavity_geometry = inset_geometry(
+            outer_geometry, args.front_wall_thickness_mm, f"coupon {clearance:g} cavity"
+        )
+        backplate_geometry = inset_geometry(
+            outer_geometry, inset_mm, f"coupon {clearance:g} backplate"
+        )
+        holes, reason = mounting_hole_positions(
+            backplate_geometry,
+            hole_radius_mm=args.pin_hole_diameter_mm / 2,
+            edge_clearance_mm=args.pin_hole_edge_clearance_mm,
+            min_spacing_mm=args.pin_hole_min_spacing_mm,
+        )
+        if not holes:
+            raise SystemExit(f"Coupon clearance {clearance:g} cannot fit two mounting holes: {reason}")
+
+        code = coupon_code(clearance)
+        outer_width, outer_height = geometry_size(outer_geometry)
+        backplate_width, backplate_height = geometry_size(backplate_geometry)
+        cap_piece_id = f"coupon_{code}__front_cap"
+        backplate_piece_id = f"coupon_{code}__backplate"
+        variants.append({
+            "index": index,
+            "clearance_mm": clearance,
+            "code": code,
+            "front_cap_piece": cap_piece_id,
+            "backplate_piece": backplate_piece_id,
+        })
+        pieces.append({
+            "piece_id": cap_piece_id,
+            "role": "front_cap",
+            "part": f"coupon_{code}",
+            "copy_index": index,
+            "part_number": index,
+            "piece_mark": code,
+            "step_body_label": f"coupon_{code}_front_cap",
+            "geometry": outer_geometry,
+            "cavity_geometry": cavity_geometry,
+            "width": outer_width,
+            "height": outer_height,
+            "bounds": outer_geometry.bounds,
+        })
+        pieces.append({
+            "piece_id": backplate_piece_id,
+            "role": "part_backplate",
+            "part": f"coupon_{code}",
+            "copy_index": index,
+            "part_number": index,
+            "piece_mark": code,
+            "step_body_label": f"coupon_{code}_backplate",
+            "geometry": backplate_geometry,
+            "mount_holes": holes,
+            "width": backplate_width,
+            "height": backplate_height,
+            "bounds": backplate_geometry.bounds,
+        })
+    return pieces, variants
+
+
+def build_fit_coupon_plan(args: argparse.Namespace) -> tuple[dict, list[dict]]:
+    if args.coupon_width_mm <= 0 or args.coupon_height_mm <= 0:
+        raise SystemExit("Coupon width and height must be positive")
+    if not args.clearances:
+        raise SystemExit("At least one clearance value is required")
+    for clearance in args.clearances:
+        if clearance < 0:
+            raise SystemExit("Clearance values must be zero or positive")
+    if args.front_depth_mm <= 0:
+        raise SystemExit("Front depth must be positive")
+    if args.front_wall_thickness_mm <= 0:
+        raise SystemExit("Front wall thickness must be positive")
+    if args.front_face_thickness_mm <= 0:
+        raise SystemExit("Front face thickness must be positive")
+    if args.front_face_thickness_mm >= args.front_depth_mm:
+        raise SystemExit("Front face thickness must be less than front depth")
+    if args.backplate_thickness_mm <= 0:
+        raise SystemExit("Backplate thickness must be positive")
+    cavity_depth = args.front_depth_mm - args.front_face_thickness_mm
+    if args.backplate_thickness_mm + args.z_clearance_mm > cavity_depth:
+        raise SystemExit(
+            "Backplate thickness plus z clearance must fit inside the hollow cap cavity"
+        )
+    if args.pin_hole_diameter_mm <= 0:
+        raise SystemExit("Pin hole diameter must be positive")
+    if args.pin_hole_min_spacing_mm < args.pin_hole_diameter_mm:
+        raise SystemExit("Pin hole minimum spacing should be at least the hole diameter")
+    validate_physical_mark_args(
+        args,
+        {
+            "front face": args.front_face_thickness_mm,
+            "backplate": args.backplate_thickness_mm,
+        },
+    )
+
+    pieces, variants = build_fit_coupon_pieces(args)
+    placements = layout_pieces(
+        pieces,
+        bed_width_mm=args.bed_width_mm,
+        bed_depth_mm=args.bed_depth_mm,
+        spacing_mm=args.spacing_mm,
+    )
+    plate_count = max((placement["plate"] for placement in placements), default=0)
+    layout_records = [
+        {
+            key: value
+            for key, value in placement.items()
+            if key not in {"geometry_xoff", "geometry_yoff", "geometry", "cavity_geometry", "mount_holes"}
+        }
+        for placement in placements
+    ]
+    manifest = {
+        "schema": FIT_COUPON_KIT_SCHEMA,
+        "generator": "tools/export_step.py fit-coupon-kit",
+        "coupon_footprint_mm": {
+            "width": args.coupon_width_mm,
+            "height": args.coupon_height_mm,
+        },
+        "front_cap": {
+            "depth_mm": args.front_depth_mm,
+            "wall_thickness_mm": args.front_wall_thickness_mm,
+            "face_thickness_mm": args.front_face_thickness_mm,
+            "cavity_depth_mm": round(cavity_depth, 6),
+        },
+        "backplate": {
+            "thickness_mm": args.backplate_thickness_mm,
+            "z_clearance_mm": args.z_clearance_mm,
+            "pin_hole_diameter_mm": args.pin_hole_diameter_mm,
+            "pin_hole_edge_clearance_mm": args.pin_hole_edge_clearance_mm,
+            "pin_hole_min_spacing_mm": args.pin_hole_min_spacing_mm,
+        },
+        "clearances_mm": list(args.clearances),
+        "variants": variants,
+        "layout": {
+            "strategy": "shelf_height_desc",
+            "bed_width_mm": args.bed_width_mm,
+            "bed_depth_mm": args.bed_depth_mm,
+            "spacing_mm": args.spacing_mm,
+            "plate_count": plate_count,
+            "pieces": layout_records,
+        },
+        "marking": {
+            "scheme": "clearance-code-v1",
+            "physical_piece_mark_format": "two-digit clearance code in hundredths of a mm",
+            "codes": {variant["code"]: variant["clearance_mm"] for variant in variants},
+            "physical_marks": physical_marking_manifest(
+                args,
+                front_cap_location="engraved on inside face",
+                backplate_location="engraved on cap-facing face",
+            ),
+            "notes": [
+                "The two-digit code is the XY fit clearance in hundredths of a millimeter (25 means 0.25 mm).",
+                "Cap and backplate with the same code form one fit pair.",
+            ],
+        },
+        "instructions": [
+            "Print this coupon plate with the same printer, material, nozzle, and profile planned for the icon kit.",
+            "Snap each cap over the backplate with the matching code and compare how secure and removable the fit feels.",
+            "Record the code that fits best, then regenerate the kit with --fit-clearance-mm set to that value.",
+        ],
+    }
+    pieces_by_id = {piece["piece_id"]: piece for piece in pieces}
+    for placement in placements:
+        source_piece = pieces_by_id[placement["piece_id"]]
+        placement["geometry"] = source_piece["geometry"]
+        if "cavity_geometry" in source_piece:
+            placement["cavity_geometry"] = source_piece["cavity_geometry"]
+        if "mount_holes" in source_piece:
+            placement["mount_holes"] = source_piece["mount_holes"]
+    return manifest, placements
+
+
 def svg_to_cad_transform(viewbox: Sequence[float], icon_size_mm: float):
     min_x, min_y, width, height = viewbox
     if width <= 0 or height <= 0:
@@ -1332,6 +1516,52 @@ def export_part_fixture_kit_command(args: argparse.Namespace) -> int:
     return 0
 
 
+def export_fit_coupon_kit_command(args: argparse.Namespace) -> int:
+    b = require_build123d()
+    manifest, placements = build_fit_coupon_plan(args)
+    output_path = Path(args.out)
+
+    compound = part_fixture_kit_compound(b, placements, args)
+    outputs = {
+        "combined_step": export_shape_step(
+            b,
+            compound,
+            output_path,
+            verify_import=args.verify_import,
+            volume_tolerance=args.volume_tolerance,
+        )
+    }
+
+    if args.split_plates:
+        plate_outputs = []
+        plate_count = manifest["layout"]["plate_count"]
+        for plate in range(1, plate_count + 1):
+            plate_path = output_path.with_name(
+                f"{output_path.stem}.plate_{plate:02d}{output_path.suffix}"
+            )
+            plate_shape = part_fixture_kit_compound(b, placements, args, plate=plate)
+            plate_outputs.append(
+                export_shape_step(
+                    b,
+                    plate_shape,
+                    plate_path,
+                    verify_import=args.verify_import,
+                    volume_tolerance=args.volume_tolerance,
+                )
+            )
+        outputs["plate_steps"] = plate_outputs
+
+    manifest["outputs"] = outputs
+    manifest_path = Path(args.manifest) if args.manifest else output_path.with_suffix(".manifest.json")
+    write_manifest(manifest_path, manifest)
+    print(
+        f"fit coupon STEP: {len(manifest['variants'])} clearance variants, "
+        f"{manifest['layout']['plate_count']} plates -> {output_path.as_posix()}"
+    )
+    print(f"fit coupon manifest: {manifest_path.as_posix()}")
+    return 0
+
+
 def add_kit_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--spec", default=DEFAULT_KIT_SPEC, help="Input part spec JSON")
     parser.add_argument(
@@ -1377,6 +1607,34 @@ def add_part_fixture_kit_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--bed-depth-mm", type=float, default=180.0)
     parser.add_argument("--spacing-mm", type=float, default=4.0)
     parser.add_argument("--no-physical-marks", action="store_true", help="Do not engrave part numbers into STEP geometry")
+    parser.add_argument("--physical-mark-font", default=DEFAULT_PHYSICAL_MARK_FONT)
+    parser.add_argument("--physical-mark-font-size-mm", type=float, default=DEFAULT_PHYSICAL_MARK_FONT_SIZE_MM)
+    parser.add_argument("--physical-mark-depth-mm", type=float, default=DEFAULT_PHYSICAL_MARK_DEPTH_MM)
+
+
+def add_fit_coupon_kit_arguments(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--coupon-width-mm", type=float, default=22.0, help="Coupon footprint width")
+    parser.add_argument("--coupon-height-mm", type=float, default=12.0, help="Coupon footprint height")
+    parser.add_argument(
+        "--clearances",
+        nargs="*",
+        type=float,
+        default=list(DEFAULT_FIT_COUPON_CLEARANCES),
+        help="Fit clearance values in mm; one cap/backplate pair is generated per value",
+    )
+    parser.add_argument("--front-depth-mm", type=float, default=8.0)
+    parser.add_argument("--front-wall-thickness-mm", type=float, default=1.0)
+    parser.add_argument("--front-face-thickness-mm", type=float, default=1.2)
+    parser.add_argument("--backplate-thickness-mm", type=float, default=3.0)
+    parser.add_argument("--z-clearance-mm", type=float, default=0.3)
+    parser.add_argument("--pin-hole-diameter-mm", type=float, default=1.6)
+    parser.add_argument("--pin-hole-edge-clearance-mm", type=float, default=1.0)
+    parser.add_argument("--pin-hole-min-spacing-mm", type=float, default=4.0)
+    parser.add_argument("--bed-width-mm", type=float, default=180.0)
+    parser.add_argument("--bed-depth-mm", type=float, default=180.0)
+    parser.add_argument("--spacing-mm", type=float, default=4.0)
+    parser.add_argument("--plate-gap-mm", type=float, default=20.0)
+    parser.add_argument("--no-physical-marks", action="store_true", help="Do not engrave clearance codes into STEP geometry")
     parser.add_argument("--physical-mark-font", default=DEFAULT_PHYSICAL_MARK_FONT)
     parser.add_argument("--physical-mark-font-size-mm", type=float, default=DEFAULT_PHYSICAL_MARK_FONT_SIZE_MM)
     parser.add_argument("--physical-mark-depth-mm", type=float, default=DEFAULT_PHYSICAL_MARK_DEPTH_MM)
@@ -1430,6 +1688,18 @@ def build_parser() -> argparse.ArgumentParser:
     fixture_kit.add_argument("--verify-import", action="store_true", help="Re-import exported STEP files and compare volume")
     fixture_kit.add_argument("--volume-tolerance", type=float, default=1e-6)
     fixture_kit.set_defaults(func=export_part_fixture_kit_command)
+
+    coupon_kit = subparsers.add_parser(
+        "fit-coupon-kit",
+        help="Export cap/backplate fit calibration coupons at multiple XY clearances",
+    )
+    add_fit_coupon_kit_arguments(coupon_kit)
+    coupon_kit.add_argument("--out", required=True, help="Output combined STEP file")
+    coupon_kit.add_argument("--manifest", help="Optional output manifest JSON path")
+    coupon_kit.add_argument("--split-plates", action="store_true", help="Also write one STEP file per plate")
+    coupon_kit.add_argument("--verify-import", action="store_true", help="Re-import exported STEP files and compare volume")
+    coupon_kit.add_argument("--volume-tolerance", type=float, default=1e-6)
+    coupon_kit.set_defaults(func=export_fit_coupon_kit_command)
 
     return parser
 

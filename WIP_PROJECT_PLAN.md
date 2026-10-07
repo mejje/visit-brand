@@ -63,22 +63,22 @@ All inspected SVGs use a `48 x 48` viewBox and filled vector primitives. Most ge
 | Plain universal front-piece STEP kit | Done | `analysis/runs/kits/recommended/universal-single-icon-kit.step`: 41 designs, 67 printed pieces, 4 plates. |
 | Corrected per-part fixture STEP kit | Done | `analysis/runs/snapfit/part-backplate-v1/universal-single-icon-fixture-kit.step`: 41 designs, 67 hollow caps, 67 two-hole backplates, 8 plates. |
 | Old peg/socket approach | Removed | The old generated artifacts and CLI paths were removed; current mechanical direction is hollow cap over per-part backplate. |
-| Marking and SVG legend system | In Progress | Global part numbers now appear in manifests, the SVG/JSON legend, and the STEP geometry as shallow engraved CAD text; slicer visibility and print readability still need validation. |
-| PrusaSlicer validation | Not Started | Must confirm STEP body handling and usability before promising the workflow. |
-| Physical print validation | Not Started | No cap/backplate pair has been printed or handled yet. |
-| Facilities/wall mounting validation | Blocked / External | Needs representative cubicle/wall material and approval of pins/nails/alternatives. |
-| Maker documentation | Not Started | Quick start, slicer guide, assembly guide, and workshop guide remain to be written. |
+| Marking and SVG legend system | In Progress | Global part numbers appear in manifests, the SVG/JSON legend, and as shallow engraved CAD text. STEP import and slicing are validated; physical readability still needs a print. |
+| PrusaSlicer validation | Done | All 14 kit STEP files (front kit, fixture kit, Platform fixture, fit coupons) import manifold, report body counts matching the manifests (67+67, 16, 6), fit the 180 x 180 mm bed, and slice to G-code with zero geometry warnings. Report: `analysis/runs/slicer-validation/slicer-validation.json`. |
+| Physical print validation | Not Started | Fit-coupon kit generated (`analysis/runs/snapfit/fit-coupons/fit-coupon-kit.step`) and slicer-validated; no physical print has been made yet. |
+| Facilities/wall mounting validation | Blocked / External | Needs representative cubicle/wall material and approval of pins/nails/alternatives. Options documented in `docs/mounting-guide.md`. |
+| Fit calibration workflow | Ready | Coupon kit with 0.15/0.25/0.35 mm clearances generated via `export_step.py fit-coupon-kit`; physical test pending. |
+| Maker documentation | Draft | Draft set written under `docs/` (quick start, printer setup, fit calibration, assembly, mounting, customization, workshop). Review after first physical build. |
 
 ## Remaining Work Summary
 
-The project has working analysis, optimization, and STEP generation prototypes. What remains is mostly validation and productization:
+The project has working analysis, optimization, and STEP generation prototypes. PrusaSlicer validation and a draft documentation set are complete. What remains is physical and external validation, then final packaging:
 
-- Validate STEP import and separate body handling in PrusaSlicer.
-- Validate the generated global part-number legend workflow and the shallow engraved STEP marks in slicer and physical prints.
-- Print and test representative hollow-cap/backplate pairs, then tune clearances and hole sizes.
+- Print and test representative hollow-cap/backplate pairs using the fit coupons, then tune clearances and hole sizes.
+- Validate the shallow engraved STEP marks and legend on an actual print.
 - Confirm wall/cubicle mounting rules and approved fastener options.
 - Run brand/design review on the 41-part simplified library and visual deviation.
-- Package final print layouts by icon/printer size and write the maker documentation.
+- Package final print layouts by icon/printer size and finalize the maker documentation after physical feedback.
 - Pilot the workflow with employees or a maker-space group.
 
 ## Key Design Questions

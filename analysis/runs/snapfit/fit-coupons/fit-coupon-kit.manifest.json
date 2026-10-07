@@ -1,0 +1,227 @@
+{
+  "backplate": {
+    "pin_hole_diameter_mm": 1.6,
+    "pin_hole_edge_clearance_mm": 1.0,
+    "pin_hole_min_spacing_mm": 4.0,
+    "thickness_mm": 3.0,
+    "z_clearance_mm": 0.3
+  },
+  "clearances_mm": [
+    0.15,
+    0.25,
+    0.35
+  ],
+  "coupon_footprint_mm": {
+    "height": 12.0,
+    "width": 22.0
+  },
+  "front_cap": {
+    "cavity_depth_mm": 6.8,
+    "depth_mm": 8.0,
+    "face_thickness_mm": 1.2,
+    "wall_thickness_mm": 1.0
+  },
+  "generator": "tools/export_step.py fit-coupon-kit",
+  "instructions": [
+    "Print this coupon plate with the same printer, material, nozzle, and profile planned for the icon kit.",
+    "Snap each cap over the backplate with the matching code and compare how secure and removable the fit feels.",
+    "Record the code that fits best, then regenerate the kit with --fit-clearance-mm set to that value."
+  ],
+  "layout": {
+    "bed_depth_mm": 180.0,
+    "bed_width_mm": 180.0,
+    "pieces": [
+      {
+        "copy_index": 1,
+        "height_mm": 12.0,
+        "part": "coupon_15",
+        "part_number": 1,
+        "piece_id": "coupon_15__front_cap",
+        "piece_mark": "15",
+        "plate": 1,
+        "role": "front_cap",
+        "step_body_label": "coupon_15_front_cap",
+        "width_mm": 22.0,
+        "x_mm": 0.0,
+        "y_mm": 0.0
+      },
+      {
+        "copy_index": 2,
+        "height_mm": 12.0,
+        "part": "coupon_25",
+        "part_number": 2,
+        "piece_id": "coupon_25__front_cap",
+        "piece_mark": "25",
+        "plate": 1,
+        "role": "front_cap",
+        "step_body_label": "coupon_25_front_cap",
+        "width_mm": 22.0,
+        "x_mm": 26.0,
+        "y_mm": 0.0
+      },
+      {
+        "copy_index": 3,
+        "height_mm": 12.0,
+        "part": "coupon_35",
+        "part_number": 3,
+        "piece_id": "coupon_35__front_cap",
+        "piece_mark": "35",
+        "plate": 1,
+        "role": "front_cap",
+        "step_body_label": "coupon_35_front_cap",
+        "width_mm": 22.0,
+        "x_mm": 52.0,
+        "y_mm": 0.0
+      },
+      {
+        "copy_index": 1,
+        "height_mm": 9.7,
+        "mount_holes_mm": [
+          {
+            "diameter_mm": 1.6,
+            "hole_id": "mount_01",
+            "x_mm": 80.605,
+            "y_mm": 2.105
+          },
+          {
+            "diameter_mm": 1.6,
+            "hole_id": "mount_02",
+            "x_mm": 95.095,
+            "y_mm": 7.595
+          }
+        ],
+        "part": "coupon_15",
+        "part_number": 1,
+        "piece_id": "coupon_15__backplate",
+        "piece_mark": "15",
+        "plate": 1,
+        "role": "part_backplate",
+        "step_body_label": "coupon_15_backplate",
+        "width_mm": 19.7,
+        "x_mm": 78.0,
+        "y_mm": 0.0
+      },
+      {
+        "copy_index": 2,
+        "height_mm": 9.5,
+        "mount_holes_mm": [
+          {
+            "diameter_mm": 1.6,
+            "hole_id": "mount_01",
+            "x_mm": 104.295,
+            "y_mm": 2.095
+          },
+          {
+            "diameter_mm": 1.6,
+            "hole_id": "mount_02",
+            "x_mm": 118.605,
+            "y_mm": 7.405
+          }
+        ],
+        "part": "coupon_25",
+        "part_number": 2,
+        "piece_id": "coupon_25__backplate",
+        "piece_mark": "25",
+        "plate": 1,
+        "role": "part_backplate",
+        "step_body_label": "coupon_25_backplate",
+        "width_mm": 19.5,
+        "x_mm": 101.7,
+        "y_mm": 0.0
+      },
+      {
+        "copy_index": 3,
+        "height_mm": 9.3,
+        "mount_holes_mm": [
+          {
+            "diameter_mm": 1.6,
+            "hole_id": "mount_01",
+            "x_mm": 127.785,
+            "y_mm": 2.085
+          },
+          {
+            "diameter_mm": 1.6,
+            "hole_id": "mount_02",
+            "x_mm": 141.915,
+            "y_mm": 7.215
+          }
+        ],
+        "part": "coupon_35",
+        "part_number": 3,
+        "piece_id": "coupon_35__backplate",
+        "piece_mark": "35",
+        "plate": 1,
+        "role": "part_backplate",
+        "step_body_label": "coupon_35_backplate",
+        "width_mm": 19.3,
+        "x_mm": 125.2,
+        "y_mm": 0.0
+      }
+    ],
+    "plate_count": 1,
+    "spacing_mm": 4.0,
+    "strategy": "shelf_height_desc"
+  },
+  "marking": {
+    "codes": {
+      "15": 0.15,
+      "25": 0.25,
+      "35": 0.35
+    },
+    "notes": [
+      "The two-digit code is the XY fit clearance in hundredths of a millimeter (25 means 0.25 mm).",
+      "Cap and backplate with the same code form one fit pair."
+    ],
+    "physical_marks": {
+      "backplate_location": "engraved on cap-facing face",
+      "cad_text_geometry": true,
+      "depth_mm": 0.25,
+      "font": "Arial",
+      "front_cap_location": "engraved on inside face",
+      "max_font_size_mm": 4.0,
+      "style": "engraved"
+    },
+    "physical_piece_mark_format": "two-digit clearance code in hundredths of a mm",
+    "scheme": "clearance-code-v1"
+  },
+  "outputs": {
+    "combined_step": {
+      "path": "analysis/runs/snapfit/fit-coupons/fit-coupon-kit.step",
+      "reimport_delta_mm3": 0.0,
+      "reimport_volume_mm3": 3878.795324,
+      "volume_mm3": 3878.795324
+    },
+    "plate_steps": [
+      {
+        "path": "analysis/runs/snapfit/fit-coupons/fit-coupon-kit.plate_01.step",
+        "reimport_delta_mm3": 0.0,
+        "reimport_volume_mm3": 3878.795324,
+        "volume_mm3": 3878.795324
+      }
+    ]
+  },
+  "schema": "visit.fit-coupon-kit.v1",
+  "variants": [
+    {
+      "backplate_piece": "coupon_15__backplate",
+      "clearance_mm": 0.15,
+      "code": "15",
+      "front_cap_piece": "coupon_15__front_cap",
+      "index": 1
+    },
+    {
+      "backplate_piece": "coupon_25__backplate",
+      "clearance_mm": 0.25,
+      "code": "25",
+      "front_cap_piece": "coupon_25__front_cap",
+      "index": 2
+    },
+    {
+      "backplate_piece": "coupon_35__backplate",
+      "clearance_mm": 0.35,
+      "code": "35",
+      "front_cap_piece": "coupon_35__front_cap",
+      "index": 3
+    }
+  ]
+}

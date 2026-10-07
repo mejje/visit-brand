@@ -81,14 +81,49 @@ python tools/generate_fixture_legend.py \
 - Current VacationRental legend labels: `39, 40, 8, 7, 41, 20`; the two roof pieces and right wall are now split.
 - Current Platform legend labels: `23, 23, 23, 23, 23, 23, 23, 23`; the source Platform rays now reuse one global part through 45-degree-increment rotations.
 
+## Slicer Validation (PrusaSlicer 2.9.6, MINI profile, 180 x 180 bed)
+
+Command:
+
+```text
+python tools/validate_slicer.py \
+  --inputs analysis/runs/kits/recommended \
+  --inputs analysis/runs/snapfit/part-backplate-v1 \
+  --inputs "analysis/runs/snapfit/part-backplate-v1/Visit_Icon_Platform.fixture-kit.step" \
+  --inputs "analysis/runs/snapfit/fit-coupons/fit-coupon-kit.plate_01.step" \
+  --slice \
+  --out analysis/runs/slicer-validation
+```
+
+Results (report: `analysis/runs/slicer-validation/slicer-validation.json`):
+
+- All 14 STEP files: `manifold = yes`, `fits_bed = true`, sliced to G-code, zero geometry warnings.
+- Body counts match the manifests exactly: front kit plates 6+9+23+29 = 67 pieces; fixture kit plates 2+6+4+10+11+22+36+43 = 134 pieces; Platform fixture 16 pieces; coupon plate 6 pieces.
+- This confirms PrusaSlicer preserves separate STEP bodies and exposes them as separate parts on import.
+
+## Fit Calibration Coupons
+
+Command:
+
+```text
+python tools/export_step.py fit-coupon-kit \
+  --out analysis/runs/snapfit/fit-coupons/fit-coupon-kit.step \
+  --manifest analysis/runs/snapfit/fit-coupons/fit-coupon-kit.manifest.json \
+  --split-plates --verify-import
+```
+
+- 3 clearance variants: codes `15` / `25` / `35` = 0.15 / 0.25 / 0.35 mm XY clearance.
+- 22 x 12 mm coupon footprint, same cap/backplate construction as the kit.
+- 6 pieces, 1 plate; STEP re-import delta `0.0 mm^3`; slicer-validated.
+
 ## Next Validation
 
-1. Open the corrected Platform fixture STEP in PrusaSlicer and confirm separate bodies import cleanly.
+1. ~~Open the corrected Platform fixture STEP in PrusaSlicer and confirm separate bodies import cleanly.~~ Done: 16 bodies, manifold, sliced.
 2. Print one or two representative part/backplate pairs before printing the full Platform kit.
 3. Test pin-hole usability on a representative wall/cubicle material.
 4. Test cap insertion/removal and record whether `0.25 mm` XY clearance is too tight, loose, or acceptable.
 5. Review the printed assembly legend with a sample kit and confirm global part numbers are clear.
-6. Visually review the updated split-source reconstructed SVGs for DestinationBuilding and VacationRental.
+6. ~~Visually review the updated split-source reconstructed SVGs for DestinationBuilding and VacationRental.~~ Done: splits render cleanly (roof/wall separated, no distortion).
 7. Confirm the shallow engraved part numbers remain visible in PrusaSlicer and readable on the smallest printed backplates.
 8. Tune front wall thickness, fit clearance, and backplate thickness before applying the fixture kit to all icons.
 
