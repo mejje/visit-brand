@@ -28,9 +28,15 @@ The living project plan is [`WIP_PROJECT_PLAN.md`](WIP_PROJECT_PLAN.md). It is t
 If you just want to print and mount an icon:
 
 1. Read [`docs/quick-start.md`](docs/quick-start.md).
-2. Print the fit coupons: `analysis/runs/snapfit/fit-coupons/fit-coupon-kit.step`.
-3. Print the kit: `analysis/runs/snapfit/part-backplate-v1/universal-single-icon-fixture-kit.step` (or `plate_01..08.step`).
-4. Assemble using the legend: `analysis/runs/snapfit/part-backplate-v1/universal-single-icon-fixture-legend.svg`.
+2. Print the fit coupons: [`fit-coupon-kit.step`](analysis/runs/snapfit/fit-coupons/fit-coupon-kit.step).
+3. Print the kit: [`universal-single-icon-fixture-kit.step`](analysis/runs/snapfit/part-backplate-v1/universal-single-icon-fixture-kit.step) (or `plate_01..08.step`).
+4. Assemble using the legend: [`universal-single-icon-fixture-legend.svg`](analysis/runs/snapfit/part-backplate-v1/universal-single-icon-fixture-legend.svg).
+
+The assembly legend shows every part number and where it lands in each icon:
+
+<p>
+  <img src="analysis/runs/snapfit/part-backplate-v1/universal-single-icon-fixture-legend.svg" width="440" alt="Universal single-icon fixture legend">
+</p>
 
 If you want to understand or change the pipeline, start with [`docs/customization-guide.md`](docs/customization-guide.md) and [`ICON_ANALYSIS_PLAN.md`](ICON_ANALYSIS_PLAN.md).
 
@@ -56,6 +62,21 @@ analysis/runs/slicer-validation/  import/slice evidence report
 ```
 
 Scoring is done with Shapely: symmetric-difference area, Hausdorff distance, bounds delta, and component counts, compared against the canonical reference geometry for every icon.
+
+### What it looks like
+
+For each pair below: the canonical reference icon on the left, the reconstruction from the 41-part library with per-part outlines on the right.
+
+<p>
+  <img src="analysis/references/Visit_Icon_Hotel.canonical.svg" width="150" alt="Hotel reference">
+  <img src="analysis/runs/simplify/combined_rtol1.0_phd0.5_rot/Visit_Icon_Hotel.parts.svg" width="150" alt="Hotel reconstruction with part outlines">
+  <img src="analysis/references/Visit_Icon_Platform.canonical.svg" width="150" alt="Platform reference">
+  <img src="analysis/runs/simplify/combined_rtol1.0_phd0.5_rot/Visit_Icon_Platform.parts.svg" width="150" alt="Platform reconstruction with part outlines">
+  <img src="analysis/references/Visit_Icon_VacationRental.canonical.svg" width="150" alt="VacationRental reference">
+  <img src="analysis/runs/simplify/combined_rtol1.0_phd0.5_rot/Visit_Icon_VacationRental.parts.svg" width="150" alt="VacationRental reconstruction with part outlines">
+</p>
+
+In every `*.parts.svg` file, black is the reference outline and each colored dashed outline is one part. Platform demonstrates the rotation win: all eight rays reuse a single part through 45-degree rotations. VacationRental shows a split source: its roof and walls are separate primitives so the roof shape can be shared with other icons. The full review set is in `analysis/runs/simplify/combined_rtol1.0_phd0.5_rot/`.
 
 ## Repository index
 
@@ -121,14 +142,14 @@ Scoring is done with Shapely: symmetric-difference area, Hausdorff distance, bou
 | Artifact | Path |
 | --- | --- |
 | Part library (41 parts, 0.0799% error) | `analysis/runs/simplify/part-spec.combined_rtol1.0_phd0.5_rot.v1.json` |
-| Part review SVGs (black ref + colored part outlines) | `analysis/runs/simplify/combined_rtol1.0_phd0.5_rot/*.parts.svg` |
+| Part review SVGs (black ref + colored part outlines) | [review set directory](analysis/runs/simplify/combined_rtol1.0_phd0.5_rot) — e.g. [Hotel](analysis/runs/simplify/combined_rtol1.0_phd0.5_rot/Visit_Icon_Hotel.parts.svg), [Platform](analysis/runs/simplify/combined_rtol1.0_phd0.5_rot/Visit_Icon_Platform.parts.svg) |
 | Trade-off log | `analysis/runs/simplify/pareto.jsonl` |
 | Fixture kit STEP (all 8 plates in one file) | `analysis/runs/snapfit/part-backplate-v1/universal-single-icon-fixture-kit.step` |
 | Fixture kit plates | `analysis/runs/snapfit/part-backplate-v1/universal-single-icon-fixture-kit.plate_01..08.step` |
 | Single-icon Platform kit | `analysis/runs/snapfit/part-backplate-v1/Visit_Icon_Platform.fixture-kit.step` |
-| Assembly legend | `analysis/runs/snapfit/part-backplate-v1/universal-single-icon-fixture-legend.svg` / `.json` |
+| Assembly legend | [SVG](analysis/runs/snapfit/part-backplate-v1/universal-single-icon-fixture-legend.svg) / `universal-single-icon-fixture-legend.json` |
 | Fit coupons | `analysis/runs/snapfit/fit-coupons/fit-coupon-kit.step` |
-| Slicer validation report | `analysis/runs/slicer-validation/slicer-validation.json` |
+| Slicer validation report | [`slicer-validation.json`](analysis/runs/slicer-validation/slicer-validation.json) |
 
 ## Quick command reference
 
