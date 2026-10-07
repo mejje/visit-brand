@@ -78,6 +78,26 @@ For each pair below: the canonical reference icon on the left, the reconstructio
 
 In every `*.parts.svg` file, black is the reference outline and each colored dashed outline is one part. Platform demonstrates the rotation win: all eight rays reuse a single part through 45-degree rotations. VacationRental shows a split source: its roof and walls are separate primitives so the roof shape can be shared with other icons. The full review set is in `analysis/runs/simplify/combined_rtol1.0_phd0.5_rot/`.
 
+### In PrusaSlicer
+
+The complete universal fixture kit — 41 part designs, 67 hollow caps, and 67 backplates across 8 plates on a 180 x 180 mm bed (captured from PrusaSlicer 2.9.6 with the MINI profile):
+
+<p>
+  <img src="docs/images/prusaslicer-fixture-kit-all-plates.png" width="880" alt="Universal fixture kit, all 8 plates in PrusaSlicer">
+</p>
+
+A single complete icon (Platform) fits on one plate: 8 caps and 8 matching backplates, with engraved part numbers visible on every piece:
+
+<p>
+  <img src="docs/images/prusaslicer-platform-fixture.png" width="640" alt="Platform fixture kit in PrusaSlicer">
+</p>
+
+The fit calibration coupons test three cap/backplate clearances (codes 15, 25, 35) in one print:
+
+<p>
+  <img src="docs/images/prusaslicer-fit-coupons.png" width="640" alt="Fit calibration coupons in PrusaSlicer">
+</p>
+
 ## Repository index
 
 ### Source and plans

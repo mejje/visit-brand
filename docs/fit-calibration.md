@@ -23,6 +23,10 @@ Cap fit varies with printer, nozzle, material, and slicer settings. A clearance 
 
 The code is the clearance in hundredths of a millimeter: `25` means 0.25 mm.
 
+<p>
+  <img src="images/prusaslicer-fit-coupons.png" width="640" alt="Fit calibration coupon plate in PrusaSlicer">
+</p>
+
 ## Steps
 
 1. Slice and print `fit-coupon-kit.step` with the same printer, material, nozzle, and profile you plan to use for the icon kit.

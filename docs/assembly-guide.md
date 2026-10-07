@@ -13,6 +13,10 @@ After printing a kit you have two kinds of pieces:
 
 Caps and backplates with the same engraved number belong together. Duplicate numbers mean duplicate copies of the same part design — any matching copy works.
 
+<p>
+  <img src="images/prusaslicer-platform-fixture.png" width="640" alt="Platform fixture kit pieces in PrusaSlicer with engraved part numbers">
+</p>
+
 ## The legend
 
 - `analysis/runs/snapfit/part-backplate-v1/universal-single-icon-fixture-legend.svg` shows every part number, its shape, and which icon positions use it.
